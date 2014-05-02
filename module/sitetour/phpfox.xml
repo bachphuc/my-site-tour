@@ -1,0 +1,24 @@
+<module>
+	<data>
+		<module_id>sitetour</module_id>
+		<product_id>sitetour</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu></menu>
+		<phrase_var_name>module_sitetour</phrase_var_name>
+	</data>
+	<blocks>
+		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="1" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
+			<title>Add New Tour</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="sitetour" component="addtour" m_connection="" module="sitetour" is_controller="0" is_block="1" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="module_sitetour" added="1399047311">sitetour</phrase>
+	</phrases>
+</module>
