@@ -13,6 +13,9 @@
     -moz-border-radius: 5px;
     cursor: pointer;
     z-index:99999;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image:url('../../../image/add_tour.png');
 }
 
 .new_tour_menu{
