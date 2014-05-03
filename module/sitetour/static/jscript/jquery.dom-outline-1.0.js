@@ -61,11 +61,12 @@ function getSectorElement(element){
             if($(sTem).length == 1){
                 return sTem;
             }
-            sTem = sParentSector + ' ' + lastSector + ':nth-child(' + ($(elementCopy).index() + 1) + ') ' + currentChildSector;
+            var s = (currentChildSector == '' ? ' ' : '>');
+            sTem = sParentSector + '>' + lastSector + ':nth-child(' + ($(elementCopy).index() + 1) + ')' + s + currentChildSector;
             if($(sTem).length == 1){
                 return sTem;
             }
-            currentChildSector = lastSector + ':nth-child(' + ($(elementCopy).index() + 1) + ') ' + currentChildSector;
+            currentChildSector = lastSector + ':nth-child(' + ($(elementCopy).index() + 1) + ')' + s + currentChildSector;
             sCurrentSector = sTem;
             lastSector = sParentSector;
             elementCopy = parent;

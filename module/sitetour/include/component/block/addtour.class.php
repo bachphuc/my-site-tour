@@ -17,7 +17,15 @@
     {    
         public function process()
         {
-            
+            $aTour = Phpfox::getService('sitetour')->getTourOnSite();
+            if($aTour)
+            {
+                $aSteps = Phpfox::getService('sitetour')->getStepOfTour($aTour['sitetour_id']);
+                $this->template()->assign(array(
+                    'aTour' => $aTour,
+                    'aSteps' => $aSteps
+                ));
+            }
         }
     }
 ?>

@@ -1,38 +1,59 @@
-
-
-$Behavior.siteTour = function(){
-    if( typeof $Core.Steps === 'undefined'){
-        $Core.Steps = [];
+$Core.selectDomTag = function(){
+    $("*").unbind();
+    $Core.siteTourMenu();
+    if( typeof $Core.myDomOutline === 'undefined'){
+        $Core.myDomOutline = null;
     }
-    var myDomOutline = null;
-    function selectDomTag(){
-        myDomOutline = DomOutline({ 
-            onClick: function (element) { 
-                var sSector = $(element).data('sector');
-                console.log(sSector);
-                $(sSector).css('background-color','red');
-                $(sSector).popover({
-                    placement: 'auto',
-                    trigger: "manual",
-                    title: 'Add site tour step',
-                    content: '<p style="font-size:13px;line-height:24px;">Step Title</p><input class="tb_tour_title" type="text" style="width:365px"><p style="font-size:13px;line-height:24px;">Description</p><textarea class="tb_tour_content" style="width:365px;height:100px;"></textarea>',
-                    html: true,
-                    container : 'body',
-                    template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button></div><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button> <button class='btn btn-sm btn-default' data-role='end'>Save tour</button> </div> </div>",
-                }).popover("show");
-            }
+    $Core.myDomOutline = DomOutline({ 
+        onClick: function (element) {
+            var sSector = $(element).data('sector');
+            $(sSector).css('background-color','red');
+            $(sSector).popover({
+                placement: 'auto',
+                trigger: "manual",
+                title: 'Add site tour step',
+                content: '<p style="font-size:13px;line-height:24px;">Step Title</p><input class="tb_tour_title" type="text" style="width:365px"><p style="font-size:13px;line-height:24px;">Description</p><textarea class="tb_tour_content" style="width:365px;height:100px;"></textarea>',
+                html: true,
+                container : 'body',
+                template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button></div><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button> <button class='btn btn-sm btn-default bt_save_tour' data-role='end'>Save tour</button> </div> </div>",
+            }).popover("show");
+        }
+    });
+    $Core.myDomOutline.start();
+}
+
+$Core.startTour = function(){
+    if( typeof $Core.Tour === 'undefined'){
+        $Core.Tour = null;
+    }
+    
+    if($Core.Steps.length > 0){
+        $Core.Tour = new Tour({
+            steps: $Core.Steps,
+            storage : false,
+            placement: 'bottom',
+            animation: true,
+            onEnd: function (tour) {
+                if($('.block_begin_tour').length > 0){
+                    $('.block_begin_tour>div').removeClass('block_begin_tour_stop');
+                }
+            },
+            keyboard: true,
+            backdrop: true,
+            duration: 2000,
         });
-        myDomOutline.start();
+        $Core.Tour.init();
+        $Core.Tour.start();
     }
+}
+$Core.siteTourMenu = function(){
 
-    if(!$('.cancel_step_setup').data('click')){
-        $('.cancel_step_setup').live('click',function(){
-            var sector = $(this).closest('.popover').attr('sector');
-            $(sector).popover('destroy');
-            $(this).closest('.popover').remove();
-        });
-        $(this).data('click',true);
-    }
+    $('.cancel_step_setup').die('click').live('click',function(){
+        var sector = $(this).closest('.popover').attr('sector');
+        $(sector).popover('destroy');
+        $(this).closest('.popover').remove();
+        $Core.init();
+    });
 
     $('.block_add_newtour').unbind('click').bind('click',function(){
         $(this).find('.new_tour_menu').toggle();
@@ -42,38 +63,64 @@ $Behavior.siteTour = function(){
         $(this).addClass('new_tour_menu_active');
         e.preventDefault();
         e.stopPropagation();
-        selectDomTag();
+        $Core.selectDomTag();
     });
 
-    if(!$('.bt_next_step_setup').data('click')){
-        $('.bt_next_step_setup').live('click',function(){
-            var stepParent = $(this).closest('.popover');
-            var step = {
-                element : stepParent.attr('sector'),
-                title : stepParent.find('.tb_tour_title').val(),
-                content : stepParent.find('.tb_tour_content').val()
-            };
-            $Core.Steps.push(step);
-            var sector = $(this).closest('.popover').attr('sector');
-            $(sector).popover('destroy');
-            $(this).closest('.popover').remove();
-            selectDomTag();
-        });
-        $(this).data('click',true);
-    }
+    $('.bt_next_step_setup').die('click').live('click',function(){
+        var stepParent = $(this).closest('.popover');
+        var step = {
+            element : stepParent.attr('sector'),
+            title : stepParent.find('.tb_tour_title').val(),
+            content : stepParent.find('.tb_tour_content').val()
+        };
+        $Core.Steps.push(step);
+        var sector = $(this).closest('.popover').attr('sector');
+        $(sector).popover('destroy');
+        $(this).closest('.popover').remove();
+        $Core.selectDomTag();
+    });
 
     $('.bt_preview_tour').unbind('click').bind('click',function(){
-        if($Core.Steps.length > 0){
-            var tour = new Tour({
-                steps: $Core.Steps,
-                storage : false
-            });
-            tour.init();
-            tour.start();
-        }
+        $Core.startTour();
     });
 
     $('.bt_stop_setup_tour').unbind('click').bind('click',function(){
-        myDomOutline.stop();
+        $Core.myDomOutline.stop();
+        $Core.init();
     });
+
+    $('.bt_save_tour').unbind('click').bind('click',function(){
+        if($(this).closest('.popover')){
+            var sector = $(this).closest('.popover').attr('sector');
+            $(sector).popover('destroy');
+            $(this).closest('.popover').remove();
+        }
+        $Core.init();
+        $Core.box('sitetour.showFormAddTour',300);  
+    });
+
+    $('#bt_save_tour').die('click').live('click',function(){
+        if($Core.Steps.length == 0){
+            alert('Please add some step!');
+        }
+        var sData = JSON.stringify($Core.Steps);
+        $.ajaxCall('sitetour.addTour','data=' +sData+ '&title=' + $('#tb_tour_title').val() + '&url='+document.URL);
+    });
+
+    $('.block_begin_tour>div>div').unbind('click').bind('click',function(){
+        if($('.block_begin_tour>div').hasClass('block_begin_tour_stop')){
+            $('.block_begin_tour>div').removeClass('block_begin_tour_stop');
+            $Core.Tour.end();
+        }
+        else{
+            $('.block_begin_tour>div').addClass('block_begin_tour_stop');
+            $Core.startTour();
+        }
+    });
+}
+$Behavior.siteTour = function(){
+    if( typeof $Core.Steps === 'undefined'){
+        $Core.Steps = [];
+    }
+    $Core.siteTourMenu();
 }
