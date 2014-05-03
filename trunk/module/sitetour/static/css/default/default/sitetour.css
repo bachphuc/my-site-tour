@@ -50,3 +50,47 @@
     color:#FFF !important;
     font-weight: bold;
 }
+
+.block_begin_tour{
+    height: 50px;
+    width:50px;
+    border:1px solid #CCC;
+    box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+    -webkit-box-shadow: 0 0 10px #999;
+    position:fixed;
+    bottom:100px;
+    right:20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+    z-index:99999;
+    overflow: hidden;
+}
+.block_begin_tour>div{
+    width:100px;
+    height:50px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+.block_begin_tour>div>div{
+    width:50px;
+    height:50px;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bt_star_tour{
+    background-image:url('../../../image/start.png');
+}
+.bt_end_tour{
+    background-image:url('../../../image/stop.png');
+}
+.block_begin_tour_stop{
+    left:-50px !important;
+}
