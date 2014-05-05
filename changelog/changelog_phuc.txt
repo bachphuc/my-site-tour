@@ -11,9 +11,11 @@ CREATE TABLE IF NOT EXISTS `phpfox_sitetour` (
 CREATE TABLE IF NOT EXISTS `phpfox_sitetour_step` (
   `step_id` int(10) NOT NULL AUTO_INCREMENT,
   `sitetour_id` int(10) NOT NULL,
-  `title` int(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `element` varchar(300) NOT NULL,
   `content` varchar(500) NOT NULL,
+  `placement` varchar(50) DEFAULT 'auto',
+  `animation` varchar(10) DEFAULT 'true',
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `time_stamp` int(10) NOT NULL,
   `ordering` int(10) DEFAULT '0',
