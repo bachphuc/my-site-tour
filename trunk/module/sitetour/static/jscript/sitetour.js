@@ -26,24 +26,30 @@ $Core.startTour = function(){
     if( typeof $Core.Tour === 'undefined'){
         $Core.Tour = null;
     }
-    
-    if($Core.Steps.length > 0){
-        $Core.Tour = new Tour({
-            steps: $Core.Steps,
-            storage : false,
-            placement: 'bottom',
-            animation: true,
-            onEnd: function (tour) {
-                if($('.block_begin_tour').length > 0){
-                    $('.block_begin_tour>div').removeClass('block_begin_tour_stop');
-                }
-            },
-            keyboard: true,
-            backdrop: true,
-            duration: 2000,
-        });
-        $Core.Tour.init();
-        $Core.Tour.start();
+    if( typeof $Core.isRunningTour === 'undefined'){
+        $Core.isRunningTour = false;
+    }
+    if(!$Core.isRunningTour){
+        if($Core.Steps.length > 0){
+            $Core.Tour = new Tour({
+                steps: $Core.Steps,
+                storage : false,
+                onStart: function (tour) {
+                    $Core.isRunningTour = true;
+                },
+                onEnd: function (tour) {
+                    $Core.isRunningTour = false;
+                    if($('.block_begin_tour').length > 0){
+                        $('.block_begin_tour>div').removeClass('block_begin_tour_stop');
+                    }
+                },
+                keyboard: true,
+                backdrop : (typeof $Core.tourSeting === 'undefined' ? true : $Core.tourSeting.backdrop),
+                duration : (typeof $Core.tourSeting === 'undefined' ? false : $Core.tourSeting.duration),
+            });
+            $Core.Tour.init();
+            $Core.Tour.start();
+        }
     }
 }
 $Core.siteTourMenu = function(){
@@ -56,7 +62,7 @@ $Core.siteTourMenu = function(){
     });
 
     $('.block_add_newtour').unbind('click').bind('click',function(){
-        $(this).find('.new_tour_menu').toggle();
+        $(this).find('.new_tour_menu').fadeToggle();
     });
 
     $('.bt_add_new_tour').unbind('click').bind('click',function(e){
@@ -71,7 +77,9 @@ $Core.siteTourMenu = function(){
         var step = {
             element : stepParent.attr('sector'),
             title : stepParent.find('.tb_tour_title').val(),
-            content : stepParent.find('.tb_tour_content').val()
+            content : stepParent.find('.tb_tour_content').val(),
+            placement: 'auto',
+            animation: true,
         };
         $Core.Steps.push(step);
         var sector = $(this).closest('.popover').attr('sector');
@@ -116,6 +124,20 @@ $Core.siteTourMenu = function(){
             $('.block_begin_tour>div').addClass('block_begin_tour_stop');
             $Core.startTour();
         }
+    });
+
+    $('.cb_dont_show_tour').die('click').live('click',function(){
+
+    });
+
+    $('.bt_reset_tour').unbind('click').bind('click',function(){
+        $.each($Core.Steps,function(index){
+            $(this).popover('destroy');
+        });
+        
+        $Core.myDomOutline.stop();
+        $Core.Steps = [];
+        $Core.init();
     });
 }
 $Behavior.siteTour = function(){

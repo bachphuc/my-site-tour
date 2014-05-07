@@ -53,5 +53,14 @@
                 $this->addStep($iTourId,$oStep);
             }
         }
+        
+        public function blockTour($iTourId)
+        {
+            return $this->database()->insert(Phpfox::getT('sitetour_user_block'),array(
+                'user_id' => Phpfox::getUserId(),
+                'sitetour_id' => $iTourId,
+                'time_stamp' => PHPFOX_TIME
+            ));
+        }
     }
 ?>
