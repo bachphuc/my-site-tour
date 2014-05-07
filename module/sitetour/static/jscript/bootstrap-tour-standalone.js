@@ -1003,7 +1003,7 @@
         title: step.title,
         content: step.content,
         html: true,
-        animation: step.animation,
+        animation: (step.animation == '1' ? true : (step.animation == '0' ? false : step.animation)),
         container: step.container,
         template: step.template,
         selector: step.element
@@ -1206,6 +1206,7 @@
       offset.left = offset.left;
       $background.width($element.innerWidth()).height($element.innerHeight()).addClass("tour-step-background").offset(offset);
       $element.addClass("tour-step-backdrop");
+      $element.parents().addClass('no-index');
       $("body").append($background);
       this.backdrop.$element = $element;
       return this.backdrop.$background = $background;
@@ -1216,6 +1217,8 @@
         return;
       }
       this.backdrop.$element.removeClass("tour-step-backdrop");
+      // phuclb@ceofox.com
+      this.backdrop.$element.parents().removeClass("no-index");
       this.backdrop.$background.remove();
       this.backdrop.$element = null;
       this.backdrop.$background = null;

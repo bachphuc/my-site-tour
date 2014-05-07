@@ -159,7 +159,9 @@ var DomOutline = function (options) {
             return;
         }
         pub.element = e.target;
-
+        if($('.block_add_newtour').is(':hover')){
+            return;
+        }
         var b = self.opts.borderWidth;
         var scroll_top = getScrollTop();
         var pos = pub.element.getBoundingClientRect();
@@ -167,15 +169,25 @@ var DomOutline = function (options) {
 
         var label_text = compileLabelText(pub.element,false, pos.width, pos.height);
         var label_top = Math.max(0, top - 20 - b, scroll_top);
-        var label_left = Math.max(0, pos.left - b);
         $(pub.element).data('currentSector',label_text);
         var sSectorElement = getSectorElement(pub.element);
         $(pub.element).data('sector',sSectorElement);
-        self.elements.label.css({ top: label_top, left: label_left }).text(label_text);
-        self.elements.top.css({ top: Math.max(0, top - b), left: pos.left - b, width: pos.width + b, height: b });
-        self.elements.bottom.css({ top: top + pos.height, left: pos.left - b, width: pos.width + b, height: b });
-        self.elements.left.css({ top: top - b, left: Math.max(0, pos.left - b), width: b, height: pos.height + b });
-        self.elements.right.css({ top: top - b, left: pos.left + pos.width, width: b, height: pos.height + (b * 2) });
+        self.elements.label.text(label_text);
+        
+        var label_left = Math.max(0, pos.left - b);
+        if($(window).width() < label_left + self.elements.label.width() + 20){
+            label_left = $(window).width() - self.elements.label.width() - 20;
+        }
+        
+        self.elements.label.css({ top: label_top, left: label_left });
+        var temLeft = pos.left + pos.width -2;
+        if($(window).width() < temLeft + 2){
+            temLeft = $(window).width() - temLeft - 4;
+        }
+        self.elements.top.css({ top: Math.max(0, top - b) + 2, left: pos.left - b +2 , width: pos.width + b - 4, height: b});
+        self.elements.bottom.css({ top: top + pos.height - 2, left: pos.left - b + 2, width: pos.width + b - 4, height: b });
+        self.elements.left.css({ top: top - b + 2, left: Math.max(0, pos.left - b) + 2, width: b, height: pos.height + b - 4});
+        self.elements.right.css({ top: top - b + 2 , left: /*pos.left + pos.width - 2*/ temLeft, width: b, height: pos.height + (b * 2) -4 });
     }
 
     function stopOnEscape(e) {

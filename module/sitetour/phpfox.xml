@@ -8,8 +8,14 @@
 		<menu></menu>
 		<phrase_var_name>module_sitetour</phrase_var_name>
 	</data>
+	<settings>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_play_tour" phrase_var_name="setting_auto_play_tour" ordering="1" version_id="3.7.5">1</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="integer" var_name="time_duration_step" phrase_var_name="setting_time_duration_step" ordering="1" version_id="3.7.5">2000</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_backdrop" phrase_var_name="setting_show_backdrop" ordering="1" version_id="3.7.5">1</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_transition_step" phrase_var_name="setting_auto_transition_step" ordering="1" version_id="3.7.5">1</setting>
+	</settings>
 	<blocks>
-		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="1" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
+		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="4" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
 			<title>Add New Tour</title>
 			<source_code />
 			<source_parsed />
@@ -20,5 +26,14 @@
 	</components>
 	<phrases>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="module_sitetour" added="1399047311">sitetour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_auto_play_tour" added="1399396423"><![CDATA[<title>Auto Play Tour</title><info>If this setting is true, when user go a page which have a tour, tour will autoplay.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_time_duration_step" added="1399396641"><![CDATA[<title>Time Duration Between Steps</title><info>Time duration between before transition next step.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_show_backdrop" added="1399397727"><![CDATA[<title>Show Backdrop</title><info>If this setting is true, when tour play, it&#039;s hightlight current step.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_auto_transition_step" added="1399398245"><![CDATA[<title>Auto Transition Between Steps</title><info>If this setting is true, step will auto transition between steps with a duration time.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="add_new_step" added="1399480961">Add New Step</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="preview_tour" added="1399481022">Preview Tour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="cancel_setup_step" added="1399481057">Cancel Setup Step</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="save_tour" added="1399481121">Save Tour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="reset_tour" added="1399481167">Reset Tour</phrase>
 	</phrases>
 </module>

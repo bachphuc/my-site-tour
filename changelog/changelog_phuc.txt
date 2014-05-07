@@ -21,3 +21,10 @@ CREATE TABLE IF NOT EXISTS `phpfox_sitetour_step` (
   `ordering` int(10) DEFAULT '0',
   PRIMARY KEY (`step_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `phpfox_sitetour_user_block` (
+  `user_id` int(10) NOT NULL,
+  `sitetour_id` int(10) NOT NULL,
+  `time_stamp` int(10) NOT NULL,
+  PRIMARY KEY (`user_id`,`sitetour_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

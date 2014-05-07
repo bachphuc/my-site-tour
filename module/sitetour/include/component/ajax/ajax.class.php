@@ -48,5 +48,15 @@
                 $this->alert('Please enter tour name!');
             }
         }
+        
+        public function blockTour()
+        {
+            $iTourId = $this->get('id');
+            if($iTourId && is_numeric($iTourId))
+            {
+                Phpfox::getService('sitetour.process')->blockTour($iTourId);        
+            }
+            $this->call('$Core.Tour.end();');
+        }
     }
 ?>
