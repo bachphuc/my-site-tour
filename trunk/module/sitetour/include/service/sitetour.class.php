@@ -35,5 +35,14 @@
                 ->where('sitetour_id='.(int)$iTourId)
                 ->execute('getRows');
         }
+        
+        public function getAllTours()
+        {
+            return $this->database()->select('sr.*,count(srs.step_id) AS total_step')
+                ->from(Phpfox::getT('sitetour'),'sr')
+                ->join(Phpfox::getT('sitetour_step'),'srs', 'srs.sitetour_id=sr.sitetour_id')
+                ->group('sr.sitetour_id')
+                ->execute('getRows');
+        }
     }
 ?>
