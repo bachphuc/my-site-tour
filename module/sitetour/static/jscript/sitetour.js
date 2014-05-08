@@ -15,7 +15,7 @@ $Core.selectDomTag = function(){
                 content: '<p style="font-size:13px;line-height:24px;">Step Title</p><input class="tb_tour_title" type="text" style="width:365px"><p style="font-size:13px;line-height:24px;">Description</p><textarea class="tb_tour_content" style="width:365px;height:100px;"></textarea>',
                 html: true,
                 container : 'body',
-                template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button></div><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button> <button class='btn btn-sm btn-default bt_save_tour' data-role='end'>Save tour</button> </div> </div>",
+                template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button></div> <button class='btn btn-sm btn-default bt_save_tour' data-role='end' style='float:right;'>Save tour</button> </div> </div>",
             }).popover("show");
         }
     });
@@ -61,8 +61,11 @@ $Core.siteTourMenu = function(){
         $Core.init();
     });
 
-    $('.block_add_newtour').unbind('click').bind('click',function(){
+    $('.block_add_newtour').unbind('click').bind('click',function(e){
         $(this).find('.new_tour_menu').fadeToggle();
+        e.stopPropagation();
+        e.preventDefault();
+        return false;
     });
 
     $('.bt_add_new_tour').unbind('click').bind('click',function(e){
