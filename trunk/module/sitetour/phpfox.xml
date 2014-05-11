@@ -13,6 +13,7 @@
 		<setting group="" module_id="sitetour" is_hidden="0" type="integer" var_name="time_duration_step" phrase_var_name="setting_time_duration_step" ordering="1" version_id="3.7.5">2000</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_backdrop" phrase_var_name="setting_show_backdrop" ordering="1" version_id="3.7.5">1</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_transition_step" phrase_var_name="setting_auto_transition_step" ordering="1" version_id="3.7.5">1</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_dont_show_again" phrase_var_name="setting_show_step_dont_show_again" ordering="1" version_id="3.7.5">0</setting>
 	</settings>
 	<blocks>
 		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="4" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
@@ -35,5 +36,24 @@
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="cancel_setup_step" added="1399481057">Cancel Setup Step</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="save_tour" added="1399481121">Save Tour</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="reset_tour" added="1399481167">Reset Tour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="manate_tours" added="1399570242">Manage Tours</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="title" added="1399571455">Title</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="active" added="1399571492">Active</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="update_step_succesfully" added="1399647584">Update step successfully.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="update_sitetour_sucessfully" added="1399647636">Update sitetour successfully.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="edit_sitetour" added="1399647705">Edit Sitetour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="content" added="1399647799">Content</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="edit" added="1399647856">Edit</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="manage_step" added="1399647930">Manage Step ({total})</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="link" added="1399647959">Link</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete" added="1399647981">Delete</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="deactivate" added="1399648009">Deactivate</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="are_you_sure" added="1399648187">Are you sure?</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="submit" added="1399648271">Submit</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sitetour_detail" added="1399648299">Sitetour Detail</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="manage_sitetour_step" added="1399648359">Manage Sitetour Step</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_step_succesfully" added="1399648519">Delete Step successfully.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_site_successfully" added="1399648565">Delete Sitetour Successfully.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_show_step_dont_show_again" added="1399651135"><![CDATA[<title>Show step don&#039;t show again in last step.</title><info>If this setting is anable, end of tour will show step is don&#039;t show it again. If user check in checkbox. It doesn&#039;t show tour when visit link again.</info>]]></phrase>
 	</phrases>
 </module>

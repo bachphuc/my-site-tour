@@ -21,18 +21,24 @@
             {
                 $sUrl = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
             }
-            return $this->database()->select('st.*,sub.sitetour_id AS block_tour_id')
+            $aResult = $this->database()->select('st.*')
             ->from(Phpfox::getT('sitetour'),'st')
-            ->leftJoin(Phpfox::getT('sitetour_user_block'),'sub','sub.sitetour_id=st.sitetour_id AND sub.user_id='.(int)Phpfox::getUserId())
-            ->where("sub.sitetour_id IS NULL AND is_active=1 AND url LIKE '%".$sUrl."%'")
+            ->where("is_active=1 AND url LIKE '%".$sUrl."'")
             ->execute('getRow');
+            return $aResult;
         }
         
-        public function getStepOfTour($iTourId)
+        public function getStepOfTour($iTourId,$bPlay = true)
         {
+            $sCondition = '';
+            if($bPlay)
+            {
+                $sCondition = 'is_active=1 AND ';
+            }
             return $this->database()->select('*')
                 ->from(Phpfox::getT('sitetour_step'))
-                ->where('sitetour_id='.(int)$iTourId)
+                ->where($sCondition.'sitetour_id='.(int)$iTourId)
+                ->order('ordering')
                 ->execute('getRows');
         }
         
@@ -43,6 +49,38 @@
                 ->join(Phpfox::getT('sitetour_step'),'srs', 'srs.sitetour_id=sr.sitetour_id')
                 ->group('sr.sitetour_id')
                 ->execute('getRows');
+        }
+        
+        public function getTour($iId)
+        {
+            return $this->database()->select('*')
+            ->from(Phpfox::getT('sitetour'),'s')
+            ->where('sitetour_id='.(int)$iId)
+            ->execute('getRow');
+        }
+        
+        public function getStep($iId)
+        {
+            return $this->database()->select('*')
+            ->from(Phpfox::getT('sitetour_step'),'s')
+            ->where('step_id='.(int)$iId)
+            ->execute('getRow');
+        }
+        
+        public function checkBlockTour($iSitetourId)
+        {
+            $aTours = $this->database()->select('*')
+            ->from(Phpfox::getT('sitetour_user_block'))
+            ->where('user_id='.Phpfox::getUserId().' AND sitetour_id='.(int)$iSitetourId)
+            ->execute('getRows');
+            if(count($aTours) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 ?>

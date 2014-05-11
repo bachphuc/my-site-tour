@@ -7,7 +7,17 @@ $Core.selectDomTag = function(){
     $Core.myDomOutline = DomOutline({ 
         onClick: function (element) {
             var sSector = $(element).data('sector');
-            $(sSector).css('background-color','red');
+            var ele = $(sSector);
+            var newEle = $('<div/>').addClass('active_element');
+            newEle.html('<span class="i_step">' + $Core.numberStep + '</span>');
+            newEle.css({
+                'left' : (ele.offset().left) + 'px',
+                'top' : (ele.offset().top) + 'px',
+                'width' : (ele.outerWidth() - 4) + 'px',
+                'height' : (ele.outerHeight() - 4) + 'px',
+            });
+            $('body').append(newEle);
+            
             $(sSector).popover({
                 placement: 'auto',
                 trigger: "manual",
@@ -89,6 +99,7 @@ $Core.siteTourMenu = function(){
         $(sector).popover('destroy');
         $(this).closest('.popover').remove();
         $Core.selectDomTag();
+        $Core.numberStep++;
     });
 
     $('.bt_preview_tour').unbind('click').bind('click',function(){
@@ -136,6 +147,7 @@ $Core.siteTourMenu = function(){
     $('.bt_reset_tour').unbind('click').bind('click',function(){
         $.each($Core.Steps,function(index){
             $(this).popover('destroy');
+            $Core.numberStep = 1;
         });
         
         $Core.myDomOutline.stop();
@@ -146,6 +158,9 @@ $Core.siteTourMenu = function(){
 $Behavior.siteTour = function(){
     if( typeof $Core.Steps === 'undefined'){
         $Core.Steps = [];
+    }
+    if( typeof $Core.numberStep === 'undefined'){
+        $Core.numberStep = 1;
     }
     $Core.siteTourMenu();
 }

@@ -18,19 +18,31 @@
         public function process()
         {
             $aTour = Phpfox::getService('sitetour')->getTourOnSite();
+
             if($aTour)
             {
+                $bCheckBlockTour = Phpfox::getService('sitetour')->checkBlockTour($aTour['sitetour_id']);
+                if($bCheckBlockTour)
+                {
+                    $this->template()->assign(array(
+                        'bCheckBlockTour' => true
+                    ));
+                    return false;
+                }
                 $aSteps = Phpfox::getService('sitetour')->getStepOfTour($aTour['sitetour_id']);
-                $aLastStep = end($aSteps);
-                $aConfirmStep = array(
-                    'title' => "Sitetour",
-                    'content' => '<input onclick="$.ajaxCall(\'sitetour.blockTour\',\'id='.$aTour['sitetour_id'].'\');" class="cb_dont_show_tour" type="checkbox"> Don\'t show tour in next time.',
-                    'element' => $aLastStep['element'],
-                    'placement' => 'auto',
-                    'animate' => true,
-                    'duration' => false
-                );
-                $aSteps[] = $aConfirmStep;
+                if(Phpfox::getParam('sitetour.show_step_dont_show_again'))
+                {
+                    $aLastStep = end($aSteps);
+                    $aConfirmStep = array(
+                        'title' => "Sitetour",
+                        'content' => '<input onclick="$.ajaxCall(\'sitetour.blockTour\',\'id='.$aTour['sitetour_id'].'\');" class="cb_dont_show_tour" type="checkbox"> Don\'t show tour in next time.',
+                        'element' => $aLastStep['element'],
+                        'placement' => 'auto',
+                        'animate' => true,
+                        'duration' => false
+                    );
+                    $aSteps[] = $aConfirmStep;
+                }
                 $this->template()->assign(array(
                     'aTour' => $aTour,
                     'aSteps' => $aSteps,

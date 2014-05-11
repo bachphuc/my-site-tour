@@ -23,7 +23,7 @@
             $sHtml.= '<div style="margin-top:10px"><input id="bt_save_tour" type="button" class="button" value="submit"></div>';
             $this->call('<script type="text/javascript">$("#" + tb_get_active()+" .js_box_content").append(\''.$sHtml.'\');</script>');
         }
-        
+
         public function addTour()
         {
             $sTitle = $this->get('title');
@@ -48,7 +48,7 @@
                 $this->alert('Please enter tour name!');
             }
         }
-        
+
         public function blockTour()
         {
             $iTourId = $this->get('id');
@@ -58,5 +58,24 @@
             }
             $this->call('$Core.Tour.end();');
         }
+
+        public function categorySubOrdering()
+        {
+            $aVals = $this->get('val');
+            Phpfox::getService('core.process')->updateOrdering(array(
+                'table' => 'sitetour_step',
+                'key' => 'step_id',
+                'values' => $aVals['ordering']
+                )
+            );        
+        } 
+
+        public function updateActivity()
+        {
+            if (Phpfox::getService('sitetour.process')->updateActivity($this->get('id'), $this->get('active'), $this->get('sub')))
+            {
+
+            }
+        }   
     }
 ?>

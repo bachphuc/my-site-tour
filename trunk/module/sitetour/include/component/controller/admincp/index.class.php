@@ -21,14 +21,15 @@ class Sitetour_Component_Controller_Admincp_Index extends Phpfox_Component
 	public function process()
 	{		
 		$bStep = false;
-		if (($iId = $this->request()->getInt('sub')))
+		if (($iId = $this->request()->getInt('tour')))
 		{
 			$bStep = true;
 			if (($iDelete = $this->request()->getInt('delete')))
 			{
-				if (Phpfox::getService('pages.process')->deleteCategory($iDelete, true))
+                $aTour = Phpfox::getService('sitetour')->getStep($iDelete);
+				if (Phpfox::getService('sitetour.process')->deleteTourOrStep($iDelete, true))
 				{
-					$this->url()->send('admincp.pages', array('sub' => $iId), Phpfox::getPhrase('pages.successfully_deleted_the_category'));
+					$this->url()->send('admincp.sitetour', array('tour' => $aTour['sitetour_id']), Phpfox::getPhrase('sitetour.delete_step_succesfully'));
 				}
 			}
 		}
@@ -36,18 +37,19 @@ class Sitetour_Component_Controller_Admincp_Index extends Phpfox_Component
 		{
 			if (($iDelete = $this->request()->getInt('delete')))
 			{
-				if (Phpfox::getService('pages.process')->deleteCategory($iDelete))
+                $aTour = Phpfox::getService('sitetour')->getTour($iDelete);
+				if (Phpfox::getService('sitetour.process')->deleteTourOrStep($iDelete))
 				{
-					$this->url()->send('admincp.pages', null, Phpfox::getPhrase('pages.successfully_deleted_the_category'));
+					$this->url()->send('admincp.sitetour', null, Phpfox::getPhrase('sitetour.delete_site_successfully'));
 				}
 			}			
 		}
 		
-		$this->template()->setTitle(($bStep ?  Phpfox::getPhrase('pages.manage_sub_categories') : Phpfox::getPhrase('sitetour.manate_tours')))
-			->setBreadcrumb(($bStep ?  Phpfox::getPhrase('pages.manage_sub_categories') : Phpfox::getPhrase('sitetour.manate_tours')))
+		$this->template()->setTitle(($bStep ?  Phpfox::getPhrase('sitetour.manage_sitetour_step') : Phpfox::getPhrase('sitetour.manate_tours')))
+			->setBreadcrumb(($bStep ?  Phpfox::getPhrase('sitetour.manage_sitetour_step') : Phpfox::getPhrase('sitetour.manate_tours')))
 			->setHeader(array(
 					'drag.js' => 'static_script',
-					'<script type="text/javascript">$Behavior.coreDragInit = function() { Core_drag.init({table: \'#js_drag_drop\', ajax: \'' . ($bStep ? 'pages.categorySubOrdering' : 'pages.categoryOrdering' ) . '\'}); }</script>'
+					'<script type="text/javascript">$Behavior.coreDragInit = function() { Core_drag.init({table: \'#js_drag_drop\', ajax: \'' . ($bStep ? 'sitetour.categorySubOrdering' : 'sitetour.categoryOrdering' ) . '\'}); }</script>'
 				)
 			)
             ->assign(array(
@@ -56,7 +58,7 @@ class Sitetour_Component_Controller_Admincp_Index extends Phpfox_Component
             if($bStep)
             {
                 $this->template()->assign(array(
-                    'aSteps' => Phpfox::getService('sitetour')->getStepOfTour($iId),
+                    'aSteps' => Phpfox::getService('sitetour')->getStepOfTour($iId,false),
                 ));
             }
             else
@@ -65,15 +67,6 @@ class Sitetour_Component_Controller_Admincp_Index extends Phpfox_Component
                     'aTours' => Phpfox::getService('sitetour')->getAllTours(),
                 ));
             }
-	}
-	
-	/**
-	 * Garbage collector. Is executed after this class has completed
-	 * its job and the template has also been displayed.
-	 */
-	public function clean()
-	{
-		(($sPlugin = Phpfox_Plugin::get('pages.component_controller_admincp_index_clean')) ? eval($sPlugin) : false);
 	}
 }
 
