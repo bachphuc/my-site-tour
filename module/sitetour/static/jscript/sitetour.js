@@ -85,6 +85,7 @@ $Core.siteTourMenu = function(){
         $Core.selectDomTag();
     });
 
+    // Event choice next step
     $('.bt_next_step_setup').die('click').live('click',function(){
         var stepParent = $(this).closest('.popover');
         var step = {
@@ -109,13 +110,14 @@ $Core.siteTourMenu = function(){
             container : '#step_element_outline_' + $Core.numberStep,
             template: "<div sector='" + sector + "' class='popover'> <div class='arrow'></div> <h3 class='popover-title'></h3><span class='delete_this_step'></span><div class='popover-content'></div> <div class='popover-navigation'></div> </div>",
         }).popover("show");
-        $('#step_element_outline_' + $Core.numberStep).mouseenter(function(){
-            $(this).find('.popover').show();
-        }).mouseleave(function(){
-            $(this).find('.popover').hide();
-        });
-        
+
         $Core.numberStep++;
+    });
+
+    $('.active_element').die('mouseenter').live('mouseenter',function(){
+        $(this).find('.popover').show();
+    }).die('.mouseleave').live('mouseleave',function(){
+        $(this).find('.popover').hide();
     });
 
     $('.bt_preview_tour').unbind('click').bind('click',function(){
