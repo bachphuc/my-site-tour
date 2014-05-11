@@ -94,3 +94,19 @@
 .block_begin_tour_stop{
     left:-50px !important;
 }
+
+.active_element{
+    position:absolute;
+    border:2px solid red;
+    z-index:1000;
+}
+.i_step{
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    min-width: 24px;
+    position: absolute;
+    text-align: center;
+}

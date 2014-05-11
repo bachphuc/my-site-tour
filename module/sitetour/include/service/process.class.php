@@ -41,7 +41,7 @@
             );
             return $this->database()->insert(Phpfox::getT('sitetour_step'),$aInsert);
         }
-        
+
         public function addSteps($iTourId, $aStep)
         {
             if(!is_array($aStep))
@@ -53,7 +53,7 @@
                 $this->addStep($iTourId,$oStep);
             }
         }
-        
+
         public function blockTour($iTourId)
         {
             return $this->database()->insert(Phpfox::getT('sitetour_user_block'),array(
@@ -61,6 +61,39 @@
                 'sitetour_id' => $iTourId,
                 'time_stamp' => PHPFOX_TIME
             ));
+        }
+
+        public function updateActivity($iId, $iType, $iSub)
+        {
+            Phpfox::isUser(true);
+            Phpfox::getUserParam('admincp.has_admin_access', true);        
+
+            $this->database()->update(Phpfox::getT('sitetour_step'), array('is_active' => (int) ($iType == '1' ? 1 : 0)), 'step_id = ' . (int) $iId);
+
+        }
+
+        public function deleteTourOrStep($iId, $bIsStep = false)
+        {
+            if ($bIsStep)
+            {
+                $this->database()->delete(Phpfox::getT('sitetour_step'), 'step_id = ' . (int) $iId);
+            }
+            else
+            {
+                $this->database()->delete(Phpfox::getT('sitetour'), 'sitetour_id = ' . (int) $iId);
+                $this->database()->delete(Phpfox::getT('sitetour_step'), 'sitetour_id = ' . (int) $iId);
+            }
+            return true;
+        }
+        
+        public function updateStep($iId, $aVals)
+        {
+            return $this->database()->update(Phpfox::getT('sitetour_step'),$aVals,'step_id='.(int)$iId);
+        }
+        
+        public function updateSitetour($iId, $aVals)
+        {
+            return $this->database()->update(Phpfox::getT('sitetour'),$aVals,'sitetour_id='.(int)$iId);
         }
     }
 ?>
