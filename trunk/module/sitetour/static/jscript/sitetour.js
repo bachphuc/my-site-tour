@@ -8,7 +8,7 @@ $Core.selectDomTag = function(){
         onClick: function (element) {
             var sSector = $(element).data('sector');
             var ele = $(sSector);
-            var newEle = $('<div/>').addClass('active_element');
+            var newEle = $('<div/>').addClass('active_element').attr('id','step_element_outline_' + $Core.numberStep);
             newEle.html('<span class="i_step">' + $Core.numberStep + '</span>');
             newEle.css({
                 'left' : (ele.offset().left) + 'px',
@@ -17,7 +17,7 @@ $Core.selectDomTag = function(){
                 'height' : (ele.outerHeight() - 4) + 'px',
             });
             $('body').append(newEle);
-            
+
             $(sSector).popover({
                 placement: 'auto',
                 trigger: "manual",
@@ -99,6 +99,22 @@ $Core.siteTourMenu = function(){
         $(sector).popover('destroy');
         $(this).closest('.popover').remove();
         $Core.selectDomTag();
+
+        $('#step_element_outline_' + $Core.numberStep).popover({
+            placement: 'auto',
+            trigger: "manual",
+            title: step.title,
+            content: step.content,
+            html: true,
+            container : '#step_element_outline_' + $Core.numberStep,
+            template: "<div sector='" + sector + "' class='popover'> <div class='arrow'></div> <h3 class='popover-title'></h3><span class='delete_this_step'></span><div class='popover-content'></div> <div class='popover-navigation'></div> </div>",
+        }).popover("show");
+        $('#step_element_outline_' + $Core.numberStep).mouseenter(function(){
+            $(this).find('.popover').show();
+        }).mouseleave(function(){
+            $(this).find('.popover').hide();
+        });
+        
         $Core.numberStep++;
     });
 
@@ -149,7 +165,7 @@ $Core.siteTourMenu = function(){
             $(this).popover('destroy');
             $Core.numberStep = 1;
         });
-        
+
         $Core.myDomOutline.stop();
         $Core.Steps = [];
         $Core.init();
