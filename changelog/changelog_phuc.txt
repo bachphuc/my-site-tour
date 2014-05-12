@@ -28,3 +28,4 @@ CREATE TABLE IF NOT EXISTS `phpfox_sitetour_user_block` (
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`user_id`,`sitetour_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
