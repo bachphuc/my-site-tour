@@ -22,10 +22,10 @@ $Core.selectDomTag = function(){
                 placement: 'auto',
                 trigger: "manual",
                 title: 'Add site tour step',
-                content: '<p style="font-size:13px;line-height:24px;">Step Title</p><input class="tb_tour_title" type="text" style="width:365px"><p style="font-size:13px;line-height:24px;">Description</p><textarea class="tb_tour_content" style="width:365px;height:100px;"></textarea>',
+                content: '<p style="font-size:13px;line-height:24px;">Step Title</p><input class="tb_tour_title" type="text" style="width:365px"><p style="font-size:13px;line-height:24px;">Description</p><textarea class="tb_tour_content" style="width:365px;height:100px;"></textarea><div style="margin-top:10px;"><label>Autorun Step: </label> <input style="position:relative;top:2px;margin-right:20px;" type="checkbox" class="cb_auto_next_step"><label>Time Duration: </label><input type="text" class="tb_time_duration"></div>',
                 html: true,
                 container : 'body',
-                template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button></div> <button class='btn btn-sm btn-default bt_save_tour' data-role='end' style='float:right;'>Save tour</button> </div> </div>",
+                template: "<div sector='" + sSector + "' class='popover' style='max-width:400px;width:400px;'> <div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div><div class='popover-navigation'> <div class='btn-group'> <button class='btn btn-sm btn-default' data-role='prev'>&laquo; Prev</button> <button class='bt_next_step_setup btn btn-sm btn-default' data-role='next'>Next &raquo;</button><button class='btn btn-sm btn-default cancel_step_setup' data-role='can-step'>Cancel Step</button></div> <button class='btn btn-sm btn-default bt_save_tour' data-role='end' style='float:right;'>Save tour</button> </div> </div>",
             }).popover("show");
         }
     });
@@ -55,7 +55,7 @@ $Core.startTour = function(){
                 },
                 keyboard: true,
                 backdrop : (typeof $Core.tourSeting === 'undefined' ? true : $Core.tourSeting.backdrop),
-                duration : (typeof $Core.tourSeting === 'undefined' ? false : $Core.tourSeting.duration),
+                /*duration : (typeof $Core.tourSeting === 'undefined' ? false : $Core.tourSeting.duration),*/
             });
             $Core.Tour.init();
             $Core.Tour.start();
@@ -64,6 +64,7 @@ $Core.startTour = function(){
 }
 $Core.siteTourMenu = function(){
 
+    $('.block_add_newtour').draggable({cancel : '.new_tour_menu'});
     $('.cancel_step_setup').die('click').live('click',function(){
         var sector = $(this).closest('.popover').attr('sector');
         $(sector).popover('destroy');
@@ -94,6 +95,7 @@ $Core.siteTourMenu = function(){
             content : stepParent.find('.tb_tour_content').val(),
             placement: 'auto',
             animation: true,
+            duration : (stepParent.find('.cb_auto_next_step').prop('checked') ? stepParent.find('.tb_time_duration').val() : false),
         };
         $Core.Steps.push(step);
         var sector = $(this).closest('.popover').attr('sector');
@@ -110,7 +112,7 @@ $Core.siteTourMenu = function(){
             container : '#step_element_outline_' + $Core.numberStep,
             template: "<div sector='" + sector + "' class='popover'> <div class='arrow'></div> <h3 class='popover-title'></h3><span class='delete_this_step'></span><div class='popover-content'></div> <div class='popover-navigation'></div> </div>",
         }).popover("show");
-
+        $('#step_element_outline_' + $Core.numberStep).find('.popover').css('display','none');
         $Core.numberStep++;
     });
 
@@ -144,7 +146,8 @@ $Core.siteTourMenu = function(){
             alert('Please add some step!');
         }
         var sData = JSON.stringify($Core.Steps);
-        $.ajaxCall('sitetour.addTour','data=' +sData+ '&title=' + $('#tb_tour_title').val() + '&url='+document.URL);
+        var is_autorun = ($('#cb_autorun').prop('checked') ? 1 : 0);
+        $.ajaxCall('sitetour.addTour','data=' +sData+ '&title=' + $('#tb_tour_title').val() + '&url='+document.URL + '&is_autorun=' + is_autorun);
     });
 
     $('.block_begin_tour>div>div').unbind('click').bind('click',function(){

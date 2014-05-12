@@ -15,12 +15,13 @@
     */
     class Sitetour_Service_Process extends Phpfox_Service 
     {
-        public function addTour($sTitle,$aData,$sUrl)
+        public function addTour($sTitle,$aData,$sUrl,$bIsAutorun)
         {
             $aInsert = array(
                 'title' => $sTitle,
                 'url' => $sUrl,
-                'time_stamp' => PHPFOX_TIME
+                'time_stamp' => PHPFOX_TIME,
+                'is_autorun' => $bIsAutorun
             );   
             $iId = $this->database()->insert(Phpfox::getT('sitetour'),$aInsert);
             if($iId)
@@ -37,7 +38,8 @@
                 'title' => $oStep->title,
                 'element' => $oStep->element,
                 'content' => $oStep->content,
-                'time_stamp' => PHPFOX_TIME
+                'time_stamp' => PHPFOX_TIME,
+                'duration' => $oStep->duration,
             );
             return $this->database()->insert(Phpfox::getT('sitetour_step'),$aInsert);
         }

@@ -1,7 +1,6 @@
 <?php
     defined('PHPFOX') or exit('NO DICE!');
 ?>
-
 {if !isset($aTour)}
 <div class="block_add_newtour">
     <ul class="new_tour_menu">
@@ -24,7 +23,8 @@
         {else}
             $Core.tourSeting.duration = false;
         {/if}
-        {if $bAutoPlayTour}$Core.startTour();{/if}
+        /*{if $bAutoPlayTour}$Core.startTour();{/if}*/
+        {if $aTour.is_autorun}$Core.startTour();{/if}
     {r}
 </script>
 <div class="block_begin_tour">

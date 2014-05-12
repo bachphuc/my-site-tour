@@ -17,9 +17,20 @@
     {
         public function showFormAddTour()
         {
+            $aGroups = Phpfox::getService('user.group')->getForEdit();
+            $sUserGroup = '<select class="select_user_group">';
+            $sUserGroup.= '<option value="0">Anybody</option>';
+            foreach($aGroups['special'] as $aGroup)
+            {
+                $sUserGroup.= '<option value="'.$aGroup['user_group_id'].'">'.$aGroup['title'].'</option>';
+            }
+            $sUserGroup.= '</select>';
+            
             $this->setTitle('Add new tour');
             $sHtml = '<p style="margin-bottom:10px;"><strong>Tour Name: </strong></p>';
             $sHtml.= '<input type="text" id="tb_tour_title" style="width:255px;">';
+            $sHtml.= '<p style="margin-bottom:15px;"><strong>Autorun This Tour: <input style="position:relative;top:2px" type="checkbox" id="cb_autorun"></strong></p>';
+            $sHtml.= '<div style="margin-top:10px;"><strong>Type User View: </strong>'.$sUserGroup.'</div>';
             $sHtml.= '<div style="margin-top:10px"><input id="bt_save_tour" type="button" class="button" value="submit"></div>';
             $this->call('<script type="text/javascript">$("#" + tb_get_active()+" .js_box_content").append(\''.$sHtml.'\');</script>');
         }
@@ -32,7 +43,8 @@
                 $sUrl = $this->get('url');
                 $sData = $this->get('data');
                 $aData = json_decode($sData);
-                $iTourId = Phpfox::getService('sitetour.process')->addTour($sTitle,$aData,$sUrl);
+                $bIsAutorun = $this->get('is_autorun');
+                $iTourId = Phpfox::getService('sitetour.process')->addTour($sTitle,$aData,$sUrl,$bIsAutorun);
                 if($iTourId)
                 {
                     $sMessage = 'Add tour successful!';
