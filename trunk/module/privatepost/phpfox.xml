@@ -1,0 +1,15 @@
+<module>
+	<data>
+		<module_id>privatepost</module_id>
+		<product_id>privatepost</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu></menu>
+		<phrase_var_name>module_privatepost</phrase_var_name>
+	</data>
+	<phrases>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="module_privatepost" added="1400298378">Make a post as private</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="private" added="1400339835">Private</phrase>
+	</phrases>
+</module>
