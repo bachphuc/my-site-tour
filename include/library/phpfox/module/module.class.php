@@ -447,7 +447,6 @@ class Phpfox_Module
 		{
 			return false;
 		}
-		
 		(($sPlugin = Phpfox_Plugin::get('module_getcontrollertemplate')) ? eval($sPlugin) : false);
 		
 		// Get the template and display its content for the specific controller component
@@ -738,7 +737,6 @@ class Phpfox_Module
 	public function getComponent($sClass, $aParams = array(), $sType = 'block', $bTemplateParams = false)
 	{
 		(($sPlugin = Phpfox_Plugin::get('module_getcomponent_start')) ? eval($sPlugin) : false);
-
 		if ($sType == 'ajax' && strpos($sClass, '.') === false)
 		{
 			$sClass = $sClass . '.ajax';

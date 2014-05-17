@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
 				{block location='10'}
 				<div id="header_holder" {if !Phpfox::isUser()} class="header_logo"{/if}>				
 					<div id="header_left">
-						{logo}
+						{logo}ss
 					</div>
 					<div id="header_right">
 						<div id="header_top">

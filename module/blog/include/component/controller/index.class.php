@@ -20,7 +20,6 @@ class Blog_Component_Controller_Index extends Phpfox_Component
 	 */
 	public function process()
 	{	
-		
 		$aParentModule = $this->getParam('aParentModule');	
 		
 		if ($aParentModule === null && $this->request()->getInt('req2') > 0)
