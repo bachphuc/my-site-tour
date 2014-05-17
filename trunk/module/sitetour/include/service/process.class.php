@@ -15,13 +15,14 @@
     */
     class Sitetour_Service_Process extends Phpfox_Service 
     {
-        public function addTour($sTitle,$aData,$sUrl,$bIsAutorun)
+        public function addTour($sTitle,$aData,$sUrl,$bIsAutorun,$iUserGroupId)
         {
             $aInsert = array(
                 'title' => $sTitle,
                 'url' => $sUrl,
                 'time_stamp' => PHPFOX_TIME,
-                'is_autorun' => $bIsAutorun
+                'is_autorun' => $bIsAutorun,
+                'user_group_id' => $iUserGroupId
             );   
             $iId = $this->database()->insert(Phpfox::getT('sitetour'),$aInsert);
             if($iId)

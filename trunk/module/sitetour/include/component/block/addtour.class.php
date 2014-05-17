@@ -29,6 +29,11 @@
                     ));
                     return false;
                 }
+                $aUser = Phpfox::getService('user')->get(Phpfox::getUserId());
+                if($aTour['user_group_id'] != $aUser['user_group_id'] && $aTour['user_group_id'] != 0)
+                {
+                    return false;
+                }
                 $aSteps = Phpfox::getService('sitetour')->getStepOfTour($aTour['sitetour_id']);
                 if(Phpfox::getParam('sitetour.show_step_dont_show_again'))
                 {

@@ -120,3 +120,24 @@
     background-image:url(../../../image/close.png);
     cursor: pointer;
 }
+
+/** Format select tag button*/
+.bt_select_tag{
+    height: 50px;
+    width:50px;
+    border:1px solid #CCC;
+    box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+    -webkit-box-shadow: 0 0 10px #999;
+    position:fixed;
+    top:100px;
+    right:20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+    z-index:99999;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image:url('../../../image/select_tag.png');
+}
