@@ -66,6 +66,7 @@ $Core.siteTourMenu = function(){
 
     $('.block_add_newtour').draggable({cancel : '.new_tour_menu'});
     $('.cancel_step_setup').die('click').live('click',function(){
+        $('.active_element').hide();
         var sector = $(this).closest('.popover').attr('sector');
         $(sector).popover('destroy');
         $(this).closest('.popover').remove();
@@ -80,6 +81,7 @@ $Core.siteTourMenu = function(){
     });
 
     $('.bt_add_new_tour').unbind('click').bind('click',function(e){
+        $('.active_element').show();
         $(this).addClass('new_tour_menu_active');
         e.preventDefault();
         e.stopPropagation();
@@ -127,6 +129,7 @@ $Core.siteTourMenu = function(){
     });
 
     $('.bt_stop_setup_tour').unbind('click').bind('click',function(){
+        $('.active_element').hide();
         $Core.myDomOutline.stop();
         $Core.init();
     });
@@ -147,7 +150,8 @@ $Core.siteTourMenu = function(){
         }
         var sData = JSON.stringify($Core.Steps);
         var is_autorun = ($('#cb_autorun').prop('checked') ? 1 : 0);
-        $.ajaxCall('sitetour.addTour','data=' +sData+ '&title=' + $('#tb_tour_title').val() + '&url='+document.URL + '&is_autorun=' + is_autorun);
+        $.ajaxCall('sitetour.addTour','data=' +sData+ '&title=' + $('#tb_tour_title').val() + '&url='+document.URL + '&is_autorun=' + is_autorun + '&user_group_id=' + $('#user_group_id').val());
+        $('.active_element').remove();
     });
 
     $('.block_begin_tour>div>div').unbind('click').bind('click',function(){
@@ -174,6 +178,21 @@ $Core.siteTourMenu = function(){
         $Core.myDomOutline.stop();
         $Core.Steps = [];
         $Core.init();
+        $('.active_element').remove();
+    });
+    
+    // Select element
+    $('.bt_select_tag').unbind('click').bind('click',function(){
+        var myDomOutline = DomOutline({ 
+            onClick: function (element) {
+                var sSector = $(element).data('sector');
+                $('#popup_selector input').val(sSector);
+                $('#popup_selector').dialog({
+                    height : 100
+                });
+            }
+        });
+        myDomOutline.start();
     });
 }
 $Behavior.siteTour = function(){

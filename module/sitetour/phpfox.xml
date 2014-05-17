@@ -4,8 +4,8 @@
 		<product_id>sitetour</product_id>
 		<is_core>0</is_core>
 		<is_active>1</is_active>
-		<is_menu>0</is_menu>
-		<menu></menu>
+		<is_menu>1</is_menu>
+		<menu><![CDATA[a:2:{s:35:"sitetour.admin_menu_manage_sitetour";a:1:{s:3:"url";a:1:{i:0;s:8:"sitetour";}}s:27:"sitetour.admin_menu_setting";a:1:{s:3:"url";a:2:{i:0;s:8:"sitetour";i:1;s:7:"setting";}}}]]></menu>
 		<phrase_var_name>module_sitetour</phrase_var_name>
 	</data>
 	<settings>
@@ -13,7 +13,7 @@
 		<setting group="" module_id="sitetour" is_hidden="0" type="integer" var_name="time_duration_step" phrase_var_name="setting_time_duration_step" ordering="1" version_id="3.7.5">2000</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_backdrop" phrase_var_name="setting_show_backdrop" ordering="1" version_id="3.7.5">1</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_transition_step" phrase_var_name="setting_auto_transition_step" ordering="1" version_id="3.7.5">1</setting>
-		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_dont_show_again" phrase_var_name="setting_show_step_dont_show_again" ordering="1" version_id="3.7.5">0</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_dont_show_again" phrase_var_name="setting_show_step_dont_show_again" ordering="1" version_id="3.7.5">1</setting>
 	</settings>
 	<blocks>
 		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="4" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
@@ -55,5 +55,7 @@
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_step_succesfully" added="1399648519">Delete Step successfully.</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_site_successfully" added="1399648565">Delete Sitetour Successfully.</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_show_step_dont_show_again" added="1399651135"><![CDATA[<title>Show step don&#039;t show again in last step.</title><info>If this setting is anable, end of tour will show step is don&#039;t show it again. If user check in checkbox. It doesn&#039;t show tour when visit link again.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_manage_sitetour" added="1399918811">Manage Sitetour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_setting" added="1399918811">Setting</phrase>
 	</phrases>
 </module>

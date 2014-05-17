@@ -5,11 +5,23 @@
 		<is_core>0</is_core>
 		<is_active>1</is_active>
 		<is_menu>0</is_menu>
-		<menu></menu>
+		<menu />
 		<phrase_var_name>module_privatepost</phrase_var_name>
 	</data>
+	<blocks>
+		<block type_id="0" m_connection="profile.index" module_id="privatepost" component="privatemenu" location="1" is_active="1" ordering="2" disallow_access="" can_move="0">
+			<title>Private Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="privatepost" component="privatemenu" m_connection="" module="privatepost" is_controller="0" is_block="1" is_active="1" />
+	</components>
 	<phrases>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="module_privatepost" added="1400298378">Make a post as private</phrase>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="private" added="1400339835">Private</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="my_post" added="1400341699">My Post</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="private_post" added="1400341720">Private Post</phrase>
 	</phrases>
 </module>

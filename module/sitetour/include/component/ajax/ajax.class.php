@@ -18,7 +18,7 @@
         public function showFormAddTour()
         {
             $aGroups = Phpfox::getService('user.group')->getForEdit();
-            $sUserGroup = '<select class="select_user_group">';
+            $sUserGroup = '<select id="user_group_id">';
             $sUserGroup.= '<option value="0">Anybody</option>';
             foreach($aGroups['special'] as $aGroup)
             {
@@ -44,7 +44,8 @@
                 $sData = $this->get('data');
                 $aData = json_decode($sData);
                 $bIsAutorun = $this->get('is_autorun');
-                $iTourId = Phpfox::getService('sitetour.process')->addTour($sTitle,$aData,$sUrl,$bIsAutorun);
+                $iUserGroupId = $this->get('user_group_id');
+                $iTourId = Phpfox::getService('sitetour.process')->addTour($sTitle,$aData,$sUrl,$bIsAutorun,$iUserGroupId);
                 if($iTourId)
                 {
                     $sMessage = 'Add tour successful!';
