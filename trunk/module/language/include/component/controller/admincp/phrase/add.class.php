@@ -58,7 +58,7 @@ class Language_Component_Controller_Admincp_Phrase_Add extends Phpfox_Component
 			
 			// Check that all the fields are valid
 			if ($oValid->isValid($aVals))
-			{				
+			{	
 				// Check to make sure the phrase has not already been added
 				if (($sIsPhrase = Phpfox::getService('language.phrase')->isPhrase($aVals)))
 				{					
