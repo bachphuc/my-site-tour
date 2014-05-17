@@ -24,6 +24,9 @@
             {
                 return false;
             }
+            $this->template()->assign(array(
+                'aUser' => $aUser
+            ));
         }
     }
 ?>

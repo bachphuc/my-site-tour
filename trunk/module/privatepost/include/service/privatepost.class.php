@@ -13,5 +13,6 @@
     */
     class PrivatePost_Service_PrivatePost extends Phpfox_Service 
     {
+        
     }
 ?>
