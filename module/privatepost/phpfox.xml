@@ -23,5 +23,6 @@
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="private" added="1400339835">Private</phrase>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="my_post" added="1400341699">My Post</phrase>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="private_post" added="1400341720">Private Post</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="public" added="1400349006">Public</phrase>
 	</phrases>
 </module>

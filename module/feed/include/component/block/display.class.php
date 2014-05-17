@@ -193,7 +193,6 @@ class Feed_Component_Block_Display extends Phpfox_Component
 			$aRows = Phpfox::getService('feed')->callback($aFeedCallback)->get(($bIsProfile > 0 ? $iUserId : null), ($this->request()->get('feed') ? $this->request()->get('feed') : null), $iFeedPage);
 		}
 		*/
-
 		if (($this->request()->getInt('status-id') 
 				|| $this->request()->getInt('comment-id') 
 				|| $this->request()->getInt('link-id')

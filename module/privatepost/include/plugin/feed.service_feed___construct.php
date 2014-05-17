@@ -4,7 +4,7 @@
 
 <?php
     $sView = Phpfox::getLib('request')->get('view');
-    if($sView && $sView == 'private')
+    if(isset($sView) && $sView == 'private')
     {
         $this->_sTable = Phpfox::getT('private_feed');
     }
