@@ -24,5 +24,7 @@
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="my_post" added="1400341699">My Post</phrase>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="private_post" added="1400341720">Private Post</phrase>
 		<phrase module_id="privatepost" version_id="3.7.5" var_name="public" added="1400349006">Public</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="submit_feed_successfuly_in_private_feed" added="1400427456">This item has successfully been submitted. It will be displayed in private feed area.</phrase>
+		<phrase module_id="privatepost" version_id="3.7.5" var_name="submit_feed_successfuly_in_public_feed" added="1400430068">This item has successfully been submitted. It will be displayed in public feed area.</phrase>
 	</phrases>
 </module>
