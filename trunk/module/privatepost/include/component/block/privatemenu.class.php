@@ -24,6 +24,10 @@
             {
                 return false;
             }
+            if($this->request()->get('view') && $this->request()->get('view') == 'private')
+            {
+                echo '<script type="text/javascript">$Core.bPrivateFeed = true;</script>';
+            }
             $this->template()->assign(array(
                 'aUser' => $aUser
             ));
