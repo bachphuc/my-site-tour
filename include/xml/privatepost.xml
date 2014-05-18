@@ -4,13 +4,44 @@
 		<is_core>0</is_core>
 		<title>Private Post</title>
 		<description>Make a post as private</description>
-		<version>3.0.4</version>
+		<version>3.0.5</version>
 		<latest_version></latest_version>
-		<last_check>1400349316</last_check>
+		<last_check>1400343365</last_check>
 		<is_active>1</is_active>
 		<url></url>
 		<url_version_check></url_version_check>
 	</data>
+	<installs>
+		<install>
+			<version>3.0.0</version>
+			<install_code><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('private_feed')."` (
+  `feed_id` int(10) NOT NULL,
+  `app_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `privacy` tinyint(1) NOT NULL DEFAULT '0',
+  `privacy_comment` tinyint(1) NOT NULL DEFAULT '0',
+  `type_id` varchar(75) NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `parent_user_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `item_id` int(10) unsigned NOT NULL,
+  `time_stamp` int(10) unsigned NOT NULL,
+  `feed_reference` int(10) NOT NULL DEFAULT '0',
+  `parent_feed_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `parent_module_id` varchar(75) DEFAULT NULL,
+  `time_update` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`feed_id`),
+  KEY `privacy_2` (`privacy`,`time_stamp`,`feed_reference`),
+  KEY `privacy_3` (`privacy`,`user_id`,`feed_reference`),
+  KEY `privacy_4` (`privacy`,`parent_user_id`,`feed_reference`),
+  KEY `type_id` (`type_id`,`item_id`,`feed_reference`),
+  KEY `privacy` (`privacy`,`user_id`,`time_stamp`,`feed_reference`),
+  KEY `time_stamp` (`time_stamp`,`feed_reference`),
+  KEY `time_update` (`time_update`),
+  KEY `privacy_5` (`privacy`,`parent_user_id`),
+  KEY `user_id` (`user_id`,`feed_reference`,`time_stamp`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");]]></install_code>
+			<uninstall_code></uninstall_code>
+		</install>
+	</installs>
 	<modules>
 		<module_id>privatepost</module_id>
 	</modules>
