@@ -19,6 +19,8 @@ $Behavior.privatePost = function(){
         if(!$Core.bPrivateFeed){
             return;
         }
+        $sViewMoreOnClick = $('#feed_view_more .global_view_more').attr('onclick');
+        
         $Core.forceLoadOnFeed = function(){
             if ($iReloadIteration >= 2){
                 return;
