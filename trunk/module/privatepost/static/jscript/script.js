@@ -19,8 +19,13 @@ $Behavior.privatePost = function(){
         if(!$Core.bPrivateFeed){
             return;
         }
-        $sViewMoreOnClick = $('#feed_view_more .global_view_more').attr('onclick');
         
+        if($('#private_page').length == 0){
+            $('#js_activity_feed_form').append('<input id="private_page" type="hidden" name="private_page" value="1">');
+        }
+
+        $sViewMoreOnClick = $('#feed_view_more .global_view_more').attr('onclick');
+
         $Core.forceLoadOnFeed = function(){
             if ($iReloadIteration >= 2){
                 return;
