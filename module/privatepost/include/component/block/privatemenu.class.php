@@ -29,9 +29,15 @@
             {
                 echo '<script type="text/javascript">$Core.bPrivateFeed = true;</script>';
             }
+            $bMyPost = false;
+            if(!$sView && !$this->request()->get('req2'))
+            {
+                $bMyPost = true;
+            }
             $this->template()->assign(array(
                 'aUser' => $aUser,
-                'sView' => $sView
+                'sView' => $sView,
+                'bMyPost' => $bMyPost
             ));
         }
     }
