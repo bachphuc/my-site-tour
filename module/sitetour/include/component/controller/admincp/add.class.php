@@ -39,9 +39,11 @@ class Sitetour_Component_Controller_Admincp_Add extends Phpfox_Component
 			$iEditId = $iSubtEditId;
 			$bIsEdit = true;
 			$bIsStep = true;
+                        $sLink = Phpfox::getLib('url')->makeUrl('admincp.language.phrase');
 			$this->template()->assign(array(			
 					'aForms' => $aRow,
-					'iEditId' => $iEditId
+					'iEditId' => $iEditId,
+					'sLinkEdit' => $sLink,
 				)
 			);
 		}		

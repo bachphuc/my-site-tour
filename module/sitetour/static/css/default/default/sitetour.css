@@ -6,7 +6,7 @@
     -moz-box-shadow: 0 0 10px #999;
     -webkit-box-shadow: 0 0 10px #999;
     position:fixed;
-    bottom:100px;
+    bottom:300px;
     right:20px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -140,4 +140,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image:url('../../../image/select_tag.png');
+}
+
+.step_number{
+    position:absolute;
+    border:2px solid red;
+    z-index:9999;
 }

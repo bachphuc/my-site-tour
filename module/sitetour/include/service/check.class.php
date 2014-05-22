@@ -1,20 +1,27 @@
 <?php
+
 defined('PHPFOX') or exit('NO DICE!');
 
 class Sitetour_Service_Check extends Phpfox_Service {
-    public function canAdd(){
-        if (!Phpfox::getParam('sitetour.enable_add_site_tour')){
+
+    public function canAdd() {
+        if (!Phpfox::getParam('sitetour.enable_add_site_tour')) {
+            $aTour = Phpfox::getService('sitetour')->getTourOnSite();
+            if (isset($aTour) && isset($aTour['sitetour_id'])) {
+            } else {
+                return FALSE;
+            }
+        }
+        if (Phpfox::isAdminPanel()) {
             return FALSE;
         }
-        if (Phpfox::isAdminPanel()){
-            return FALSE;
-        }
-        if (Phpfox::isAdmin()){
+        if (Phpfox::isAdmin()) {
             return TRUE;
         }
         return FALSE;
     }
-    public function addPhrase($sText){
+
+    public function addPhrase($sText) {
         $sVarName = Phpfox::getService('language.phrase.process')->prepare($sText);
         $aLanguages = Phpfox::getService('language')->get();
         $aText = array();
@@ -38,5 +45,5 @@ class Sitetour_Service_Check extends Phpfox_Service {
         $sPhrase = Phpfox::getService('language.phrase.process')->add($aVals);
         return $sPhrase;
     }
-            
+
 }
