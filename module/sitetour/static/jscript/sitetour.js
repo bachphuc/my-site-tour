@@ -48,7 +48,7 @@ $Core.startTour = function(isPreview){
                 storage : false,
                 onStart: function (tour) {
                     $Core.isRunningTour = true;
-                    if($Core.tourSeting.showStepNumber){
+                    if($Core.tourSeting.showStepNumber && !bPreview){
                         showNumber();
                     }
                 },
