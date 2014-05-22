@@ -1,7 +1,7 @@
 <?php
     defined('PHPFOX') or exit('NO DICE!');
 ?>
-{if !isset($aTour)}
+{if $bCanAdd}
 <div class="block_add_newtour">
     <ul class="new_tour_menu">
         <li class="bt_add_new_tour">{phrase var='sitetour.add_new_step'}</li>
@@ -11,20 +11,30 @@
         <li class="bt_reset_tour">{phrase var='sitetour.reset_tour'}</li>
     </ul>
 </div>
-{else}
+{/if}
+{if isset($aTour)}
 <script type="text/javascript">
     $Behavior.initTour = function(){l}
-        $Core.TourInfo = {php}echo json_encode($this->_aVars['aTour']);{/php};
-        $Core.Steps = {php}echo json_encode($this->_aVars['aSteps']);{/php};
-        $Core.tourSeting = {l}{r};
-        {if $bBackDrop}$Core.tourSeting.backdrop = true;{/if}
-        {if $bAutoTransitionStep}
-            $Core.tourSeting.duration = {$bAutoTransitionStep};
-        {else}
-            $Core.tourSeting.duration = false;
-        {/if}
-        /*{if $bAutoPlayTour}$Core.startTour();{/if}*/
-        {if $aTour.is_autorun}$Core.startTour();{/if}
+        if( typeof $Core.initted === 'undefined'){l}
+            $Core.initted = true;
+            $Core.myDomOutline = null;
+        
+            $Core.TourInfo = {php}echo json_encode($this->_aVars['aTour']);{/php};
+            $Core.Steps = {php}echo json_encode($this->_aVars['aSteps']);{/php};
+            $Core.tourSeting = {l}{r};
+            {if $bBackDrop}$Core.tourSeting.backdrop = true;{/if}
+            {if $bShowStep}
+                $Core.tourSeting.showStepNumber = true;
+            {else}
+                $Core.tourSeting.showStepNumber = false;
+            {/if}
+            {if $bAutoTransitionStep}
+                $Core.tourSeting.duration = {$bAutoTransitionStep};
+            {else}
+                $Core.tourSeting.duration = false;
+            {/if}
+            {if $aTour.is_autorun}$Core.startTour();{/if}
+        {r}
     {r}
 </script>
 <div class="block_begin_tour">

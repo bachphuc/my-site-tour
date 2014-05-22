@@ -11,10 +11,17 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
+
+{literal}
+<style type="text/css">
+#main_body_holder{
+    display: none;
+}
+</style>
+{/literal}
 <div class="table_header">
     Add a new step for tour in site {$aTour.title}
 </div>
-
 
 <form method="post" action="">
     

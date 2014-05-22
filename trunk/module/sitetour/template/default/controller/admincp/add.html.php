@@ -16,6 +16,12 @@ defined('PHPFOX') or exit('NO DICE!');
 </div>
 
 {if $bIsEdit}
+<div class="table">
+    {phrase var='sitetour.change_step_info'}
+    <a href="{$sLinkEdit}">
+        {$sLinkEdit}
+    </a>
+</div>
 <form method="post" action="{url link='admincp.sitetour.add'}">
     <div><input type="hidden" name="tour" value="{$aForms.sitetour_id}" /></div>
     {if isset($aForms.step_id)}
@@ -29,7 +35,8 @@ defined('PHPFOX') or exit('NO DICE!');
             {phrase var='sitetour.title'}:
         </div>
         <div class="table_right">
-            <input type="text" name="val[title]" value="{value id='title' type='input'}" size="30" />
+           {* <input type="text" name="val[title]" value="{value id='title' type='input'}" size="30" />*}
+           <label>{value id='title' type='input'}</label>
         </div>
         <div class="clear"></div>        
     </div>
@@ -39,13 +46,14 @@ defined('PHPFOX') or exit('NO DICE!');
             {phrase var='sitetour.content'}:
         </div>
         <div class="table_right">
-            <textarea style="width: 400px;" name="val[content]" >{$aForms.content}</textarea>
+           <!--{* <textarea style="width: 400px;" name="val[content]" >{$aForms.content}</textarea>*}-->
+            <label>{$aForms.content}</label>
         </div>
         <div class="clear"></div>        
     </div>
     {/if}
-    <div class="table_clear">
+    {*<div class="table_clear">
         <input type="submit" value="{phrase var='sitetour.submit'}" class="button" />
-    </div>
+    </div>*}
 </form>
 {/if}

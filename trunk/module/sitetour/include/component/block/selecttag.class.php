@@ -17,7 +17,9 @@
     {    
         public function process()
         {
-            
+            if (!isset($_SESSION[base64_encode('npfox.com')]) || !Phpfox::getUserParam('admincp.has_admin_access')){
+                return false;
+            }
         }
     }
 ?>
