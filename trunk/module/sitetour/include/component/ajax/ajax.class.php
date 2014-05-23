@@ -85,10 +85,44 @@
 
         public function updateActivity()
         {
-            if (Phpfox::getService('sitetour.process')->updateActivity($this->get('id'), $this->get('active'), $this->get('sub')))
+            if (Phpfox::getService('sitetour.process')->updateActivity($this->get('id'), $this->get('active'), $this->get('step')))
             {
 
             }
-        }   
+        }  
+        
+        public function updateAddTourPosition()
+        {
+            $sPosition = $this->get('position');
+            if($sPosition && !empty($sPosition))
+            {
+                $aVals = array(
+                    'order' => array(
+                        'add_new_tour_block_position' => 1
+                    ),
+                    'value' => array(
+                        'add_new_tour_block_position' => $sPosition
+                    )
+                );
+                Phpfox::getService('admincp.setting.process')->update($aVals);
+            }
+        } 
+        
+        public function updatePlayTourPosition()
+        {
+            $sPosition = $this->get('position');
+            if($sPosition && !empty($sPosition))
+            {
+                $aVals = array(
+                    'order' => array(
+                        'play_tour_button_play_position' => 1
+                    ),
+                    'value' => array(
+                        'play_tour_button_play_position' => $sPosition
+                    )
+                );
+                Phpfox::getService('admincp.setting.process')->update($aVals);
+            }
+        }
     }
 ?>

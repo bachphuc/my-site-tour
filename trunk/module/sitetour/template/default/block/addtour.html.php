@@ -1,8 +1,24 @@
 <?php
     defined('PHPFOX') or exit('NO DICE!');
 ?>
+
+<script type="text/javascript">
+    $Behavior.loadBlockTour = function(){l}
+        $('.block_add_newtour').appendTo('body');
+        $('.block_begin_tour').appendTo('body');
+        $Core.tourSeting = {l}{r};
+        {if $bBackDrop}$Core.tourSeting.backdrop = true;{/if}
+        {if $bShowStep}
+            $Core.tourSeting.showStepNumber = true;
+        {else}
+            $Core.tourSeting.showStepNumber = false;
+        {/if}
+    {r}
+</script>
+
+
 {if $bCanAdd}
-<div class="block_add_newtour">
+<div class="block_add_newtour" {if isset($aAddTourPosition)}style="left:{$aAddTourPosition.left}px;top:{$aAddTourPosition.top}px;"{/if}>
     <ul class="new_tour_menu">
         <li class="bt_add_new_tour">{phrase var='sitetour.add_new_step'}</li>
         <li class="bt_stop_setup_tour">{phrase var='sitetour.cancel_setup_step'}</li>
@@ -21,23 +37,11 @@
         
             $Core.TourInfo = {php}echo json_encode($this->_aVars['aTour']);{/php};
             $Core.Steps = {php}echo json_encode($this->_aVars['aSteps']);{/php};
-            $Core.tourSeting = {l}{r};
-            {if $bBackDrop}$Core.tourSeting.backdrop = true;{/if}
-            {if $bShowStep}
-                $Core.tourSeting.showStepNumber = true;
-            {else}
-                $Core.tourSeting.showStepNumber = false;
-            {/if}
-            {if $bAutoTransitionStep}
-                $Core.tourSeting.duration = {$bAutoTransitionStep};
-            {else}
-                $Core.tourSeting.duration = false;
-            {/if}
             {if $aTour.is_autorun}$Core.startTour();{/if}
         {r}
     {r}
 </script>
-<div class="block_begin_tour">
+<div class="block_begin_tour" {if isset($aPlayTourPosition)}style="left:{$aPlayTourPosition.left}px;top:{$aPlayTourPosition.top}px;"{/if}>
     <div>
         <div class="bt_star_tour"></div>
         <div class="bt_end_tour"></div>

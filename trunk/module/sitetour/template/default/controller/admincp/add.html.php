@@ -18,9 +18,9 @@ defined('PHPFOX') or exit('NO DICE!');
 {if $bIsEdit}
 <div class="table">
     {phrase var='sitetour.change_step_info'}
-    <a href="{$sLinkEdit}">
-        {$sLinkEdit}
-    </a>
+    {if isset($sLinkEdit)}
+    <a href="{$sLinkEdit}">{$sLinkEdit}</a>
+    {/if}
 </div>
 <div class="table">
     {phrase var='sitetour.notice_please_go_to_above_link_search_with_varname_and_change_phrase'}

@@ -16,9 +16,28 @@ defined('PHPFOX') or exit('NO DICE!');
 class Sitetour_Component_Block_AddTour extends Phpfox_Component {
 
     public function process() {
-        /*if (!Phpfox::getService('sitetour.check')->canAdd()){
-            return FALSE;
-        }*/
+        $sAddTourPosition  =  Phpfox::getParam('sitetour.add_new_tour_block_position');
+        if(!empty($sAddTourPosition))
+        {
+            $aAddTourPosition =  json_decode($sAddTourPosition,true);
+            if($aAddTourPosition)
+            {
+                $this->template()->assign(array(
+                    'aAddTourPosition' => $aAddTourPosition
+                ));
+            }
+        }
+        $sPlayTourPosition  =  Phpfox::getParam('sitetour.play_tour_button_play_position');
+        if(!empty($sPlayTourPosition))
+        {
+            $aPlayTourPosition =  json_decode($sPlayTourPosition,true);
+            if($aPlayTourPosition)
+            {
+                $this->template()->assign(array(
+                    'aPlayTourPosition' => $aPlayTourPosition
+                ));
+            }
+        }
         $this->template()->assign(array(
             'bCanAdd' => Phpfox::getService('sitetour.check')->canAdd()
         ));
@@ -44,19 +63,20 @@ class Sitetour_Component_Block_AddTour extends Phpfox_Component {
                     'element' => $aLastStep['element'],
                     'placement' => 'auto',
                     'animate' => true,
-                    'duration' => false
+                    'duration' => false,
+                    'confirm_step' => true
                 );
                 $aSteps[] = $aConfirmStep;
             }
             $this->template()->assign(array(
                 'aTour' => $aTour,
                 'aSteps' => $aSteps,
-                'bBackDrop' => Phpfox::getParam('sitetour.show_backdrop'),
-                'bAutoTransitionStep' => (Phpfox::getParam('sitetour.auto_transition_step') ? Phpfox::getParam('sitetour.time_duration_step') : false),
-                'bAutoPlayTour' => Phpfox::getParam('sitetour.auto_play_tour'),
-                'bShowStep' => Phpfox::getParam('sitetour.show_step_number_when_play'),
             ));
         }
+        $this->template()->assign(array(
+            'bBackDrop' => Phpfox::getParam('sitetour.show_backdrop'),
+            'bShowStep' => Phpfox::getParam('sitetour.show_step_number_when_play'),
+        ));
     }
 
 }

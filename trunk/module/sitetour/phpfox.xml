@@ -9,12 +9,12 @@
 		<phrase_var_name>module_sitetour</phrase_var_name>
 	</data>
 	<settings>
-		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_play_tour" phrase_var_name="setting_auto_play_tour" ordering="1" version_id="3.7.5">1</setting>
-		<setting group="" module_id="sitetour" is_hidden="0" type="integer" var_name="time_duration_step" phrase_var_name="setting_time_duration_step" ordering="1" version_id="3.7.5">2000</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_backdrop" phrase_var_name="setting_show_backdrop" ordering="1" version_id="3.7.5">0</setting>
-		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="auto_transition_step" phrase_var_name="setting_auto_transition_step" ordering="1" version_id="3.7.5">0</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_dont_show_again" phrase_var_name="setting_show_step_dont_show_again" ordering="1" version_id="3.7.5">1</setting>
 		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="enable_add_site_tour" phrase_var_name="setting_enable_add_site_tour" ordering="1" version_id="3.7.5">1</setting>
-		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_dont_show_again" phrase_var_name="setting_show_step_dont_show_again" ordering="1" version_id="3.7.5">0</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="boolean" var_name="show_step_number_when_play" phrase_var_name="setting_show_step_number_when_play" ordering="1" version_id="3.7.5">1</setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="string" var_name="add_new_tour_block_position" phrase_var_name="setting_add_new_tour_block_position" ordering="1" version_id="3.7.5"><![CDATA[{"top":431,"left":1244}]]></setting>
+		<setting group="" module_id="sitetour" is_hidden="0" type="string" var_name="play_tour_button_play_position" phrase_var_name="setting_play_tour_button_play_position" ordering="1" version_id="3.7.5"><![CDATA[{"top":14,"left":45}]]></setting>
 	</settings>
 	<blocks>
 		<block type_id="0" m_connection="" module_id="sitetour" component="addtour" location="4" is_active="1" ordering="2" disallow_access="a:1:{i:0;s:1:&quot;3&quot;;}" can_move="0">
@@ -22,9 +22,15 @@
 			<source_code />
 			<source_parsed />
 		</block>
+		<block type_id="0" m_connection="" module_id="sitetour" component="selecttag" location="4" is_active="1" ordering="2" disallow_access="" can_move="0">
+			<title>Add tag</title>
+			<source_code />
+			<source_parsed />
+		</block>
 	</blocks>
 	<components>
 		<component module_id="sitetour" component="addtour" m_connection="" module="sitetour" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="sitetour" component="selecttag" m_connection="" module="sitetour" is_controller="0" is_block="1" is_active="1" />
 	</components>
 	<phrases>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="module_sitetour" added="1399047311">sitetour</phrase>
@@ -37,8 +43,6 @@
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="cancel_setup_step" added="1399481057">Cancel Setup Step</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="save_tour" added="1399481121">Save Tour</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="reset_tour" added="1399481167">Reset Tour</phrase>
-		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_enable_add_site_tour" added="1399644937"><![CDATA[<title>Enable add site tour</title><info>If you turn on this setting, you can add new sitetour, if you turn of, button add new site tour will disable.</info>]]></phrase>
-		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_white_ip" added="1399646199"><![CDATA[<title>White IP</title><info>If enable feature add tour, and use this IP, you can add new new tour in core.index-visitor without login. Think carefull before add, and delete after you added.</info>]]></phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="manate_tours" added="1399570242">Manage Tours</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="title" added="1399571455">Title</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="active" added="1399571492">Active</phrase>
@@ -58,7 +62,99 @@
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_step_succesfully" added="1399648519">Delete Step successfully.</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="delete_site_successfully" added="1399648565">Delete Sitetour Successfully.</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_show_step_dont_show_again" added="1399651135"><![CDATA[<title>Show step don&#039;t show again in last step.</title><info>If this setting is anable, end of tour will show step is don&#039;t show it again. If user check in checkbox. It doesn&#039;t show tour when visit link again.</info>]]></phrase>
-		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_manage_sitetour" added="1399653271">Manage Sitetour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_manage_sitetour" added="1399918811">Manage Sitetour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_setting" added="1399918811">Setting</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_enable_add_site_tour" added="1399644937"><![CDATA[<title>Enable add site tour</title><info>If you turn on this setting, you can add new sitetour, if you turn of, button add new site tour will disable.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_white_ip" added="1399646199"><![CDATA[<title>White IP</title><info>If enable feature add tour, and use this IP, you can add new new tour in core.index-visitor without login. Think carefull before add, and delete after you added.</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="save" added="1399805355">save</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="share" added="1399805355">share</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="click_here_to_share_something" added="1399805355">Click here to share something</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="all_feed" added="1399805355">all feed</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="all_feed_will_display_here" added="1399805355">All feed will display here.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="left_block" added="1399805355">left block</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="this_is_left_block" added="1399805355">this is left block</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="admin_menu_add_tour" added="1399997270">Add Tour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="add_new_tour_backend" added="1399997701">Add new tour backend</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="tour_name" added="1399998616">Tour name</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="visiable_with_user_group" added="1399998877">Visiable with user group</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="is_auto_run" added="1399999490">Is auto run</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="add" added="1399999820">Add</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="please_add_tour_name" added="1400000022">Please add tour name</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="please_choose_user_group" added="1400000083">Please choose user group</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="site_tour_link" added="1400001409">Site tour link</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="please_enter_url" added="1400001481">Please enter URL</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="rererssss" added="1400001940">rererssss</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="test" added="1400002290">test</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="please_add_new_step" added="1400002410">Please add new step</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdfdf" added="1400004607">fdfdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="test_backend" added="1400006559">test backend</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="test_1" added="1400006600">test</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="aaaaa" added="1400006600">aaaaa</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="test_2" added="1400006913">test</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="aaaaa_1" added="1400006913">aaaaa</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="niho_test" added="1400008969">NIHO test</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="change_step_info" added="1400265317">Please go to the link use Below Phrase Variable Name search and change value of it.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="abc" added="1400691846">abc</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="test_3" added="1400693344">Test</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dsfd" added="1400693344">dsfd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sfsdfsdfsdafsdf" added="1400693344">sfsdfsdfsdafsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfsdf_dsf" added="1400693344">sdfsdf dsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dsaf_dsaf_sdaf_sdf_sdf" added="1400693344">dsaf dsaf sdaf sdf sdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fsd_af" added="1400693344">fsd af</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdaf_sadfsdaf_sdaf_sdf_sd" added="1400693344">sdaf sadfsdaf sdaf sdf sd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsaf_sdafsdf" added="1400693344">fdsaf sdafsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dsafasd" added="1400693344">dsafasd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="xtssfasdfasfd" added="1400694088">xtssfasdfasfd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sfsdfsd" added="1400694088">sfsdfsd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fsdfsdf" added="1400694088">fsdfsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdaf" added="1400694088">sdaf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sadfsdafdsf" added="1400694088">sadfsdafdsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdas" added="1400694088">sdfdas</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsfsdfds" added="1400694088">fdsfsdfds</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdf" added="1400694088">sdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="adsfsdfdsfdsf" added="1400694088">adsfsdfdsfdsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfa" added="1400694088">sdfa</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfasdfdsfdsfsdfsd" added="1400694088">sdfasdfdsfdsfsdfsd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="register_user" added="1400694715">Register User</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="erert_er_try" added="1400694715">erert er try</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="rty_rty" added="1400694715">rty rty</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dfgsfd" added="1400694715">dfgsfd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="gsdfgdsfg_dfg" added="1400694715">gsdfgdsfg dfg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dfsgdfsgdfsgd" added="1400694715">dfsgdfsgdfsgd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dfgdsfg" added="1400694715">dfgdsfg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="g_fdsg_dfg_dfg" added="1400694715">g fdsg dfg dfg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dfgfsdgdsf" added="1400694715">dfgfsdgdsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="marketplace" added="1400695600">marketplace</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfds" added="1400695600">sdfds</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="afsdfsdafsdf" added="1400695600">afsdfsdafsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fsdfsdfsdf" added="1400695600">fsdfsdfsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdsfsd" added="1400695600">sdfdsfsd</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfsdaf" added="1400695600">sdfsdaf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdsfdsfsdf" added="1400695600">sdfdsfdsfsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="aaaaaaaaaaaaa" added="1400695626">aaaaaaaaaaaaa</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfds_1" added="1400695626">sdfds</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsafsdafdsf" added="1400695626">fdsafsdafdsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfds_2" added="1400695626">sdfds</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsfsdaf" added="1400695626">fdsfsdaf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="bbbbbbbbbbbbbb" added="1400695655">bbbbbbbbbbbbbb</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdf_1" added="1400695655">sdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdafdsafdsf" added="1400695655">sdafdsafdsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsafdsafsdf" added="1400695655">fdsafdsafsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sadfsafsad" added="1400695655">sadfsafsad</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdf_2" added="1400695655">sdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dsfsdafsdf" added="1400695655">dsfsdafsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="home_tour" added="1400779207">Home tour</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfasdf" added="1400779207">sdfasdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="adsfsdafdsafa_sdf_ds" added="1400779207">adsfsdafdsafa sdf ds</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfasdf_1" added="1400779207">sdfasdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdaf_sdafsdafdsfa_adsf" added="1400779207">sdaf sdafsdafdsfa adsf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="gsdfg_sdfg_dsg" added="1400779207">gsdfg sdfg dsg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="erg_gdf" added="1400779207">erg gdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dsfg_dsf_gdfsg_dfg_sdfg" added="1400779207">dsfg dsf gdfsg dfg sdfg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="dfsg_sdfg" added="1400779207">dfsg sdfg</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sadf" added="1400779207">sadf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdasf_dsafasdf_safsdf" added="1400779207">sdfdasf dsafasdf safsdf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_show_step_number_when_play" added="1400782082"><![CDATA[<title>Show Step Number When Tour play</title><info>If set this option is true, when tour play, it will show step number.</info>]]></phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="toi_la_trung_ngon" added="1399802958">toi la trung ngon</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="add_blog_tour" added="1399803274">Add blog tour</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="add_new_blog" added="1399803274">Add new blog</phrase>
@@ -67,7 +163,13 @@
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="after_add_your_blog_can_be_here" added="1399803274">After add, your blog can be here</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="all_blog" added="1399803274">all blog</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="click_here_to_view_all_blogs" added="1399803274">Click here to view All Blogs</phrase>
-		<phrase module_id="sitetour" version_id="3.7.5" var_name="change_step_info" added="1400860754">Change step link</phrase>
 		<phrase module_id="sitetour" version_id="3.7.5" var_name="notice_please_go_to_above_link_search_with_varname_and_change_phrase" added="1400861021">Notice: please go to above link, search with varname and change phrase.</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_add_new_tour_block_position" added="1400866755"><![CDATA[<title>Position  Add  Tour  Block</title><info>Position  Add  Tour  Block</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="setting_play_tour_button_play_position" added="1400869353"><![CDATA[<title>Play  Tour  Button  Position</title><info>Play  Tour  Button  Position</info>]]></phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="register_user_1" added="1400869705">register  user</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdsa" added="1400869705">sdfdsa</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fdsafdsafdsfdsaf" added="1400869705">fdsafdsafdsfdsaf</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="sdfdas_1" added="1400869705">sdfdas</phrase>
+		<phrase module_id="sitetour" version_id="3.7.5" var_name="fsdaf_sdaf_adsfdsaf" added="1400869705">fsdaf sdaf adsfdsaf</phrase>
 	</phrases>
 </module>

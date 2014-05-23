@@ -4,8 +4,10 @@ $Core.selectDomTag = function(){
     if( typeof $Core.myDomOutline === 'undefined'){
         $Core.myDomOutline = null;
     }
+    $Core.isSelecting = true;
     $Core.myDomOutline = DomOutline({ 
         onClick: function (element) {
+            $Core.isSelecting  =  false;
             var sSector = $(element).data('sector');
             var ele = $(sSector);
             var newEle = $('<div/>').addClass('active_element').attr('id','step_element_outline_' + $Core.numberStep);
@@ -71,6 +73,9 @@ $Core.startTour = function(isPreview){
 function showNumber(){
     $('.step_number').remove();
     $.each($Core.Steps,function(index){
+        if( typeof this.confirm_step !== 'undefined'){
+            return true;
+        }
         var stepNumber = $('<div/>').addClass('step_number');
         stepNumber.html('<span class="i_step">' + (index + 1) + '</span>');
         $('body').append(stepNumber);
@@ -85,8 +90,33 @@ function showNumber(){
 }
 
 $Core.siteTourMenu = function(){
-
-    $('.block_add_newtour').draggable({cancel : '.new_tour_menu'});
+    
+    if( typeof $Core.isSelecting === 'undefined'){
+        $Core.isSelecting = false;
+    }
+    if($Core.isSelecting){
+        $Core.isSelecting = false;
+        $Core.myDomOutline.stop();
+        $Core.selectDomTag();
+    }
+    
+    $(".block_add_newtour").draggable("destroy");
+    $('.block_add_newtour').draggable({
+        cancel : '.new_tour_menu',
+        stop: function( event, ui ) {
+            var sPosition = JSON.stringify(ui.offset);
+            $.ajaxCall('sitetour.updateAddTourPosition','position=' + sPosition);
+        }
+    });
+    
+    $(".block_begin_tour").draggable("destroy");
+    $('.block_begin_tour').draggable({
+        stop: function( event, ui ) {
+            var sPosition = JSON.stringify(ui.offset);
+            $.ajaxCall('sitetour.updatePlayTourPosition','position=' + sPosition);
+        }
+    });
+    
     $('.cancel_step_setup').die('click').live('click',function(){
         $('.active_element').hide();
         var sector = $(this).closest('.popover').attr('sector');
@@ -147,12 +177,16 @@ $Core.siteTourMenu = function(){
     });
 
     $('.bt_preview_tour').unbind('click').bind('click',function(){
+        $('.active_element').hide();
+        $Core.myDomOutline.stop();
+        $Core.isSelecting = false;
         $Core.startTour(true);
     });
 
     $('.bt_stop_setup_tour').unbind('click').bind('click',function(){
         $('.active_element').hide();
         $Core.myDomOutline.stop();
+        $Core.isSelecting = false;
         $Core.init();
     });
 
