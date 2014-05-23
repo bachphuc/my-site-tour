@@ -80,17 +80,19 @@ function showNumber(){
         stepNumber.html('<span class="i_step">' + (index + 1) + '</span>');
         $('body').append(stepNumber);
         var ele = $(this.element);
-        stepNumber.css({
-            'top' : ele.offset().top,
-            'left' : ele.offset().left,
-            'height' : ele.outerHeight() - 4,
-            'width' : ele.outerWidth() - 4
-        });
+        if(ele.length > 0){
+            stepNumber.css({
+                'top' : ele.offset().top,
+                'left' : ele.offset().left,
+                'height' : ele.outerHeight() - 4,
+                'width' : ele.outerWidth() - 4
+            });
+        }
     });
 }
 
 $Core.siteTourMenu = function(){
-    
+
     if( typeof $Core.isSelecting === 'undefined'){
         $Core.isSelecting = false;
     }
@@ -99,7 +101,7 @@ $Core.siteTourMenu = function(){
         $Core.myDomOutline.stop();
         $Core.selectDomTag();
     }
-    
+
     $(".block_add_newtour").draggable("destroy");
     $('.block_add_newtour').draggable({
         cancel : '.new_tour_menu',
@@ -108,7 +110,7 @@ $Core.siteTourMenu = function(){
             $.ajaxCall('sitetour.updateAddTourPosition','position=' + sPosition);
         }
     });
-    
+
     $(".block_begin_tour").draggable("destroy");
     $('.block_begin_tour').draggable({
         stop: function( event, ui ) {
@@ -116,7 +118,7 @@ $Core.siteTourMenu = function(){
             $.ajaxCall('sitetour.updatePlayTourPosition','position=' + sPosition);
         }
     });
-    
+
     $('.cancel_step_setup').die('click').live('click',function(){
         $('.active_element').hide();
         var sector = $(this).closest('.popover').attr('sector');
@@ -236,7 +238,7 @@ $Core.siteTourMenu = function(){
         $Core.init();
         $('.active_element').remove();
     });
-    
+
     // Select element
     $('.bt_select_tag').unbind('click').bind('click',function(){
         var myDomOutline = DomOutline({ 
@@ -251,7 +253,7 @@ $Core.siteTourMenu = function(){
         });
         myDomOutline.start();
     });
-    
+
     if($('.step_number').length > 0){
         showNumber();
     }
@@ -263,7 +265,7 @@ $Behavior.siteTour = function(){
     if( typeof $Core.TempSteps === 'undefined'){
         $Core.TempSteps = [];
     }
-    
+
     if( typeof $Core.numberStep === 'undefined'){
         $Core.numberStep = 1;
     }

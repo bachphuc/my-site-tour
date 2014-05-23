@@ -93,6 +93,10 @@
         
         public function updateAddTourPosition()
         {
+            if(!Phpfox::isAdmin())
+            {
+                return;
+            }
             $sPosition = $this->get('position');
             if($sPosition && !empty($sPosition))
             {
@@ -110,6 +114,10 @@
         
         public function updatePlayTourPosition()
         {
+            if(!Phpfox::isAdmin())
+            {
+                return;
+            }
             $sPosition = $this->get('position');
             if($sPosition && !empty($sPosition))
             {
