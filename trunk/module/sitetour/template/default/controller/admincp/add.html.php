@@ -22,6 +22,9 @@ defined('PHPFOX') or exit('NO DICE!');
         {$sLinkEdit}
     </a>
 </div>
+<div class="table">
+    {phrase var='sitetour.notice_please_go_to_above_link_search_with_varname_and_change_phrase'}
+</div>
 <form method="post" action="{url link='admincp.sitetour.add'}">
     <div><input type="hidden" name="tour" value="{$aForms.sitetour_id}" /></div>
     {if isset($aForms.step_id)}
