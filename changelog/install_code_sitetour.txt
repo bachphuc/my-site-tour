@@ -1,14 +1,15 @@
--- changelog phuc---
-CREATE TABLE IF NOT EXISTS `phpfox_sitetour` (
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('sitetour')."` (
   `sitetour_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_group_id` int(10) NOT NULL DEFAULT '0',
   `title` varchar(200) NOT NULL,
   `url` varchar(500) NOT NULL,
+  `is_autorun` tinyint(1) NOT NULL DEFAULT '0',
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`sitetour_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
-CREATE TABLE IF NOT EXISTS `phpfox_sitetour_step` (
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('sitetour_step')."` (
   `step_id` int(10) NOT NULL AUTO_INCREMENT,
   `sitetour_id` int(10) NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -16,17 +17,16 @@ CREATE TABLE IF NOT EXISTS `phpfox_sitetour_step` (
   `content` varchar(500) NOT NULL,
   `placement` varchar(50) DEFAULT 'auto',
   `animation` varchar(10) DEFAULT 'true',
+  `duration` varchar(10) NOT NULL DEFAULT '3000',
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `time_stamp` int(10) NOT NULL,
   `ordering` int(10) DEFAULT '0',
   PRIMARY KEY (`step_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
 
-CREATE TABLE IF NOT EXISTS `phpfox_sitetour_user_block` (
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('sitetour_user_block')."` (
   `user_id` int(10) NOT NULL,
   `sitetour_id` int(10) NOT NULL,
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`user_id`,`sitetour_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE  `phpfox_sitetour_step` CHANGE  `duration`  `duration` VARCHAR( 10 ) NOT NULL DEFAULT  '3000'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
