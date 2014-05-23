@@ -4,51 +4,13 @@
 		<is_core>0</is_core>
 		<title>sitetour</title>
 		<description>sitetour</description>
-		<version>1.6</version>
+		<version>3.0.1</version>
 		<latest_version></latest_version>
-		<last_check>1400696775</last_check>
+		<last_check>1400434781</last_check>
 		<is_active>1</is_active>
 		<url></url>
 		<url_version_check></url_version_check>
 	</data>
-	<installs>
-		<install>
-			<version>1.0</version>
-			<install_code><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `phpfox_sitetour` (
-  `sitetour_id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_group_id` int(10) NOT NULL DEFAULT '0',
-  `title` varchar(200) NOT NULL,
-  `url` varchar(500) NOT NULL,
-  `is_autorun` tinyint(1) NOT NULL DEFAULT '0',
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `time_stamp` int(10) NOT NULL,
-  PRIMARY KEY (`sitetour_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
-
-$this->database()->query("CREATE TABLE IF NOT EXISTS `phpfox_sitetour_step` (
-  `step_id` int(10) NOT NULL AUTO_INCREMENT,
-  `sitetour_id` int(10) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `element` varchar(300) NOT NULL,
-  `content` varchar(500) NOT NULL,
-  `placement` varchar(50) DEFAULT 'auto',
-  `animation` varchar(10) DEFAULT 'true',
-  `duration` varchar(10) NOT NULL DEFAULT '3000',
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `time_stamp` int(10) NOT NULL,
-  `ordering` int(10) DEFAULT '0',
-  PRIMARY KEY (`step_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
-
-$this->database()->query("CREATE TABLE IF NOT EXISTS `phpfox_sitetour_user_block` (
-  `user_id` int(10) NOT NULL,
-  `sitetour_id` int(10) NOT NULL,
-  `time_stamp` int(10) NOT NULL,
-  PRIMARY KEY (`user_id`,`sitetour_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;");]]></install_code>
-			<uninstall_code></uninstall_code>
-		</install>
-	</installs>
 	<modules>
 		<module_id>sitetour</module_id>
 	</modules>
