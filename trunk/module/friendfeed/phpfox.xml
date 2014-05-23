@@ -1,0 +1,25 @@
+<module>
+	<data>
+		<module_id>friendfeed</module_id>
+		<product_id>friendfeed</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu></menu>
+		<phrase_var_name>module_friendfeed</phrase_var_name>
+	</data>
+	<blocks>
+		<block type_id="0" m_connection="friendfeed.index" module_id="friendfeed" component="friendslider" location="7" is_active="1" ordering="1" disallow_access="" can_move="0">
+			<title>Friend  Slider</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="friendfeed" component="index" m_connection="friendfeed.index" module="friendfeed" is_controller="1" is_block="0" is_active="1" />
+		<component module_id="friendfeed" component="friendslider" m_connection="" module="friendfeed" is_controller="0" is_block="1" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="friendfeed" version_id="3.7.5" var_name="module_friendfeed" added="1400856471">Friend  Feed</phrase>
+	</phrases>
+</module>
