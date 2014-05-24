@@ -17,7 +17,13 @@
     {
         public function process()
         {
-            
+            $aFriends  =  Phpfox::getService('friend')->getFromCache();
+            $aAlphabets = array('A', 'B', 'C','D','E','F','G','H','I','J','K',
+            'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+            $this->template()->assign(array(
+                'aFriends'=> $aFriends,
+                'aAlphabets'=>$aAlphabets
+            ));       
         }
     }
 ?>
