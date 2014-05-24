@@ -5,7 +5,7 @@
 		<is_core>0</is_core>
 		<is_active>1</is_active>
 		<is_menu>0</is_menu>
-		<menu></menu>
+		<menu />
 		<phrase_var_name>module_friendfeed</phrase_var_name>
 	</data>
 	<blocks>
@@ -21,5 +21,6 @@
 	</components>
 	<phrases>
 		<phrase module_id="friendfeed" version_id="3.7.5" var_name="module_friendfeed" added="1400856471">Friend  Feed</phrase>
+		<phrase module_id="friendfeed" version_id="3.7.5" var_name="look_the_post" added="1400952106">Look the post of your friends</phrase>
 	</phrases>
 </module>
