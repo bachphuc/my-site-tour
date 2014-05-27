@@ -99,6 +99,8 @@
     color: #98A6AF;
     font-weight: 700;
     border-left: 1px solid #CED5D9;
+    width: 105px;
+    overflow: hidden;
 }
 #friend_slider{
     margin: 0 auto;
