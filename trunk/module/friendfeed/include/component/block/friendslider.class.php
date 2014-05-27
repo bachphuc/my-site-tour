@@ -21,6 +21,17 @@
             $aAlphabets = array('A', 'B', 'C','D','E','F','G','H','I','J','K',
                 'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 
+            $iFriendNumber = count($aFriends);
+            if( $iFriendNumber< 10){
+                for($i = 0; $i < 10 - $iFriendNumber; $i++){
+                     $array1 = array($iFriendNumber + $i => array(
+                        'full_name'=> 'you next friend',
+                        'user_profile'=> '',
+                        'user_image'=> Phpfox::getParam('core.path').'module/friendfeed/static/image/noavatar.jpg'
+                     ));
+                     $aFriends = array_merge($aFriends,$array1);
+                }
+            }
             $aSections =  array();
             for($i = 0; $i<count($aAlphabets);$i++){
                 $aSections[$aAlphabets[$i]]= -1;

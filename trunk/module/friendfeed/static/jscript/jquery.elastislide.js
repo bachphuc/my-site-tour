@@ -10,7 +10,7 @@
 */
 
 ;( function( $, window, undefined ) {
-    
+
     'use strict';
 
     /*
@@ -662,6 +662,7 @@
             }
 
         },
+
         _slideToItem : function( pos ) {
 
             // how much to slide?
@@ -743,6 +744,11 @@
         slideEnd : function() {
 
             this._slideTo( this.itemsCount - 1 );
+
+        },
+        // public method: slides to item
+        scrollToIndex : function(index) {     
+            this._slideToItem( index );
 
         },
         // public method: destroys the elastislide instance

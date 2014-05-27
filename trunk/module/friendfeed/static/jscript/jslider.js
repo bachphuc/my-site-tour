@@ -1,9 +1,10 @@
-
+var carousel;
 $Behavior.friendSlider = function(){
-    var carousel = $('#carousel').elastislide();  
+    carousel = $('#carousel').elastislide();  
 }
 function scrollToSection(index){
-    if(index!= 1){
-        
-    } 
+
+    if(carousel != null && index != -1){
+        carousel.scrollToIndex(index);  
+    }  
 }
