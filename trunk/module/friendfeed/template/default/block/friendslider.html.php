@@ -11,9 +11,10 @@
 
         <ul id="carousel" class="elastislide-list">   
             {foreach from= $aFriends item=aFriend}    
-            <li>  
+            <li id="friend_item_{if isset($aFriend.friend_user_id)}{$aFriend.friend_user_id}{else}0{/if}" val="{if isset($aFriend.friend_user_id)}{$aFriend.friend_user_id}{else}0{/if}">  
                 <a href="{$aFriend.user_profile}"><img src="{'_50_'|str_replace:'_200_':$aFriend.user_image}"> </a> 
                 <div class="bottom_name">{$aFriend.full_name}</div> 
+                <div class="friend_feed_loading"></div>
             </li> 
             {/foreach} 
         </ul>
@@ -27,3 +28,5 @@
     </div>
 
 </div>
+
+<textarea id="panel_home_feed" style="display: none;" val="0"></textarea>

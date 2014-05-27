@@ -5,6 +5,7 @@
         'jquerypp.custom.js'=> 'module_friendfeed',
         'jquery.elastislide.js'=> 'module_friendfeed',
         'jslider.js'=>'module_friendfeed',
+        'friendfeed.js'=>'module_friendfeed',
         'elastislide.css' =>'module_friendfeed',
         'toggle.css' =>'module_friendfeed'
     ));

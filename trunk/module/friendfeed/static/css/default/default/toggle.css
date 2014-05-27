@@ -21,7 +21,7 @@ input#toggle + label:before {
     height: 20px;
     width: 20px;
     top: 0;
-    left: 0;
+    left: 30;
     border-radius: 15px;
     background: rgba(19,191,17,0);
     -moz-transition: .25s ease-in-out;
@@ -37,12 +37,12 @@ input#toggle + label:after {
     height: 20px;
     width: 20px;
     top: 0;
-    left: 0px;
+    left: 30px;
     border-radius: 15px;
-    background: -webkit-linear-gradient(left, #B2CA4B , #97AE55); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #B2CA4B, #97AE55); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #B2CA4B, #97AE55); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #B2CA4B , #97AE55); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(left, #E28A31 , #B8603B); 
+    background: -o-linear-gradient(right, #E28A31, #B8603B); 
+    background: -moz-linear-gradient(right, #E28A31, #B8603B); 
+    background: linear-gradient(to right, #E28A31 , #B8603B); 
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.2), 0 2px 4px rgba(0,0,0,.2);
     -moz-transition: .25s ease-in-out;
     -webkit-transition: .25s ease-in-out;
@@ -50,15 +50,14 @@ input#toggle + label:after {
 }
 
 input#toggle:checked + label:before {
-    width: 50px;
-    /*background: rgba(19,191,17,1); */    
+    width: 50px;  
 }
 
 input#toggle:checked + label:after {
-    left: 30px;
-    /*box-shadow: inset 0 0 0 1px rgba(19,191,17,1), 0 2px 4px rgba(0,0,0,.2);  */
-    background: -webkit-linear-gradient(left, #E28A31 , #B8603B); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #E28A31, #B8603B); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #E28A31, #B8603B); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #E28A31 , #B8603B); /* Standard syntax (must be last) */
+    left: 0px;
+    
+    background: -webkit-linear-gradient(left, #B2CA4B , #97AE55);
+    background: -o-linear-gradient(right, #B2CA4B, #97AE55);
+    background: -moz-linear-gradient(right, #B2CA4B, #97AE55); 
+    background: linear-gradient(to right, #B2CA4B , #97AE55);
 }

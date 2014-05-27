@@ -14,6 +14,11 @@
 			<source_code />
 			<source_parsed />
 		</block>
+		<block type_id="0" m_connection="core.index-member" module_id="friendfeed" component="friendslider" location="7" is_active="1" ordering="13" disallow_access="" can_move="0">
+			<title>Friend Feed</title>
+			<source_code />
+			<source_parsed />
+		</block>
 	</blocks>
 	<components>
 		<component module_id="friendfeed" component="index" m_connection="friendfeed.index" module="friendfeed" is_controller="1" is_block="0" is_active="1" />
