@@ -111,12 +111,12 @@
 
 /*alphabet bar*/
 #section_alphabet{
-  margin-left: 15px;
+  margin-left: 10px;
 }
 #section_alphabet ul li{
     display: inline-block;
     font-size: 18px;
-    width: 3.542%;
+    width: 3.5%;
 }
 #section_alphabet ul li a{ 
     color: #B8603B;
