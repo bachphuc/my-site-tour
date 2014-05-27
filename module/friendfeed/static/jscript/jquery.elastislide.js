@@ -756,8 +756,26 @@
 
             this._destroy( callback );
 
-        }
+        },
 
+        // refresh lai event
+        refresh : function(){
+            var self = this;
+            
+            $('nav').on('mousedown','.elastislide-prev',function(event){
+                self._slide( 'prev' );
+                return false;
+            });
+            
+            $('nav').on('mousedown','.elastislide-next',function(event){
+                self._slide( 'next' );
+                return false;
+            });
+            
+            this.$el.on( this.transEndEventName, function() {
+                self._onEndTransition();
+            } );
+        }
     };
 
     var logError = function( message ) {

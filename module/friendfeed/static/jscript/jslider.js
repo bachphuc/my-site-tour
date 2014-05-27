@@ -1,6 +1,12 @@
-var carousel;
+
 $Behavior.friendSlider = function(){
-    carousel = $('#carousel').elastislide();  
+    if(!$('#carousel').data('init')){
+        carousel = $('#carousel').elastislide();
+        $('#carousel').data('init',true);
+    }
+    else{
+        carousel.refresh();
+    }
 }
 function scrollToSection(index){
 

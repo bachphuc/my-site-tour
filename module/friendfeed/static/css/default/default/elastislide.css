@@ -71,6 +71,8 @@
 .elastislide-horizontal ul li {
     height: 100%;
     display: inline-block;
+    /** phuclb@ceofox.com */
+    position:relative;
 }
 
 .elastislide-vertical ul li {
@@ -166,4 +168,20 @@
     bottom: 10px;
     top: auto;
     background-position: -17px -18px;
+}
+
+/** phuclb@ceofox.com */
+.friend_feed_loading{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:url(../../../image/load.gif);
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+    top:0px;
+    display: none;
+}
+.active_friend_feed{
+    color:#97AE55;
 }
