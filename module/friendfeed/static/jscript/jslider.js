@@ -1,4 +1,7 @@
 
 $Behavior.friendSlider = function(){
-    $( '#carousel' ).elastislide();
+    var carousel = $('#carousel').elastislide();  
+}
+function scrollToSection(index){
+     
 }

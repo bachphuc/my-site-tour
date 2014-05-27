@@ -19,10 +19,22 @@
         {
             $aFriends  =  Phpfox::getService('friendfeed')->getFriend();
             $aAlphabets = array('A', 'B', 'C','D','E','F','G','H','I','J','K',
-            'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+                'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+
+            $aSections =  array();
+            for($i = 0; $i<count($aAlphabets);$i++){
+                $aSections[$aAlphabets[$i]]= -1;
+                for($j= 0; $j<count($aFriends);$j++){
+                    $sName= strtoupper($aFriends[$j]['full_name'][0]);
+                    if($aAlphabets[$i]== $sName) {
+                        $aSections[$sName]= $j;
+                        break;
+                    }
+                }
+            }
             $this->template()->assign(array(
                 'aFriends'=> $aFriends,
-                'aAlphabets'=>$aAlphabets
+                'aSections'=>$aSections
             ));       
         }
     }

@@ -10,7 +10,7 @@
 */
 
 ;( function( $, window, undefined ) {
-     //alert("jquery.elastislide.js");
+    
     'use strict';
 
     /*

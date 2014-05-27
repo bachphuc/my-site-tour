@@ -1,7 +1,6 @@
 <?php
     defined('PHPFOX') or exit('NO DICE!');
 ?>
-
 <div id="friend_slider">
     <h2 style="color: #B8603B; font-size: 20px; padding: 10px 0px;float: left;">{phrase var='friendfeed.look_the_post'}</h2> 
     <input type="checkbox" name="toggle" id="toggle">
@@ -20,8 +19,8 @@
         </ul>
         <div id="section_alphabet">
             <ul>
-                {foreach from=$aAlphabets item=aAlphabet}
-                <li><a>{$aAlphabet}</a></li>
+                {foreach from=$aSections key=iKey item=aSection}
+                <li><a onclick="scrollToSection({$aSection})">{$iKey)}</a></li>
                 {/foreach}
             </ul>
         </div>
