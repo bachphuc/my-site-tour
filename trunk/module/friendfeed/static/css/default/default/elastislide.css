@@ -42,7 +42,7 @@
 .elastislide-carousel {
     overflow: hidden;
     position: relative;
-    height: 140px;
+    height: 155px;
 }
 
 .elastislide-carousel ul {
@@ -91,16 +91,19 @@
 }
 .bottom_name{
     margin-top: 2px;
-    padding: 5px;
     background: #E4E8EB;
     font-size: 15px;
-    height: 50px;
+    height: 70px;
     text-align: center;
     color: #98A6AF;
-    font-weight: 700;
+    font-weight: 600;
     border-left: 1px solid #CED5D9;
     width: 105px;
     overflow: hidden;
+    padding-top: 5px;
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
 }
 #friend_slider{
     margin: 0 auto;
@@ -111,7 +114,7 @@
 
 /*alphabet bar*/
 #section_alphabet{
-  margin-left: 10px;
+    margin-left: 10px;
 }
 #section_alphabet ul li{
     display: inline-block;
