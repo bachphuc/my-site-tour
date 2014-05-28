@@ -185,3 +185,14 @@
 .active_friend_feed{
     color:#97AE55;
 }
+.active_alpha{
+    color:#97AE55 !important;
+}
+
+#carousel{
+    transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
+    -moz-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
+    -webkit-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
+    -o-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
+    -ms-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
+}

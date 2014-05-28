@@ -22,7 +22,7 @@
                 'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 
             $iFriendNumber = count($aFriends);
-            for($i = 0; $i<= $iFriendNumber;$i++){
+            for($i = 0; $i< $iFriendNumber;$i++){
                 $sName = $aFriends[$i]['full_name'];
                 $iPos = 0;
                 $iPos = strpos($sName, ' ');
