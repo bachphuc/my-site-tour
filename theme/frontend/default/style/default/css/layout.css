@@ -1251,7 +1251,8 @@ input.button_register,
 
 .content3
 {
-	width:520px;
+	/*width:520px;*/
+	width:552px;
 }
 
 .content4
@@ -1267,7 +1268,8 @@ input.button_register,
 
 #right
 {
-	width:250px;
+	/*width:250px;*/
+	width:228px;
 	float:right;
 	overflow:hidden;	
 }
