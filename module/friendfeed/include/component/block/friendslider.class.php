@@ -22,14 +22,22 @@
                 'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 
             $iFriendNumber = count($aFriends);
+            for($i = 0; $i<= $iFriendNumber;$i++){
+                $sName = $aFriends[$i]['full_name'];
+                $iPos = 0;
+                $iPos = strpos($sName, ' ');
+                $aFriends[$i]['first_name']=substr($sName,0,$iPos);
+                $aFriends[$i]['last_name'] =substr($sName,$iPos,strlen($sName)-$iPos); 
+
+            }
             if( $iFriendNumber< 10){
                 for($i = 0; $i < 10 - $iFriendNumber; $i++){
-                     $array1 = array($iFriendNumber + $i => array(
+                    $array1 = array($iFriendNumber + $i => array(
                         'full_name'=> 'you next friend',
                         'user_profile'=> '',
                         'user_image'=> Phpfox::getParam('core.path').'module/friendfeed/static/image/noavatar.jpg'
-                     ));
-                     $aFriends = array_merge($aFriends,$array1);
+                    ));
+                    $aFriends = array_merge($aFriends,$array1);
                 }
             }
             $aSections =  array();
@@ -42,7 +50,10 @@
                         break;
                     }
                 }
-            }
+                if($aSections[$aAlphabets[$i]]== -1 && $i!= 0){
+                    $aSections[$aAlphabets[$i]] = $aSections[$aAlphabets[$i -1]];   
+                }
+            }   
             $this->template()->assign(array(
                 'aFriends'=> $aFriends,
                 'aSections'=>$aSections

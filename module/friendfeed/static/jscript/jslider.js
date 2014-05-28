@@ -14,3 +14,4 @@ function scrollToSection(index){
         carousel.scrollToIndex(index);  
     }  
 }
+

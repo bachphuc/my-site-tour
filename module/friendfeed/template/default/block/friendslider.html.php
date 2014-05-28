@@ -13,7 +13,20 @@
             {foreach from= $aFriends item=aFriend}    
             <li id="friend_item_{if isset($aFriend.friend_user_id)}{$aFriend.friend_user_id}{else}0{/if}" val="{if isset($aFriend.friend_user_id)}{$aFriend.friend_user_id}{else}0{/if}">  
                 <a href="{$aFriend.user_profile}"><img src="{'_50_'|str_replace:'_200_':$aFriend.user_image}"> </a> 
-                <div class="bottom_name">{$aFriend.full_name}</div> 
+                {if $aFriend.first_name != ''}
+                    {if strlen($aFriend.last_name) > 10}
+                        <div class="bottom_name">{$aFriend.first_name}<br>{$aFriend.last_name|shorten:10'...'}</div> 
+                        {else}
+                        <div class="bottom_name">{$aFriend.first_name}<br>{$aFriend.last_name}</div> 
+                    {/if}
+                    {else}
+                        {if strlen($aFriend.last_name) > 10}
+                        <div class="bottom_name">{$aFriend.last_name|shorten:10'...'}</div> 
+                        {else}
+                        <div class="bottom_name">{$aFriend.last_name'}</div> 
+                        {/if}
+                {/if}
+
                 <div class="friend_feed_loading"></div>
             </li> 
             {/foreach} 
