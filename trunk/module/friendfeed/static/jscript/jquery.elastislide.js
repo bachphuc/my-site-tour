@@ -191,9 +191,10 @@
         // orientation 'horizontal' || 'vertical'
         orientation : 'horizontal',
         // sliding speed
-        speed : 500,
+        speed : 1000,
         // sliding easing
-        easing : 'ease-in-out',
+        //easing : 'ease-in-out',
+        easing : 'cubic-bezier(0,0.1,0.5,1)',
         // the minimum number of items to show. 
         // when we resize the window, this will make sure minItems are always shown 
         // (unless of course minItems is higher than the total number of elements)
@@ -276,9 +277,9 @@
                     // slide to current's position
                     self._removeTransition();
                     self._slideToItem( self.current );
-
+                    
                     self.$el.on( self.transEndEventName, function() {
-
+                        
                         self.$el.off( self.transEndEventName );
                         self._setWrapperSize();
                         // add transition for the <ul>
@@ -349,9 +350,18 @@
         _addTransition : function() {
 
             if( this.support ) {
+                var str = 'all ' + this.options.speed + 'ms ' + this.options.easing;
 
-                this.$el.css( 'transition', 'all ' + this.options.speed + 'ms ' + this.options.easing );
-
+                /* Not working
+                this.$el.css({
+                    WebkitTransition : str,
+                    MozTransition : str,
+                    MsTransition : str,
+                    OTransition : str,
+                    transition : str,
+                });
+                */
+            
             }
             this.hasTransition = true;
 
@@ -360,7 +370,7 @@
 
             if( this.support ) {
 
-                this.$el.css( 'transition', 'all 0s' );
+                //this.$el.css( 'transition', 'all 0s' );
 
             }
             this.hasTransition = false;
@@ -531,7 +541,7 @@
         _slide : function( dir, tvalue ) {
 
             if( this.isSliding ) {
-
+                
                 return false;
 
             }
@@ -617,9 +627,18 @@
             }
 
             if( this.support ) {
-
-                this.options.orientation === 'horizontal' ? this.$el.css( 'transform', 'translateX(' + tvalue + 'px)' ) : this.$el.css( 'transform', 'translateY(' + tvalue + 'px)' );
-
+                this.options.orientation === 'horizontal' ? this.$el.css({
+                    'transform' : 'translateX(' + tvalue + 'px)',
+                    '-moz-transform' : 'translateX(' + tvalue + 'px)',
+                    '-webkit-transform' : 'translateX(' + tvalue + 'px)',
+                    '-o-transform' : 'translateX(' + tvalue + 'px)'
+                })    
+                : this.$el.css({
+                    'transform' : 'translateY(' + tvalue + 'px)',
+                    '-moz-transform' : 'translateY(' + tvalue + 'px)',
+                    '-webkit-transform' : 'translateY(' + tvalue + 'px)',
+                    '-o-transform' : 'translateY(' + tvalue + 'px)'
+                });
             }
             else {
 

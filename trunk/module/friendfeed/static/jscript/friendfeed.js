@@ -7,6 +7,13 @@ $Behavior.loadFriendFeed = function(){
         e.preventDefault();
         e.stopPropagation();
     });
+    $('#toggle').unbind('click').bind('click',function(e){
+        if($(this).prop('checked')){
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        }
+    });
     $('#toggle').unbind('change').bind('change',function(){
         if(!$(this).prop('checked')){
             scrollToSection(0);
@@ -14,6 +21,11 @@ $Behavior.loadFriendFeed = function(){
             $(".active_friend_feed").removeClass("active_friend_feed");    
             $Core.restoreHomeFeed();
         }
+    });
+    
+    $('#section_alphabet a').unbind('click').bind('click',function(){
+        $('#section_alphabet a').removeClass('active_alpha');
+        $(this).addClass('active_alpha'); 
     });
 }
 
