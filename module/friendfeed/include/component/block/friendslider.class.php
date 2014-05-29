@@ -43,7 +43,7 @@
             if( $iFriendNumber< 5){
                 for($i = 0; $i < 5 - $iFriendNumber; $i++){
                     $array1 = array($iFriendNumber + $i => array(
-                        'full_name'=> 'you next friend',
+                        'full_name'=> Phpfox::getPhrase('friendfeed.you_next_friend'),
                         'user_profile'=> '',
                         'user_image'=> Phpfox::getParam('core.path').'module/friendfeed/static/image/noavatar.jpg'
                     ));

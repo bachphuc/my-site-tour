@@ -236,6 +236,13 @@
             // control if it's sliding
             this.isSliding = false;
 
+            // is dragging
+            this.isDragging = false;
+            this.firstPos = {x : 0, y : 0};
+            this.firstTran = 0;
+            this.currentTran = 0;
+            this.isDrag = false;
+            
             this.$items = this.$el.children( 'li' );
             // total number of items
             this.itemsCount = this.$items.length;
@@ -351,16 +358,6 @@
 
             if( this.support ) {
                 var str = 'all ' + this.options.speed + 'ms ' + this.options.easing;
-
-                /* Not working
-                this.$el.css({
-                    WebkitTransition : str,
-                    MozTransition : str,
-                    MsTransition : str,
-                    OTransition : str,
-                    transition : str,
-                });
-                */
             
             }
             this.hasTransition = true;
@@ -398,8 +395,118 @@
                 return false;
 
             } );
-
+            
+            this.$el.unbind('mousedown').bind('mousedown',function(e){
+                self._mouseDown(e);
+            });
+            
+            $(document).bind('mouseup',function(e){
+                self._mouseUp(e);
+            });
+            
+            this.$el.unbind('mousemove').bind('mousemove',function(e){
+                self._mouseMove(e);
+            });
+            
+            $('#carousel a').unbind('click').bind('click',function(e){
+                self._preventClickWhenDrag(e);
+            });
         },
+        
+        _preventClickWhenDrag : function(e){
+            if(this.firstTran != this.translation){
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            }
+        },
+        
+        _mouseDown : function(e){
+            this._removeSliderEffect();
+            this.isDragging = true;
+            this.firstPos = {
+                x : e.pageX,
+                y : e.pageY
+            }
+            this.firstTran = this.translation || 0;
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        },
+        
+        _mouseUp : function(e){
+            if(this.isDragging){
+                this.isDragging = false;
+                this._addSliderEffect();
+                var itemWidth = this.$el.find('li:first-child').width();
+                var index = Math.round(this.translation / itemWidth);
+                var tran = index * itemWidth;
+                this._setPosition(tran);
+            }
+        },
+        
+        _mouseMove : function(e){
+            if(this.isDragging){
+                var distance = {
+                    x : e.pageX - this.firstPos.x,
+                    y : e.pageY - this.firstPos.y
+                }
+                
+                var tvalue = 0;
+                this.options.orientation === 'horizontal' ? 
+                    tvalue = this.firstTran + distance.x
+                : 
+                    tvalue = this.firstTran + distance.y
+                ;
+                this._setPosition(tvalue);
+            }
+        },
+        
+        _removeSliderEffect : function(){
+            this.$el.addClass('disable_slide_effect');
+        },
+        
+        _addSliderEffect : function(){
+            this.$el.removeClass('disable_slide_effect');
+        },
+        
+        _setPosition : function(tvalue){
+            if(tvalue > 0){
+                return;
+            }
+            if(tvalue <  this.$el.width() - this.$el.children('li').length * this.$el.find('li:first-child').width()){
+                return;
+            }
+            this.currentTran = tvalue;
+            this.translation = this.currentTran;
+            if( this.support ) {
+                this.options.orientation === 'horizontal' ? this.$el.css({
+                    'transform' : 'translateX(' + tvalue + 'px)',
+                    '-moz-transform' : 'translateX(' + tvalue + 'px)',
+                    '-webkit-transform' : 'translateX(' + tvalue + 'px)',
+                    '-o-transform' : 'translateX(' + tvalue + 'px)'
+                })    
+                : this.$el.css({
+                    'transform' : 'translateY(' + tvalue + 'px)',
+                    '-moz-transform' : 'translateY(' + tvalue + 'px)',
+                    '-webkit-transform' : 'translateY(' + tvalue + 'px)',
+                    '-o-transform' : 'translateY(' + tvalue + 'px)'
+                });
+            }
+            else {
+
+                $.fn.applyStyle = this.hasTransition ? $.fn.animate : $.fn.css;
+                var styleCSS = this.options.orientation === 'horizontal' ? { left : tvalue } : { top : tvalue };
+
+                this.$el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : this.options.speed, complete : function() {
+
+                    self._onEndTransition();
+
+                } } ) );
+
+            }
+        },
+        
         _setItemsSize : function() {
 
             // width for the items (%)
@@ -794,6 +901,22 @@
             this.$el.on( this.transEndEventName, function() {
                 self._onEndTransition();
             } );
+            
+            this.$el.unbind('mousedown').bind('mousedown',function(e){
+                self._mouseDown(e);
+            });
+            
+            $(document).bind('mouseup',function(e){
+                self._mouseUp(e);
+            });
+            
+            this.$el.unbind('mousemove').bind('mousemove',function(e){
+                self._mouseMove(e);
+            });      
+            
+            $('#carousel a').unbind('click').bind('click',function(e){
+                self._preventClickWhenDrag(e);
+            });      
         }
     };
 

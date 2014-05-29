@@ -26,6 +26,7 @@
             $this->call('$(".active_friend_feed").removeClass("active_friend_feed");');
             $this->call('$("#friend_item_'.$this->get('profile_user_id').' .bottom_name").addClass("active_friend_feed");');
             $this->call('$("#toggle").attr("checked",true);');
+            $this->call('$Core.isLoadingFriendFeed = false;');
         }
     }
 ?>

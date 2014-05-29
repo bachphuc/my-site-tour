@@ -1,11 +1,22 @@
 
 
 $Behavior.loadFriendFeed = function(){
+    if(typeof $Core.isLoadingFriendFeed === 'undefined'){
+        $Core.isLoadingFriendFeed = false;
+    };
+
     $('#carousel li').unbind('click').bind('click',function(e){
-        $(this).find('.friend_feed_loading').fadeIn();
-        $.ajaxCall('friendfeed.viewMore','profile_user_id=' + $(this).attr('val') + '&page=0');
+        if(parseInt($(this).attr('val')) != 0){
+            if(!$Core.isLoadingFriendFeed){
+                $Core.isLoadingFriendFeed = true;
+                $(this).find('.friend_feed_loading').fadeIn();
+                $.ajaxCall('friendfeed.viewMore','profile_user_id=' + $(this).attr('val') + '&page=0');
+
+            }
+        }
         e.preventDefault();
         e.stopPropagation();
+        return false;
     });
     $('#toggle').unbind('click').bind('click',function(e){
         if($(this).prop('checked')){
@@ -18,11 +29,13 @@ $Behavior.loadFriendFeed = function(){
         if(!$(this).prop('checked')){
             scrollToSection(0);
             $('#toggle').attr('checked',false);
+            $Core.isLoadingFriendFeed = false;
             $(".active_friend_feed").removeClass("active_friend_feed");    
+            $('.active_alpha').removeClass('active_alpha');
             $Core.restoreHomeFeed();
         }
     });
-    
+
     $('#section_alphabet a').unbind('click').bind('click',function(){
         $('#section_alphabet a').removeClass('active_alpha');
         $(this).addClass('active_alpha'); 
