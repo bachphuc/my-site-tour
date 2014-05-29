@@ -27,5 +27,6 @@
 	<phrases>
 		<phrase module_id="friendfeed" version_id="3.7.5" var_name="module_friendfeed" added="1400856471">Friend  Feed</phrase>
 		<phrase module_id="friendfeed" version_id="3.7.5" var_name="look_the_post" added="1400952106">Look the post of your friends</phrase>
+		<phrase module_id="friendfeed" version_id="3.7.5" var_name="you_next_friend" added="1401379215">you next friend</phrase>
 	</phrases>
 </module>

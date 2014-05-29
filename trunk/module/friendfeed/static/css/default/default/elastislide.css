@@ -196,3 +196,18 @@
     -o-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
     -ms-transition :all 1000ms cubic-bezier(0, 0.1, 0.5, 1) 0s;
 }
+#main_slider{
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;  
+    -o-user-select: none;
+    user-select: none;     
+}
+
+.disable_slide_effect{
+    transition :all 0s !important;
+    -moz-transition :all 0s !important;
+    -webkit-transition :all 0s !important;
+    -o-transition :all 0s !important;
+    -ms-transition :all 0s !important;
+}
