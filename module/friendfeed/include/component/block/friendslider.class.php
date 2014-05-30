@@ -52,8 +52,11 @@
             }
             //d($aFriends);
             $aSections =  array();
-            for($i = 0; $i<count($aAlphabets);$i++){
-                $aSections[$aAlphabets[$i]]= 0;
+            for($i = 0; $i <26;$i++){
+                if($i==0)
+                    $aSections[$aAlphabets[$i]]= 0;
+                else $aSections[$aAlphabets[$i]]= -1;
+                
                 for($j= 0; $j<count($aFriends);$j++){
                     if(isset($aFriends[$j]['full_name'])){
                         $sName= strtoupper($aFriends[$j]['full_name'][0]);
@@ -65,10 +68,11 @@
                 }
 
             } 
+            //d($aSections);
             for($i = 1; $i<26; $i++){ 
-                if($aSections[$aAlphabets[$i]]== 0){
+                if($aSections[$aAlphabets[$i]]== -1){
                     for($j = $i+1;$j <26; $j++){
-                        if($aSections[$aAlphabets[$j]]!= 0){
+                        if($aSections[$aAlphabets[$j]]!= -1){
                             $aSections[$aAlphabets[$i]] = (int)$aSections[$aAlphabets[$j]] -1; 
                             break;
                         }else  $aSections[$aAlphabets[$i]] = (int)$aSections[$aAlphabets[$i-1]]; 
