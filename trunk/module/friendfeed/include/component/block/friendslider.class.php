@@ -50,6 +50,7 @@
                     $aFriends = array_merge($aFriends,$array1);
                 }
             }
+            //d($aFriends);
             $aSections =  array();
             for($i = 0; $i<count($aAlphabets);$i++){
                 $aSections[$aAlphabets[$i]]= 0;
@@ -77,6 +78,7 @@
                     $aSections[$aAlphabets[$i]] = (int)$aSections[$aAlphabets[$i-1]]; 
                 }
             }
+            //d($aSections);
             $this->template()->assign(array(
                 'aFriends'=> $aFriends,
                 'aSections'=>$aSections
