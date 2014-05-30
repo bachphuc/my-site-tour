@@ -477,8 +477,19 @@
             if(tvalue <  this.$el.width() - this.$el.children('li').length * this.$el.find('li:first-child').width()){
                 return;
             }
+            
+            this._toggleControls( 'next', true );
+            this._toggleControls( 'prev', true );
+            if(tvalue >= -20){
+                this._toggleControls( 'prev', false );
+            }
+            if(tvalue <=  this.$el.width() - this.$el.children('li').length * this.$el.find('li:first-child').width() + 20){
+                this._toggleControls( 'next', false );
+            }
+            
             this.currentTran = tvalue;
             this.translation = this.currentTran;
+            
             if( this.support ) {
                 this.options.orientation === 'horizontal' ? this.$el.css({
                     'transform' : 'translateX(' + tvalue + 'px)',
