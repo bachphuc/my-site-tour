@@ -43,7 +43,7 @@
             if( $iFriendNumber< 5){
                 for($i = 0; $i < 5 - $iFriendNumber; $i++){
                     $array1 = array($iFriendNumber + $i => array(
-                        'full_name'=> Phpfox::getPhrase('friendfeed.you_next_friend'),
+                        'shorten_name'=> Phpfox::getPhrase('friendfeed.you_next_friend'),
                         'user_profile'=> '',
                         'user_image'=> Phpfox::getParam('core.path').'module/friendfeed/static/image/noavatar.jpg'
                     ));
@@ -54,10 +54,12 @@
             for($i = 0; $i<count($aAlphabets);$i++){
                 $aSections[$aAlphabets[$i]]= 0;
                 for($j= 0; $j<count($aFriends);$j++){
-                    $sName= strtoupper($aFriends[$j]['full_name'][0]);
-                    if($aAlphabets[$i]== $sName) {
-                        $aSections[$sName]= $j;
-                        break;
+                    if(isset($aFriends[$j]['full_name'])){
+                        $sName= strtoupper($aFriends[$j]['full_name'][0]);
+                        if($aAlphabets[$i]== $sName) {
+                            $aSections[$sName]= $j;
+                            break;
+                        }
                     }
                 }
 
