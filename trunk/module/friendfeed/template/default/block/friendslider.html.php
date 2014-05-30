@@ -21,7 +21,7 @@
         <div id="section_alphabet">
             <ul>
                 {foreach from=$aSections key=iKey item=aSection}
-                <li><a onclick="scrollToSection({$aSection});">{$iKey}</a></li>
+                <li><a class="section_{$iKey|strtolower}" onclick="scrollToSection({$aSection})">{$iKey}</a></li>
                 {/foreach}
             </ul>
         </div>
