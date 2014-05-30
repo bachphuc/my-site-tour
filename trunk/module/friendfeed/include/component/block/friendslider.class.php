@@ -53,10 +53,7 @@
             //d($aFriends);
             $aSections =  array();
             for($i = 0; $i <26;$i++){
-                if($i==0)
-                    $aSections[$aAlphabets[$i]]= 0;
-                else $aSections[$aAlphabets[$i]]= -1;
-                
+                $aSections[$aAlphabets[$i]]= -1;
                 for($j= 0; $j<count($aFriends);$j++){
                     if(isset($aFriends[$j]['full_name'])){
                         $sName= strtoupper($aFriends[$j]['full_name'][0]);
