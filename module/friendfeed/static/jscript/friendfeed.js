@@ -9,6 +9,10 @@ $Behavior.loadFriendFeed = function(){
         if(parseInt($(this).attr('val')) != 0){
             if(!$Core.isLoadingFriendFeed){
                 $Core.isLoadingFriendFeed = true;
+                var sFirst = $(this).text().trim().toLowerCase().substring(0,1);
+                $('#section_alphabet a').removeClass('active_alpha');
+                var sSector = '.section_' + sFirst;
+                $(sSector).addClass('active_alpha');
                 $(this).find('.friend_feed_loading').fadeIn();
                 $.ajaxCall('friendfeed.viewMore','profile_user_id=' + $(this).attr('val') + '&page=0');
 
