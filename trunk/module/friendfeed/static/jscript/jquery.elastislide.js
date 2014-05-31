@@ -383,14 +383,14 @@
 
 
             this.$navPrev = this.$navigation.find( 'span.elastislide-prev' ).on( 'mousedown.elastislide', function( event ) {
-
+           
                 self._slide( 'prev' );
                 return false;
 
             } );
 
             this.$navNext = this.$navigation.find( 'span.elastislide-next' ).on( 'mousedown.elastislide', function( event ) {
-
+              
                 self._slide( 'next' );
                 return false;
 
@@ -568,21 +568,21 @@
             } );
 
             this.$el.on( this.transEndEventName, function() {
-
+      
                 self._onEndTransition();
 
             } );
-
+            this.$el.off('swipeleft').off('swiperight');
             if( this.options.orientation === 'horizontal' ) {
 
                 this.$el.on( {
                     swipeleft : function() {
-
+                 
                         self._slide( 'next' );
 
                     },
                     swiperight : function() {
-
+     
                         self._slide( 'prev' );
 
                     }
@@ -593,12 +593,12 @@
 
                 this.$el.on( {
                     swipeup : function() {
-
+      
                         self._slide( 'next' );
 
                     },
                     swipedown : function() {
-
+             
                         self._slide( 'prev' );
 
                     }
@@ -927,7 +927,9 @@
             
             $('#carousel a').unbind('click').bind('click',function(e){
                 self._preventClickWhenDrag(e);
-            });      
+            });    
+            
+            self._initEvents();  
         }
     };
 
