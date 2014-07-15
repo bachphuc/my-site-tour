@@ -1,0 +1,251 @@
+.sendbox{
+    border-top: 8px solid #57BADF;
+    border: 1px solid #DFDFDF;
+    margin: 0 auto;
+    background: -webkit-linear-gradient(bottom, #ECECEC , #FFF) !important; 
+    background: -o-linear-gradient(bottom, #ECECEC, #FFF) !important; 
+    background: -moz-linear-gradient(bottom, #ECECEC, #FFF) !important; 
+    background: linear-gradient(to bottom, #ECECEC , #FFF) !important; 
+}
+
+.mtextbox{
+    padding: 5px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    background: white;
+    height: 45px;
+    
+}
+.mtextarea{
+    background: white;
+    height: 100px !important;
+    width: 100% !important;
+    padding: 15px 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.mbutton{
+    padding: 7px;
+    color: white;
+    background: -webkit-linear-gradient(left, #E28A31 , #B8603B) !important; 
+    background: -o-linear-gradient(right, #E28A31, #B8603B) !important; 
+    background: -moz-linear-gradient(right, #E28A31, #B8603B) !important; 
+    background: linear-gradient(to right, #E28A31 , #B8603B) !important; 
+}
+
+#mboder{
+    height: 5px;
+    background: -webkit-linear-gradient(left, #E28A31 , #B8603B) !important; 
+    background: -o-linear-gradient(right, #E28A31, #B8603B) !important; 
+    background: -moz-linear-gradient(right, #E28A31, #B8603B) !important; 
+    background: linear-gradient(to right, #E28A31 , #B8603B) !important; 
+}
+.img_button{
+    border: 1px solid #D7D7D7;
+    color: #333333;
+    font-size: 13px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+/** Format search friend **/
+.result_tag_friend_panel{
+    position:absolute;
+    background-color:#FFF;
+    border:1px solid #CCC;
+    display: none;
+    z-index:99;
+}
+.friend_tag_item{
+    clear: both;
+    height: 50px;
+}
+.friend_tag_item:hover{
+    background-color:#666;
+}
+
+.friend_tag_item:hover p{
+    color:#FFF !important;
+}
+
+.friend_tag_item_avatar{
+    width:60px;
+    float: left;
+    text-align: center;
+}
+.friend_tag_item_avatar img{
+    width:32px;
+    height:32px;
+    margin-top:10px;
+}
+.friend_tag_item_info{
+    margin-left: 60px;
+}
+.friend_tag_item_info p{
+    font-size:12px;
+    color:#333;
+    margin:0px;
+    padding-top:10px;
+    font-weight: bold;
+}
+
+.tag_panel{
+    padding:5px;
+}
+.tag_panel_clear{
+    clear: both;
+}
+
+.receive_friend_item {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    float: left;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+.remove_receive_friend_item{
+    background-color: #CCCCCC;
+    border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 0 4px;
+}
+
+.receive_friend_item img{
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.email_panel{
+    position:relative;
+}
+
+.email_panel input{
+    background-color: #FFFFFF;
+    background-image: none;
+    height: 30px;
+    padding-left: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    height: 45px;
+}
+.find_more{
+    background-color:#999 !important;
+}
+
+.find_more .friend_tag_item_info{
+    text-align: center;
+    margin-left: 0px !important;
+}
+
+.find_more .friend_tag_item_info p{
+    color:#FFF !important;
+    height: 50px;
+    line-height: 50px;
+    padding:0px;
+}
+
+.invalid_email{
+    background-color: #FF0000;
+    border-radius: 4px;
+    color: #FFFFFF;
+    opacity: 0.6;
+    padding: 3px 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.hide_default_button_submit{
+    display: none !important;
+}
+
+/** Format loading */
+.anonymous_loading{
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    display: none;
+}
+
+/** ducloi.bm@gmail.com */
+#egift_selected{
+    padding: 5px;
+    clear: both;
+    position:relative;
+    border-bottom: 1px solid #ccc;
+}
+.gift_item{
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ccc;
+    -moz-box-shadow: 0 0 4px #ccc;
+    -webkit-box-shadow: 0 0 4px #ccc;
+    -o-box-shadow: 0 0 4px #ccc;
+    display: inline-block;
+    padding: 5px;
+    position: relative;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    line-height: 0px;
+}
+.gift_item:hover{
+    background-color: #5F9005;
+}
+.gift_item:hover .remove_button{
+    display: block;
+}
+.remove_button{
+    background-color: #666;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 13px;
+    margin-left: 10px;
+    padding: 1px 4px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    display: none;
+}
+
+.panel_anonymous_option img{
+    border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -o-border-radius: 40px;
+}
+
+.active_option{
+    box-shadow: 0 0 6px #333;
+    -o-box-shadow: 0 0 6px #333;
+    -moz-box-shadow: 0 0 6px #333;
+    -webkit-box-shadow: 0 0 6px #333;
+    border:none !important;
+}
+.row_box{
+    position:relative;
+}
