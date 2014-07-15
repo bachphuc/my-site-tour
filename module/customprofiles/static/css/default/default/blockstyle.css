@@ -1,0 +1,93 @@
+#button_clock{
+    margin-top: 10px;
+}
+.dv_time_item{
+    cursor: pointer;
+    width: 100%;
+}
+.dv_time_item:hover{
+    background-color: #CCFFCC;
+}
+
+.value_item{
+    line-height: 38px;
+    margin-left: 10px;
+}
+#show_calender{
+    line-height: 38px;
+    margin-left: 10px;
+}
+#label_time_future{
+    line-height: 38px;
+    margin-right: 10px;
+}
+.div_dialog_schedule{
+    text-align: center;
+    margin-top: 5px;
+}
+.div_calendar_button{
+    text-align: center;
+}
+.div_time{
+    float: left;
+    margin-right: 10px;
+}
+
+
+.custom_dialog .ui-dialog-titlebar {
+    border: 0px !important;
+    background: #2882bc !important;
+    border-radius: 0px;
+}
+
+.custom_dialog {
+    padding: 0px !important;
+    border-radius: 0px;
+	position:fixed;
+}
+.custom_dialog .ui-dialog-title{
+    color: white;
+    height: 24px;
+    line-height: 24px;
+}
+.custom_dialog .ui-icon-closethick{
+    background-image: url(../../../../../../theme/frontend/default/style/default/image/jquery/ui-icons_ffffff_256x240.png) !important;
+}
+
+.custom_dialog .ui-dialog-titlebar-close{
+    border: none !important;
+    background-image: none !important;
+    padding:0px !important;
+    width:16px !important;
+    height:16px !important;
+}
+.custom_dialog .ui-icon-closethick{
+    border: none !important;
+    margin-top:-10px !important;
+    margin:0px !important;
+}
+.custom_dialog .ui-dialog-titlebar-close:hover .ui-icon-closethick{
+    background-color:#333 !important;
+}
+.custom_dialog .ui-dialog-titlebar-close:hover{
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+    border:none !important;
+    background-color:#333 !important;
+}
+
+.custom_dialog{
+    border:none !important;
+    box-shadow: 0 0 20px #999;
+    -moz-box-shadow: 0 0 20px #999;
+    -webkit-box-shadow: 0 0 20px #999;
+    -o-box-shadow: 0 0 20px #999;
+}
+
+.ui-widget-overlay{
+    opacity: 1 !important;
+    background-color:rgba(0,0,0,0.5) !important;
+    background-image: none !important;
+}
