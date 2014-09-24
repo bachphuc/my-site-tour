@@ -26,6 +26,6 @@ $Behavior.addTagLink = function(){
         }
     });
     
-    $(".js_comment_feed_form .show_name").remove();
-    $(".js_comment_feed_form").prepend('<div class="show_name" style="padding:10px;"><input style="position:relative;top:3px;" type="checkbox" name="val[show_your_name]" value="1"/> <label> Show your name.</label></div>');
+    $(".js_feed_add_comment_button .show_name").remove();
+    $(".js_feed_add_comment_button").prepend('<div class="show_name" style="position: absolute;"><input style="position:relative;top:3px;" type="checkbox" name="val[show_your_name]" value="1"/> <label> Show your name.</label></div>');
 }

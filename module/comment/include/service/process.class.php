@@ -318,7 +318,7 @@ class Comment_Service_Process extends Phpfox_Service
 
 			// Update user activity
 			Phpfox::getService('user.activity')->update($iUserId, 'comment', '-');
-
+            
 			(($sPlugin = Phpfox_Plugin::get('comment.service_process_deleteinline')) ? eval($sPlugin) : false);
 
 			if (Phpfox::getParam('feed.cache_each_feed_entry'))
@@ -328,7 +328,7 @@ class Comment_Service_Process extends Phpfox_Service
 			
 			return true;
 		}
-
+    
 		return false;
 	}
 

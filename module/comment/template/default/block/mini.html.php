@@ -11,8 +11,9 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-	<div id="js_comment_{$aComment.comment_id}" class="js_mini_feed_comment comment_mini js_mini_comment_item_{$aComment.item_id}">
-		{if (Phpfox::getUserParam('comment.delete_own_comment') && Phpfox::getUserId() == $aComment.user_id) || Phpfox::getUserParam('comment.delete_user_comment') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId() && Phpfox::getUserParam('comment.can_delete_comments_posted_on_own_profile'))
+	<div {if $aComment.owner_user_id == Phpfox::getUserId()}style="background-color:green;"{/if} id="js_comment_{$aComment.comment_id}" class="js_mini_feed_comment comment_mini js_mini_comment_item_{$aComment.item_id}">
+        {* ANONYMOUS MODULE *}
+		{if ((!isset($aFeed.is_anonymous) || (isset($aFeed.is_anonymous) && !$aFeed.is_anonymous)) && $aFeed.owner_user_id == Phpfox::getUserId()) || (isset($aFeed.is_anonymous) && $aFeed.is_anonymous && $aFeed.parent_user_id == Phpfox::getUserId() ) || (Phpfox::getUserParam('comment.delete_own_comment') && Phpfox::getUserId() == $aComment.user_id) || Phpfox::getUserParam('comment.delete_user_comment') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId() && Phpfox::getUserParam('comment.can_delete_comments_posted_on_own_profile'))
 		|| (defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getService('pages')->isAdmin('' . $aPage.page_id . ''))
 		}
 			<div class="feed_comment_delete_link">

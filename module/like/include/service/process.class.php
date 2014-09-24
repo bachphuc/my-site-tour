@@ -37,7 +37,8 @@ class Like_Service_Process extends Phpfox_Service
 		}
 
 		// check if iUserId can Like this item
-		$aFeed = $this->database()->select('privacy, user_id')
+        // ANONYMOUS MODULE
+		$aFeed = $this->database()->select('*')
 			->from(Phpfox::getT('feed'))
 			->where('item_id = ' . (int)$iItemId . ' AND type_id = "' . Phpfox::getLib('parse.input')->clean($sType) . '"')
 			->execute('getSlaveRow');
@@ -49,7 +50,9 @@ class Like_Service_Process extends Phpfox_Service
 		*/
 		if (!empty($aFeed) && isset($aFeed['privacy']) && !empty($aFeed['privacy']) && !empty($aFeed['user_id']) && $aFeed['user_id'] != $iUserId)
 		{
-			if ($aFeed['privacy'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true)
+            // ANONYMOUS MODULE
+            $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($aFeed['feed_id']);
+			if ($aFeed['privacy'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true && !isset($aNonymousFeed['anonymous_id']))
 			{
 				return Phpfox_Error::display('Not allowed to like this item.');
 			}
@@ -264,7 +267,7 @@ class Like_Service_Process extends Phpfox_Service
 
 		// Update the total_<action> column
 		$aCallbacks = Phpfox::callback($sModuleId . '.getActions');
-
+        
 		// find the callback for this 		
 		foreach ($aCallbacks as $sActionName => $aAction)
 		{

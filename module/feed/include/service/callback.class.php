@@ -1007,6 +1007,25 @@ class Feed_Service_Callback extends Phpfox_Service
 		
 		return false;
 	}
+    
+    // ADD:PHUC Callback action dislike for anonymous feed
+    public function getActionsComment()
+    {
+        return array(
+        'dislike' => array(
+            'enabled' => true,
+            'action_type_id' => 2, // 2 = dislike
+            'phrase' => Phpfox::getPhrase('like.dislike'),
+            'phrase_in_past_tense' => 'disliked',
+            'item_phrase' => 'comment',
+            'item_type_id' => 'feed_comment', // used to differentiate between photo albums and photos for example.
+            'table' => 'feed_comment',
+            'column_update' => 'total_dislike',
+            'column_find' => 'feed_comment_id',
+            'where_to_show' => array('')            
+            )
+        );
+    }
 }
 
 ?>

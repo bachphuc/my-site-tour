@@ -43,6 +43,8 @@
                     } 
                     else
                     {
+                        // ANONYMOUS MODULE
+                        define('IS_ADD_ANONYMOUS_FEDD', true);
                         Phpfox::getService('feed')->processAjax($iId);  
                     }
                 }
@@ -126,13 +128,25 @@
             foreach ($aComments as $aComment)
             {
                 // hide user_name and user_image
+                $aComment['owner_user_id'] = $aComment['user_id'];
                 $aComment['full_name'] = Phpfox::getPhrase('customprofiles.a_wayter_commented');
                 $aComment['user_id'] = 0;
                 $aComment['user_image'] = "";
                 $aComment['user_name'] = "";
+                $aComment['is_check'] = true;
                 // end hide
-
-                $this->template()->assign(array('aComment' => $aComment, 'aFeed' => array('feed_id' => $this->get('item_id'))))->getTemplate('comment.block.mini');
+                /*$aFeed = array(
+                    'feed_id' => $this->get('item_id')
+                );*/
+                $aFeed = Phpfox::getService('customprofiles')->getFeed($this->get('feed_id'));
+                $aFeed['feed_id'] = $this->get('item_id');
+                $aFeed['owner_user_id'] = $aFeed['user_id'];
+                $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($this->get('feed_id'));
+                if(isset($aNonymousFeed['anonymous_id']))
+                {
+                    $aFeed['is_anonymous'] = true;
+                }
+                $this->template()->assign(array('aComment' => $aComment, 'aFeed' => $aFeed))->getTemplate('comment.block.mini');
             }
 
             if ($this->get('append'))

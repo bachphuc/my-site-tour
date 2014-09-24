@@ -11,7 +11,7 @@
 defined('PHPFOX') or exit('NO DICE!'); 
 
 ?>
-    <div id="js_comment_{$aComment.comment_id}" class="js_mini_feed_comment comment_mini js_mini_comment_item_{$aComment.item_id}">
+    <div {if $aComment.owner_user_id == Phpfox::getUserId()}style="background-color:green;"{/if} id="js_comment_{$aComment.comment_id}" class="js_mini_feed_comment comment_mini js_mini_comment_item_{$aComment.item_id}">
         {if (Phpfox::getUserParam('comment.delete_own_comment') && Phpfox::getUserId() == $aComment.user_id) || Phpfox::getUserParam('comment.delete_user_comment') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId() && Phpfox::getUserParam('comment.can_delete_comments_posted_on_own_profile'))
         || (defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getService('pages')->isAdmin('' . $aPage.page_id . ''))
         }
@@ -35,13 +35,13 @@ defined('PHPFOX') or exit('NO DICE!');
                 </a>
             </div>
         {/if}
-        <div class="comment_mini_image">
+        {*<div class="comment_mini_image">
             {if Phpfox::isMobile()}
                 {img user=$aComment suffix='_50_square' max_width=32 max_height=32}
             {else}
                 {img user=$aComment suffix='_50_square' max_width=32 max_height=32}
             {/if}
-        </div>
+        </div>*}
         <div class="comment_mini_content">
             {$aComment|user:'':'':30}<div id="js_comment_text_{$aComment.comment_id}" class="comment_mini_text {if $aComment.view_id == '1'}row_moderate{/if}">{$aComment.text|feed_strip|shorten:'300':'comment.view_more':true|split:30|max_line}</div>            
             <div class="comment_mini_action">

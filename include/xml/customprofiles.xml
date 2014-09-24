@@ -1,0 +1,84 @@
+<product>
+	<data>
+		<product_id>customprofiles</product_id>
+		<is_core>0</is_core>
+		<title>Custom Profiles</title>
+		<description>Custom Profiles</description>
+		<version>2.8.1</version>
+		<latest_version></latest_version>
+		<last_check>1405437900</last_check>
+		<is_active>1</is_active>
+		<url></url>
+		<url_version_check></url_version_check>
+	</data>
+	<installs>
+		<install>
+			<version>1.0</version>
+			<install_code><![CDATA[$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_anonymous_feed')."` (
+ `anonymous_id` int(10) NOT NULL AUTO_INCREMENT,
+ `feed_id` int(10) NOT NULL,
+ `user_id` int(10) NOT NULL,
+ `receive_user_id` int(10) NOT NULL,
+ `is_active` tinyint(1) NOT NULL DEFAULT '1',
+ `message` mediumtext NOT NULL,
+ `is_confirm` tinyint(4) NOT NULL,
+ PRIMARY KEY (`anonymous_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_guest_anonymous_feed')."` (
+ `feed_id` int(10) NOT NULL AUTO_INCREMENT,
+ `sender_user_id` int(10) NOT NULL,
+ `email` varchar(200) NOT NULL,
+ `object` mediumtext NOT NULL,
+ `time_stamp` int(10) NOT NULL,
+ PRIMARY KEY (`feed_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_invite')."` (
+ `invite_id` int(10) NOT NULL AUTO_INCREMENT,
+ `user_id` int(10) NOT NULL,
+ `email` varchar(500) NOT NULL,
+ `full_name` varchar(200) NOT NULL DEFAULT '',
+ `feed_id` int(10) NOT NULL DEFAULT '0',
+ `message` mediumtext NOT NULL,
+ `is_expire` tinyint(1) NOT NULL DEFAULT '0',
+ `time_stamp` int(10) NOT NULL,
+ PRIMARY KEY (`invite_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_invite_anonymous_message')."` (
+ `invite_id` int(10) NOT NULL AUTO_INCREMENT,
+ `user_id` int(10) NOT NULL,
+ `invite_user_id` int(10) NOT NULL,
+ `feed_id` int(10) NOT NULL,
+ `message` mediumtext NOT NULL,
+ `status` tinyint(1) NOT NULL DEFAULT '0',
+ `time_stamp` int(10) NOT NULL,
+ PRIMARY KEY (`invite_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_schedule_feed')."` (
+ `feed_id` int(10) NOT NULL AUTO_INCREMENT,
+ `user_id` int(10) NOT NULL,
+ `receive_user_id` int(10) NOT NULL DEFAULT '0',
+ `email` varchar(200) DEFAULT NULL,
+ `object` mediumtext NOT NULL,
+ `status` tinyint(2) NOT NULL DEFAULT '0',
+ `time_stamp` int(10) NOT NULL,
+ PRIMARY KEY (`feed_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+
+$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_show_name')."` (
+ `notification_id` int(10) NOT NULL,
+ `full_name` varchar(100) NOT NULL,
+ `message` varchar(500) NOT NULL DEFAULT '',
+ `is_show` tinyint(1) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`notification_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;");]]></install_code>
+			<uninstall_code></uninstall_code>
+		</install>
+	</installs>
+	<modules>
+		<module_id>customprofiles</module_id>
+	</modules>
+</product>

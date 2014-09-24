@@ -1,0 +1,5 @@
+--- CHANGE LOG LUCI-----
+-- Change color of my comments
++ modify in line 14 in file module/comment/template/default/block/mini.html.php
+-- remove anonymous feed user should NOT to see (NOT FRIEND)
++ Add new line 421 and modify line 422 in file module/feed/include/service/feed.class.php

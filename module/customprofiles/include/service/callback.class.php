@@ -27,10 +27,10 @@
             $sConfirm = '';
             if((int)$aNonymousFeed['status'] == 0 || (int)$aNonymousFeed['status'] == 2)
             {
-                $sConfirm = '<span id="confirm_notification_'.$aNotification['notification_id'].'">Click to accept or refuse this post. <input type="button" value="Accept" class="button" onclick="$(this).attr(\'disabled\',\'disabled\');$.ajaxCall(\'customprofiles.acceptAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"> <input type="button" value="Refuse" class="button" onclick="$.ajaxCall(\'customprofiles.refuseAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"></span>';
+                $sConfirm = '<span id="confirm_notification_'.$aNotification['notification_id'].'">. Click to accept or refuse this post &nbsp; <input type="button" value="Accept" class="button" onclick="$(this).attr(\'disabled\',\'disabled\');$.ajaxCall(\'customprofiles.acceptAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"> <input type="button" value="Refuse" class="button" onclick="$.ajaxCall(\'customprofiles.refuseAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"></span>';
             }
 
-            $sHtml = 'You received a message by a wayter. '.$sConfirm.'</br> ';
+            $sHtml = 'A wayter posted about you'.$sConfirm.'</br> ';
             return array(
                 'link' => '',
                 'message' => $sHtml,

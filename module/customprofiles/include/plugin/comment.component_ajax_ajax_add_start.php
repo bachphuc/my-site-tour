@@ -127,21 +127,39 @@
                 $this->call('if (typeof(document.getElementById("js_no_comments")) != "undefined") { $("#js_no_comments").hide(); }');
 
                 $aRow = Phpfox::getService('comment')->getComment($mId);    
-
+                
                 $iNewTotalPoints = (int) Phpfox::getUserParam('comment.points_comment');
                 $this->call('if ($Core.exists(\'#js_global_total_activity_points\')){ var iTotalActivityPoints = parseInt($(\'#js_global_total_activity_points\').html().replace(\'(\', \'\').replace(\')\', \'\')); $(\'#js_global_total_activity_points\').html(iTotalActivityPoints + ' . $iNewTotalPoints . '); }');
 
                 if (isset($aVals['is_via_feed']))
                 {
                     // hide user information
+                    $aRow['owner_user_id'] = $aRow['user_id'];
                     $aRow['full_name'] = Phpfox::getPhrase('customprofiles.a_wayter_commented');
                     $aRow['user_id'] = 0;
                     $aRow['user_image'] = "";
                     $aRow['user_name'] = "";
+                    $aRow['is_check'] = true;
                     // end hide user information
-
+                    $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($aVals['is_via_feed']);
+                    $aPassData = array(
+                        'aComment' => $aRow, 
+                        'bForceNoReply' => true
+                    );
+                    if(isset($aNonymousFeed['anonymous_id']))
+                    {
+                        $aFeed['is_anonymous'] = true;
+                        $aFeed['parent_user_id'] = $aNonymousFeed['receive_user_id'];
+                    }
+                    else
+                    {
+                        $aTempFeed = Phpfox::getService('customprofiles')->getFeed($aVals['is_via_feed']);
+                        $aFeed['is_anonymous'] = false;
+                        $aFeed['owner_user_id'] = $aTempFeed['user_id'];
+                    }
+                    $aPassData['aFeed'] = $aFeed;
                     Phpfox::getLib('parse.output')->setImageParser(array('width' => 200, 'height' => 200));
-                    Phpfox::getLib('template')->assign(array('aComment' => $aRow, 'bForceNoReply' => true))->getTemplate('customprofiles.block.mini');
+                    Phpfox::getLib('template')->assign($aPassData)->getTemplate('comment.block.mini');
                     Phpfox::getLib('parse.output')->setImageParser(array('clear' => true));                    
 
                     $sId = 'js_tmp_comment_' . md5('comment_' . uniqid() . Phpfox::getUserId()) . '';
@@ -180,7 +198,7 @@
                         $this->append('#js_feed_comment_post_' . $aVals['is_via_feed'], '<div id="' . $sId . '">' . $this->getContent(false) . '</div>');
                     }
 
-                    $this->call('$(\'#' . $sId . '\').highlightFade();');                    
+                    // $this->call('$(\'#' . $sId . '\').highlightFade();');                    
                 }
                 else 
                 {

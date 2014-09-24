@@ -21,7 +21,7 @@
             $this->call('$Core.backUpHomeFeed();');
             $this->remove('#feed_view_more');
             $this->html('#js_feed_content', $this->getContent(false));
-            $this->call('$Core.init();');
+            $this->call('$Core.loadInit();');
             $this->call('$("#friend_item_'.$this->get('profile_user_id').' .friend_feed_loading").fadeOut();');
             $this->call('$(".active_friend_feed").removeClass("active_friend_feed");');
             $this->call('$("#friend_item_'.$this->get('profile_user_id').' .bottom_name").addClass("active_friend_feed");');

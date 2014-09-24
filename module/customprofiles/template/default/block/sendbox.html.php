@@ -10,10 +10,11 @@
 <script type="text/javascript" src="{param var='core.path'}module/customprofiles/static/jscript/blockscript.js"></script>
 <!-- end hau@gmail.com ---->
 
+<div style="height: 25px; font-size: 16px; font-weight: bold; color: #c85727; margin-left: 15px;">Anonymous message</div>
 <div class="sendbox">
     <form action="" method="POST" onsubmit="if($Core.checkData()){l}$('.anonymous_loading').fadeIn();$(this).ajaxCall('customprofiles.addFeed');{r}return false;">
-        <div id="mboder"></div>
-        <div class="row_box">
+        <!--<div id="mboder"></div>-->
+        <div class="row_box" style="border-top: 3px #f78d1e solid;">
             <label id="lb_error_invalid_name" class="invalid_email">{phrase var='customprofiles.this_field_cannot_be_empty'}</label>
             <input name="val[full_name]" id="tb_friend" type="text" placeholder="{phrase var='customprofiles.search_wayter'}" class="mtextbox" autocomplete="off">
         </div>
@@ -32,7 +33,7 @@
         
         <div class="row_box">
             <label id="tb_error_invalid_message" class="invalid_email">{phrase var='customprofiles.this_field_cannot_be_empty'}</label>
-            <textarea onchange="$Core.checkAnonymousStatus();" name="val[message]" placeholder="Write message..." id="message" class="mtextarea"></textarea>
+            <textarea onchange="$Core.checkAnonymousStatus();" name="val[message]" placeholder="Write your message..." id="message" class="mtextarea"></textarea>
         </div>
         
         <!--- ducloi.bm@gmail.com ---->
@@ -47,8 +48,8 @@
                 <img src="{param var='core.path'}module/customprofiles/static/image/gift.png" alt=""  onclick="$Core.box('customprofiles.showGift', 'height=400&width=400');return false;" id="btn_gift" class="img_button">
 
             </div>
-            <div class="row_box" style="float: right;margin-right: 70px;position:relative;top:5px;width:300px;"><label id="lb_error_empty_user" class="invalid_email">{phrase var='customprofiles.please_choose_a_user_or_enter_a_email'}</label></div>
-            <div style="float: right; margin-top: 10px;margin-right: 10px;">
+            <!--<div class="row_box" style="float: right;margin-right: 70px;position:relative;top:5px;width:300px;"><label id="lb_error_empty_user" class="invalid_email">{phrase var='customprofiles.please_choose_a_user_or_enter_a_email'}</label></div>-->
+            <div style="float: right; margin-right: 10px;">
                 <img class="anonymous_loading" src="{param var='core.path'}module/customprofiles/static/image/load.gif">
                 <input type="submit" value="Send" id= "btnSend" class="mbutton">
             </div>
@@ -84,7 +85,7 @@
     <div><label id="error_time" style="color: red; font-weight: bold;" hidden="true">{phrase var='customprofiles.invalid_time'}</label></div>
     <div> 
         <div class="div_time">
-            <p>Hour :</p>
+            <p>&nbsp;Hour:</p>
             <select id="time_hour">
                 {for $i =0 ; $i < 24 ; $i++}
                     {if $i<10}
@@ -96,7 +97,7 @@
             </select>
         </div>
         <div class="div_time">
-            <p>Minute :</p>
+            <p>&nbsp;Minute:</p>
             <select id="time_minute">
                 {for $i =0 ; $i < 60 ; $i++}
                     {if $i<10}
@@ -108,7 +109,7 @@
             </select>
         </div>
         <div class="div_time">
-            <p>Date: </p>
+            <p>&nbsp;Date:</p>
             <input  type="text" id="datepicker" tabindex="-1" readonly="readonly" value='10/6/2014'>
             <input type="hidden" value="{param var='customprofiles.max_time_schedule'}" id="limit_time_schedule"> 
         </div>

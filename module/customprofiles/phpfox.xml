@@ -10,10 +10,10 @@
 	</data>
 	<settings>
 		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="max_time_schedule" phrase_var_name="setting_max_time_schedule" ordering="1" version_id="3.7.7">30</setting>
-		<setting group="" module_id="customprofiles" is_hidden="0" type="string" var_name="limit_time_for_invite_user_by_anonymous_module" phrase_var_name="setting_limit_time_for_invite_user_by_anonymous_module" ordering="1" version_id="3.7.7">1</setting>
+		<setting group="" module_id="customprofiles" is_hidden="0" type="string" var_name="limit_time_for_invite_user_by_anonymous_module" phrase_var_name="setting_limit_time_for_invite_user_by_anonymous_module" ordering="1" version_id="3.7.7">3</setting>
 	</settings>
 	<blocks>
-		<block type_id="0" m_connection="core.index-member" module_id="customprofiles" component="sendbox" location="2" is_active="1" ordering="1" disallow_access="" can_move="0">
+		<block type_id="0" m_connection="core.index-member" module_id="customprofiles" component="sendbox" location="2" is_active="1" ordering="7" disallow_access="" can_move="0">
 			<title>Send Box</title>
 			<source_code />
 			<source_parsed />
@@ -23,31 +23,30 @@
 		<component module_id="customprofiles" component="sendbox" m_connection="" module="customprofiles" is_controller="0" is_block="1" is_active="1" />
 	</components>
 	<phrases>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="show_your_name" added="1402597016">Show your name.</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="your_email_is_invalid" added="1402597034">Your email is invalid!</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="enter_your_friend_email_to_invite" added="1402597070">Enter your friend email to invite...</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="search_wayter" added="1402597123">Search wayter</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="show_your_name" added="1402597016">Show your name</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="your_email_is_invalid" added="1402597034">This email address is invalid</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="enter_your_friend_email_to_invite" added="1402597070"><![CDATA[Enter a wayter's email address]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="search_wayter" added="1402597123">Search a wayter</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="a_wayter_commented_on_your_status_update" added="1402597186"><![CDATA[<span class="drop_data_user">A wayter</span> commented on your status update:&#160;]]></phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="john_lockcommented_on_your_status_update" added="1402597296"><![CDATA[{full_name} Lock commented on your status update:&nbsp;]]></phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="schedule_your_post_future" added="1402678784">Schedule your post in the future!</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="john_lockcommented_on_your_status_update" added="1402597296"><![CDATA[{full_name} commented on your status update:&nbsp;]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="schedule_your_post_future" added="1402678784">Schedule your post in the future</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="title_time" added="1402678858">Time</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_in_one_hour" added="1402679071">in 1 hour</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_in_two_hour" added="1402679105">in 2 hour</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_in_four_hour" added="1402679140">in 4 hour</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_tomorrow_morning" added="1402679230">tomorrow morning</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_in_five_hour" added="1402679279">tomorrow afternoon</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_specific_time" added="1402679313">A specific time</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="time_specific_time" added="1402679313">Schedule your post in the future</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="edit_delete_scheduling" added="1402679373">Would you like to edit or delete this scheduling?</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="delete_this_scheduling" added="1402679428">Would you like to edit or delete this scheduling?</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="button_delete" added="1402679459">Delete</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="choose_date_time" added="1402679504"><![CDATA[Choose a specific date & time]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="choose_date_time" added="1402679504">Choose a specific date and time</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="invalid_time" added="1402679539"><![CDATA[Invalid time &#42;]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="button_schedule" added="1402679600">Schedule</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="button_randomize" added="1402679622">Randomize</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="button_edit" added="1402679676">Edit</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="a_site_member_has_posted_a_comment_about_you" added="1402686882"><![CDATA[<span class="drop_data_user">A wayter</span> has posted about you]]></phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="anonymous_post" added="1403275234"><![CDATA[Anonymous post:<br>]]></phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="awayter_post_about" added="1403276899"><![CDATA[<span style="color:#444;">A wayter posted about </span>]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="a_site_member_has_posted_a_comment_about_you" added="1402686882"><![CDATA[<span class="drop_data_user">A wayter</span> posted about you]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.7" var_name="awayter_post_about" added="1403276899"><![CDATA[<span style="color:#444;">A wayter posted about</span>]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="a_wayter_commented" added="1403282011" />
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="a_user_comment_on_your_status" added="1403460891"><![CDATA[<span class="drop_data_user">{full_name}</span> commented on your status update]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="message_invite_join_anonymous_message" added="1403633729"><![CDATA[You received an anonymous post by a wayter. <a href="{link}">Click</a> here to enter in Wayta.]]></phrase>
@@ -56,11 +55,11 @@
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="your_post_has_been_correctly_scheduled_in_the_future" added="1403722551">Your post has been correctly scheduled in the future.</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="replay_accept_post" added="1404209039"><![CDATA[<span class="drop_data_user">{full_name}</span> accepted to see your post "{message}"]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="reply_refuse_post" added="1404209321"><![CDATA[<span class="drop_data_user">{full_name}</span> refused to see your post "{message}"]]></phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="expire_invite_anonymous_message" added="1404319412"><![CDATA[Your post to <span class="drop_data_user">{full_name}</span> has not been seen because he has declined your invite or the email address you have inserted was not correct.]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.7" var_name="expire_invite_anonymous_message" added="1404319412"><![CDATA[Your post to <span class="drop_data_user">{full_name}</span> has been declined or the email address you have inserted was not correct]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="setting_limit_time_for_invite_user_by_anonymous_module" added="1404408711"><![CDATA[<title>Limit time for invite user by anonymous module( days)</title><info>Limit time for invite user by anonymous module (days).</info>]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="are_you_sure_you_want_to_delete_this_scheduling" added="1404492266">Are you sure you want to delete this scheduling?</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="you_have_scheduled_to_post_a_anonymous_feed_to_other_user" added="1404497544">You have scheduled to post a anonymous feed to other user.</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="this_field_cannot_be_empty" added="1404928349">This field cannot be empty!</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.7" var_name="please_choose_a_user_or_enter_a_email" added="1404930864">Please choose a user or enter a email!</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.7" var_name="you_have_scheduled_to_post_a_anonymous_feed_to_other_user" added="1404497544">Your post has been correctly scheduled in the future.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.7" var_name="this_field_cannot_be_empty" added="1404928349">This field cannot be empty</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.7" var_name="please_choose_a_user_or_enter_a_email" added="1404930864">Please choose a wayter or enter an email</phrase>
 	</phrases>
 </module>

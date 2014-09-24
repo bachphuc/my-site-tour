@@ -1,11 +1,11 @@
 .sendbox{
-    border-top: 8px solid #57BADF;
-    border: 1px solid #DFDFDF;
-    margin: 0 auto;
-    background: -webkit-linear-gradient(bottom, #ECECEC , #FFF) !important; 
-    background: -o-linear-gradient(bottom, #ECECEC, #FFF) !important; 
-    background: -moz-linear-gradient(bottom, #ECECEC, #FFF) !important; 
-    background: linear-gradient(to bottom, #ECECEC , #FFF) !important; 
+    /*border-top: 8px solid #57BADF;*/
+    /*border: 1px solid #DFDFDF;*/
+    margin: 0px 15px 10px 15px;
+    /*background: -webkit-linear-gradient(bottom, #ECECEC , #FFF) !important; */
+    /*background: -o-linear-gradient(bottom, #ECECEC, #FFF) !important; */
+    /*background: -moz-linear-gradient(bottom, #ECECEC, #FFF) !important; */
+    /*background: linear-gradient(to bottom, #ECECEC , #FFF) !important; */
 }
 
 .mtextbox{
@@ -194,7 +194,7 @@
     padding: 5px;
     clear: both;
     position:relative;
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
 }
 .gift_item{
     border: 1px solid #ccc;
