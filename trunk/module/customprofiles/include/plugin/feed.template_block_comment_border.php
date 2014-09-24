@@ -5,10 +5,14 @@
         {
             foreach($this->_aVars['aFeed']['comments'] as $commentKey => $aComment)
             {
-                $this->_aVars['aFeed']['comments'][$commentKey]['full_name'] = Phpfox::getPhrase('customprofiles.a_wayter_commented');
-                $this->_aVars['aFeed']['comments'][$commentKey]['user_id'] = 0;
-                $this->_aVars['aFeed']['comments'][$commentKey]['user_image'] = "";
-                $this->_aVars['aFeed']['comments'][$commentKey]['user_name'] = "";
+                if(!isset($aComment['is_check']))
+                {
+                    $this->_aVars['aFeed']['comments'][$commentKey]['full_name'] = Phpfox::getPhrase('customprofiles.a_wayter_commented');
+                    $this->_aVars['aFeed']['comments'][$commentKey]['owner_user_id'] = $aComment['user_id'];
+                    $this->_aVars['aFeed']['comments'][$commentKey]['user_id'] = 0;
+                    $this->_aVars['aFeed']['comments'][$commentKey]['user_image'] = "";
+                    $this->_aVars['aFeed']['comments'][$commentKey]['user_name'] = "";
+                }
             }
         }
 

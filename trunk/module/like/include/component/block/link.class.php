@@ -119,8 +119,8 @@ class Like_Component_Block_Link extends Phpfox_Component
 					elseif (isset($sOrgModule) && $this->getParam('like_type_id') == 'feed_comment')
 					{
 						$aRow['item_type_id'] = 'feed-comment';
-					}
-					
+					};
+				    
 					$bIsMarked = $oServ->hasBeenMarked($aRow['action_type_id'], $aRow['item_type_id'], $this->getParam('like_item_id'), Phpfox::getUserId());
 					
 					$aOut[] = array(

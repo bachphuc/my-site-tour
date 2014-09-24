@@ -30,3 +30,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_sitetour_user_block` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE  `phpfox_sitetour_step` CHANGE  `duration`  `duration` VARCHAR( 10 ) NOT NULL DEFAULT  '3000'
+ALTER TABLE `phpfox_sitetour` ADD `controller` VARCHAR( 300 ) NOT NULL DEFAULT '' AFTER `url` ;
+
+/** DATABASE NPFOX.COM */
+u273798698_demov 3fKkjWKxxZ

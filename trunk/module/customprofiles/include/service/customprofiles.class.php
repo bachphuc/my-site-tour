@@ -162,5 +162,21 @@
                 'comment.js' => 'module_customprofiles'
             ));
         }
+        
+        public function getFeed($iFeedId)
+        {
+            return $this->database()->select('*')
+            ->from(Phpfox::getT('feed'))
+            ->where('feed_id='.(int)$iFeedId)
+            ->execute('getRow');
+        }
+        
+        public function getFeedItem($iItemId, $sType)
+        {
+            return $this->database()->select('*')
+            ->from(Phpfox::getT('feed'))
+            ->where('item_id='.(int)$iItemId." AND type_id='".$sType."'")
+            ->execute('getRow');
+        }
     }
 ?>

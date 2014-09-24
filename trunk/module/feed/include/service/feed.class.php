@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: feed.class.php 7140 2014-02-19 20:05:38Z Fern $
+ * @version 		$Id: feed.class.php 7148 2014-02-24 13:47:35Z Fern $
  */
 class Feed_Service_Feed extends Phpfox_Service 
 {	
@@ -325,6 +325,12 @@ class Feed_Service_Feed extends Phpfox_Service
 				}
 			}
 			
+			// There is no reciprocal feed when you add someone as friend
+			$this->database()->select('feed.*')
+			->from($this->_sTable, 'feed')
+			->where('feed.type_id = \'friend\' AND feed.user_id = ' . (int) $iUserid)
+			->union();
+			
 			(($sPlugin = Phpfox_Plugin::get('feed.service_feed_get_userprofile')) ? eval($sPlugin) : '');
 			
 			$iTimelineYear = 0;
@@ -349,12 +355,6 @@ class Feed_Service_Feed extends Phpfox_Service
 			->from($this->_sTable, 'feed')
 			->where(array_merge($aCond, array('AND feed.user_id = ' . (int) $iUserid . ' AND feed.feed_reference = 0 AND feed.parent_user_id = 0')))
 			->union();			
-			
-			// There is no reciprocal feed when you add someone as friend
-			$this->database()->select('feed.*')
-			->from($this->_sTable, 'feed')
-			->where('type_id = \'friend\' AND feed.user_id = ' . (int) $iUserid)
-			->union();
 			
 			if (Phpfox::isUser())
 			{
@@ -418,7 +418,8 @@ class Feed_Service_Feed extends Phpfox_Service
 						$this->database()->select('feed.*')
 							->from($this->_sTable, 'feed')
 							->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-							->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
+							->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
+							->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0 AND (anonymous_id IS NULL OR (anonymous_id IS NOT NULL AND f.user_id <> af.user_id))')
 							// ->limit($iTotalFeeds)
 							->union();
 
@@ -441,7 +442,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						$this->database()->select('feed.*')
 							->from($this->_sTable, 'feed')
 							->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-							->where('feed.privacy IN(1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
+							->where('feed.privacy IN(1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0 ')
 							->limit($iTotalFeeds)
 							->union();		
 

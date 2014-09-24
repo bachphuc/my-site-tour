@@ -204,7 +204,7 @@ class Feed_Component_Block_Display extends Phpfox_Component
 			$aRows[0]['feed_view_comment'] = true;
 			$this->setParam('aFeed', array_merge(array('feed_display' => 'view', 'total_like' => $aRows[0]['feed_total_like']), $aRows[0]));                        
 		}	
-		
+        
 		(($sPlugin = Phpfox_Plugin::get('feed.component_block_display_process')) ? eval($sPlugin) : false);		
 		
 		if ($bIsCustomFeedView && !count($aRows) && $bIsProfile)

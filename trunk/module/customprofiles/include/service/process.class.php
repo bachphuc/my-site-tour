@@ -119,7 +119,7 @@
             {
                 echo '$Core.resetActivityFeedForm();';
                 echo '$Core.resetAnonymousPost();';  
-                Phpfox::getLib('ajax')->alert('Post an anonymoust message to other user complete!');
+                Phpfox::getLib('ajax')->alert('Your anonymous post has been successfully sent');
                 die();
             }
             return $iFeedId;
@@ -134,12 +134,14 @@
                     foreach($aRow['comments'] as $commentKey => $aComment)
                     {
                         $aRows[$key]['comments'][$commentKey]['full_name'] = Phpfox::getPhrase('customprofiles.a_wayter_commented');
+                        $aRows[$key]['comments'][$commentKey]['owner_user_id'] = $aComment['user_id'];
                         $aRows[$key]['comments'][$commentKey]['user_id'] = 0;
                         $aRows[$key]['comments'][$commentKey]['user_image'] = "";
                         $aRows[$key]['comments'][$commentKey]['user_name'] = "";
+                        $aRows[$key]['comments'][$commentKey]['is_check'] = true;
                     }
                 }
-
+                $aRows[$key]['owner_user_id'] = $aRow['user_id'];
                 $aRows[$key]['is_check'] = true;
                 if(!isset($aRow['feed_id']))
                 {
@@ -150,13 +152,26 @@
                 if(isset($aNonymousFeed['anonymous_id']))
                 {
                     $aRows[$key]['is_anonymous'] = true;
+                    if(!isset($aRow['marks']))
+                    {
+                        $aRows[$key]['marks'] = Phpfox::getService('like')->getDislikes('feed-comment', $aRow['item_id']);
+                    }
+                    if(!isset($aRow['call_displayactions']))
+                    {
+                        $aActions = $this->getDislikes('feed-comment', $aRow['item_id']) ;
+                        if (count($aActions) > 0)
+                        {
+                            $aRows[$key]['bShowEnterCommentBlock'] = true;
+                            $aRows[$key]['call_displayactions'] = true;
+                        }
+                    }
                     if(isset($aRow['parent_user']))
                     {
                         $aRows[$key]['user_name'] = $aRow['parent_user']['parent_user_name'];
                         $aRows[$key]['full_name'] = '<span class="post_title">'.Phpfox::getPhrase('customprofiles.awayter_post_about').' </span>'.$aRow['parent_user']['parent_full_name'];
                         $aRows[$key]['user_id'] = $aRow['parent_user']['parent_user_id'];
                         $aRows[$key]['user_image'] = $aRow['parent_user']['parent_user_image'];
-                        $aRows[$key]['feed_status'] = Phpfox::getPhrase('customprofiles.anonymous_post').$aRows[$key]['feed_status'];
+                        $aRows[$key]['feed_status'] = $aRows[$key]['feed_status'];
                     }
 
                     // process feed view more
@@ -342,7 +357,7 @@
 
             echo '$Core.resetActivityFeedForm();';
             echo '$Core.resetAnonymousPost();';  
-            Phpfox::getLib('ajax')->alert('Invite user successfuly!');
+            Phpfox::getLib('ajax')->alert('Your anonymous post has been successfully sent');
             die();
         }
 
@@ -363,20 +378,10 @@
                 Phpfox::getService('notification.process')->add('customprofiles_replyinvite', $iFeedId,$aVals['sender_user_id']); 
             }
             return $iAnonymousFeedId;
-
-            /*if (Phpfox::isModule('notification'))
-            {
-            Phpfox::getService('notification.process')->add('customprofiles_replyinvite', $iFeedId,$aNonymousMessage['user_id'] );              
-            }*/
-            /*return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array(
-            'is_active' => 1,
-            'is_confirm' => 1,
-            ),'feed_id='.(int)$iFeedId);*/
         }
 
         public function recceptAnonymousPost($iFeedId)
         {
-            // $aNonymousMessage = Phpfox::getService('customprofiles')->getAnonymousFeed($iFeedId);
             $aNonymousMessage = Phpfox::getService('customprofiles')->getScheduleFeed($iFeedId);
             if(!isset($aNonymousMessage['feed_id']))
             {
@@ -600,31 +605,6 @@
             $iFeedId = $this->database()->insert(Phpfox::getT('custom_profiles_schedule_feed'),$aInsert);
             if($iStatus != 0)
             {
-                /*try
-                {
-                $iInvite = Phpfox::getService('invite.process')->addInvite($aVals['email'], Phpfox::getUserId());
-                $this->database()->clean();
-                } 
-                catch(Exception $e) 
-                {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-                }
-
-                try
-                {
-                $sFromEmail = Phpfox::getParam('core.email_from_email');
-                $sLink = Phpfox::getLib('url')->makeUrl('invite', array('id' => $iInvite));     
-                $bSent = Phpfox::getLib('mail')->to($aVals['email'])        
-                ->fromEmail("")    
-                ->fromName(Phpfox::getUserBy('full_name'))                
-                ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
-                ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
-                ->send();
-                }
-                catch(Exception $e)
-                {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-                }*/
                 if(!$aVals['is_friend'])
                 {
                     try
@@ -723,32 +703,6 @@
             }
             else
             {
-                /*try
-                {
-                $iInvite = Phpfox::getService('invite.process')->addInvite($aVals['email'], Phpfox::getUserId());
-                $this->database()->clean();
-                } 
-                catch(Exception $e) 
-                {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-                }
-
-                try
-                {
-                $sFromEmail = Phpfox::getParam('core.email_from_email');
-                $sLink = Phpfox::getLib('url')->makeUrl('invite', array('id' => $iInvite));     
-                $bSent = Phpfox::getLib('mail')->to($aVals['email'])        
-                ->fromEmail("")    
-                ->fromName(Phpfox::getUserBy('full_name'))                
-                ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
-                ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
-                ->send();
-                }
-                catch(Exception $e)
-                {
-                echo 'Caught exception: ',  $e->getMessage(), "\n";
-                }*/
-
                 try
                 {
                     $sLink = Phpfox::getLib('url')->makeUrl('user.login');
@@ -790,6 +744,30 @@
                 $aVals = unserialize($aFeed['object']);
                 $this->createScheduleFeed($aFeed['feed_id'],$aVals);
             }
+        }
+
+        public function getDislikes($sType, $iItemId, $bGetCount = false)
+        {
+            if ($bGetCount == true)
+            {
+                $this->database()
+                ->select('COUNT(*)')
+                ->order('u.full_name ASC');
+                $sGetHow = 'getSlaveField';
+            }
+            else
+            {
+                $this->database()
+                ->select(Phpfox::getUserField() )
+                ->group('u.user_id');
+                $sGetHow = 'getSlaveRows';
+            }
+            $aDislikes = $this->database()
+            ->from(Phpfox::getT('action'), 'a')
+            ->join(Phpfox::getT('user'), 'u', 'u.user_id = a.user_id')            
+            ->where('a.item_type_id = "' . $this->database()->escape($sType) . '" AND a.item_id = ' . (int)$iItemId)            
+            ->execute($sGetHow);
+            return $aDislikes;
         }
     }
 ?>
