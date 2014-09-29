@@ -44,7 +44,7 @@
                     else
                     {
                         // ANONYMOUS MODULE
-                        define('IS_ADD_ANONYMOUS_FEDD', true);
+                        define('IS_ADD_ANONYMOUS_FEED', true);
                         Phpfox::getService('feed')->processAjax($iId);  
                     }
                 }
