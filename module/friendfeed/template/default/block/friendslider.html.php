@@ -1,7 +1,7 @@
 <?php
     defined('PHPFOX') or exit('NO DICE!');
 ?>
-<div id="friend_slider">
+<div id="friend_slider" style="width: 557px; padding-top: 25px; padding-bottom: 50px;">
     <h2 style="color: #B8603B; font-size: 20px; padding: 10px 0px;float: left;">{phrase var='friendfeed.look_the_post'}</h2> 
     <input type="checkbox" name="toggle" id="toggle">
     <label for="toggle" style="float: right;margin-top: 20px;"></label>

@@ -22,6 +22,14 @@
             ->where('af.feed_id='.(int)$iFeedId)
             ->execute('getRow');
         }
+        
+        public function getAnonymousFeedById($iAnonymousId)
+        {
+            return $this->database()->select('*')
+            ->from(Phpfox::getT('custom_profiles_anonymous_feed'),'af')
+            ->where('af.anonymous_id='.(int)$iAnonymousId)
+            ->execute('getRow');
+        }
 
         public function checkEmail($sEmail)
         {
@@ -36,43 +44,14 @@
             return false;
         }
 
-        public function getFromCache($mAllowCustom = false, $sUserSearch = false)
+        public function getFromCache()
         {
-            $mAllowCustom = false;
-            if (Phpfox::getUserBy('profile_page_id'))
-            {
-                $mAllowCustom = true;
-            }
-
-            if ($sUserSearch != false)
-            {
-                if (Phpfox::getUserParam('mail.restrict_message_to_friends') == true)
-                {
-                    $this->database()->join(Phpfox::getT('friend'), 'f', 'u.user_id = f.friend_user_id AND f.user_id=' . Phpfox::getUserId());
-                }
-
-                $aRows = $this->database()->select('' . Phpfox::getUserField())
-                ->from(Phpfox::getT('user'),'u')
-                ->where('u.full_name LIKE "%'. Phpfox::getLib('parse.input')->clean($sUserSearch) .'%" AND u.profile_page_id = 0')
-                ->limit(Phpfox::getParam('friend.friend_cache_limit'))
-                ->order('u.full_name DESC')
-                ->execute('getSlaveRows');
-            }
-            else
-            {
-                (($sPlugin = Phpfox_Plugin::get('friend.service_getfromcachequery')) ? eval($sPlugin) : false);
-
-                if (!isset($bForceQuery))
-                {
-                    $aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
-                    ->from(Phpfox::getT('friend'), 'f')
-                    ->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
-                    ->where(($mAllowCustom ? '' : 'f.is_page = 0 AND') . ' f.user_id = ' . Phpfox::getUserId())
-                    ->limit(Phpfox::getParam('friend.friend_cache_limit'))
-                    ->order('u.full_name ASC')
-                    ->execute('getSlaveRows');
-                }
-            }    
+            $aRows = $this->database()->select('f.*, ' . Phpfox::getUserField())
+            ->from(Phpfox::getT('friend'), 'f')
+            ->join(Phpfox::getT('user'), 'u', 'u.user_id = f.friend_user_id')
+            ->where('f.is_page = 0 AND f.user_id = ' . Phpfox::getUserId().' AND f.friend_user_id NOT IN (SELECT cb.user_id FROM '.Phpfox::getT('custom_profiles_block').' AS cb WHERE cb.block_user_id = '.Phpfox::getUserId().')')
+            ->order('u.full_name ASC')
+            ->execute('getSlaveRows');
 
             foreach ($aRows as $iKey => $aRow)
             {        
@@ -177,6 +156,19 @@
             ->from(Phpfox::getT('feed'))
             ->where('item_id='.(int)$iItemId." AND type_id='".$sType."'")
             ->execute('getRow');
+        }
+        
+        public function checkBlockUser($iUserId)
+        {
+            $aRow = $this->database()->select('*')
+            ->from(Phpfox::getT('custom_profiles_block'))
+            ->where('user_id = '.Phpfox::getUserId().' AND block_user_id = '.(int)$iUserId)
+            ->execute('getRow');
+            if(isset($aRow['block_id']))
+            {
+                return true;
+            }
+            return false;
         }
     }
 ?>

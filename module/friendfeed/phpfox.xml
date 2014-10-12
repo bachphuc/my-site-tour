@@ -14,7 +14,7 @@
 			<source_code />
 			<source_parsed />
 		</block>
-		<block type_id="0" m_connection="core.index-member" module_id="friendfeed" component="friendslider" location="2" is_active="1" ordering="10" disallow_access="" can_move="0">
+		<block type_id="0" m_connection="core.index-member" module_id="friendfeed" component="friendslider" location="2" is_active="1" ordering="7" disallow_access="" can_move="0">
 			<title>Friend Feed</title>
 			<source_code />
 			<source_parsed />
@@ -26,7 +26,7 @@
 	</components>
 	<phrases>
 		<phrase module_id="friendfeed" version_id="3.7.5" var_name="module_friendfeed" added="1400856471">Friend  Feed</phrase>
-		<phrase module_id="friendfeed" version_id="3.7.5" var_name="look_the_post" added="1400952106">Look the post of your friends</phrase>
-		<phrase module_id="friendfeed" version_id="3.7.5" var_name="you_next_friend" added="1401379215">you next friend</phrase>
+		<phrase module_id="friendfeed" version_id="3.7.5" var_name="look_the_post" added="1400952106">Look the posts of your friends</phrase>
+		<phrase module_id="friendfeed" version_id="3.7.5" var_name="you_next_friend" added="1401379215">your next friend</phrase>
 	</phrases>
 </module>

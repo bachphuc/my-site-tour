@@ -105,7 +105,9 @@ defined('PHPFOX') or exit('NO DICE!');
 						<li>
 							<a href="#" onclick="$('#js_comment_text_{$aComment.comment_id}').removeClass('row_moderate'); $(this).remove(); $.ajaxCall('comment.moderateSpam', 'id={$aComment.comment_id}&amp;action=approve&amp;inacp=0'); return false;">{phrase var='comment.approve'}</a>					
 						</li>
-					{/if}				
+					{/if}	
+                    {* ANONYMOUS MODULE *}
+                    {plugin call='comment.comment_link'}    			
 				</ul>
 				<div class="clear"></div>
 			</div>

@@ -97,14 +97,12 @@
             }
         }
 
-        // loi@gmail.com
         public function showGift()
         {
             $this->setTitle('Egift');
 
             Phpfox::getBlock('customprofiles.egift');
         }
-        // end loi@gmail.com
 
         public function viewMoreFeed()
         {        
@@ -136,7 +134,7 @@
                 $aComment['is_check'] = true;
                 // end hide
                 /*$aFeed = array(
-                    'feed_id' => $this->get('item_id')
+                'feed_id' => $this->get('item_id')
                 );*/
                 $aFeed = Phpfox::getService('customprofiles')->getFeed($this->get('feed_id'));
                 $aFeed['feed_id'] = $this->get('item_id');
@@ -182,5 +180,102 @@
 
             $this->call('$Core.loadInit();');
         }    
+
+        public function showAnonymousFeed()
+        {
+            $iAnonymousId = (int)$this->get('anonymous_id');
+            if(!$iAnonymousId)
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.feed_is_not_avaiable_this_time'));
+            }
+            $aAnonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeedById($iAnonymousId);
+            if(!isset($aAnonymousFeed['anonymous_id']))
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.feed_is_not_avaiable_this_time'));
+            }
+            if(Phpfox::getService('customprofiles.process')->showAnonymousFeedToFriend($iAnonymousId))
+            {
+                $this->call('$("#anonymos_fee_'.$iAnonymousId.'").html(\'<a href="" onclick="$.ajaxCall(\\\'customprofiles.hideAnonymousFeed\\\',\\\'anonymous_id='.$iAnonymousId.'\\\');return false;">private</a>\');');
+                $this->alert(Phpfox::getPhrase('customprofiles.make_this_post_public_with_friend_successful'));
+            }
+            else
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.cann_t_public_this_anonymous_feed'));
+            }
+        }
+
+        public function hideAnonymousFeed()
+        {
+            $iAnonymousId = (int)$this->get('anonymous_id');
+            if(!$iAnonymousId)
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.feed_is_not_avaiable_this_time'));
+            }
+            $aAnonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeedById($iAnonymousId);
+            if(!isset($aAnonymousFeed['anonymous_id']))
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.feed_is_not_avaiable_this_time'));
+            }
+            if(Phpfox::getService('customprofiles.process')->hideAnonymousFeedToFriend($iAnonymousId))
+            {
+                $this->call('$("#anonymos_fee_'.$iAnonymousId.'").html(\'<a href="" onclick="$.ajaxCall(\\\'customprofiles.showAnonymousFeed\\\',\\\'anonymous_id='.$iAnonymousId.'\\\');return false;">public</a>\');');
+                $this->alert(Phpfox::getPhrase('customprofiles.make_this_post_hide_with_friend_successful'));
+            }
+            else
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.can_t_hide_this_post_with_friends'));
+            }
+        }
+
+        public function blockUser()
+        {
+            $iUserId = (int)$this->get('user_id');
+            $iAnonymousId = (int)$this->get('anonymous_id');
+            if(!$iUserId)
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.this_user_is_not_avaiable_this_time'));
+            }
+            if(Phpfox::getService('customprofiles')->checkBlockUser($iUserId))
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.you_have_already_blocked_this_user'));
+            }
+            if(Phpfox::getService('customprofiles.process')->blockUser($iUserId))
+            {
+                if($iAnonymousId)
+                {
+                    $sHtml = Phpfox::getPhrase('customprofiles.bloc_user_success',array('user_id' => $iUserId, 'anonymous_id' => $iAnonymousId));
+                    $this->call('$("#anonymous_feed_block_'.$iAnonymousId.'").closest(".js_feed_view_more_entry_holder").append(\''.$sHtml.'\');');
+                    $this->call('$("#anonymous_feed_block_'.$iAnonymousId.'").closest(".row_feed_loop").hide();');
+                }
+                else
+                {
+                    $this->alert(Phpfox::getPhrase('customprofiles.block_this_user_successful'));
+                }
+            }
+            else
+            {
+                $this->alert('Can not block this User.');
+            }
+        }
+
+        public function unlockUser()
+        {
+            $iUserId = (int)$this->get('user_id');
+            $iAnonymousId = $this->get('anonymous_id');
+            if(!$iUserId)
+            {
+                return $this->alert(Phpfox::getPhrase('customprofiles.this_user_is_not_avaiable_this_time'));
+            }
+            if(Phpfox::getService('customprofiles.process')->removeBlockUser($iUserId))
+            {
+                $sHtml = Phpfox::getPhrase('customprofiles.bloc_user_success',array('user_id' => $iUserId, 'anonymous_id' => $iAnonymousId));
+                $this->call('$("#anonymous_feed_block_'.$iAnonymousId.'").closest(".js_feed_view_more_entry_holder").find(".block_message").remove();');
+                $this->call('$("#anonymous_feed_block_'.$iAnonymousId.'").closest(".row_feed_loop").show();');
+            }
+            else
+            {
+                $this->alert('Can not block this User.');
+            }
+        }
     }
 ?>
