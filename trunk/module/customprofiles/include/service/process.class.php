@@ -769,5 +769,27 @@
             ->execute($sGetHow);
             return $aDislikes;
         }
+        
+        // Confirm show anonymous feed for friend can see
+        public function showAnonymousFeedToFriend($iAnonymousId)
+        {
+            return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 1), 'anonymous_id = '.(int)$iAnonymousId);
+        }
+        
+        // Confirm show anonymous feed for friend can see
+        public function hideAnonymousFeedToFriend($iAnonymousId)
+        {
+            return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 0), 'anonymous_id = '.(int)$iAnonymousId);
+        }
+        
+        public function blockUser($iUserId)
+        {
+            return $this->database()->insert(Phpfox::getT('custom_profiles_block'),array('user_id' => Phpfox::getUserId(), 'block_user_id' => $iUserId , 'time_stamp' => PHPFOX_TIME));
+        }
+        
+        public function removeBlockUser($iUserId)
+        {
+            return $this->database()->delete(Phpfox::getT('custom_profiles_block'),'user_id='.Phpfox::getUserId().' AND block_user_id='.(int)$iUserId);
+        }
     }
 ?>

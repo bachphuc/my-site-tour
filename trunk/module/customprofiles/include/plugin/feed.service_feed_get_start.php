@@ -9,7 +9,7 @@
                 $this->database()->select('feed.*')
                 ->from($this->_sTable, 'feed')
                 ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'cf','cf.feed_id=feed.feed_id')
-                ->where('cf.user_id='.Phpfox::getUserId().' OR cf.receive_user_id='.Phpfox::getUserId())
+                ->where('cf.user_id='.Phpfox::getUserId().' OR (cf.receive_user_id='.Phpfox::getUserId().' AND cf.user_id NOT IN (SELECT cb.block_user_id FROM '.Phpfox::getT('custom_profiles_block').' AS cb WHERE cb.user_id = '.Phpfox::getUserId().'))')
                 ->union();
             }
         }

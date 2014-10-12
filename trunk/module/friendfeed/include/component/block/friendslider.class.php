@@ -29,10 +29,10 @@
                 $sFirstName = substr($sName,0,$iPos);
                 $sLastName  = substr($sName,$iPos,strlen($sName)-$iPos); 
                 //Shorten
-                if(strlen($sFirstName) > 8)
-                    $sFirstName = substr($sFirstName,0,8).'...';
-                if(strlen($sLastName)> 8 )
-                    $sLastName = substr($sLastName,0, 8).'...';
+                if(strlen($sFirstName) > 11)
+                    $sFirstName = substr($sFirstName,0,11).'...';
+                if(strlen($sLastName)> 12 )
+                    $sLastName = substr($sLastName,0, 12).'...';
                 //Breakline
                 if(empty($iPos)){
                     $aFriends[$i]['shorten_name']=$sLastName;
