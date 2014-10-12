@@ -1,0 +1,5 @@
+// Change log for anonymous module
+- In file module/feed/include/service/callback.class.php: Add function getActionsComment from line 1010 to line 1028 
+- In file module/feed/template/default/block/entry.html.php: Modify code in line 15
+- In file module/like/include/service/process.class.php: Modify code from line 40 to line 41, from 53 to line 55
+- In file module/comment/template/default/block/mini.html.php: Modify code from line 14 to line 16
