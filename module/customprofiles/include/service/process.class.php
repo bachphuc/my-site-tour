@@ -784,11 +784,13 @@
         
         public function blockUser($iUserId)
         {
+            $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array('is_block' => 1), 'user_id='.(int)$iUserId.' AND receive_user_id = '.Phpfox::getUserId());
             return $this->database()->insert(Phpfox::getT('custom_profiles_block'),array('user_id' => Phpfox::getUserId(), 'block_user_id' => $iUserId , 'time_stamp' => PHPFOX_TIME));
         }
         
         public function removeBlockUser($iUserId)
         {
+            $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array('is_block' => 0), 'user_id='.(int)$iUserId.' AND receive_user_id = '.Phpfox::getUserId());
             return $this->database()->delete(Phpfox::getT('custom_profiles_block'),'user_id='.Phpfox::getUserId().' AND block_user_id='.(int)$iUserId);
         }
     }
