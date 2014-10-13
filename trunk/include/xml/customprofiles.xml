@@ -79,12 +79,12 @@ $this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_pro
 		</install>
 		<install>
 			<version>2.8.2</version>
-			<install_code><![CDATA[$this->database()->query("ALTER TABLE `phpfox_custom_profiles_anonymous_feed` ADD `privacy` TINYINT( 1 ) NOT NULL DEFAULT '0';");]]></install_code>
+			<install_code><![CDATA[$this->database()->query("ALTER TABLE `".Phpfox::getT('custom_profiles_anonymous_feed')."` ADD `privacy` TINYINT( 1 ) NOT NULL DEFAULT '0';");]]></install_code>
 			<uninstall_code></uninstall_code>
 		</install>
 		<install>
 			<version>2.8.3</version>
-			<install_code><![CDATA[$this->database->query("CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_block` (
+			<install_code><![CDATA[$this->database->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_profiles_block')."` (
   `block_id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `block_user_id` int(10) NOT NULL,
@@ -95,7 +95,7 @@ $this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT('custom_pro
 		</install>
 		<install>
 			<version>2.8.4</version>
-			<install_code><![CDATA[$this->database()->query("ALTER TABLE `phpfox_custom_profiles_anonymous_feed` ADD `is_block` TINYINT( 1 ) NOT NULL DEFAULT '0';");]]></install_code>
+			<install_code><![CDATA[$this->database()->query("ALTER TABLE `".Phpfox::getT('custom_profiles_anonymous_feed')."` ADD `is_block` TINYINT( 1 ) NOT NULL DEFAULT '0';");]]></install_code>
 			<uninstall_code></uninstall_code>
 		</install>
 	</installs>
