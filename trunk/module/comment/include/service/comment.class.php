@@ -262,7 +262,8 @@ class Comment_Service_Comment extends Phpfox_Service
 		}
 		else
 		{
-			$this->database()->where('c.parent_id = 0 AND c.type_id = \'' . $this->database()->escape($sType) . '\' AND c.item_id = ' . (int) $iItemId . ' AND c.view_id = 0');
+            // ANONYMOUS MODULE
+			$this->database()->where('c.parent_id = 0 AND c.type_id = \'' . $this->database()->escape($sType) . '\' AND c.item_id = ' . (int) $iItemId . ' AND c.view_id = 0 AND c.user_id NOT IN(SELECT block_user_id FROM '.Phpfox::getT('custom_profiles_block').' AS cb WHERE cb.user_id = '.Phpfox::getUserId().')');
 		}
 
 		if(Phpfox::isModule('like'))

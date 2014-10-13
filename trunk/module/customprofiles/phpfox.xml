@@ -61,5 +61,15 @@
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="you_have_scheduled_to_post_a_anonymous_feed_to_other_user" added="1404497544">Your post has been correctly scheduled in the future.</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="this_field_cannot_be_empty" added="1404928349">This field cannot be empty</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.7" var_name="please_choose_a_user_or_enter_a_email" added="1404930864">Please choose a wayter or enter an email</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="feed_is_not_avaiable_this_time" added="1413048634">Feed is not avaiable this time!</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="cann_t_public_this_anonymous_feed" added="1413048829"><![CDATA[Cann&#039;t public this anonymous feed.]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="make_this_post_public_with_friend_successful" added="1413049002">Make this post public with friend successful.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="make_this_post_hide_with_friend_successful" added="1413049081">Make this post hide with friend successful.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="can_t_hide_this_post_with_friends" added="1413049128"><![CDATA[Can&#039;t hide this post with friends.]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="block_this_user_and_you_will_not_receive_further_anonymous_messages_by_him_her" added="1413076518">Block this user and you will not receive further anonymous messages by him/her.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="this_user_is_not_avaiable_this_time" added="1413077214">This user is not avaiable this time.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="block_this_user_successful" added="1413077280">Block this user successful.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="bloc_user_success" added="1413128714"><![CDATA[<div class="block_message" style="background-color:#ddd;border:1px solid #ccc;color:#333;padding:10px;">Block user successful.  You will not receive further anonymous messages by him / her. <a onclick="$.ajaxCall(&#039;customprofiles.unlockUser&#039;,&#039;user_id={user_id}&anonymous_id={anonymous_id}&#039;);return false;" href="">Click to undo.</a></div>]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="you_have_already_blocked_this_user" added="1413136605">You have already blocked this user.</phrase>
 	</phrases>
 </module>

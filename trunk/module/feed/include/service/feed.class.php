@@ -420,7 +420,7 @@ class Feed_Service_Feed extends Phpfox_Service
                             ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.parent_user_id AND f.friend_user_id = ' . Phpfox::getUserId())
                             // ANONYMOUS MODULE
                             ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
-                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND af.privacy <> 0 ' ) 
+                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND af.privacy <> 0 AND af.is_block = 0' ) 
                             // ->limit($iTotalFeeds)
                             ->union();
                             
