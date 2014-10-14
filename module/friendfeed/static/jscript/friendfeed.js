@@ -32,7 +32,6 @@ $Behavior.loadFriendFeed = function(){
     $('#toggle').unbind('change').bind('change',function(){
         if(!$(this).prop('checked')){
             scrollToSection(0);
-            $('#toggle').attr('checked',false);
             $Core.isLoadingFriendFeed = false;
             $(".active_friend_feed").removeClass("active_friend_feed");    
             $('.active_alpha').removeClass('active_alpha');
@@ -43,6 +42,13 @@ $Behavior.loadFriendFeed = function(){
     $('#section_alphabet a').unbind('click').bind('click',function(){
         $('#section_alphabet a').removeClass('active_alpha');
         $(this).addClass('active_alpha'); 
+    });
+    
+    $('.activity_feed_form textarea').unbind('click').bind('click',function(){
+        if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
     });
 }
 

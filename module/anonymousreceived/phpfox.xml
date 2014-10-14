@@ -1,0 +1,36 @@
+<module>
+	<data>
+		<module_id>anonymousreceived</module_id>
+		<product_id>anonymousreceived</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu></menu>
+		<phrase_var_name>module_anonymousreceived</phrase_var_name>
+	</data>
+	<blocks>
+		<block type_id="0" m_connection="profile.index" module_id="anonymousreceived" component="receivedmenu" location="1" is_active="1" ordering="3" disallow_access="" can_move="0">
+			<title>Received Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="anonymousreceived.index" module_id="anonymousreceived" component="receivedmenu" location="1" is_active="1" ordering="3" disallow_access="" can_move="0">
+			<title>Anonymous Received</title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="anonymousdone.index" module_id="anonymousreceived" component="receivedmenu" location="1" is_active="1" ordering="3" disallow_access="" can_move="0">
+			<title></title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="anonymousreceived" component="receivedmenu" m_connection="" module="anonymousreceived" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="anonymousreceived" component="index" m_connection="anonymousreceived.index" module="anonymousreceived" is_controller="1" is_block="0" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="anonymousreceived" version_id="3.7.7" var_name="module_anonymousreceived" added="1405855962">Anonymous received moudule</phrase>
+		<phrase module_id="anonymousreceived" version_id="3.7.7" var_name="anonymous_posts_received" added="1405856867">Anonymous Post Received</phrase>
+	</phrases>
+</module>
