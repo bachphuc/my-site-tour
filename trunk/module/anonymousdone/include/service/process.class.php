@@ -24,6 +24,7 @@
         public function getDoneFeed()
         {
             $sSelect = 'feed.*,' . Phpfox::getUserField();
+            $iUserid = Phpfox::getUserId();
             $sOrder = 'feed.time_update DESC';
             $aRows = $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
