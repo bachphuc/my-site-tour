@@ -34,11 +34,6 @@
             ->group('feed.feed_id')         
             ->execute('getSlaveRows');   
 
-            if ($bForceReturn === true)
-            {
-                return $aRows;
-            }
-
 
             $bFirstCheckOnComments = false;
             if (Phpfox::getParam('feed.allow_comments_on_feeds') && Phpfox::isUser() && Phpfox::isModule('comment'))
@@ -59,68 +54,62 @@
 
             $aFeedLoop = array();
             $aLoopHistory = array();
-            if (Phpfox::getLib('request')->get('hashtagsearch'))
+
+            if ($iLoopMaxCount > 0)
             {
-                $aFeedLoop = $aRows;
-            }
-            else
-            {
-                if ($iLoopMaxCount > 0)
+                foreach ($aRows as $iKey => $aRow)
                 {
-                    foreach ($aRows as $iKey => $aRow)
+                    $sFeedKey = $aRow['user_id'] . $aRow['type_id'] . date('dmyH', $aRow['time_stamp']);
+                    if (isset($aRow['type_id']))
                     {
-                        $sFeedKey = $aRow['user_id'] . $aRow['type_id'] . date('dmyH', $aRow['time_stamp']);
-                        if (isset($aRow['type_id']))
+                        $aModule = explode('_', $aRow['type_id']);
+                        if (isset($aModule[0]) && Phpfox::isModule($aModule[0]) && Phpfox::hasCallback($aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : ''), 'getReportRedirect'))
                         {
-                            $aModule = explode('_', $aRow['type_id']);
-                            if (isset($aModule[0]) && Phpfox::isModule($aModule[0]) && Phpfox::hasCallback($aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : ''), 'getReportRedirect'))
-                            {
-                                $aRow['report_module'] = $aRows[$iKey]['report_module'] = $aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : '');
-                                $aRow['report_phrase'] = $aRows[$iKey]['report_phrase'] = Phpfox::getPhrase('feed.report_this_entry');
-                                $aRow['force_report'] = $aRows[$iKey]['force_report'] = true;
-                            }
+                            $aRow['report_module'] = $aRows[$iKey]['report_module'] = $aModule[0] . (isset($aModule[1]) ? '_' . $aModule[1] : '');
+                            $aRow['report_phrase'] = $aRows[$iKey]['report_phrase'] = Phpfox::getPhrase('feed.report_this_entry');
+                            $aRow['force_report'] = $aRows[$iKey]['force_report'] = true;
+                        }
+                    }
+
+                    if (isset($aFeedLoop[$sFeedKey]))
+                    {
+                        if (!isset($aLoopHistory[$sFeedKey]))
+                        {
+                            $aLoopHistory[$sFeedKey] = 0;
                         }
 
-                        if (isset($aFeedLoop[$sFeedKey]))
+                        $aLoopHistory[$sFeedKey]++;
+
+                        if ($aLoopHistory[$sFeedKey] >= ($iLoopMaxCount - 1))
                         {
-                            if (!isset($aLoopHistory[$sFeedKey]))
-                            {
-                                $aLoopHistory[$sFeedKey] = 0;
-                            }
+                            $bIsLoop = true;
 
-                            $aLoopHistory[$sFeedKey]++;
-
-                            if ($aLoopHistory[$sFeedKey] >= ($iLoopMaxCount - 1))
-                            {
-                                $bIsLoop = true;
-
-                                $this->_aViewMoreFeeds[$sFeedKey][] = $aRow;
-                            }
-                            else
-                            {
-
-                                $aFeedLoop[$sFeedKey . $aLoopHistory[$sFeedKey]] = $aRow;
-
-                                continue;
-                            }
+                            $this->_aViewMoreFeeds[$sFeedKey][] = $aRow;
                         }
                         else
                         {
-                            $aFeedLoop[$sFeedKey] = $aRow;
-                        }
 
-                        if (isset($bIsLoop))
-                        {
-                            unset($bIsLoop);
+                            $aFeedLoop[$sFeedKey . $aLoopHistory[$sFeedKey]] = $aRow;
+
+                            continue;
                         }
                     }
-                }
-                else
-                {
-                    $aFeedLoop = $aRows;
+                    else
+                    {
+                        $aFeedLoop[$sFeedKey] = $aRow;
+                    }
+
+                    if (isset($bIsLoop))
+                    {
+                        unset($bIsLoop);
+                    }
                 }
             }
-
+            else
+            {
+                $aFeedLoop = $aRows;
+            }
+            
             $aFeeds = array();
             $aCacheData = array();
             $sLastFriendId = '';
@@ -129,7 +118,7 @@
             {
                 $oLike = Phpfox::getService('like');
             }
-
+            
             $aParentFeeds = array();
             foreach ($aFeedLoop as $sKey => $aRow)
             {
@@ -176,7 +165,7 @@
 
                     $aFeeds[] = $aReturn;
                 }
-
+                
                 // Show the feed properly. If user A posted on page 1, then feed will say "user A > page 1 posted ..."
                 if (isset($this->_aCallback['module']) && $this->_aCallback['module'] == 'pages')
                 {
@@ -192,7 +181,6 @@
                 }
 
             }
-
             // Get the parents for the feeds so it displays arrow.png 
             if (!empty($aParentFeeds))
             {
@@ -200,7 +188,7 @@
                 ->from(Phpfox::getT('user'), 'u')
                 ->where('user_id IN (' . implode(',',array_values($aParentFeeds)) . ')')
                 ->execute('getSlaveRows');
-
+                
                 $aFeedsWithParents = array_keys($aParentFeeds);
                 foreach ($aFeeds as $sKey => $aRow)
                 {
@@ -221,7 +209,7 @@
                     }
                 }
             }
-
+            
             $oReq = Phpfox::getLib('request');
             if (($oReq->getInt('status-id')
                 || $oReq->getInt('comment-id')
@@ -484,8 +472,15 @@
             {
                 $aFeed['bShowEnterCommentBlock'] = true;
             }
+            if(isset($aFeed['parent_user_id']))
+            {
+                unset($aFeed['parent_user_id']);
+            }
+            if(isset($aFeed['feed_info']))
+            {
+                $aFeed['feed_info'] = '';
+            }
             $aOut = array_merge($aRow, $aFeed);
-
 
             return $aOut;        
         }
