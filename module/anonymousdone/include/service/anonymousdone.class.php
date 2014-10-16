@@ -12,8 +12,8 @@
     * @author          phuclb@npfox.com
     */
 
-    class AnonymousDone_Service_AnonymousDone extends Phpfox_Service {
-
+    class AnonymousDone_Service_AnonymousDone extends Phpfox_Service 
+    {
 
     }
 
