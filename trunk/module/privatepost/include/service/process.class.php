@@ -13,12 +13,6 @@
     */
     class PrivatePost_Service_Process extends Phpfox_Service 
     {
-        public function getLastFeedId()
-        {
-            $iFeedId = $this->database()->select('MAX(feed_id) AS last_feed_id')
-            ->from(Phpfox::getT('feed'))
-            ->execute('getSlaveField');
-            return $iFeedId;
-        }
+
     }
 ?>
