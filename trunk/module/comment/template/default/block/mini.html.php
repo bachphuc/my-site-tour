@@ -15,7 +15,7 @@ defined('PHPFOX') or exit('NO DICE!');
         {* ANONYMOUS MODULE *}
 		{if ((!isset($aFeed.is_anonymous) || (isset($aFeed.is_anonymous) && !$aFeed.is_anonymous)) && $aFeed.owner_user_id == Phpfox::getUserId()) || (isset($aFeed.is_anonymous) && $aFeed.is_anonymous && $aFeed.parent_user_id == Phpfox::getUserId() ) || (Phpfox::getUserParam('comment.delete_own_comment') && Phpfox::getUserId() == $aComment.user_id) || Phpfox::getUserParam('comment.delete_user_comment') || (defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id) && $aUser.user_id == Phpfox::getUserId() && Phpfox::getUserParam('comment.can_delete_comments_posted_on_own_profile'))
 		|| (defined('PHPFOX_IS_PAGES_VIEW') && Phpfox::getService('pages')->isAdmin('' . $aPage.page_id . ''))
-		}
+		} 
 			<div class="feed_comment_delete_link">
 				<a href="#" class="action_delete js_hover_title" onclick="$.ajaxCall('comment.InlineDelete', 'type_id={$aComment.type_id}&amp;comment_id={$aComment.comment_id}{if defined('PHPFOX_IS_THEATER_MODE')}&photo_theater=1{/if}', 'GET'); return false;">
 					<span class="js_hover_info">
