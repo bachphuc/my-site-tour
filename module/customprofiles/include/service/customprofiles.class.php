@@ -22,7 +22,7 @@
             ->where('af.feed_id='.(int)$iFeedId)
             ->execute('getRow');
         }
-        
+
         public function getAnonymousFeedById($iAnonymousId)
         {
             return $this->database()->select('*')
@@ -126,7 +126,7 @@
             }
             return $aParentFeed['feed_id'];
         }
-        
+
         public function getScheduleFeed($iFeedId)
         {
             return $this->database()->select('*')
@@ -134,14 +134,14 @@
             ->where('feed_id='.(int)$iFeedId)
             ->execute('getRow');
         }
-        
+
         public function setHeaders()
         {
             Phpfox::getLib('template')->setHeader(array(
                 'comment.js' => 'module_customprofiles'
             ));
         }
-        
+
         public function getFeed($iFeedId)
         {
             return $this->database()->select('*')
@@ -149,7 +149,7 @@
             ->where('feed_id='.(int)$iFeedId)
             ->execute('getRow');
         }
-        
+
         public function getFeedItem($iItemId, $sType)
         {
             return $this->database()->select('*')
@@ -157,7 +157,7 @@
             ->where('item_id='.(int)$iItemId." AND type_id='".$sType."'")
             ->execute('getRow');
         }
-        
+
         public function checkBlockUser($iUserId)
         {
             $aRow = $this->database()->select('*')
@@ -169,6 +169,63 @@
                 return true;
             }
             return false;
+        }
+
+        public function checkBlockByUser($iUserId)
+        {
+            $aRow = $this->database()->select('*')
+            ->from(Phpfox::getT('custom_profiles_block'))
+            ->where('user_id = '.(int)$iUserId.' AND block_user_id = '.(int)Phpfox::getUserId())
+            ->execute('getRow');
+            if(isset($aRow['block_id']))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public function processReport(&$aReports)
+        {
+            foreach($aReports as $key => $aReport)
+            {
+                // Get block from report
+                $aBlock = $this->database()->select('*')
+                ->from(Phpfox::getT('custom_profiles_block'))
+                ->where('report_id = '.(int)$aReport['data_id'])
+                ->execute('getRow');
+                if(!empty($aBlock))
+                {
+                    $aReports[$key]['block_user'] = $aBlock;
+                }
+                
+                $aR = explode('_',$aReport['item_id']);
+                $iId = end($aR);
+                if(strpos($aReport['module_id'] , ' ') !== false)
+                {
+                    $sType = str_replace(' ','_', $aReport['module_id']);
+                    $aRow = $this->database()->select('u.*')
+                    ->from(Phpfox::getT('feed'),'f')
+                    ->join(Phpfox::getT('user'),'u','u.user_id=f.user_id')
+                    ->where("type_id='$sType' AND item_id=$iId")
+                    ->execute('getRow');
+                    if(!empty($aRow))
+                    {
+                        $aReports[$key]['author_user'] = $aRow;
+                    }
+                }
+                else
+                {
+                    $aRow = $this->database()->select('u.*')
+                    ->from(Phpfox::getT($aReport['module_id']),'m')
+                    ->join(Phpfox::getT('user'),'u','u.user_id=m.user_id')
+                    ->where($aReport['module_id'].'_id='.(int)$iId)
+                    ->execute('getRow');
+                    if(!empty($aRow))
+                    {
+                        $aReports[$key]['author_user'] = $aRow;
+                    }
+                }
+            }
         }
     }
 ?>

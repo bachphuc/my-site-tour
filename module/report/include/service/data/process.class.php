@@ -25,7 +25,7 @@ class Report_Service_Data_Process extends Phpfox_Service
 	
 	public function add($iReportId, $sType, $iItemId, $sFeedback = '')
 	{
-		$this->database()->insert($this->_sTable, array(
+		return $this->database()->insert($this->_sTable, array(
 				'report_id' => (int) $iReportId,
 				'item_id' => $sType . '_' . (int) $iItemId,
 				'user_id' => Phpfox::getUserId(),
@@ -54,7 +54,9 @@ class Report_Service_Data_Process extends Phpfox_Service
 		
 		if (!isset($aCache[$aReport['item_id']]))
 		{
-			$this->database()->delete(Phpfox::getT('report_data'), 'item_id = \'' . $aReport['item_id'] . '\'');
+            // Keep report not delete from db
+            // $this->database()->delete(Phpfox::getT('report_data'), 'item_id = \'' . $aReport['item_id'] . '\'');
+			$this->database()->update(Phpfox::getT('report_data'), array('is_archive' => 1), 'item_id = \'' . $aReport['item_id'] . '\'');
 		
 			$aCache[$aReport['item_id']] = true;
 		}

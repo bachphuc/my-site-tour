@@ -30,7 +30,7 @@
             // if exist delay_time save feed schedule
             if(isset($aVals['time_delay']) && $aVals['time_delay'] > 0 && (!$aVals['is_not_friend'] || (isset($aReceive) && $aReceive)))
             {
-                if(isset($aReceive) && isset($aReceive['user_id']))
+                if(isset($aReceive) && isset($aReceive['user_id']) && $aVals['is_not_friend'])
                 {
                     $aVals['friend_id'] = $aReceive['user_id'];
                 }
@@ -41,6 +41,14 @@
                 else
                 {
                     $aVals['is_friend'] = false;
+                }
+                // Check if user block you
+                if(Phpfox::getService('customprofiles')->checkBlockByUser($aVals['friend_id']))
+                {
+                    $aUser = Phpfox::getService('user')->getUser($aVals['friend_id']);
+                    echo '$Core.resetAnonymousPost();'; 
+                    Phpfox::getLib('ajax')->alert(Phpfox::getPhrase('customprofiles.has_blocked_you',array('full_name' => $aUser['full_name'])));
+                    die();
                 }
                 $this->saveScheduleFeed($aVals);
                 echo '$Core.resetActivityFeedForm();';
@@ -86,6 +94,14 @@
             if(!$aVals['is_not_friend'])
             {
                 $bIsFriend = true;
+                // Check if user block you
+                if(Phpfox::getService('customprofiles')->checkBlockByUser($aVals['friend_id']))
+                {
+                    $aUser = Phpfox::getService('user')->getUser($aVals['friend_id']);
+                    echo '$Core.resetAnonymousPost();'; 
+                    Phpfox::getLib('ajax')->alert(Phpfox::getPhrase('customprofiles.has_blocked_you',array('full_name' => $aUser['full_name'])));
+                    die();
+                }
                 $iFeedId = $this->addFriendAnonymousMessage($aVals);
             }
             else
@@ -96,12 +112,28 @@
                     {
                         $bIsFriend = true;
                         $aVals['friend_id'] = $aReceive['user_id'];
+                        // Check if user block you
+                        if(Phpfox::getService('customprofiles')->checkBlockByUser($aVals['friend_id']))
+                        {
+                            $aUser = Phpfox::getService('user')->getUser($aVals['friend_id']);
+                            echo '$Core.resetAnonymousPost();'; 
+                            Phpfox::getLib('ajax')->alert(Phpfox::getPhrase('customprofiles.has_blocked_you',array('full_name' => $aUser['full_name'])));
+                            die();
+                        }
                         $iFeedId = $this->addFriendAnonymousMessage($aVals);
                     }
                     else
                     {
                         $aVals['friend_id'] = $aReceive['user_id'];
                         $aVals['is_friend'] = false;
+                        // Check if user block you
+                        if(Phpfox::getService('customprofiles')->checkBlockByUser($aVals['friend_id']))
+                        {
+                            $aUser = Phpfox::getService('user')->getUser($aVals['friend_id']);
+                            echo '$Core.resetAnonymousPost();'; 
+                            Phpfox::getLib('ajax')->alert(Phpfox::getPhrase('customprofiles.has_blocked_you',array('full_name' => $aUser['full_name'])));
+                            die();
+                        }
                         $this->saveScheduleFeed($aVals);
                     }
                 }
@@ -769,29 +801,46 @@
             ->execute($sGetHow);
             return $aDislikes;
         }
-        
+
         // Confirm show anonymous feed for friend can see
         public function showAnonymousFeedToFriend($iAnonymousId)
         {
             return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 1), 'anonymous_id = '.(int)$iAnonymousId);
         }
-        
+
         // Confirm show anonymous feed for friend can see
         public function hideAnonymousFeedToFriend($iAnonymousId)
         {
             return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 0), 'anonymous_id = '.(int)$iAnonymousId);
         }
-        
-        public function blockUser($iUserId)
+
+        public function blockUser($iUserId , $iReportId = 0)
         {
             $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array('is_block' => 1), 'user_id='.(int)$iUserId.' AND receive_user_id = '.Phpfox::getUserId());
-            return $this->database()->insert(Phpfox::getT('custom_profiles_block'),array('user_id' => Phpfox::getUserId(), 'block_user_id' => $iUserId , 'time_stamp' => PHPFOX_TIME));
+
+            $iBlockId = $this->database()->insert(Phpfox::getT('custom_profiles_block'),
+                array(
+                    'user_id' => Phpfox::getUserId(), 
+                    'block_user_id' => $iUserId , 
+                    'time_stamp' => PHPFOX_TIME,
+                    'report_id' => $iReportId
+            ));
+            if($iBlockId)
+            {
+                // Send a notifycation to sender, you block him
+                if (Phpfox::isModule('notification'))
+                {
+                    Phpfox::getService('notification.process')->add('customprofiles_blockUser', $iBlockId, $iUserId);              
+                }
+            }
+            return $iBlockId;
         }
-        
-        public function removeBlockUser($iUserId)
+
+        public function removeBlockUser($iUserId, $iBlockUserId)
         {
-            $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array('is_block' => 0), 'user_id='.(int)$iUserId.' AND receive_user_id = '.Phpfox::getUserId());
-            return $this->database()->delete(Phpfox::getT('custom_profiles_block'),'user_id='.Phpfox::getUserId().' AND block_user_id='.(int)$iUserId);
+            Phpfox::isAdmin(true);
+            $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'),array('is_block' => 0), 'user_id='.(int)$iBlockUserId.' AND receive_user_id = '.$iUserId);
+            return $this->database()->delete(Phpfox::getT('custom_profiles_block'),'user_id='.$iUserId.' AND block_user_id='.(int)$iBlockUserId);
         }
     }
 ?>
