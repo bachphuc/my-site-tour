@@ -168,7 +168,7 @@ class Feed_Service_Feed extends Phpfox_Service
 		$oUrl = Phpfox::getLib('url');
 		$oReq = Phpfox::getLib('request');
 		$oParseOutput = Phpfox::getLib('parse.output');
-		
+		$sFeedAvailable = 'is_delete = 0 AND ';
 		if ($oReq->get('get-new'))
 		{
 			// $bForceReturn = true;
@@ -279,7 +279,7 @@ class Feed_Service_Feed extends Phpfox_Service
             $aRows = $this->database()->select('feed.*, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')	
-                ->where('feed.feed_id IN(' . $sNewIds . ')')            
+                ->where($sFeedAvailable.'feed.feed_id IN(' . $sNewIds . ')')            
 				->order('feed.time_stamp DESC')
 				->execute('getSlaveRows');	            
         }
@@ -288,17 +288,21 @@ class Feed_Service_Feed extends Phpfox_Service
             $aRows = $this->database()->select('feed.*, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')	
-                ->where('feed.feed_id = ' . (int) $iFeedId)            
+                ->where($sFeedAvailable.'feed.feed_id = ' . (int) $iFeedId)            
 				->order('feed.time_stamp DESC')
 				->execute('getSlaveRows');	            
         }		
 		elseif ($iUserid !== null && $iFeedId !== null)
 		{            			
+            if(Phpfox::isAdmin())
+            {
+                $sFeedAvailable = '';
+            }
             $aRows = $this->database()->select('feed.*, apps.app_title, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-				->where((isset($aCustomCondition) ? $aCustomCondition : 'feed.feed_id = ' . (int) $iFeedId . ' AND feed.user_id = ' . (int) $iUserid . ''))
+				->where((isset($aCustomCondition) ? $aCustomCondition : $sFeedAvailable.'feed.feed_id = ' . (int) $iFeedId . ' AND feed.user_id = ' . (int) $iUserid . ''))
 				->order('feed.time_stamp DESC')
 				->limit(1)			
 				->execute('getSlaveRows');			
@@ -378,6 +382,7 @@ class Feed_Service_Feed extends Phpfox_Service
 				->unionFrom('feed')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
+                ->where($sFeedAvailable.' 1')
 				->order('feed.time_stamp DESC')
 				->group('feed.feed_id')
 				->limit($iOffset, $iTotalFeeds)			
@@ -405,7 +410,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			
-						->where('feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
+						->where($sFeedAvailable.'feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
 						->execute('getSlaveRows');
 			}
 			else
@@ -505,6 +510,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						->unionFrom('feed')			
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 						->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
+                        ->where($sFeedAvailable.' 1')
 						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			

@@ -13,7 +13,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @package 		Phpfox_Component
  * @version 		$Id: index.class.php 1522 2010-03-11 17:56:49Z Miguel_Espinoza $
  */
-class Report_Component_Controller_Admincp_Index extends Phpfox_Component
+class Report_Component_Controller_Admincp_Archive extends Phpfox_Component
 {
 	/**
 	 * Class process method wnich is used to execute this component.
@@ -67,7 +67,7 @@ class Report_Component_Controller_Admincp_Index extends Phpfox_Component
 			'user' => array(
 				'type' => 'input:text',
 				'search' => "AND u.user_name LIKE '%[VALUE]%'"
-			),						
+			),					
 			'display' => array(
 				'type' => 'select',
 				'options' => $aDisplays,
@@ -98,7 +98,7 @@ class Report_Component_Controller_Admincp_Index extends Phpfox_Component
 		
 		$iLimit = $oSearch->getDisplay();
 		$aConition = $oSearch->getConditions();
-        $aConition[] = 'AND is_archive = 0 ';
+        $aConition[] = 'AND is_archive = 1 ';
 		list($iCnt, $aReports) = Phpfox::getService('report')->get($aConition, $oSearch->getSort(), $oSearch->getPage(), $iLimit);
 		
 		Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iLimit, 'count' => $oSearch->getSearchTotal($iCnt)));		

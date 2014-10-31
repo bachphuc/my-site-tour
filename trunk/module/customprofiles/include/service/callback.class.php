@@ -17,7 +17,6 @@
     {
         public function getNotificationAnonymousConfirm($aNotification)
         {
-            // $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($aNotification['item_id']);
             $aNonymousFeed = Phpfox::getService('customprofiles')->getScheduleFeed($aNotification['item_id']);
             if(!isset($aNonymousFeed['feed_id']))
             {
@@ -214,7 +213,6 @@
         // notification when user confirm invite anonymous message NOT FRIEND, IS USER
         public function getNotificationReplyInvite($aNotification)
         {
-            // $aNonymousMessage = Phpfox::getService('customprofiles')->getAnonymousFeed($aNotification['item_id']);
             $aNonymousMessage = Phpfox::getService('customprofiles')->getScheduleFeed($aNotification['item_id']);
             if(!isset($aNonymousMessage['object']))
             {
@@ -251,6 +249,21 @@
             return array(
                 'link' => '',  
                 'message' => Phpfox::getPhrase('customprofiles.expire_invite_anonymous_message',array('full_name' => $aInvite['full_name'])),
+                'no_profile_image' => true
+            );
+        }
+        
+        public function getNotificationBlockUser($aNotification)
+        {
+            $aUser = $this->database()->select('u.*')
+            ->from(Phpfox::getT('user'),'u')
+            ->join(Phpfox::getT('custom_profiles_block'),'cpb','cpb.user_id = u.user_id')
+            ->where('block_id='.(int)$aNotification['item_id'])
+            ->execute('getRow');
+            
+            return array(
+                'link' => '',  
+                'message' => Phpfox::getPhrase('customprofiles.message_has_blocked_you',array('full_name' => $aUser['full_name'])),
                 'no_profile_image' => true
             );
         }
