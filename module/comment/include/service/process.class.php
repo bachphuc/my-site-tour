@@ -347,9 +347,7 @@ class Comment_Service_Process extends Phpfox_Service
 		
 		(Phpfox::isModule('feed') ? Phpfox::getService('feed.process')->delete($sType, (int) $iId) : null);
 		
-		$this->database()->delete(Phpfox::getT('comment'), "comment_id = " . (int) $iId);
-		$this->database()->delete(Phpfox::getT('comment_text'), "comment_id = " . (int) $iId);
-		$this->database()->delete(Phpfox::getT('comment_rating'), 'comment_id = ' . (int) $iId);
+		$this->database()->update(Phpfox::getT('comment') , array('is_delete' => 1), "comment_id = " . (int) $iId); 
 		(($sPlugin = Phpfox_Plugin::get('comment.service_process_delete')) ? eval($sPlugin) : false);
 	}
 
@@ -365,7 +363,7 @@ class Comment_Service_Process extends Phpfox_Service
 			return false;
 		}		
 		
-		$this->database()->delete($this->_sTable, "item_id = " . (int) $iItemId . " AND type_id = '" . $this->database()->escape($sCategory) . "'");
+		$this->database()->update($this->_sTable , array('is_delete' => 1), "item_id = " . (int) $iItemId . " AND type_id = '" . $this->database()->escape($sCategory) . "'");
 
 		foreach ($aRows as $aRow)
 		{

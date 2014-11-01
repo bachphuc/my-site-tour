@@ -271,11 +271,13 @@ class Comment_Service_Comment extends Phpfox_Service
 			$this->database()->select('l.like_id AS is_liked, ')
 					->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'feed_mini\' AND l.item_id = c.comment_id AND l.user_id = ' . Phpfox::getUserId());
 		}
-		
+		$aConds = array();
+        (($sPlugin = Phpfox_Plugin::get('comment.service_comment_get_for_feed__start')) ? eval($sPlugin) : false);
 		$aFeedComments = $this->database()->select('c.*, ' . (Phpfox::getParam('core.allow_html') ? "ct.text_parsed" : "ct.text") .' AS text, ' . Phpfox::getUserField())
 			->from(Phpfox::getT('comment'), 'c')
 			->join(Phpfox::getT('comment_text'), 'ct', 'ct.comment_id = c.comment_id')
-			->join(Phpfox::getT('user'), 'u', 'u.user_id = c.user_id')			
+			->join(Phpfox::getT('user'), 'u', 'u.user_id = c.user_id')	
+            ->where($aConds)		
 			->order('c.time_stamp DESC')						
 			->execute('getSlaveRows');
 						
