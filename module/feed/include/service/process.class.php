@@ -164,7 +164,7 @@ class Feed_Service_Process extends Phpfox_Service
 		}		
 		
 		$aParentModuleName = explode('_', $sParentModuleName);
-		
+		$iExpireTime = $iNewTimeStamp + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60;
 		$aInsert = array(
 			'privacy' => (int) $iPrivacy,
 			'privacy_comment' => (int) $iPrivacyComment,
@@ -176,6 +176,7 @@ class Feed_Service_Process extends Phpfox_Service
 			'parent_feed_id' => (int) $iParentFeedId,
 			'parent_module_id' => (Phpfox::isModule($aParentModuleName[0]) ? $this->database()->escape($sParentModuleName) : null),
 			'time_update' => $iNewTimeStamp,
+            'expire_time' => $iExpireTime
 		);
 		
 		if (!$this->_bIsCallback && !Phpfox::getParam('feed.add_feed_for_comments') && preg_match('/^(.*)_comment$/i', $sType))

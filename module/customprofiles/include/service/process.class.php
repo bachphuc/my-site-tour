@@ -259,7 +259,8 @@
                 'privacy' => 1,
                 'feed_reference' => 0,
                 'time_stamp' => $iTimeSend,
-                'time_update' => $iTimeSend
+                'time_update' => $iTimeSend,
+                'expire_time' => $iTimeSend + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60
             ));
 
             $this->database()->insert(Phpfox::getT('custom_profiles_anonymous_feed'),array(
@@ -307,7 +308,8 @@
                 'privacy' => 1,
                 'feed_reference' => 0,
                 'time_stamp' => $iTimeSend,
-                'time_update' => $iTimeSend
+                'time_update' => $iTimeSend,
+                'expire_time' => $iTimeSend + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60
             ));
 
             $this->database()->insert(Phpfox::getT('custom_profiles_anonymous_feed'),array(
@@ -535,7 +537,8 @@
                 'privacy' => 1,
                 'feed_reference' => 0,
                 'time_stamp' => PHPFOX_TIME,
-                'time_update' => PHPFOX_TIME
+                'time_update' => PHPFOX_TIME,
+                'expire_time' => PHPFOX_TIME + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60
             ));
 
             $this->database()->insert(Phpfox::getT('custom_profiles_anonymous_feed'),array(
@@ -707,7 +710,8 @@
                     'privacy' => 1,
                     'feed_reference' => 0,
                     'time_stamp' => $aVals['time_stamp'],
-                    'time_update' => $aVals['time_stamp']
+                    'time_update' => $aVals['time_stamp'],
+                    'expire_time' => $aVals['time_stamp'] + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60
                 ));
 
                 $iAnonymousFeedId = $this->database()->insert(Phpfox::getT('custom_profiles_anonymous_feed'),array(
