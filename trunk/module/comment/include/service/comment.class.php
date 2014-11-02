@@ -247,6 +247,7 @@ class Comment_Service_Comment extends Phpfox_Service
 	
 	public function getCommentsForFeed($sType, $iItemId, $iLimit = 2, $mPager = null, $iCommentId = null)
 	{
+		$aConds = array();
 		if ($mPager !== null)
 		{
 			$this->database()->limit(Phpfox::getLib('request')->getInt('page'), $iLimit, $mPager);
@@ -258,12 +259,12 @@ class Comment_Service_Comment extends Phpfox_Service
 		
 		if ($iCommentId !== null)
 		{
-			$this->database()->where('c.comment_id = ' . (int) $iCommentId . '');
+			$aConds[] = 'AND c.comment_id = ' . (int) $iCommentId . '';
 		}
 		else
 		{
             // ANONYMOUS MODULE
-			$this->database()->where('c.parent_id = 0 AND c.type_id = \'' . $this->database()->escape($sType) . '\' AND c.item_id = ' . (int) $iItemId . ' AND c.view_id = 0 AND c.user_id NOT IN(SELECT block_user_id FROM '.Phpfox::getT('custom_profiles_block').' AS cb WHERE cb.user_id = '.Phpfox::getUserId().')');
+			$aConds[] = 'AND (c.parent_id = 0 AND c.type_id = \'' . $this->database()->escape($sType) . '\' AND c.item_id = ' . (int) $iItemId . ' AND c.view_id = 0 AND c.user_id NOT IN(SELECT block_user_id FROM '.Phpfox::getT('custom_profiles_block').' AS cb WHERE cb.user_id = '.Phpfox::getUserId().'))';
 		}
 
 		if(Phpfox::isModule('like'))
@@ -271,7 +272,7 @@ class Comment_Service_Comment extends Phpfox_Service
 			$this->database()->select('l.like_id AS is_liked, ')
 					->leftJoin(Phpfox::getT('like'), 'l', 'l.type_id = \'feed_mini\' AND l.item_id = c.comment_id AND l.user_id = ' . Phpfox::getUserId());
 		}
-		$aConds = array();
+		
         (($sPlugin = Phpfox_Plugin::get('comment.service_comment_get_for_feed__start')) ? eval($sPlugin) : false);
 		$aFeedComments = $this->database()->select('c.*, ' . (Phpfox::getParam('core.allow_html') ? "ct.text_parsed" : "ct.text") .' AS text, ' . Phpfox::getUserField())
 			->from(Phpfox::getT('comment'), 'c')

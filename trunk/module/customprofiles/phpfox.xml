@@ -11,6 +11,7 @@
 	<settings>
 		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="max_time_schedule" phrase_var_name="setting_max_time_schedule" ordering="1" version_id="3.7.7">30</setting>
 		<setting group="" module_id="customprofiles" is_hidden="0" type="string" var_name="limit_time_for_invite_user_by_anonymous_module" phrase_var_name="setting_limit_time_for_invite_user_by_anonymous_module" ordering="1" version_id="3.7.7">3</setting>
+		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="expire_post_time" phrase_var_name="setting_expire_post_time" ordering="1" version_id="3.7.5">7</setting>
 	</settings>
 	<blocks>
 		<block type_id="0" m_connection="core.index-member" module_id="customprofiles" component="sendbox" location="2" is_active="1" ordering="7" disallow_access="" can_move="0">
@@ -78,5 +79,6 @@
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="block_this_wayter" added="1414420052">Block this wayter</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="has_blocked_you" added="1414424162">{full_name} has blocked you.</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="message_has_blocked_you" added="1414427080"><![CDATA[<span class="drop_data_user">{full_name}</span> has blocked you.]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="setting_expire_post_time" added="1414941596"><![CDATA[<title>Expire Post Time (Day)</title><info>Expire Post Time</info>]]></phrase>
 	</phrases>
 </module>
