@@ -1,7 +1,7 @@
-<?php
+<?php 
     if(Phpfox::isModule('customprofiles'))
-	{
+    {
         Phpfox::getService('customprofiles')->setHeaders();
-		Phpfox::getService('customprofiles.process')->updateScheduleFeed();
-	}
+        Phpfox::getService('customprofiles.process')->updateScheduleFeed();
+    }
 ?>

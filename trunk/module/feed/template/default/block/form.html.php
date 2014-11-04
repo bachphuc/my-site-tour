@@ -192,6 +192,9 @@ defined('PHPFOX') or exit('NO DICE!');
 				{module name='privacy.form' privacy_name='privacy' privacy_type='mini'}
 				{/if}
 				{/if}
+                {if Phpfox::isModule('customprofiles')}
+                {template file='customprofiles.block.expire'}
+                {/if}
 				<div class="clear"></div>
 			</div>
 			
