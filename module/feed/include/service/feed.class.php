@@ -168,7 +168,7 @@ class Feed_Service_Feed extends Phpfox_Service
 		$oUrl = Phpfox::getLib('url');
 		$oReq = Phpfox::getLib('request');
 		$oParseOutput = Phpfox::getLib('parse.output');
-		$sFeedAvailable = 'is_delete = 0 AND expire_time < '.PHPFOX_TIME.' AND ';
+		$sFeedAvailable = 'is_delete = 0 AND (expire_time > '.PHPFOX_TIME.' OR expire_time = 0) AND ';
 		if ($oReq->get('get-new'))
 		{
 			// $bForceReturn = true;
