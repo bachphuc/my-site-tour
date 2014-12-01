@@ -338,11 +338,8 @@
                 'time_stamp' => PHPFOX_TIME
             ));
 
-            $sFromEmail = Phpfox::getParam('core.email_from_email');
             $sLink = Phpfox::getLib('url')->makeUrl('customprofiles.invite', array('id' => $iInvite));
-            $bSent = Phpfox::getLib('mail')->to($aVals['email'])        
-            ->fromEmail("")    
-            ->fromName(Phpfox::getUserBy('full_name'))                
+            $bSent = Phpfox::getLib('mail')->to($aVals['email'])                       
             ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
             ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
             ->send();
@@ -376,11 +373,8 @@
 
             try
             {
-                $sFromEmail = Phpfox::getParam('core.email_from_email');
                 $sLink = Phpfox::getLib('url')->makeUrl('invite', array('id' => $iInvite));     
-                $bSent = Phpfox::getLib('mail')->to($aVals['email'])        
-                ->fromEmail("")    
-                ->fromName(Phpfox::getUserBy('full_name'))                
+                $bSent = Phpfox::getLib('mail')->to($aVals['email'])                     
                 ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
                 ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
                 ->send();
@@ -657,9 +651,7 @@
                     try
                     {
                         $sLink = Phpfox::getLib('url')->makeUrl('user.login');
-                        Phpfox::getLib('mail')->to($aVals['email'])        
-                        ->fromEmail("")    
-                        ->fromName(Phpfox::getUserBy('full_name'))                
+                        Phpfox::getLib('mail')->to($aVals['email'])                      
                         ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
                         ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
                         ->send();

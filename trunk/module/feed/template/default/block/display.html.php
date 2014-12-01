@@ -221,3 +221,26 @@ defined('PHPFOX') or exit('NO DICE!');
 		{/if}
 	{/if}
 {/if}
+
+{literal}
+<script type="text/javascript">
+    var eles = document.getElementsByClassName('comment_mini_text');
+    for(var i = 0; i < eles.length ; i ++){
+        var el = eles[i];
+        if(el.className.indexOf('user_profile_link_span') == -1){
+            var text = el.textContent;
+            var reg = /\[[^\]]+\]/g;
+            var match = text.match(reg);
+            if(match && match.length > 0){
+                var param = match[0].substring(1,match[0].length - 1);
+                var aSplit = param.split("|");
+                var full_name = aSplit[0];
+                var user_name = aSplit[1];
+                var url = aSplit[2];
+                var new_text = text.replace(reg,'<span class="user_profile_link_span" id="js_user_name_link_'+user_name+'"><a href="'+url+'">'+full_name+'</a></span>');
+                el.innerHTML = new_text;
+            }
+        }
+    }
+</script>
+{/literal}

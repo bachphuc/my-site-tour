@@ -13,7 +13,7 @@
                 $this->_aVars['aFeed']['owner_user_id'] = $this->_aVars['aFeed']['user_id'];
                 $this->_aVars['aFeed']['user_id'] = $this->_aVars['aFeed']['parent_user']['parent_user_id'];
                 $this->_aVars['aFeed']['user_image'] = $this->_aVars['aFeed']['parent_user']['parent_user_image'];
-                $this->_aVars['aFeed']['feed_status'] = /*Phpfox::getPhrase('customprofiles.anonymous_post').*/$this->_aVars['aFeed']['feed_status'];
+                $this->_aVars['aFeed']['feed_status'] = $this->_aVars['aFeed']['feed_status'];
                 unset($this->_aVars['aFeed']['parent_user']);
             }
         }

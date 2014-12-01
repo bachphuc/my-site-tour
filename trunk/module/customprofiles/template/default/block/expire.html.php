@@ -76,16 +76,16 @@
             else{
                 $(this).addClass('expire_active');
             }
-            $('.expire_time_holder').toggle();
+            $(this).next('.expire_time_holder').toggle();
             e.stopPropagation();
             e.preventDefault();
             return false;
         });
         $('.expire_time_holder a').unbind('click').bind('click',function(e){
-            $('.active_expire').removeClass('active_expire');
+            $(this).closest('.expire_time_holder').find('.active_expire').removeClass('active_expire');
             $(this).addClass('active_expire');
             $(this).closest('.expire_time_menu').find('.expire_time').val($(this).attr('rel'));
-            $('.expire_time_holder').toggle();
+            $(this).closest('.expire_time_holder').toggle();
             $('.expire_time_menu>a').removeClass('expire_active');
             e.stopPropagation();
             e.preventDefault();

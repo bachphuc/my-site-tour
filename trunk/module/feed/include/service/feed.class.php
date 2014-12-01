@@ -377,12 +377,17 @@ class Feed_Service_Feed extends Phpfox_Service
 				->from($this->_sTable, 'feed')
 				->where(array_merge($aCond, array('AND feed.parent_user_id = ' . (int) $iUserid)))
 				->union();
-			
+            $sNewCondition = '';
+			if(Phpfox::getUserId() != $iUserid)
+            {
+                $this->database()->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id');
+                $sNewCondition = ' AND (anonymous_id IS NULL OR (anonymous_id IS NOT NULL AND af.privacy = 1 AND af.receive_user_id = '.$iUserid.'))';
+            }
 			$aRows = $this->database()->select('feed.*, apps.app_title,  ' . Phpfox::getUserField())
 				->unionFrom('feed')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-                ->where($sFeedAvailable.' 1')
+                ->where($sFeedAvailable.' 1'.$sNewCondition)
 				->order('feed.time_stamp DESC')
 				->group('feed.feed_id')
 				->limit($iOffset, $iTotalFeeds)			
@@ -425,7 +430,7 @@ class Feed_Service_Feed extends Phpfox_Service
                             ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.parent_user_id AND f.friend_user_id = ' . Phpfox::getUserId())
                             // ANONYMOUS MODULE
                             ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
-                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND af.privacy <> 0 AND af.is_block = 0' ) 
+                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND af.privacy = 1 AND af.is_block = 0' ) 
                             // ->limit($iTotalFeeds)
                             ->union();
                             

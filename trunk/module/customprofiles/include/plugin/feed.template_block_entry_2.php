@@ -22,7 +22,7 @@
 <?php if(isset($aNonymousFeed['anonymous_id']) && $aNonymousFeed['receive_user_id'] == Phpfox::getUserId()): ?> 
     <li><span>&middot;</span></li>
     <li id="anonymos_fee_<?php echo $aNonymousFeed['anonymous_id'];?>">
-        <a href="javascript:void(0)" onclick="$.ajaxCall('customprofiles.<?php if($aNonymousFeed['privacy']): echo 'hideAnonymousFeed'; else : echo 'showAnonymousFeed';endif; ?>', 'anonymous_id=<?php echo $aNonymousFeed['anonymous_id']; ?>')"><?php if($aNonymousFeed['privacy']): echo 'private'; else : echo 'public';endif; ?></a>
+        <a href="javascript:void(0)" onclick="$.ajaxCall('customprofiles.<?php if((int)$aNonymousFeed['privacy'] == 1)  : echo 'hideAnonymousFeed'; else : echo 'showAnonymousFeed';endif; ?>', 'anonymous_id=<?php echo $aNonymousFeed['anonymous_id']; ?>')"><?php if($aNonymousFeed['privacy']): echo 'private'; else : echo 'public';endif; ?></a>
     </li>
     <?php if(!Phpfox::getService('friend')->isFriend($aNonymousFeed['receive_user_id'], $aNonymousFeed['user_id'])) : ?>
         <li><span>&middot;</span></li>
