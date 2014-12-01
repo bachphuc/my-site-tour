@@ -38,7 +38,7 @@
             <div style="float: left;margin-left: 10px;" class="panel_anonymous_option">
                 <input type="hidden" id="schedule_time_value" name="val[time_delay]" value="0" >
 
-                <img src="{param var='core.path'}module/customprofiles/static/image/time.png" alt="" title="{phrase var='customprofiles.schedule_your_post_future'}" value="{phrase var='customprofiles.title_time'}" id="button_clock" class="img_button">
+                <a class="js_hover_title" style="display:inline-block;"><img src="{param var='core.path'}module/customprofiles/static/image/time.png" value="{phrase var='customprofiles.title_time'}" id="button_clock" class="img_button"><span class="js_hover_info">{phrase var='customprofiles.schedule_your_post_future'}</span></a>
                 <img src="{param var='core.path'}module/customprofiles/static/image/smile.png" alt=""  onclick="$Core.box('emoticon.preview', 'height=400&width=400&editor_id=message');return false" id="btn_emoticon" class="img_button">   
                 <img src="{param var='core.path'}module/customprofiles/static/image/gift.png" alt=""  onclick="$Core.box('customprofiles.showGift', 'height=400&width=400');return false;" id="btn_gift" class="img_button">
 

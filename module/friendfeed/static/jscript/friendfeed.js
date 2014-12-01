@@ -50,6 +50,13 @@ $Behavior.loadFriendFeed = function(){
             $('#toggle').change();
         } 
     });
+    
+    $('.mtextarea').unbind('click').bind('click',function(){
+        if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
+    });
 }
 
 $Core.backUpHomeFeed = function(){

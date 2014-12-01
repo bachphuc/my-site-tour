@@ -113,8 +113,10 @@
                 $sMessage = Phpfox::getPhrase('customprofiles.a_wayter_commented_on_your_status_update').' "'.$aAnonymousFeed['message'].'"';
             }
 
+            $aParentUser = Phpfox::getService('user')->getUser($aAnonymousFeed['receive_user_id']);
+            
             return array(
-                'link' => Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'/comment-id_'.$aNotification['item_id']), 
+                'link' => Phpfox::getLib('url')->makeUrl($aParentUser['user_namel'].'/comment-id_'.$aNotification['item_id']), 
                 'message' => $sMessage,
                 'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog'),
                 'no_profile_image' => true

@@ -10,7 +10,8 @@ $Behavior.blockmessage = function(){
         close: function() {
             isEditSchedule();
         },
-        draggable : false
+        draggable : false,
+        hide: { effect: "fade", duration: 2000 }
     };
     var bSetPosition = false;
     if(!$("#dialog_calender").data('init-dialog')){
