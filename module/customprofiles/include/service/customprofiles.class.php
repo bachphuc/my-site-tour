@@ -142,10 +142,11 @@
             ));
         }
 
-        public function getFeed($iFeedId)
+        public function getFeed($iFeedId , $sModule = null)
         {
+			$sTable = ($sModule ? Phpfox::getT($sModule.'_feed') : Phpfox::getT('feed'));
             return $this->database()->select('*')
-            ->from(Phpfox::getT('feed'))
+            ->from($sTable)
             ->where('feed_id='.(int)$iFeedId)
             ->execute('getRow');
         }

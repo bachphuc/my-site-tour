@@ -13,10 +13,20 @@
 
         public function process()
         {
-            $aReceivedFeed = Phpfox::getService('anonymousreceived.process')->getReceivedFeed();
+            Phpfox::isUser(true);
+            $iId = $this->request()->get('id');
+            $aReceivedFeed = Phpfox::getService('anonymousreceived.process')->getReceivedFeed($iId);
+            Phpfox::getService('customprofiles.process')->processFeed($aReceivedFeed);
+            
+            if(!count($aReceivedFeed) && $iId)
+            {
+                return $this->url()->send('error.404');
+            }
             $bForceReloadOnPage = false;
             $iFeedPage = 0; 
-            $sCustomViewType='';
+            
+            $sCustomViewType = ($iId ? 'Wall Feed: #'.$iId : '');
+            
             $aFeedCallback = array();
             $bIsCustomFeedView = false;
             $bLoadCheckIn = false;
@@ -39,8 +49,8 @@
                 'iFeedUserSortOrder' => Phpfox::getUserBy('feed_sort'),
                 'bLoadCheckIn' => $bLoadCheckIn,
                 'bForceFormOnly' => $bForceFormOnly,
-                'sIsHashTagSearch' => urlencode(strip_tags((($this->request()->get('hashtagsearch') ? $this->request()->get('hashtagsearch') : ($this->request()->get('req1') == 'hashtag' ? $this->request()->get('req2') : ''))))),
-                'sIsHashTagSearchValue' => urldecode(strip_tags((($this->request()->get('hashtagsearch') ? $this->request()->get('hashtagsearch') : ($this->request()->get('req1') == 'hashtag' ? $this->request()->get('req2') : ''))))),
+                'sIsHashTagSearch' => false,
+                'sIsHashTagSearchValue' => false,
                 'bIsHashTagPop' => $bIsHashTagPop
                 )
             );    
