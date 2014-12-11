@@ -219,10 +219,21 @@
                                     unset($aRows[$key]['more_feed_rows'][$mKey]);
                                     continue;
                                 }
-                                $aRows[$key]['more_feed_rows'][$mKey]['user_name'] = $aRow['parent_user']['parent_user_name'];
-                                $aRows[$key]['more_feed_rows'][$mKey]['full_name'] =  $aRow['parent_user']['parent_full_name'];
-                                $aRows[$key]['more_feed_rows'][$mKey]['user_id'] = $aRow['parent_user']['parent_user_id'];
-                                $aRows[$key]['more_feed_rows'][$mKey]['user_image'] = $aRow['parent_user']['parent_user_image'];
+								if($mRow['parent_user_id'] == $aRow['parent_user']['parent_user_id'])
+								{
+									$aRows[$key]['more_feed_rows'][$mKey]['user_name'] = $aRow['parent_user']['parent_user_name'];
+									$aRows[$key]['more_feed_rows'][$mKey]['full_name'] =  '<span class="post_title">'.Phpfox::getPhrase('customprofiles.awayter_post_about').' </span>'.$aRow['parent_user']['parent_full_name'];
+									$aRows[$key]['more_feed_rows'][$mKey]['user_id'] = $aRow['parent_user']['parent_user_id'];
+									$aRows[$key]['more_feed_rows'][$mKey]['user_image'] = $aRow['parent_user']['parent_user_image'];
+								}
+								else
+								{
+									$aUser = Phpfox::getService('user')->getUser($mRow['parent_user_id']);
+									$aRows[$key]['more_feed_rows'][$mKey]['user_name'] = $aUser['user_name'];
+									$aRows[$key]['more_feed_rows'][$mKey]['full_name'] =  '<span class="post_title">'.Phpfox::getPhrase('customprofiles.awayter_post_about').' </span>'.$aUser['full_name'];
+									$aRows[$key]['more_feed_rows'][$mKey]['user_id'] = $aUser['user_id'];
+									$aRows[$key]['more_feed_rows'][$mKey]['user_image'] = $aUser['user_image'];
+								}
                             }
                         }
                     }   
@@ -339,7 +350,7 @@
             ));
 
             $sLink = Phpfox::getLib('url')->makeUrl('customprofiles.invite', array('id' => $iInvite));
-            $bSent = Phpfox::getLib('mail')->to($aVals['email'])                       
+            $bSent = Phpfox::getLib('mail')->to($aVals['email'])                      
             ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
             ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
             ->send();
@@ -374,7 +385,7 @@
             try
             {
                 $sLink = Phpfox::getLib('url')->makeUrl('invite', array('id' => $iInvite));     
-                $bSent = Phpfox::getLib('mail')->to($aVals['email'])                     
+                $bSent = Phpfox::getLib('mail')->to($aVals['email'])                      
                 ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
                 ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
                 ->send();
@@ -651,7 +662,7 @@
                     try
                     {
                         $sLink = Phpfox::getLib('url')->makeUrl('user.login');
-                        Phpfox::getLib('mail')->to($aVals['email'])                      
+                        Phpfox::getLib('mail')->to($aVals['email'])                    
                         ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
                         ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
                         ->send();
@@ -751,9 +762,7 @@
                 try
                 {
                     $sLink = Phpfox::getLib('url')->makeUrl('user.login');
-                    Phpfox::getLib('mail')->to($aVals['email'])        
-                    ->fromEmail("")    
-                    ->fromName(Phpfox::getUserBy('full_name'))                
+                    Phpfox::getLib('mail')->to($aVals['email'])                      
                     ->subject(Phpfox::getPhrase('customprofiles.you_received_an_anonymous_post_by_a_wayter'))
                     ->message(array('customprofiles.message_invite_join_anonymous_message', array('link' => $sLink)))
                     ->send();
@@ -824,7 +833,7 @@
         // Confirm show anonymous feed for friend can see
         public function hideAnonymousFeedToFriend($iAnonymousId)
         {
-            return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 0), 'anonymous_id = '.(int)$iAnonymousId);
+            return $this->database()->update(Phpfox::getT('custom_profiles_anonymous_feed'), array('privacy' => 2), 'anonymous_id = '.(int)$iAnonymousId);
         }
 
         public function blockUser($iUserId , $iReportId = 0)

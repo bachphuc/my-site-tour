@@ -114,9 +114,18 @@
             }
 
             $aParentUser = Phpfox::getService('user')->getUser($aAnonymousFeed['receive_user_id']);
-            
+            if(Phpfox::getUserId() == $aAnonymousFeed['user_id'])
+			{
+				// If current is sender, link will direct to submenu anonymous done.
+				$sUrl = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name'), array('view' => 'anonydone', 'id' => $aNotification['item_id']));
+			}
+			else
+			{
+				// If current user is receiver, link will direct to submenu anonymous receive.
+				$sUrl = Phpfox::getLib('url')->makeUrl($aParentUser['user_name'], array('view' => 'anonyreceived', 'id' => $aNotification['item_id']));
+			}
             return array(
-                'link' => Phpfox::getLib('url')->makeUrl($aParentUser['user_namel'].'/comment-id_'.$aNotification['item_id']), 
+                'link' => $sUrl , 
                 'message' => $sMessage,
                 'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog'),
                 'no_profile_image' => true
@@ -261,13 +270,16 @@
             ->from(Phpfox::getT('user'),'u')
             ->join(Phpfox::getT('custom_profiles_block'),'cpb','cpb.user_id = u.user_id')
             ->where('block_id='.(int)$aNotification['item_id'])
-            ->execute('getRow');
-            
+            ->execute('getRow'); 
+            if(!isset($aUser['user_id']))
+			{
+				return false;
+			}
             return array(
                 'link' => '',  
                 'message' => Phpfox::getPhrase('customprofiles.message_has_blocked_you',array('full_name' => $aUser['full_name'])),
                 'no_profile_image' => true
             );
         }
-    }
+    } 
 ?>

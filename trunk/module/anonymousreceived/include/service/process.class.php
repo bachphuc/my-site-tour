@@ -21,16 +21,24 @@
             return $iFeedId;
         }
 
-        public function getReceivedFeed()
+        public function getReceivedFeed($iId = null)
         {
-            //d(Phpfox::getService('profile')->getProfileUserId());die();
             $sSelect = 'feed.*,' . Phpfox::getUserField();
             $sOrder = 'feed.time_update DESC';
+            
+            $aConds = array('AND sb.receive_user_id='.Phpfox::getService('profile')->getProfileUserId());
+            if($iId)
+            {
+                $aConds[] = "AND feed.type_id IN ('feed_comment','feed_egift')";
+                $aConds[] = "AND feed.item_id = ".(int)$iId;
+                $aConds[] = "AND feed.parent_user_id = ".Phpfox::getUserId();
+            }
+            
             $aRows = $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
             ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
             ->join(Phpfox::getT('custom_profiles_anonymous_feed'), 'sb', 'sb.feed_id = feed.feed_id')
-            ->where('sb.receive_user_id='.Phpfox::getService('profile')->getProfileUserId())
+            ->where($aConds)
             ->order($sOrder)
             ->group('feed.feed_id')         
             ->execute('getSlaveRows');   

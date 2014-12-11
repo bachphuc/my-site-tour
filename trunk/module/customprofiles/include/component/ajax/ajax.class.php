@@ -26,6 +26,16 @@
             $aVals = (array) $this->get('val');
             if($aVals)
             {
+                if(isset($aVals['is_not_friend']) && $aVals['is_not_friend'])
+                {
+                    if(Phpfox::getUserBy('email') == trim($aVals['email']))
+                    {
+                        $this->call('$Core.activityFeedProcess(false);');
+                        $this->call('$Core.resetAnonymousPost();');
+                        return $this->alert('You cannot write to yourself.');
+                    }
+                }
+                
                 if (Phpfox::getLib('parse.format')->isEmpty($aVals['message']))
                 {
                     $this->alert(Phpfox::getPhrase('user.add_some_text_to_share'));
@@ -116,7 +126,12 @@
             {
                 array_pop($aComments);
             }
-
+			
+			$sType = (($this->get('comment_type_id') == 'event' || $this->get('comment_type_id') == 'pages') ? $this->get('comment_type_id') : null);
+			$aFeed = Phpfox::getService('customprofiles')->getFeed($this->get('feed_id'), $sType);
+			$aFeed['feed_id'] = $this->get('item_id');
+			$aFeed['owner_user_id'] = $aFeed['user_id'];
+				
             foreach ($aComments as $aComment)
             {
                 $aComment['owner_user_id'] = $aComment['user_id'];
@@ -125,9 +140,7 @@
                 $aComment['user_image'] = "";
                 $aComment['user_name'] = "";
                 $aComment['is_check'] = true;
-                $aFeed = Phpfox::getService('customprofiles')->getFeed($this->get('feed_id'));
-                $aFeed['feed_id'] = $this->get('item_id');
-                $aFeed['owner_user_id'] = $aFeed['user_id'];
+                
                 $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($this->get('feed_id'));
                 if(isset($aNonymousFeed['anonymous_id']))
                 {
