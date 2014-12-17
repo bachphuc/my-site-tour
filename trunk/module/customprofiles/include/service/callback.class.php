@@ -119,10 +119,15 @@
 				// If current is sender, link will direct to submenu anonymous done.
 				$sUrl = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name'), array('view' => 'anonydone', 'id' => $aNotification['item_id']));
 			}
-			else
+			else if(Phpfox::getUserId() == $aAnonymousFeed['receive_user_id'])
 			{
 				// If current user is receiver, link will direct to submenu anonymous receive.
 				$sUrl = Phpfox::getLib('url')->makeUrl($aParentUser['user_name'], array('view' => 'anonyreceived', 'id' => $aNotification['item_id']));
+			}
+			else
+			{
+				// If anonymous feed public
+				$sUrl = Phpfox::getLib('url')->makeUrl($aParentUser['user_name'], array('comment-id' => $aNotification['item_id']));
 			}
             return array(
                 'link' => $sUrl , 

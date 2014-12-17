@@ -27,13 +27,12 @@
             ->execute('getRow');
             if(isset($aFeedComment['feed_id']))
             {
-                $sType = 'customprofiles_comment';
                 $aVals = Phpfox::getLib('request')->get('val');
 
                 $sType = 'customprofiles_commentshowname';
 
 				// Send notification for sender
-				if(Phpfox::getUserId() !=  $iOwnerUserId && ($iOwnerUserId == $aFeedComment['user_id'] || $iOwnerUserId == $aFeedComment['receive_user_id']))
+				if(Phpfox::getUserId() !=  $iOwnerUserId && ($iOwnerUserId == $aFeedComment['user_id'] || $iOwnerUserId == $aFeedComment['receive_user_id'] || (int)$aFeedComment['privacy'] == 1))
 				{
 					$aInsert = array(
 						'type_id' => $sType,
