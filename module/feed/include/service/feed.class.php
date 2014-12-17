@@ -298,10 +298,24 @@ class Feed_Service_Feed extends Phpfox_Service
             {
                 $sFeedAvailable = '';
             }
+			else
+			{
+				if(isset($aCustomCondition))
+				{
+					$aCustomCondition[] = ' AND (af.anonymous_id IS NULL OR (af.anonymous_id IS NOT NULL AND (af.privacy = 1 OR af.user_id = '.Phpfox::getUserId().' OR af.receive_user_id = '.Phpfox::getUserId().'))) ';
+				}
+				else
+				{
+					$sFeedAvailable.= ' (af.anonymous_id IS NULL OR (af.anonymous_id IS NOT NULL AND (af.privacy = 1 OR af.user_id = '.Phpfox::getUserId().' OR af.receive_user_id = '.Phpfox::getUserId().'))) AND ';
+				}
+			}
+			
             $aRows = $this->database()->select('feed.*, apps.app_title, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
+				// ANONYMOUS MODULE
+                ->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
 				->where((isset($aCustomCondition) ? $aCustomCondition : $sFeedAvailable.'feed.feed_id = ' . (int) $iFeedId . ' AND feed.user_id = ' . (int) $iUserid . ''))
 				->order('feed.time_stamp DESC')
 				->limit(1)			

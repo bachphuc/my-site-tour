@@ -1,0 +1,95 @@
+
+.waytame_box {
+    background-color: #e8b400;
+    background-image: none;
+    border-radius: 0 !important;
+    padding: 5px;
+}
+.waytame_box .js_box_title {
+    background-color: #e8b400;
+    color: #333;
+}
+.waytame_box .js_box_close {
+    border-top: 5px solid #e8b400;
+    margin: 20px -15px -15px;
+}
+.waytame_box .js_box_close  a {
+    border-radius: 0 !important;
+    cursor: pointer;
+    display: inline-block !important;
+    position: static !important;
+}
+
+.waytame_box input[type="text"] {
+    width: 90%;
+}
+
+.waytame_box_green {
+    background-color: #abd817 !important;
+}
+.waytame_box_green .js_box_title {
+    background-color: #abd817 !important;
+}
+.waytame_box_green .js_box_close {
+    border-top: 5px solid #abd817 !important;
+}
+
+.box_controll_left{
+    float: left;
+}
+
+.js_box_close{
+    text-align: center;
+}
+
+.box_controll_right{
+    float: right;
+}
+
+.box_controll_middle{
+    font-weight: bold;
+    color: #666;
+}
+
+.waytime_title{
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+}
+
+.waytime_left{
+    float: left;
+    width:260px;
+}
+
+.waytime_right{
+    float: right;
+}
+.waytime_note{
+    height: 120px;
+    width: 180px;
+}
+
+.waytime_question_title{
+    font-weight: bold;
+    color:#444;
+}
+
+.waytime_bg{
+    z-index:2000;
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#waytime_watch a{
+    width:32px;
+    background-image: url(../../../images/hourglass.png) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    height: 40px;
+    cursor: pointer;
+}
