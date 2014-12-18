@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2014 at 08:12 PM
+-- Generation Time: Dec 18, 2014 at 05:34 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_admincp_login` (
   `ip_address` varchar(15) NOT NULL,
   `cache_data` mediumtext,
   PRIMARY KEY (`login_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `phpfox_admincp_login`
@@ -199,7 +199,31 @@ INSERT INTO `phpfox_admincp_login` (`login_id`, `is_failed`, `user_id`, `time_st
 (56, 0, 1, 1413048593, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
 (57, 0, 1, 1413076483, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
 (58, 0, 1, 1413128171, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
-(59, 0, 1, 1413136561, '::1', 'a:4:{s:8:"location";s:52:"/sitetour/index.php?do=/admincp/language/phrase/add/";s:8:"referrer";s:68:"http://localhost/sitetour/index.php?do=/admincp/language/phrase/add/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}');
+(59, 0, 1, 1413136561, '::1', 'a:4:{s:8:"location";s:52:"/sitetour/index.php?do=/admincp/language/phrase/add/";s:8:"referrer";s:68:"http://localhost/sitetour/index.php?do=/admincp/language/phrase/add/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(60, 0, 1, 1413211257, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(61, 0, 1, 1413301188, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"01bcc902becf6be731a6e0ca1b923e63";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(62, 0, 1, 1413390619, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(63, 0, 1, 1413468340, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(64, 0, 1, 1413473487, '::1', 'a:4:{s:8:"location";s:38:"/sitetour/index.php?do=/admincp/block/";s:8:"referrer";s:54:"http://localhost/sitetour/index.php?do=/admincp/block/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(65, 0, 1, 1413741140, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(66, 0, 1, 1413817966, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(67, 0, 1, 1414229908, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(68, 0, 1, 1414291495, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(69, 0, 1, 1414419759, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(70, 0, 1, 1414506994, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(71, 0, 1, 1414593175, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(72, 0, 1, 1414683499, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(73, 0, 1, 1414769666, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(74, 0, 1, 1414847285, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(75, 0, 1, 1414941487, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(76, 0, 1, 1415113297, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(77, 0, 1, 1416929146, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"7e1423d64aeddfc6caceb966e30bd09d";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(78, 0, 1, 1418399306, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(79, 0, 1, 1418526955, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(80, 0, 1, 1418534458, '::1', 'a:4:{s:8:"location";s:42:"/sitetour/index.php?do=/admincp/pages/add/";s:8:"referrer";s:58:"http://localhost/sitetour/index.php?do=/admincp/pages/add/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(81, 0, 1, 1418551094, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(82, 0, 1, 1418575452, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}'),
+(83, 0, 1, 1418835271, '::1', 'a:4:{s:8:"location";s:32:"/sitetour/index.php?do=/admincp/";s:8:"referrer";s:48:"http://localhost/sitetour/index.php?do=/admincp/";s:10:"user_agent";s:72:"Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0";s:7:"request";s:168:"a:2:{s:4:"core";a:1:{s:14:"security_token";s:32:"e08d53e144466b8a80fc0fbb425c776c";}s:3:"val";a:2:{s:5:"email";s:19:"admin@localhost.com";s:8:"password";s:6:"123456";}}";}');
 
 -- --------------------------------------------------------
 
@@ -674,7 +698,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_block` (
   KEY `m_connection` (`m_connection`),
   KEY `m_connection_2` (`m_connection`,`is_active`),
   KEY `module_id` (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=141 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=148 ;
 
 --
 -- Dumping data for table `phpfox_block`
@@ -735,9 +759,9 @@ INSERT INTO `phpfox_block` (`block_id`, `title`, `type_id`, `m_connection`, `mod
 (52, 'Featured Events', 0, 'event.index', 'event', 'phpfox', 'featured', '3', 1, 5, NULL, 0, NULL),
 (53, 'Group Feeds', 0, 'group.view', 'feed', 'phpfox', 'display', '2', 1, 12, NULL, 0, NULL),
 (54, 'Activity Feed', 0, 'core.index-member', 'feed', 'phpfox', 'display', '2', 1, 11, NULL, 0, NULL),
-(55, NULL, 0, 'profile.index', 'feed', 'phpfox', 'display', '2', 1, 9, NULL, 0, NULL),
+(55, NULL, 0, 'profile.index', 'feed', 'phpfox', 'display', '2', 1, 11, NULL, 0, NULL),
 (56, 'Activity Feed', 0, 'event.view', 'feed', 'phpfox', 'display', '4', 1, 7, NULL, 0, NULL),
-(57, 'Feed Timeline', 0, 'profile.index', 'feed', 'phpfox', 'time', '3', 1, 6, NULL, 0, NULL),
+(57, 'Feed Timeline', 0, 'profile.index', 'feed', 'phpfox', 'time', '3', 1, 8, NULL, 0, NULL),
 (58, 'Feed Timeline', 0, 'pages.view', 'feed', 'phpfox', 'time', '3', 0, 4, NULL, 0, NULL),
 (59, 'Feed display', 0, 'pages.view', 'feed', 'phpfox', 'display', '4', 1, 10, NULL, 0, NULL),
 (60, 'Display Timeline', 0, 'pages.view', 'feed', 'phpfox', 'time', '2', 0, 9, NULL, 0, NULL),
@@ -745,13 +769,13 @@ INSERT INTO `phpfox_block` (`block_id`, `title`, `type_id`, `m_connection`, `mod
 (62, NULL, 0, 'group.view', 'forum', 'phpfox', 'parent', '1', 1, 2, NULL, 1, NULL),
 (63, 'Forum Stats', 0, 'forum.index', 'forum', 'phpfox', 'stat', '1', 1, 7, NULL, 0, NULL),
 (64, '{phrase var=&#039;friend.friends_online&#039;}', 0, 'core.index-member', 'friend', 'phpfox', 'mini', '1', 1, 2, NULL, 1, NULL),
-(65, '{phrase var=&#039;friend.friends&#039;}', 0, 'profile.index', 'friend', 'phpfox', 'profile.small', '1', 1, 3, NULL, 1, NULL),
+(65, '{phrase var=&#039;friend.friends&#039;}', 0, 'profile.index', 'friend', 'phpfox', 'profile.small', '1', 1, 5, NULL, 1, NULL),
 (66, '{phrase var=&#039;event.upcoming_events&#039;}', 0, 'core.index-member', 'friend', 'phpfox', 'birthday', '3', 1, 5, NULL, 1, NULL),
-(67, '{phrase var=&#039;friend.mutual_friends&#039;}', 0, 'profile.index', 'friend', 'phpfox', 'mutual-friend', '3', 1, 7, NULL, 1, NULL),
+(67, '{phrase var=&#039;friend.mutual_friends&#039;}', 0, 'profile.index', 'friend', 'phpfox', 'mutual-friend', '3', 1, 9, NULL, 1, NULL),
 (68, '{phrase var=&#039;friend.suggestions&#039;}', 0, 'core.index-member', 'friend', 'phpfox', 'suggestion', '3', 1, 6, NULL, 1, NULL),
 (69, 'Mutual Friends', 0, 'profile.info', 'friend', 'phpfox', 'mutual-friend', '3', 1, 9, NULL, 1, NULL),
 (70, 'Birthdays', 0, 'event.index', 'friend', 'phpfox', 'birthday', '3', 1, 1, NULL, 0, NULL),
-(71, 'Remove Friend', 0, 'profile.index', 'friend', 'phpfox', 'remove', '1', 1, 5, NULL, 0, NULL),
+(71, 'Remove Friend', 0, 'profile.index', 'friend', 'phpfox', 'remove', '1', 1, 7, NULL, 0, NULL),
 (72, NULL, 0, 'mail.index', 'mail', 'phpfox', 'folder', '1', 1, 1, NULL, 0, NULL),
 (73, NULL, 0, 'mail.sentbox', 'mail', 'phpfox', 'folder', '1', 1, 1, NULL, 0, NULL),
 (74, NULL, 0, 'mail.view', 'mail', 'phpfox', 'folder', '1', 1, 1, NULL, 0, NULL),
@@ -793,7 +817,7 @@ INSERT INTO `phpfox_block` (`block_id`, `title`, `type_id`, `m_connection`, `mod
 (110, 'Photo Details', 0, 'photo.view', 'photo', 'phpfox', 'detail', '3', 1, 3, NULL, 0, NULL),
 (111, '{phrase var=&#039;poke.pokes&#039;}', 0, 'core.index-member', 'poke', 'phpfox', 'display', '3', 1, 7, 'a:1:{i:0;s:1:"3";}', 1, NULL),
 (112, NULL, 0, 'quiz.view', 'quiz', 'phpfox', 'stat', '1', 1, 1, NULL, 0, NULL),
-(113, NULL, 0, 'profile.index', 'report', 'phpfox', 'profile', '1', 1, 4, NULL, 0, NULL),
+(113, NULL, 0, 'profile.index', 'report', 'phpfox', 'profile', '1', 1, 6, NULL, 0, NULL),
 (114, NULL, 0, 'request.index', 'request', 'phpfox', 'feed', '1', 1, 1, NULL, 0, NULL),
 (115, NULL, 0, 'rss', 'rss', 'phpfox', 'info', '1', 1, 1, NULL, 0, NULL),
 (116, '{phrase var=&#039;shoutbox.shoutbox&#039;}', 0, 'core.index-member', 'shoutbox', 'phpfox', 'display', '3', 1, 8, NULL, 1, NULL),
@@ -804,7 +828,7 @@ INSERT INTO `phpfox_block` (`block_id`, `title`, `type_id`, `m_connection`, `mod
 (121, NULL, 0, 'video.index', 'tag', 'phpfox', 'cloud', '3', 1, 5, NULL, 0, NULL),
 (122, 'Hashtags', 0, 'core.index-member', 'tag', 'phpfox', 'cloud', '3', 1, 9, NULL, 0, NULL),
 (123, 'Recently Viewed By', 0, 'blog.view', 'track', 'phpfox', 'recent-views', '3', 1, 1, NULL, 0, NULL),
-(124, '{phrase var=&#039;track.recently_viewed_by&#039;}', 0, 'profile.index', 'track', 'phpfox', 'recent-views', '3', 1, 8, NULL, 1, NULL),
+(124, '{phrase var=&#039;track.recently_viewed_by&#039;}', 0, 'profile.index', 'track', 'phpfox', 'recent-views', '3', 1, 10, NULL, 1, NULL),
 (125, 'Recent Visitors', 0, 'blog.index', 'track', 'phpfox', 'recent-views', '3', 1, 6, NULL, 0, NULL),
 (126, NULL, 0, 'quiz.profile', 'track', 'phpfox', 'recent-views', '1', 1, 2, NULL, 0, NULL),
 (127, NULL, 0, 'video.index', 'video', 'phpfox', 'category', '1', 1, 1, NULL, 0, NULL),
@@ -817,7 +841,14 @@ INSERT INTO `phpfox_block` (`block_id`, `title`, `type_id`, `m_connection`, `mod
 (136, 'Add New Tour', 0, '', 'sitetour', 'sitetour', 'addtour', '4', 1, 2, 'a:1:{i:0;s:1:"3";}', 0, NULL),
 (137, 'Add tag', 0, '', 'sitetour', 'sitetour', 'selecttag', '4', 1, 2, NULL, 0, NULL),
 (138, 'Friend Feed', 0, 'core.index-member', 'friendfeed', 'friendfeed', 'friendslider', '2', 1, 10, NULL, 0, '3'),
-(140, 'Send Box', 0, 'core.index-member', 'customprofiles', 'customprofiles', 'sendbox', '2', 1, 7, NULL, 0, NULL);
+(140, 'Send Box', 0, 'core.index-member', 'customprofiles', 'customprofiles', 'sendbox', '2', 1, 7, NULL, 0, NULL),
+(141, 'Anonymous Done Menu', 0, 'anonymousdone.index', 'anonymousdone', 'anonymousdone', 'donemenu', '1', 1, 2, NULL, 0, NULL),
+(142, 'Done Menu', 0, 'profile.index', 'anonymousdone', 'anonymousdone', 'donemenu', '1', 1, 3, NULL, 0, NULL),
+(143, NULL, 0, 'anonymousreceived.index', 'anonymousdone', 'anonymousdone', 'donemenu', '1', 1, 2, NULL, 0, NULL),
+(144, 'Received Menu', 0, 'profile.index', 'anonymousreceived', 'anonymousreceived', 'receivedmenu', '1', 1, 4, NULL, 0, NULL),
+(145, 'Anonymous Received', 0, 'anonymousreceived.index', 'anonymousreceived', 'anonymousreceived', 'receivedmenu', '1', 1, 3, NULL, 0, NULL),
+(146, NULL, 0, 'anonymousdone.index', 'anonymousreceived', 'anonymousreceived', 'receivedmenu', '1', 1, 3, NULL, 0, NULL),
+(147, 'Private Menu', 0, 'privatepost.index', 'privatepost', 'privatepost', 'privatemenu', '1', 1, 1, NULL, 0, '3');
 
 -- --------------------------------------------------------
 
@@ -1019,6 +1050,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_comment` (
   `child_total` smallint(4) unsigned NOT NULL DEFAULT '0',
   `total_like` int(10) unsigned NOT NULL DEFAULT '0',
   `total_dislike` int(10) unsigned NOT NULL DEFAULT '0',
+  `is_delete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`comment_id`),
   KEY `user_id` (`user_id`,`view_id`),
   KEY `owner_user_id` (`owner_user_id`,`view_id`),
@@ -1026,112 +1058,135 @@ CREATE TABLE IF NOT EXISTS `phpfox_comment` (
   KEY `parent_id` (`parent_id`,`view_id`),
   KEY `parent_id_2` (`parent_id`,`type_id`,`item_id`,`view_id`),
   KEY `view_id` (`view_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=134 ;
 
 --
 -- Dumping data for table `phpfox_comment`
 --
 
-INSERT INTO `phpfox_comment` (`comment_id`, `parent_id`, `type_id`, `item_id`, `user_id`, `owner_user_id`, `time_stamp`, `update_time`, `update_user`, `rating`, `ip_address`, `author`, `author_email`, `author_url`, `view_id`, `child_total`, `total_like`, `total_dislike`) VALUES
-(1, 0, 'feed', 6, 1, 1, 1405865842, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(2, 0, 'feed', 6, 1, 1, 1405865850, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(3, 0, 'feed', 6, 1, 1, 1405865854, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(4, 0, 'feed', 6, 1, 1, 1406052737, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(5, 0, 'feed', 6, 1, 1, 1406052742, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(6, 0, 'feed', 6, 4, 1, 1406052876, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(7, 0, 'feed', 6, 1, 1, 1406052899, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(8, 0, 'feed', 6, 1, 1, 1406126341, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(9, 0, 'feed', 6, 4, 1, 1406126372, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(10, 0, 'feed', 6, 1, 1, 1406126423, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(11, 0, 'feed', 6, 4, 1, 1406126475, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(12, 0, 'feed', 6, 1, 1, 1406126494, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(13, 0, 'feed', 5, 1, 1, 1406129648, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(14, 0, 'feed', 5, 1, 1, 1406129654, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(15, 0, 'feed', 5, 4, 1, 1406129663, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(16, 0, 'feed', 5, 4, 1, 1406129667, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(17, 0, 'feed', 6, 1, 1, 1406129930, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(18, 0, 'feed', 6, 1, 1, 1406130331, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(19, 0, 'feed', 6, 1, 1, 1406130336, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(20, 0, 'feed', 6, 4, 1, 1406130349, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(21, 0, 'feed', 5, 1, 1, 1406130364, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(22, 0, 'feed', 6, 4, 1, 1406130371, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(23, 0, 'feed', 6, 4, 1, 1406130376, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(24, 0, 'feed', 6, 4, 1, 1406130381, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(25, 0, 'feed', 5, 1, 1, 1406130398, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0),
-(26, 0, 'feed', 6, 4, 1, 1406130408, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(27, 0, 'feed', 6, 4, 1, 1406130446, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(28, 0, 'feed', 6, 4, 1, 1406130475, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(29, 0, 'feed', 4, 1, 1, 1406130511, 0, NULL, NULL, '::1', '214', NULL, NULL, 0, 0, 0, 0),
-(30, 0, 'feed', 3, 1, 1, 1406130515, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0),
-(31, 0, 'feed', 6, 4, 1, 1406130519, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(32, 0, 'feed', 6, 4, 1, 1406130539, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(33, 0, 'user_status', 117, 1, 1, 1406130576, 0, NULL, NULL, '::1', '210', NULL, NULL, 0, 0, 0, 0),
-(34, 0, 'feed', 6, 4, 1, 1406130580, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(35, 0, 'feed', 6, 4, 1, 1406130758, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(36, 0, 'feed', 6, 4, 1, 1406130794, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(37, 0, 'feed', 6, 4, 1, 1406131061, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(38, 0, 'feed', 6, 1, 1, 1406131244, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(39, 0, 'feed', 6, 1, 1, 1406131248, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(40, 0, 'feed', 6, 4, 1, 1406131256, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(41, 0, 'feed', 6, 4, 1, 1406131261, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(42, 0, 'feed', 6, 4, 1, 1406131347, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(43, 0, 'feed', 6, 4, 1, 1406131398, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(44, 0, 'feed', 6, 4, 1, 1406131416, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(45, 0, 'feed', 3, 1, 1, 1406131422, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0),
-(46, 0, 'feed', 3, 1, 1, 1406131425, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0),
-(47, 0, 'feed', 6, 1, 1, 1406131434, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0),
-(48, 0, 'feed', 6, 1, 1, 1406131449, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(49, 0, 'feed', 6, 1, 1, 1406131453, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0),
-(50, 0, 'feed', 11, 4, 1, 1408290701, 0, NULL, NULL, '::1', '225', NULL, NULL, 0, 0, 0, 0),
-(51, 0, 'feed', 13, 1, 1, 1409058976, 0, NULL, NULL, '::1', '230', NULL, NULL, 0, 0, 0, 0),
-(52, 0, 'feed', 13, 1, 1, 1409058980, 0, NULL, NULL, '::1', '230', NULL, NULL, 0, 0, 0, 0),
-(54, 0, 'photo', 65, 4, 4, 1410277008, 0, NULL, NULL, '::1', '235', NULL, NULL, 0, 0, 0, 0),
-(55, 0, 'feed', 17, 1, 1, 1410876073, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(56, 0, 'feed', 17, 1, 1, 1410876077, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(57, 0, 'feed', 17, 1, 1, 1410876081, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(58, 0, 'feed', 17, 1, 1, 1410876086, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(59, 0, 'feed', 17, 1, 1, 1410876089, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(60, 0, 'feed', 17, 1, 1, 1410876092, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(61, 0, 'feed', 17, 4, 1, 1410876136, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(62, 0, 'feed', 17, 4, 1, 1410876145, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(63, 0, 'feed', 17, 4, 1, 1410876148, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0),
-(64, 0, 'feed', 19, 6, 6, 1410876424, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(65, 0, 'feed', 19, 6, 6, 1410876426, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(66, 0, 'feed', 19, 6, 6, 1410876430, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(67, 0, 'feed', 19, 6, 6, 1410876433, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(68, 0, 'feed', 19, 6, 6, 1410876435, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(69, 0, 'feed', 19, 4, 6, 1410876441, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(70, 0, 'feed', 19, 4, 6, 1410876445, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(71, 0, 'feed', 19, 4, 6, 1410876607, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(72, 0, 'feed', 19, 6, 6, 1410876633, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(73, 0, 'feed', 19, 4, 6, 1410876693, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(74, 0, 'feed', 19, 4, 6, 1410876888, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(75, 0, 'feed', 19, 4, 6, 1410876894, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(76, 0, 'feed', 19, 4, 6, 1410876946, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(77, 0, 'feed', 19, 6, 6, 1410877057, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(78, 0, 'feed', 19, 6, 6, 1410877137, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(79, 0, 'feed', 19, 6, 6, 1410877141, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(80, 0, 'feed', 19, 6, 6, 1410877156, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(81, 0, 'feed', 19, 4, 6, 1410877268, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(82, 0, 'feed', 19, 4, 6, 1410877292, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(83, 0, 'feed', 19, 4, 6, 1410877640, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(84, 0, 'feed', 19, 4, 6, 1410877739, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0),
-(85, 0, 'feed', 20, 4, 6, 1410878043, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(86, 0, 'feed', 20, 4, 6, 1410878601, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(87, 0, 'feed', 20, 4, 6, 1410878631, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(88, 0, 'feed', 20, 6, 6, 1410878665, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(89, 0, 'feed', 20, 4, 6, 1410878673, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(90, 0, 'user_status', 123, 4, 6, 1410878965, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0),
-(93, 0, 'user_status', 123, 4, 6, 1410880731, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0),
-(94, 0, 'feed', 20, 4, 6, 1410880750, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0),
-(95, 0, 'photo', 66, 6, 6, 1410880984, 0, NULL, NULL, '::1', '245', NULL, NULL, 0, 0, 0, 0),
-(96, 0, 'user_status', 123, 6, 6, 1410881887, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0),
-(97, 0, 'user_status', 123, 4, 6, 1410882412, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0),
-(99, 0, 'user_status', 125, 4, 6, 1410883021, 0, NULL, NULL, '::1', '248', NULL, NULL, 0, 0, 0, 0),
-(106, 0, 'feed', 21, 6, 6, 1410883379, 0, NULL, NULL, '::1', '250', NULL, NULL, 0, 0, 0, 0),
-(107, 0, 'feed', 21, 6, 6, 1410963526, 0, NULL, NULL, '::1', '250', NULL, NULL, 0, 0, 0, 0),
-(109, 0, 'user_status', 127, 6, 6, 1410963542, 0, NULL, NULL, '::1', '251', NULL, NULL, 0, 0, 0, 0),
-(110, 0, 'user_status', 127, 6, 6, 1410963544, 0, NULL, NULL, '::1', '251', NULL, NULL, 0, 0, 1, 0);
+INSERT INTO `phpfox_comment` (`comment_id`, `parent_id`, `type_id`, `item_id`, `user_id`, `owner_user_id`, `time_stamp`, `update_time`, `update_user`, `rating`, `ip_address`, `author`, `author_email`, `author_url`, `view_id`, `child_total`, `total_like`, `total_dislike`, `is_delete`) VALUES
+(1, 0, 'feed', 6, 1, 1, 1405865842, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(2, 0, 'feed', 6, 1, 1, 1405865850, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(3, 0, 'feed', 6, 1, 1, 1405865854, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(4, 0, 'feed', 6, 1, 1, 1406052737, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(5, 0, 'feed', 6, 1, 1, 1406052742, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(6, 0, 'feed', 6, 4, 1, 1406052876, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(7, 0, 'feed', 6, 1, 1, 1406052899, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(8, 0, 'feed', 6, 1, 1, 1406126341, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(9, 0, 'feed', 6, 4, 1, 1406126372, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(10, 0, 'feed', 6, 1, 1, 1406126423, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(11, 0, 'feed', 6, 4, 1, 1406126475, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(12, 0, 'feed', 6, 1, 1, 1406126494, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(13, 0, 'feed', 5, 1, 1, 1406129648, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(14, 0, 'feed', 5, 1, 1, 1406129654, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(15, 0, 'feed', 5, 4, 1, 1406129663, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(16, 0, 'feed', 5, 4, 1, 1406129667, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(17, 0, 'feed', 6, 1, 1, 1406129930, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(18, 0, 'feed', 6, 1, 1, 1406130331, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(19, 0, 'feed', 6, 1, 1, 1406130336, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(20, 0, 'feed', 6, 4, 1, 1406130349, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(21, 0, 'feed', 5, 1, 1, 1406130364, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(22, 0, 'feed', 6, 4, 1, 1406130371, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(23, 0, 'feed', 6, 4, 1, 1406130376, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(24, 0, 'feed', 6, 4, 1, 1406130381, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(25, 0, 'feed', 5, 1, 1, 1406130398, 0, NULL, NULL, '::1', '215', NULL, NULL, 0, 0, 0, 0, 0),
+(26, 0, 'feed', 6, 4, 1, 1406130408, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(27, 0, 'feed', 6, 4, 1, 1406130446, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(28, 0, 'feed', 6, 4, 1, 1406130475, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(29, 0, 'feed', 4, 1, 1, 1406130511, 0, NULL, NULL, '::1', '214', NULL, NULL, 0, 0, 0, 0, 0),
+(30, 0, 'feed', 3, 1, 1, 1406130515, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0, 0),
+(31, 0, 'feed', 6, 4, 1, 1406130519, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(32, 0, 'feed', 6, 4, 1, 1406130539, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(33, 0, 'user_status', 117, 1, 1, 1406130576, 0, NULL, NULL, '::1', '210', NULL, NULL, 0, 0, 0, 0, 0),
+(34, 0, 'feed', 6, 4, 1, 1406130580, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(35, 0, 'feed', 6, 4, 1, 1406130758, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(36, 0, 'feed', 6, 4, 1, 1406130794, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(37, 0, 'feed', 6, 4, 1, 1406131061, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(38, 0, 'feed', 6, 1, 1, 1406131244, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(39, 0, 'feed', 6, 1, 1, 1406131248, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(40, 0, 'feed', 6, 4, 1, 1406131256, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(41, 0, 'feed', 6, 4, 1, 1406131261, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(42, 0, 'feed', 6, 4, 1, 1406131347, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(43, 0, 'feed', 6, 4, 1, 1406131398, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(44, 0, 'feed', 6, 4, 1, 1406131416, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(45, 0, 'feed', 3, 1, 1, 1406131422, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0, 0),
+(46, 0, 'feed', 3, 1, 1, 1406131425, 0, NULL, NULL, '::1', '213', NULL, NULL, 0, 0, 0, 0, 0),
+(47, 0, 'feed', 6, 1, 1, 1406131434, 0, NULL, NULL, '::1', '216', NULL, NULL, 0, 0, 0, 0, 0),
+(48, 0, 'feed', 6, 1, 1, 1406131449, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(49, 0, 'feed', 6, 1, 1, 1406131453, 0, NULL, NULL, '::1', '6', NULL, NULL, 0, 0, 0, 0, 0),
+(50, 0, 'feed', 11, 4, 1, 1408290701, 0, NULL, NULL, '::1', '225', NULL, NULL, 0, 0, 0, 0, 0),
+(51, 0, 'feed', 13, 1, 1, 1409058976, 0, NULL, NULL, '::1', '230', NULL, NULL, 0, 0, 0, 0, 0),
+(52, 0, 'feed', 13, 1, 1, 1409058980, 0, NULL, NULL, '::1', '230', NULL, NULL, 0, 0, 0, 0, 0),
+(54, 0, 'photo', 65, 4, 4, 1410277008, 0, NULL, NULL, '::1', '235', NULL, NULL, 0, 0, 0, 0, 0),
+(55, 0, 'feed', 17, 1, 1, 1410876073, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(56, 0, 'feed', 17, 1, 1, 1410876077, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(57, 0, 'feed', 17, 1, 1, 1410876081, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(58, 0, 'feed', 17, 1, 1, 1410876086, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(59, 0, 'feed', 17, 1, 1, 1410876089, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(60, 0, 'feed', 17, 1, 1, 1410876092, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(61, 0, 'feed', 17, 4, 1, 1410876136, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(62, 0, 'feed', 17, 4, 1, 1410876145, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(63, 0, 'feed', 17, 4, 1, 1410876148, 0, NULL, NULL, '::1', '238', NULL, NULL, 0, 0, 0, 0, 0),
+(64, 0, 'feed', 19, 6, 6, 1410876424, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(65, 0, 'feed', 19, 6, 6, 1410876426, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(66, 0, 'feed', 19, 6, 6, 1410876430, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(67, 0, 'feed', 19, 6, 6, 1410876433, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(68, 0, 'feed', 19, 6, 6, 1410876435, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(69, 0, 'feed', 19, 4, 6, 1410876441, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(70, 0, 'feed', 19, 4, 6, 1410876445, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(71, 0, 'feed', 19, 4, 6, 1410876607, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(72, 0, 'feed', 19, 6, 6, 1410876633, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(73, 0, 'feed', 19, 4, 6, 1410876693, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(74, 0, 'feed', 19, 4, 6, 1410876888, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(75, 0, 'feed', 19, 4, 6, 1410876894, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(76, 0, 'feed', 19, 4, 6, 1410876946, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(77, 0, 'feed', 19, 6, 6, 1410877057, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(78, 0, 'feed', 19, 6, 6, 1410877137, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(79, 0, 'feed', 19, 6, 6, 1410877141, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(80, 0, 'feed', 19, 6, 6, 1410877156, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(81, 0, 'feed', 19, 4, 6, 1410877268, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(82, 0, 'feed', 19, 4, 6, 1410877292, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(83, 0, 'feed', 19, 4, 6, 1410877640, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(84, 0, 'feed', 19, 4, 6, 1410877739, 0, NULL, NULL, '::1', '242', NULL, NULL, 0, 0, 0, 0, 0),
+(85, 0, 'feed', 20, 4, 6, 1410878043, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(86, 0, 'feed', 20, 4, 6, 1410878601, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(87, 0, 'feed', 20, 4, 6, 1410878631, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(88, 0, 'feed', 20, 6, 6, 1410878665, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(89, 0, 'feed', 20, 4, 6, 1410878673, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(90, 0, 'user_status', 123, 4, 6, 1410878965, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0, 0),
+(93, 0, 'user_status', 123, 4, 6, 1410880731, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0, 0),
+(94, 0, 'feed', 20, 4, 6, 1410880750, 0, NULL, NULL, '::1', '243', NULL, NULL, 0, 0, 0, 0, 0),
+(95, 0, 'photo', 66, 6, 6, 1410880984, 0, NULL, NULL, '::1', '245', NULL, NULL, 0, 0, 0, 0, 0),
+(96, 0, 'user_status', 123, 6, 6, 1410881887, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0, 0),
+(97, 0, 'user_status', 123, 4, 6, 1410882412, 0, NULL, NULL, '::1', '244', NULL, NULL, 0, 0, 0, 0, 0),
+(99, 0, 'user_status', 125, 4, 6, 1410883021, 0, NULL, NULL, '::1', '248', NULL, NULL, 0, 0, 0, 0, 0),
+(106, 0, 'feed', 21, 6, 6, 1410883379, 0, NULL, NULL, '::1', '250', NULL, NULL, 0, 0, 0, 0, 0),
+(107, 0, 'feed', 21, 6, 6, 1410963526, 0, NULL, NULL, '::1', '250', NULL, NULL, 0, 0, 0, 0, 0),
+(109, 0, 'user_status', 127, 6, 6, 1410963542, 0, NULL, NULL, '::1', '251', NULL, NULL, 0, 0, 0, 0, 0),
+(110, 0, 'user_status', 127, 6, 6, 1410963544, 0, NULL, NULL, '::1', '251', NULL, NULL, 0, 0, 1, 0, 0),
+(111, 0, 'photo', 67, 4, 1, 1413212077, 0, NULL, NULL, '::1', '253', NULL, NULL, 0, 0, 0, 0, 0),
+(112, 0, 'photo', 67, 4, 1, 1413212247, 0, NULL, NULL, '::1', '253', NULL, NULL, 0, 0, 0, 0, 0),
+(113, 0, 'photo', 67, 4, 1, 1413213377, 0, NULL, NULL, '::1', '253', NULL, NULL, 0, 0, 0, 0, 0),
+(114, 0, 'photo', 67, 1, 1, 1413213505, 0, NULL, NULL, '::1', '253', NULL, NULL, 0, 0, 0, 0, 0),
+(115, 0, 'photo', 69, 4, 4, 1413213666, 0, NULL, NULL, '::1', '262', NULL, NULL, 0, 0, 0, 0, 0),
+(116, 0, 'photo', 69, 6, 4, 1413214783, 0, NULL, NULL, '::1', '262', NULL, NULL, 0, 0, 0, 0, 0),
+(117, 0, 'photo', 69, 6, 4, 1413214792, 0, NULL, NULL, '::1', '262', NULL, NULL, 0, 0, 0, 0, 0),
+(118, 0, 'photo', 69, 1, 4, 1413214958, 0, NULL, NULL, '::1', '262', NULL, NULL, 0, 0, 0, 0, 0),
+(119, 0, 'photo', 70, 1, 1, 1414509651, 0, NULL, NULL, '::1', '280', NULL, NULL, 0, 0, 0, 0, 0),
+(120, 0, 'photo', 70, 1, 1, 1414509696, 0, NULL, NULL, '::1', '280', NULL, NULL, 0, 0, 0, 0, 0),
+(121, 0, 'photo', 70, 1, 1, 1414509762, 0, NULL, NULL, '::1', '280', NULL, NULL, 0, 0, 0, 0, 0),
+(122, 0, 'photo', 72, 4, 4, 1414847154, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(123, 0, 'photo', 72, 4, 4, 1414847158, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(124, 0, 'photo', 72, 4, 4, 1414847162, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(125, 0, 'photo', 72, 4, 4, 1414847165, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(126, 0, 'photo', 72, 4, 4, 1414847168, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(127, 0, 'photo', 72, 4, 4, 1414847171, 0, NULL, NULL, '::1', '290', NULL, NULL, 0, 0, 0, 0, 0),
+(128, 0, 'user_status', 134, 4, 4, 1414847945, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 0),
+(129, 0, 'user_status', 134, 4, 4, 1414847949, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 0),
+(130, 0, 'user_status', 134, 4, 4, 1414847952, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 0),
+(131, 0, 'user_status', 134, 4, 4, 1414847955, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 0),
+(132, 0, 'user_status', 134, 4, 4, 1414847958, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 0),
+(133, 0, 'user_status', 134, 4, 4, 1414847961, 0, NULL, NULL, '::1', '297', NULL, NULL, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1332,30 @@ INSERT INTO `phpfox_comment_text` (`comment_id`, `text`, `text_parsed`) VALUES
 (106, 'f ffhhfh fh', 'f ffhhfh fh'),
 (107, 'tfy fgh gfh gfh', 'tfy fgh gfh gfh'),
 (109, 'dgfhgfhgf hgf', 'dgfhgfhgf hgf'),
-(110, 'dgfgh gfhgf h', 'dgfgh gfhgf h');
+(110, 'dgfgh gfhgf h', 'dgfgh gfhgf h'),
+(111, 'chan quua di', 'chan quua di'),
+(112, 'dung lam anh cau', 'dung lam anh cau'),
+(113, 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa'),
+(114, 'admin test', 'admin test'),
+(115, 'csd sd ds ds ds ds d', 'csd sd ds ds ds ds d'),
+(116, 'hau chan vai te', 'hau chan vai te'),
+(117, 'hau buc boi', 'hau buc boi'),
+(118, 'phuc chan ghe nguoi', 'phuc chan ghe nguoi'),
+(119, 'fa sdfldsfdklsflkdsfdsf kldsfkldsfksdlk fdsf dsf sdfdsf s f sfsfsf sfsf fdsf dsfdsf sdf dsfsdfsdfdsfdsfdf dsf', 'fa sdfldsfdklsflkdsfdsf kldsfkldsfksdlk fdsf dsf sdfdsf s f sfsfsf sfsf fdsf dsfdsf sdf dsfsdfsdfdsfdsfdf dsf'),
+(120, 'ds dfgdf gdfgdf gdf', 'ds dfgdf gdfgdf gdf'),
+(121, 'y yyy yu y', 'y yyy yu y'),
+(122, '1', '1'),
+(123, '2', '2'),
+(124, '3', '3'),
+(125, '4', '4'),
+(126, '5', '5'),
+(127, '6', '6'),
+(128, '1', '1'),
+(129, '2', '2'),
+(130, '3', '3'),
+(131, '4', '4'),
+(132, '5', '5'),
+(133, '6', '6');
 
 -- --------------------------------------------------------
 
@@ -1297,7 +1375,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_component` (
   PRIMARY KEY (`component_id`),
   KEY `component` (`component`),
   KEY `is_active` (`is_active`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=323 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=328 ;
 
 --
 -- Dumping data for table `phpfox_component`
@@ -1622,7 +1700,12 @@ INSERT INTO `phpfox_component` (`component_id`, `component`, `m_connection`, `mo
 (318, 'friendslider', '', 'friendfeed', 'friendfeed', 0, 1, 1),
 (319, 'addtour', '', 'sitetour', 'sitetour', 0, 1, 1),
 (320, 'selecttag', '', 'sitetour', 'sitetour', 0, 1, 1),
-(322, 'sendbox', '', 'customprofiles', 'customprofiles', 0, 1, 1);
+(322, 'sendbox', '', 'customprofiles', 'customprofiles', 0, 1, 1),
+(323, 'donemenu', '', 'anonymousdone', 'anonymousdone', 0, 1, 1),
+(324, 'index', 'anonymousdone.index', 'anonymousdone', 'anonymousdone', 1, 0, 1),
+(325, 'receivedmenu', '', 'anonymousreceived', 'anonymousreceived', 0, 1, 1),
+(326, 'index', 'anonymousreceived.index', 'anonymousreceived', 'anonymousreceived', 1, 0, 1),
+(327, 'index', 'privatepost.index', 'privatepost', 'privatepost', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2056,10 +2139,10 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron` (
 --
 
 INSERT INTO `phpfox_cron` (`cron_id`, `module_id`, `product_id`, `next_run`, `last_run`, `type_id`, `every`, `is_active`, `php_code`) VALUES
-(1, 'log', 'phpfox', 1413139025, 1413135425, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
-(2, 'mail', 'phpfox', 1413467683, 1410875683, 3, 30, 1, 'Phpfox::getService(''mail.process'')->cronDeleteMessages();'),
+(1, 'log', 'phpfox', 1418915154, 1418911554, 2, 1, 1, 'Phpfox::getLib(''phpfox.database'')->delete(Phpfox::getT(''log_session''), "last_activity < ''" . ((PHPFOX_TIME - (Phpfox::getParam(''log.active_session'') * 60))) . "''");\r\n'),
+(2, 'mail', 'phpfox', 1419176490, 1416584490, 3, 30, 1, 'Phpfox::getService(''mail.process'')->cronDeleteMessages();'),
 (3, 'shoutbox', 'phpfox', 1413087747, 1413001347, 3, 1, 1, 'Phpfox::getService(''shoutbox.process'')->clear(Phpfox::getParam(''shoutbox.shoutbox_total''));\r\n'),
-(4, 'subscribe', 'phpfox', 1413139025, 1413135425, 2, 1, 1, 'Phpfox::getService(''subscribe.purchase.process'')->downgradeExpiredSubscribers();');
+(4, 'subscribe', 'phpfox', 1418915154, 1418911554, 2, 1, 1, 'Phpfox::getService(''subscribe.purchase.process'')->downgradeExpiredSubscribers();');
 
 -- --------------------------------------------------------
 
@@ -2072,7 +2155,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_cron_log` (
   `cron_id` mediumint(8) unsigned NOT NULL,
   `time_stamp` int(10) unsigned NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=405 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=529 ;
 
 --
 -- Dumping data for table `phpfox_cron_log`
@@ -2482,7 +2565,131 @@ INSERT INTO `phpfox_cron_log` (`log_id`, `cron_id`, `time_stamp`) VALUES
 (401, 1, 1413131668),
 (402, 4, 1413131668),
 (403, 1, 1413135425),
-(404, 4, 1413135425);
+(404, 4, 1413135425),
+(405, 1, 1413210448),
+(406, 4, 1413210448),
+(407, 1, 1413214114),
+(408, 4, 1413214114),
+(409, 1, 1413296696),
+(410, 4, 1413296696),
+(411, 1, 1413301179),
+(412, 4, 1413301179),
+(413, 1, 1413305030),
+(414, 4, 1413305030),
+(415, 1, 1413388163),
+(416, 4, 1413388163),
+(417, 1, 1413392471),
+(418, 4, 1413392471),
+(419, 1, 1413468229),
+(420, 2, 1413468229),
+(421, 4, 1413468229),
+(422, 1, 1413471839),
+(423, 4, 1413471839),
+(424, 1, 1413476222),
+(425, 4, 1413476222),
+(426, 1, 1413730617),
+(427, 4, 1413730617),
+(428, 1, 1413740453),
+(429, 4, 1413740453),
+(430, 1, 1413817595),
+(431, 4, 1413817595),
+(432, 1, 1413901128),
+(433, 4, 1413901128),
+(434, 1, 1414226488),
+(435, 4, 1414226488),
+(436, 1, 1414290290),
+(437, 4, 1414290290),
+(438, 1, 1414417484),
+(439, 1, 1414417493),
+(440, 4, 1414417484),
+(441, 4, 1414417493),
+(442, 1, 1414421148),
+(443, 4, 1414421148),
+(444, 1, 1414424769),
+(445, 4, 1414424769),
+(446, 1, 1414428374),
+(447, 4, 1414428374),
+(448, 1, 1414506640),
+(449, 4, 1414506640),
+(450, 1, 1414512122),
+(451, 4, 1414512122),
+(452, 1, 1414515733),
+(453, 4, 1414515733),
+(454, 1, 1414593096),
+(455, 4, 1414593096),
+(456, 1, 1414596698),
+(457, 4, 1414596698),
+(458, 1, 1414675437),
+(459, 4, 1414675437),
+(460, 1, 1414683442),
+(461, 4, 1414683442),
+(462, 1, 1414687431),
+(463, 4, 1414687431),
+(464, 1, 1414769605),
+(465, 4, 1414769605),
+(466, 1, 1414842318),
+(467, 4, 1414842318),
+(468, 1, 1414847176),
+(469, 4, 1414847176),
+(470, 1, 1414940964),
+(471, 4, 1414940964),
+(472, 1, 1414945691),
+(473, 4, 1414945691),
+(474, 1, 1415024715),
+(475, 4, 1415024715),
+(476, 1, 1415028583),
+(477, 4, 1415028583),
+(478, 1, 1415036216),
+(479, 4, 1415036216),
+(480, 1, 1415113217),
+(481, 4, 1415113217),
+(482, 1, 1415117135),
+(483, 4, 1415117135),
+(484, 1, 1415713449),
+(485, 4, 1415713449),
+(486, 1, 1416584490),
+(487, 2, 1416584490),
+(488, 4, 1416584490),
+(489, 1, 1416929079),
+(490, 4, 1416929079),
+(491, 1, 1417448353),
+(492, 4, 1417448353),
+(493, 1, 1418396924),
+(494, 4, 1418396924),
+(495, 1, 1418401190),
+(496, 4, 1418401190),
+(497, 1, 1418484150),
+(498, 4, 1418484150),
+(499, 1, 1418489635),
+(500, 4, 1418489635),
+(501, 1, 1418521449),
+(502, 4, 1418521449),
+(503, 1, 1418526946),
+(504, 4, 1418526946),
+(505, 1, 1418534447),
+(506, 4, 1418534447),
+(507, 1, 1418538136),
+(508, 4, 1418538136),
+(509, 1, 1418549656),
+(510, 4, 1418549656),
+(511, 1, 1418572393),
+(512, 4, 1418572393),
+(513, 1, 1418576017),
+(514, 4, 1418576017),
+(515, 1, 1418653055),
+(516, 4, 1418653055),
+(517, 1, 1418656676),
+(518, 4, 1418656676),
+(519, 1, 1418661656),
+(520, 4, 1418661656),
+(521, 1, 1418665296),
+(522, 4, 1418665296),
+(523, 1, 1418745001),
+(524, 4, 1418745001),
+(525, 1, 1418835231),
+(526, 4, 1418835231),
+(527, 1, 1418911554),
+(528, 4, 1418911554);
 
 -- --------------------------------------------------------
 
@@ -2619,29 +2826,47 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_anonymous_feed` (
   `message` mediumtext NOT NULL,
   `is_confirm` tinyint(4) NOT NULL,
   `privacy` tinyint(1) NOT NULL DEFAULT '0',
+  `is_block` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`anonymous_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `phpfox_custom_profiles_anonymous_feed`
 --
 
-INSERT INTO `phpfox_custom_profiles_anonymous_feed` (`anonymous_id`, `feed_id`, `user_id`, `receive_user_id`, `is_active`, `message`, `is_confirm`, `privacy`) VALUES
-(1, 214, 1, 17, 1, 'sdfsafsdfsdfsdf', 0, 0),
-(2, 215, 1, 22, 1, '', 0, 0),
-(3, 216, 1, 4, 1, 'dung lam anh cau', 0, 0),
-(4, 217, 1, 28, 1, '', 0, 0),
-(5, 218, 1, 28, 1, 'fgsdgdsfg dfgdf', 0, 0),
-(6, 220, 1, 4, 1, 'dung lam anh cau nhe he heh eh lfjdks flksd fllskflskfsfs fds ds fsd fsdf ds', 0, 0),
-(7, 222, 1, 4, 1, 'tao dang cau day nha...', 0, 0),
-(8, 225, 1, 4, 1, 'dung lam anh cau nha, bun ngu vai noi...', 0, 0),
-(9, 230, 1, 4, 1, 'dung lam anh cau...... sflkdsfljdsflkds fjdkls fjklds klfdsklfdklsfklds fklsd klfdklsf dkls fsf sdf sfs f', 0, 0),
-(10, 234, 1, 4, 1, 'chan vai ngay gi ma xui the', 0, 0),
-(11, 238, 1, 4, 1, 'dfsfds fdsf dsfds fd', 0, 0),
-(13, 242, 6, 4, 1, 'Hau post to Nguyen Loc test 2', 0, 0),
-(14, 243, 6, 4, 1, 'Hau post to Nguyen Loc test 3', 0, 0),
-(15, 250, 6, 4, 1, 'aaaaaaaaaaaaaaaa', 0, 0),
-(16, 254, 1, 4, 1, 'hello. I''m here', 0, 0);
+INSERT INTO `phpfox_custom_profiles_anonymous_feed` (`anonymous_id`, `feed_id`, `user_id`, `receive_user_id`, `is_active`, `message`, `is_confirm`, `privacy`, `is_block`) VALUES
+(1, 214, 1, 17, 1, 'sdfsafsdfsdfsdf', 0, 0, 0),
+(2, 215, 1, 22, 1, '', 0, 0, 0),
+(3, 216, 1, 4, 1, 'dung lam anh cau', 0, 0, 1),
+(4, 217, 1, 28, 1, '', 0, 0, 0),
+(5, 218, 1, 28, 1, 'fgsdgdsfg dfgdf', 0, 0, 0),
+(6, 220, 1, 4, 1, 'dung lam anh cau nhe he heh eh lfjdks flksd fllskflskfsfs fds ds fsd fsdf ds', 0, 0, 1),
+(7, 222, 1, 4, 1, 'tao dang cau day nha...', 0, 0, 1),
+(8, 225, 1, 4, 1, 'dung lam anh cau nha, bun ngu vai noi...', 0, 0, 1),
+(9, 230, 1, 4, 1, 'dung lam anh cau...... sflkdsfljdsflkds fjdkls fjklds klfdsklfdklsfklds fklsd klfdklsf dkls fsf sdf sfs f', 0, 0, 1),
+(10, 234, 1, 4, 1, 'chan vai ngay gi ma xui the', 0, 0, 1),
+(11, 238, 1, 4, 1, 'dfsfds fdsf dsfds fd', 0, 0, 1),
+(13, 242, 6, 4, 1, 'Hau post to Nguyen Loc test 2', 0, 0, 1),
+(14, 243, 6, 4, 1, 'Hau post to Nguyen Loc test 3', 0, 0, 1),
+(15, 250, 6, 4, 1, 'aaaaaaaaaaaaaaaa', 0, 0, 1),
+(16, 254, 1, 4, 1, 'hello. I''m here', 0, 1, 1),
+(17, 256, 1, 4, 1, 'test nao, cung nhau test nao', 0, 1, 1),
+(18, 259, 6, 4, 1, 'dung co lam anh buc nhe Hau -> Loc', 0, 0, 1),
+(19, 267, 1, 6, 1, 'phuc to hau chan vai', 0, 0, 0),
+(20, 271, 1, 4, 1, 'dsfas dfdas fasdfda fdsaf dsf dsfds fasfd', 0, 0, 0),
+(21, 272, 6, 4, 1, 'sf dsfdsf dsfds fdsf dsf f', 0, 0, 1),
+(22, 273, 6, 4, 1, 'ds fdas fdsf dasfdas fdsfsfds fds f', 0, 0, 1),
+(23, 274, 6, 4, 1, 'test test', 0, 0, 1),
+(24, 275, 6, 4, 1, 'klds ds fkldsklfds fdsf dsfds fds fdsf dsf', 0, 0, 1),
+(25, 276, 6, 1, 1, 'chan qua di', 0, 1, 0),
+(26, 277, 6, 1, 1, 'test test test test', 0, 0, 0),
+(30, 289, 4, 1, 1, 'd sfasd fds fds fds', 0, 0, 0),
+(31, 300, 1, 4, 1, 'test stest', 0, 0, 0),
+(32, 301, 1, 4, 1, 'test tes asfds fsd f', 0, 0, 0),
+(33, 346, 1, 4, 1, 'af sf dsfdsf sdfs df', 0, 0, 0),
+(34, 347, 1, 15, 1, 's dsfdsfdsf sdf', 0, 0, 0),
+(35, 351, 1, 6, 1, 'dsfssdafsdfasdfsdaf ds', 0, 0, 0),
+(36, 352, 1, 6, 1, 'test 1', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2654,17 +2879,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_block` (
   `user_id` int(10) NOT NULL,
   `block_user_id` int(10) NOT NULL,
   `time_stamp` int(10) NOT NULL,
+  `report_id` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`block_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
-
---
--- Dumping data for table `phpfox_custom_profiles_block`
---
-
-INSERT INTO `phpfox_custom_profiles_block` (`block_id`, `user_id`, `block_user_id`, `time_stamp`) VALUES
-(15, 4, 6, 1413137016),
-(16, 4, 6, 1413137032),
-(17, 4, 6, 1413137051);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2679,7 +2896,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_guest_anonymous_feed` (
   `object` mediumtext NOT NULL,
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`feed_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `phpfox_custom_profiles_guest_anonymous_feed`
@@ -2690,7 +2907,10 @@ INSERT INTO `phpfox_custom_profiles_guest_anonymous_feed` (`feed_id`, `sender_us
 (2, 1, 'abc@test.com', 'a:8:{s:9:"full_name";s:5:"abced";s:5:"email";s:12:"abc@test.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:25:"chan vai cai cuoc doi nay";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1406045237),
 (3, 1, 'test1@z.com', 'a:8:{s:9:"full_name";s:4:"chan";s:5:"email";s:11:"test1@z.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:11:"test1@z.com";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1406045493),
 (4, 1, 'test2@z.com', 'a:8:{s:9:"full_name";s:4:"chan";s:5:"email";s:11:"test2@z.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:11:"test2@z.com";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1406046102),
-(5, 1, 'test4@gmail.com', 'a:8:{s:9:"full_name";s:5:"test4";s:5:"email";s:15:"test4@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:15:"test4@gmail.com";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1406048733);
+(5, 1, 'test4@gmail.com', 'a:8:{s:9:"full_name";s:5:"test4";s:5:"email";s:15:"test4@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:15:"test4@gmail.com";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1406048733),
+(6, 1, 'hau@gmail.com', 'a:8:{s:9:"full_name";s:3:"hau";s:5:"email";s:13:"hau@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:21:"dang buc minh day nhe";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1413215046),
+(7, 1, 'hau@gmail.com', 'a:10:{s:9:"full_name";s:3:"hau";s:5:"email";s:13:"hau@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:16:"lksd flkdfsdfsdf";s:10:"time_delay";s:1:"0";s:11:"expire_time";s:7:"3888000";s:16:"feed_expire_time";s:1:"1";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1418912411),
+(8, 1, 'hau@gmail.com', 'a:10:{s:9:"full_name";s:5:"sdfsf";s:5:"email";s:13:"hau@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:23:"fafasdfsdfsdfsdfdsfddsd";s:10:"time_delay";s:1:"0";s:11:"expire_time";s:7:"3888000";s:16:"feed_expire_time";s:1:"1";s:9:"feed_type";s:12:"feed_comment";s:14:"sender_user_id";i:1;}', 1418912501);
 
 -- --------------------------------------------------------
 
@@ -2708,7 +2928,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_invite` (
   `is_expire` tinyint(1) NOT NULL DEFAULT '0',
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`invite_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `phpfox_custom_profiles_invite`
@@ -2719,7 +2939,10 @@ INSERT INTO `phpfox_custom_profiles_invite` (`invite_id`, `user_id`, `email`, `f
 (2, 1, 'abc1@test.com', 'abced', 2, 'chan vai cai cuoc doi nay', 1, 1406045237),
 (3, 1, 'test1@z.com', 'chan', 3, 'test1@z.com', 1, 1406045493),
 (4, 1, 'test2@z.com', 'chan', 4, 'test2@z.com', 1, 1406046102),
-(5, 1, 'test4@gmail.com', 'test4', 5, 'test4@gmail.com', 1, 1406048733);
+(5, 1, 'test4@gmail.com', 'test4', 5, 'test4@gmail.com', 1, 1406048733),
+(6, 1, 'hau@gmail.com', 'hau', 6, 'dang buc minh day nhe', 1, 1413215046),
+(7, 1, 'hau@gmail.com', 'hau', 7, 'lksd flkdfsdfsdf', 0, 1418912411),
+(8, 1, 'hau@gmail.com', 'sdfsf', 8, 'fafasdfsdfsdfsdfdsfddsd', 0, 1418912501);
 
 -- --------------------------------------------------------
 
@@ -2751,16 +2974,27 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_schedule_feed` (
   `email` varchar(200) DEFAULT NULL,
   `object` mediumtext NOT NULL,
   `status` tinyint(2) NOT NULL DEFAULT '0',
+  `new_feed_id` int(10) NOT NULL DEFAULT '0',
   `time_stamp` int(10) NOT NULL,
   PRIMARY KEY (`feed_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `phpfox_custom_profiles_schedule_feed`
 --
 
-INSERT INTO `phpfox_custom_profiles_schedule_feed` (`feed_id`, `user_id`, `receive_user_id`, `email`, `object`, `status`, `time_stamp`) VALUES
-(1, 1, 28, NULL, 'a:11:{s:9:"full_name";s:5:"test4";s:5:"email";s:15:"test4@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:15:"fgsdgdsfg dfgdf";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:2:"28";s:9:"is_friend";b:0;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1406049111;}', 1, 1406049111);
+INSERT INTO `phpfox_custom_profiles_schedule_feed` (`feed_id`, `user_id`, `receive_user_id`, `email`, `object`, `status`, `new_feed_id`, `time_stamp`) VALUES
+(1, 1, 28, NULL, 'a:11:{s:9:"full_name";s:5:"test4";s:5:"email";s:15:"test4@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:15:"fgsdgdsfg dfgdf";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:2:"28";s:9:"is_friend";b:0;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1406049111;}', 1, 0, 1406049111),
+(2, 1, 6, NULL, 'a:11:{s:9:"full_name";s:8:"hau tran";s:5:"email";s:17:"hautran@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:20:"phuc to hau chan vai";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"6";s:9:"is_friend";b:0;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1413215108;}', 1, 0, 1413215108),
+(3, 6, 4, NULL, 'a:11:{s:9:"full_name";s:10:"Nguyen Loc";s:5:"email";s:19:"nguyenloc@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:35:"ds fdas fdsf dasfdas fdsfsfds fds f";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"4";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414291167;}', 1, 0, 1414291167),
+(4, 6, 4, NULL, 'a:11:{s:9:"full_name";s:10:"nguyen loc";s:5:"email";s:19:"nguyenloc@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:42:"klds ds fkldsklfds fdsf dsfds fds fdsf dsf";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"4";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414291263;}', 1, 0, 1414291263),
+(5, 6, 4, NULL, 'a:11:{s:9:"full_name";s:10:"nguyen loc";s:5:"email";s:19:"nguyenloc@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:9:"test test";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"4";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414291292;}', 1, 0, 1414291292),
+(6, 6, 1, NULL, 'a:11:{s:9:"full_name";s:19:"admin@localhost.com";s:5:"email";s:19:"admin@localhost.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:11:"chan qua di";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"1";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414419218;}', 1, 0, 1414419218),
+(7, 6, 1, NULL, 'a:11:{s:9:"full_name";s:7:"ds fdsf";s:5:"email";s:19:"admin@localhost.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:19:"test test test test";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"1";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414425919;}', 1, 0, 1414425919),
+(8, 6, 1, NULL, 'a:11:{s:9:"full_name";s:5:"admin";s:5:"email";s:19:"admin@localhost.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:29:"hau tran block admin 28/10/14";s:10:"time_delay";s:1:"0";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"1";s:9:"is_friend";b:0;s:14:"sender_user_id";i:6;s:10:"time_stamp";i:1414514991;}', 1, 0, 1414514991),
+(9, 1, 15, NULL, 'a:13:{s:9:"full_name";s:2:"ng";s:9:"friend_id";s:2:"15";s:5:"email";s:0:"";s:13:"is_not_friend";s:1:"0";s:8:"egift_id";s:0:"";s:7:"message";s:19:"sd fds fds fds fsdf";s:10:"time_delay";s:3:"486";s:11:"expire_time";s:4:"1800";s:16:"feed_expire_time";s:1:"1";s:9:"feed_type";s:12:"feed_comment";s:9:"is_friend";b:1;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1415116989;}', 0, 0, 1415116989),
+(10, 1, 6, NULL, 'a:13:{s:9:"full_name";s:17:"hautran@gmail.com";s:5:"email";s:17:"hautran@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:22:"dsfssdafsdfasdfsdaf ds";s:10:"time_delay";s:1:"0";s:11:"expire_time";s:7:"3888000";s:16:"feed_expire_time";s:1:"1";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"6";s:9:"is_friend";b:0;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1418912562;}', 1, 351, 1418912562),
+(11, 1, 6, NULL, 'a:13:{s:9:"full_name";s:6:"gdfgdg";s:5:"email";s:17:"hautran@gmail.com";s:13:"is_not_friend";s:1:"1";s:8:"egift_id";s:0:"";s:7:"message";s:6:"test 1";s:10:"time_delay";s:1:"0";s:11:"expire_time";s:7:"3888000";s:16:"feed_expire_time";s:1:"1";s:9:"feed_type";s:12:"feed_comment";s:9:"friend_id";s:1:"6";s:9:"is_friend";b:0;s:14:"sender_user_id";i:1;s:10:"time_stamp";i:1418912861;}', 1, 42, 1418912861);
 
 -- --------------------------------------------------------
 
@@ -2892,7 +3126,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_custom_relation_data` (
   PRIMARY KEY (`relation_data_id`),
   KEY `user_id` (`user_id`),
   KEY `with_user_id` (`with_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `phpfox_custom_relation_data`
+--
+
+INSERT INTO `phpfox_custom_relation_data` (`relation_data_id`, `relation_id`, `user_id`, `with_user_id`, `status_id`, `total_like`, `total_dislike`, `total_comment`) VALUES
+(1, 1, 1, 0, 2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3118,6 +3359,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_event_feed` (
   `parent_feed_id` int(10) unsigned NOT NULL DEFAULT '0',
   `parent_module_id` varchar(75) DEFAULT NULL,
   `time_update` int(10) unsigned NOT NULL DEFAULT '0',
+  `expire_time` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`feed_id`),
   KEY `parent_user_id` (`parent_user_id`),
   KEY `time_update` (`time_update`)
@@ -3234,6 +3476,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_feed` (
   `parent_feed_id` int(10) unsigned NOT NULL DEFAULT '0',
   `parent_module_id` varchar(75) DEFAULT NULL,
   `time_update` int(10) unsigned NOT NULL DEFAULT '0',
+  `is_delete` tinyint(1) NOT NULL DEFAULT '0',
+  `expire_time` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`feed_id`),
   KEY `privacy_2` (`privacy`,`time_stamp`,`feed_reference`),
   KEY `privacy_3` (`privacy`,`user_id`,`feed_reference`),
@@ -3244,165 +3488,254 @@ CREATE TABLE IF NOT EXISTS `phpfox_feed` (
   KEY `time_update` (`time_update`),
   KEY `privacy_5` (`privacy`,`parent_user_id`),
   KEY `user_id` (`user_id`,`feed_reference`,`time_stamp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=256 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=353 ;
 
 --
 -- Dumping data for table `phpfox_feed`
 --
 
-INSERT INTO `phpfox_feed` (`feed_id`, `app_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `feed_reference`, `parent_feed_id`, `parent_module_id`, `time_update`) VALUES
-(1, 0, 0, 0, 'pages_comment', 2, 0, 1, 1399124049, 0, 0, NULL, 1399124049),
-(2, 0, 0, 0, 'pages_comment', 2, 0, 2, 1399124054, 0, 0, NULL, 1399124054),
-(3, 0, 0, 0, 'pages_comment', 2, 0, 3, 1399124058, 0, 0, NULL, 1399124058),
-(4, 0, 0, 0, 'pages_comment', 2, 0, 4, 1399124060, 0, 0, NULL, 1399124060),
-(5, 0, 0, 0, 'pages_comment', 2, 0, 5, 1399124064, 0, 0, NULL, 1399124064),
-(6, 0, 0, 0, 'pages_comment', 2, 0, 6, 1399124068, 0, 0, NULL, 1399124068),
-(7, 0, 0, 0, 'pages_comment', 2, 0, 7, 1399124074, 0, 0, NULL, 1399124074),
-(8, 0, 0, 0, 'photo', 2, 0, 5, 1399124088, 0, 0, NULL, 1399124088),
-(9, 0, 0, 0, 'photo', 2, 0, 6, 1399124103, 0, 0, NULL, 1399124103),
-(10, 0, 0, 0, 'user_status', 1, 0, 1, 1400305018, 0, 0, NULL, 1400305018),
-(11, 0, 0, 0, 'user_status', 1, 0, 2, 1400305024, 0, 0, NULL, 1400305024),
-(13, 0, 0, 0, 'photo', 1, 0, 8, 1400345245, 0, 0, NULL, 1400345245),
-(15, 0, 0, 0, 'photo', 1, 0, 9, 1400348616, 0, 0, NULL, 1400348616),
-(22, 0, 0, 0, 'user_status', 1, 0, 8, 1400351686, 0, 0, NULL, 1400351686),
-(23, 0, 0, 0, 'user_status', 1, 0, 9, 1400351749, 0, 0, NULL, 1400351749),
-(24, 0, 0, 0, 'user_status', 1, 0, 10, 1400351879, 0, 0, NULL, 1400351879),
-(25, 0, 0, 0, 'user_status', 1, 0, 11, 1400352174, 0, 0, NULL, 1400352174),
-(26, 0, 0, 0, 'user_status', 1, 0, 12, 1400352310, 0, 0, NULL, 1400352310),
-(37, 0, 0, 0, 'photo', 1, 0, 14, 1400353396, 0, 0, NULL, 1400353396),
-(40, 0, 0, 0, 'photo', 1, 0, 15, 1400353748, 0, 0, NULL, 1400353748),
-(42, 0, 0, 0, 'photo', 1, 0, 17, 1400353889, 0, 0, NULL, 1400353889),
-(43, 0, 0, 0, 'photo', 1, 0, 18, 1400354038, 0, 0, NULL, 1400354038),
-(51, 0, 0, 0, 'music_song', 1, 0, 1, 1400377918, 0, 0, NULL, 1400377918),
-(52, 0, 0, 0, 'user_status', 1, 0, 30, 1400411024, 0, 0, NULL, 1400411024),
-(58, 0, 0, 0, 'user_status', 1, 0, 29, 1400382509, 0, 0, NULL, 1400382509),
-(61, 0, 0, 0, 'user_status', 1, 0, 33, 1400424287, 0, 0, NULL, 1400424287),
-(74, 0, 0, 0, 'music_song', 1, 0, 6, 1400426966, 0, 0, NULL, 1400426966),
-(75, 0, 0, 0, 'user_status', 1, 0, 38, 1400427954, 0, 0, NULL, 1400427954),
-(76, 0, 0, 0, 'poll', 1, 0, 3, 1400427964, 0, 0, NULL, 1400427964),
-(77, 0, 0, 0, 'user_status', 1, 0, 39, 1400428016, 0, 0, NULL, 1400428016),
-(78, 0, 0, 0, 'user_status', 1, 0, 40, 1400428020, 0, 0, NULL, 1400428020),
-(81, 0, 0, 0, 'user_status', 1, 0, 43, 1400428265, 0, 0, NULL, 1400428265),
-(83, 0, 0, 0, 'user_status', 1, 0, 45, 1400428542, 0, 0, NULL, 1400428542),
-(85, 0, 0, 0, 'user_status', 1, 0, 47, 1400428559, 0, 0, NULL, 1400428559),
-(87, 0, 0, 0, 'user_status', 1, 0, 49, 1400428601, 0, 0, NULL, 1400428601),
-(96, 0, 0, 0, 'user_status', 1, 0, 58, 1400429504, 0, 0, NULL, 1400429504),
-(99, 0, 0, 0, 'user_status', 1, 0, 61, 1400429677, 0, 0, NULL, 1400429677),
-(102, 0, 0, 0, 'user_status', 1, 0, 64, 1400429792, 0, 0, NULL, 1400429792),
-(103, 0, 0, 0, 'user_status', 1, 0, 65, 1400429851, 0, 0, NULL, 1400429851),
-(106, 0, 0, 0, 'user_status', 1, 0, 68, 1400429878, 0, 0, NULL, 1400429878),
-(107, 0, 0, 0, 'user_status', 1, 0, 69, 1400429886, 0, 0, NULL, 1400429886),
-(109, 0, 0, 0, 'user_status', 1, 0, 71, 1400430116, 0, 0, NULL, 1400430116),
-(110, 0, 0, 0, 'user_status', 1, 0, 72, 1400430118, 0, 0, NULL, 1400430118),
-(113, 0, 0, 0, 'user_status', 1, 0, 75, 1400430135, 0, 0, NULL, 1400430135),
-(114, 0, 0, 0, 'user_status', 1, 0, 76, 1400430156, 0, 0, NULL, 1400430156),
-(117, 0, 0, 0, 'user_status', 1, 0, 79, 1400430166, 0, 0, NULL, 1400430166),
-(118, 0, 0, 0, 'user_status', 1, 0, 80, 1400430208, 0, 0, NULL, 1400430208),
-(119, 0, 0, 0, 'user_status', 1, 0, 81, 1400430292, 0, 0, NULL, 1400430292),
-(120, 0, 0, 0, 'user_status', 1, 0, 82, 1400430533, 0, 0, NULL, 1400430533),
-(121, 0, 0, 0, 'user_status', 1, 0, 83, 1400430835, 0, 0, NULL, 1400430835),
-(122, 0, 0, 0, 'user_status', 1, 0, 84, 1400430888, 0, 0, NULL, 1400430888),
-(125, 0, 0, 0, 'pages_comment', 3, 0, 8, 1400430926, 0, 0, NULL, 1400430926),
-(126, 0, 0, 0, 'pages_comment', 3, 0, 9, 1400430929, 0, 0, NULL, 1400430929),
-(129, 0, 0, 0, 'user_status', 1, 0, 87, 1400431428, 0, 0, NULL, 1400431428),
-(138, 0, 0, 0, 'user_status', 1, 0, 94, 1400431601, 0, 0, NULL, 1400431601),
-(140, 0, 0, 0, 'photo', 1, 0, 30, 1400431620, 0, 0, NULL, 1400431620),
-(143, 0, 0, 0, 'user_status', 1, 0, 97, 1400431649, 0, 0, NULL, 1400431649),
-(145, 0, 0, 0, 'user_status', 1, 0, 99, 1400431667, 0, 0, NULL, 1400431667),
-(147, 0, 0, 0, 'photo', 1, 0, 32, 1400431682, 0, 0, NULL, 1400431682),
-(158, 0, 0, 0, 'user_photo', 4, 0, 35, 1400604378, 0, 0, NULL, 1400604378),
-(159, 0, 0, 0, 'user_status', 1, 0, 109, 1400609318, 0, 0, NULL, 1400609318),
-(160, 0, 0, 0, 'user_status', 1, 0, 110, 1400609325, 0, 0, NULL, 1400609325),
-(161, 0, 0, 0, 'photo', 1, 0, 37, 1400609335, 0, 0, NULL, 1400609335),
-(162, 0, 0, 0, 'photo', 1, 0, 38, 1400609376, 0, 0, NULL, 1400609376),
-(163, 0, 0, 0, 'blog', 1, 0, 4, 1400942998, 0, 0, NULL, 1400942998),
-(164, 0, 0, 0, 'marketplace', 1, 0, 1, 1400943075, 0, 0, NULL, 1400943075),
-(165, 0, 0, 0, 'friend', 1, 7, 8, 1401112822, 0, 0, NULL, 1401112822),
-(166, 0, 0, 0, 'user_photo', 7, 0, 39, 1401112876, 0, 0, NULL, 1401112876),
-(167, 0, 0, 0, 'friend', 6, 7, 10, 1401113089, 0, 0, NULL, 1401113089),
-(168, 0, 0, 0, 'friend', 1, 6, 12, 1401113149, 0, 0, NULL, 1401113149),
-(169, 0, 0, 0, 'user_photo', 6, 0, 40, 1401113171, 0, 0, NULL, 1401113171),
-(170, 0, 0, 0, 'friend', 1, 8, 14, 1401113347, 0, 0, NULL, 1401113347),
-(172, 0, 0, 0, 'user_photo', 8, 0, 42, 1401113373, 0, 0, NULL, 1401113373),
-(173, 0, 0, 0, 'user_photo', 9, 0, 43, 1401113463, 0, 0, NULL, 1401113463),
-(174, 0, 0, 0, 'friend', 1, 9, 16, 1401113495, 0, 0, NULL, 1401113495),
-(175, 0, 0, 0, 'user_photo', 10, 0, 44, 1401113574, 0, 0, NULL, 1401113574),
-(177, 0, 0, 0, 'user_photo', 11, 0, 45, 1401113812, 0, 0, NULL, 1401113812),
-(178, 0, 0, 0, 'friend', 1, 11, 20, 1401113846, 0, 0, NULL, 1401113846),
-(179, 0, 0, 0, 'user_photo', 12, 0, 46, 1401113972, 0, 0, NULL, 1401113972),
-(180, 0, 0, 0, 'friend', 1, 12, 22, 1401114035, 0, 0, NULL, 1401114035),
-(181, 0, 0, 0, 'user_photo', 13, 0, 47, 1401114227, 0, 0, NULL, 1401114227),
-(182, 0, 0, 0, 'friend', 1, 13, 24, 1401114232, 0, 0, NULL, 1401114232),
-(183, 0, 0, 0, 'friend', 1, 14, 26, 1401114363, 0, 0, NULL, 1401114363),
-(184, 0, 0, 0, 'user_photo', 14, 0, 48, 1401114357, 0, 0, NULL, 1401114357),
-(185, 0, 0, 0, 'user_photo', 15, 0, 49, 1401114503, 0, 0, NULL, 1401114503),
-(186, 0, 0, 0, 'friend', 1, 15, 28, 1401114572, 0, 0, NULL, 1401114572),
-(187, 0, 0, 0, 'user_photo', 16, 0, 50, 1401114609, 0, 0, NULL, 1401114609),
-(188, 0, 0, 0, 'friend', 1, 16, 30, 1401114621, 0, 0, NULL, 1401114621),
-(189, 0, 0, 0, 'user_photo', 17, 0, 51, 1401114720, 0, 0, NULL, 1401114720),
-(190, 0, 0, 0, 'friend', 1, 17, 32, 1401114749, 0, 0, NULL, 1401114749),
-(191, 0, 0, 0, 'user_photo', 18, 0, 52, 1401114873, 0, 0, NULL, 1401114873),
-(192, 0, 0, 0, 'friend', 1, 18, 34, 1401114888, 0, 0, NULL, 1401114888),
-(193, 0, 0, 0, 'user_photo', 19, 0, 53, 1401115011, 0, 0, NULL, 1401115011),
-(194, 0, 0, 0, 'friend', 1, 19, 36, 1401115029, 0, 0, NULL, 1401115029),
-(195, 0, 0, 0, 'user_photo', 20, 0, 54, 1401115192, 0, 0, NULL, 1401115192),
-(196, 0, 0, 0, 'friend', 1, 20, 38, 1401115226, 0, 0, NULL, 1401115226),
-(197, 0, 0, 0, 'user_status', 20, 0, 111, 1401124042, 0, 0, NULL, 1401124042),
-(198, 0, 0, 0, 'photo', 20, 0, 55, 1401124050, 0, 0, NULL, 1401124050),
-(199, 0, 0, 0, 'user_status', 20, 0, 112, 1401124079, 0, 0, NULL, 1401124079),
-(200, 0, 0, 0, 'photo', 20, 0, 56, 1401124097, 0, 0, NULL, 1401124097),
-(201, 0, 0, 0, 'photo', 20, 0, 57, 1401124136, 0, 0, NULL, 1401124136),
-(202, 0, 0, 0, 'user_status', 6, 0, 113, 1401202705, 0, 0, NULL, 1401202705),
-(203, 0, 0, 0, 'user_status', 6, 0, 114, 1401202708, 0, 0, NULL, 1401202708),
-(204, 0, 0, 0, 'photo', 6, 0, 58, 1401202720, 0, 0, NULL, 1401202720),
-(205, 0, 0, 0, 'user_status', 6, 0, 115, 1401203021, 0, 0, NULL, 1401203021),
-(206, 0, 0, 0, 'user_status', 6, 0, 116, 1401203025, 0, 0, NULL, 1401203025),
-(207, 0, 0, 0, 'photo', 6, 0, 59, 1401203039, 0, 0, NULL, 1401203039),
-(208, 0, 0, 0, 'poll', 6, 0, 4, 1401203047, 0, 0, NULL, 1401203047),
-(209, 0, 0, 0, 'link', 6, 0, 2, 1401203084, 0, 0, NULL, 1401203084),
-(210, 0, 0, 0, 'user_status', 1, 0, 117, 1403374491, 0, 0, NULL, 1406130576),
-(211, 0, 1, 0, 'feed_comment', 1, 15, 1, 1405440845, 0, 0, NULL, 1405440845),
-(212, 0, 1, 0, 'feed_comment', 1, 4, 2, 1405440867, 0, 0, NULL, 1405440867),
-(213, 0, 1, 0, 'feed_comment', 1, 12, 3, 1405442915, 0, 0, NULL, 1405442915),
-(214, 0, 1, 0, 'feed_comment', 1, 17, 4, 1405443906, 0, 0, NULL, 1405443906),
-(215, 0, 1, 0, 'feed_comment', 1, 22, 5, 1405530015, 0, 0, NULL, 1405530015),
-(216, 0, 1, 0, 'feed_comment', 1, 4, 6, 1405863227, 0, 0, NULL, 1405863227),
-(217, 0, 1, 0, 'feed_comment', 1, 28, 7, 1406049006, 0, 0, NULL, 1406049006),
-(218, 0, 1, 0, 'feed_comment', 1, 28, 8, 1406049111, 0, 0, NULL, 1406049111),
-(219, 0, 1, 0, 'photo', 1, 0, 60, 1406390487, 0, 0, NULL, 1406390487),
-(220, 0, 1, 0, 'feed_comment', 1, 4, 9, 1406476286, 0, 0, NULL, 1406476286),
-(221, 0, 1, 0, 'photo', 1, 0, 61, 1406477432, 0, 0, NULL, 1406477432),
-(222, 0, 1, 0, 'feed_comment', 1, 4, 10, 1408213242, 0, 0, NULL, 1408213242),
-(223, 0, 1, 0, 'photo', 1, 0, 62, 1408213739, 0, 0, NULL, 1408213739),
-(224, 0, 1, 0, 'user_status', 1, 0, 120, 1408213802, 0, 0, NULL, 1408213802),
-(225, 0, 1, 0, 'feed_comment', 1, 4, 11, 1408290644, 0, 0, NULL, 1408290644),
-(226, 0, 0, 0, 'feed_comment', 1, 4, 12, 1408291354, 1, 0, NULL, 1408291354),
-(227, 0, 1, 0, 'photo', 4, 0, 63, 1408291729, 0, 0, NULL, 1408291729),
-(228, 0, 1, 0, 'user_status', 4, 0, 121, 1408291791, 0, 0, NULL, 1408291791),
-(229, 0, 1, 0, 'photo', 1, 0, 64, 1408291893, 0, 0, NULL, 1408291893),
-(230, 0, 1, 0, 'feed_comment', 1, 4, 13, 1408292849, 0, 0, NULL, 1408292849),
-(231, 0, 0, 0, 'feed_comment', 1, 4, 14, 1408558314, 1, 0, NULL, 1408558314),
-(232, 0, 0, 0, 'feed_comment', 1, 4, 15, 1408559130, 1, 0, NULL, 1408559130),
-(233, 0, 1, 0, 'user_status', 1, 0, 122, 1410105608, 0, 0, NULL, 1410105608),
-(234, 0, 1, 0, 'feed_comment', 1, 4, 16, 1410106010, 0, 0, NULL, 1410106010),
-(235, 0, 1, 0, 'photo', 4, 0, 65, 1410276926, 0, 0, NULL, 1410277008),
-(236, 0, 0, 0, 'photo_comment', 4, 0, 53, 1410276936, 1, 0, NULL, 1410276936),
-(237, 0, 0, 0, 'photo_comment', 4, 0, 54, 1410277008, 1, 0, NULL, 1410277008),
-(238, 0, 1, 0, 'feed_comment', 1, 4, 17, 1410277515, 0, 0, NULL, 1410277515),
-(239, 0, 0, 0, 'friend', 4, 6, 50, 1410876264, 0, 0, NULL, 1410876264),
-(240, 0, 0, 0, 'friend', 4, 7, 52, 1410876265, 0, 0, NULL, 1410876265),
-(242, 0, 1, 0, 'feed_comment', 6, 4, 19, 1410876366, 0, 0, NULL, 1410876366),
-(243, 0, 1, 0, 'feed_comment', 6, 4, 20, 1410878004, 0, 0, NULL, 1410878004),
-(244, 0, 1, 0, 'user_status', 6, 0, 123, 1410878937, 0, 0, NULL, 1410882412),
-(245, 0, 1, 0, 'photo', 6, 0, 66, 1410880971, 0, 0, NULL, 1410880984),
-(246, 0, 0, 0, 'photo_comment', 6, 0, 95, 1410880984, 1, 0, NULL, 1410880984),
-(249, 0, 1, 0, 'user_status', 6, 0, 126, 1410883181, 0, 0, NULL, 1410883309),
-(250, 0, 1, 0, 'feed_comment', 6, 4, 21, 1410883368, 0, 0, NULL, 1410883368),
-(251, 0, 1, 0, 'user_status', 6, 0, 127, 1410963533, 0, 0, NULL, 1410963544),
-(252, 0, 1, 0, 'user_status', 1, 0, 128, 1412004224, 0, 0, NULL, 1412004224),
-(253, 0, 1, 0, 'photo', 1, 0, 67, 1412004234, 0, 0, NULL, 1412004234),
-(254, 0, 1, 0, 'feed_comment', 1, 4, 22, 1413013056, 0, 0, NULL, 1413013056),
-(255, 0, 0, 0, 'pages_comment', 30, 0, 10, 1413133199, 0, 0, NULL, 1413133199);
+INSERT INTO `phpfox_feed` (`feed_id`, `app_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `feed_reference`, `parent_feed_id`, `parent_module_id`, `time_update`, `is_delete`, `expire_time`) VALUES
+(1, 0, 0, 0, 'pages_comment', 2, 0, 1, 1399124049, 0, 0, NULL, 1399124049, 0, 0),
+(2, 0, 0, 0, 'pages_comment', 2, 0, 2, 1399124054, 0, 0, NULL, 1399124054, 0, 0),
+(3, 0, 0, 0, 'pages_comment', 2, 0, 3, 1399124058, 0, 0, NULL, 1399124058, 0, 0),
+(4, 0, 0, 0, 'pages_comment', 2, 0, 4, 1399124060, 0, 0, NULL, 1399124060, 0, 0),
+(5, 0, 0, 0, 'pages_comment', 2, 0, 5, 1399124064, 0, 0, NULL, 1399124064, 0, 0),
+(6, 0, 0, 0, 'pages_comment', 2, 0, 6, 1399124068, 0, 0, NULL, 1399124068, 0, 0),
+(7, 0, 0, 0, 'pages_comment', 2, 0, 7, 1399124074, 0, 0, NULL, 1399124074, 0, 0),
+(8, 0, 0, 0, 'photo', 2, 0, 5, 1399124088, 0, 0, NULL, 1399124088, 0, 0),
+(9, 0, 0, 0, 'photo', 2, 0, 6, 1399124103, 0, 0, NULL, 1399124103, 0, 0),
+(10, 0, 0, 0, 'user_status', 1, 0, 1, 1400305018, 0, 0, NULL, 1400305018, 0, 0),
+(11, 0, 0, 0, 'user_status', 1, 0, 2, 1400305024, 0, 0, NULL, 1400305024, 0, 0),
+(13, 0, 0, 0, 'photo', 1, 0, 8, 1400345245, 0, 0, NULL, 1400345245, 0, 0),
+(15, 0, 0, 0, 'photo', 1, 0, 9, 1400348616, 0, 0, NULL, 1400348616, 0, 0),
+(22, 0, 0, 0, 'user_status', 1, 0, 8, 1400351686, 0, 0, NULL, 1400351686, 0, 0),
+(23, 0, 0, 0, 'user_status', 1, 0, 9, 1400351749, 0, 0, NULL, 1400351749, 0, 0),
+(24, 0, 0, 0, 'user_status', 1, 0, 10, 1400351879, 0, 0, NULL, 1400351879, 0, 0),
+(25, 0, 0, 0, 'user_status', 1, 0, 11, 1400352174, 0, 0, NULL, 1400352174, 0, 0),
+(26, 0, 0, 0, 'user_status', 1, 0, 12, 1400352310, 0, 0, NULL, 1400352310, 0, 0),
+(37, 0, 0, 0, 'photo', 1, 0, 14, 1400353396, 0, 0, NULL, 1400353396, 0, 0),
+(40, 0, 0, 0, 'photo', 1, 0, 15, 1400353748, 0, 0, NULL, 1400353748, 0, 0),
+(42, 0, 0, 0, 'photo', 1, 0, 17, 1400353889, 0, 0, NULL, 1400353889, 0, 0),
+(43, 0, 0, 0, 'photo', 1, 0, 18, 1400354038, 0, 0, NULL, 1400354038, 0, 0),
+(51, 0, 0, 0, 'music_song', 1, 0, 1, 1400377918, 0, 0, NULL, 1400377918, 0, 0),
+(52, 0, 0, 0, 'user_status', 1, 0, 30, 1400411024, 0, 0, NULL, 1400411024, 0, 0),
+(58, 0, 0, 0, 'user_status', 1, 0, 29, 1400382509, 0, 0, NULL, 1400382509, 0, 0),
+(61, 0, 0, 0, 'user_status', 1, 0, 33, 1400424287, 0, 0, NULL, 1400424287, 0, 0),
+(74, 0, 0, 0, 'music_song', 1, 0, 6, 1400426966, 0, 0, NULL, 1400426966, 0, 0),
+(75, 0, 0, 0, 'user_status', 1, 0, 38, 1400427954, 0, 0, NULL, 1400427954, 0, 0),
+(76, 0, 0, 0, 'poll', 1, 0, 3, 1400427964, 0, 0, NULL, 1400427964, 0, 0),
+(77, 0, 0, 0, 'user_status', 1, 0, 39, 1400428016, 0, 0, NULL, 1400428016, 0, 0),
+(78, 0, 0, 0, 'user_status', 1, 0, 40, 1400428020, 0, 0, NULL, 1400428020, 0, 0),
+(81, 0, 0, 0, 'user_status', 1, 0, 43, 1400428265, 0, 0, NULL, 1400428265, 0, 0),
+(83, 0, 0, 0, 'user_status', 1, 0, 45, 1400428542, 0, 0, NULL, 1400428542, 0, 0),
+(85, 0, 0, 0, 'user_status', 1, 0, 47, 1400428559, 0, 0, NULL, 1400428559, 0, 0),
+(87, 0, 0, 0, 'user_status', 1, 0, 49, 1400428601, 0, 0, NULL, 1400428601, 0, 0),
+(96, 0, 0, 0, 'user_status', 1, 0, 58, 1400429504, 0, 0, NULL, 1400429504, 0, 0),
+(99, 0, 0, 0, 'user_status', 1, 0, 61, 1400429677, 0, 0, NULL, 1400429677, 0, 0),
+(102, 0, 0, 0, 'user_status', 1, 0, 64, 1400429792, 0, 0, NULL, 1400429792, 0, 0),
+(103, 0, 0, 0, 'user_status', 1, 0, 65, 1400429851, 0, 0, NULL, 1400429851, 0, 0),
+(106, 0, 0, 0, 'user_status', 1, 0, 68, 1400429878, 0, 0, NULL, 1400429878, 0, 0),
+(107, 0, 0, 0, 'user_status', 1, 0, 69, 1400429886, 0, 0, NULL, 1400429886, 0, 0),
+(109, 0, 0, 0, 'user_status', 1, 0, 71, 1400430116, 0, 0, NULL, 1400430116, 0, 0),
+(110, 0, 0, 0, 'user_status', 1, 0, 72, 1400430118, 0, 0, NULL, 1400430118, 0, 0),
+(113, 0, 0, 0, 'user_status', 1, 0, 75, 1400430135, 0, 0, NULL, 1400430135, 0, 0),
+(114, 0, 0, 0, 'user_status', 1, 0, 76, 1400430156, 0, 0, NULL, 1400430156, 0, 0),
+(117, 0, 0, 0, 'user_status', 1, 0, 79, 1400430166, 0, 0, NULL, 1400430166, 0, 0),
+(118, 0, 0, 0, 'user_status', 1, 0, 80, 1400430208, 0, 0, NULL, 1400430208, 0, 0),
+(119, 0, 0, 0, 'user_status', 1, 0, 81, 1400430292, 0, 0, NULL, 1400430292, 0, 0),
+(120, 0, 0, 0, 'user_status', 1, 0, 82, 1400430533, 0, 0, NULL, 1400430533, 0, 0),
+(121, 0, 0, 0, 'user_status', 1, 0, 83, 1400430835, 0, 0, NULL, 1400430835, 0, 0),
+(122, 0, 0, 0, 'user_status', 1, 0, 84, 1400430888, 0, 0, NULL, 1400430888, 0, 0),
+(125, 0, 0, 0, 'pages_comment', 3, 0, 8, 1400430926, 0, 0, NULL, 1400430926, 0, 0),
+(126, 0, 0, 0, 'pages_comment', 3, 0, 9, 1400430929, 0, 0, NULL, 1400430929, 0, 0),
+(129, 0, 0, 0, 'user_status', 1, 0, 87, 1400431428, 0, 0, NULL, 1400431428, 0, 0),
+(138, 0, 0, 0, 'user_status', 1, 0, 94, 1400431601, 0, 0, NULL, 1400431601, 0, 0),
+(140, 0, 0, 0, 'photo', 1, 0, 30, 1400431620, 0, 0, NULL, 1400431620, 0, 0),
+(143, 0, 0, 0, 'user_status', 1, 0, 97, 1400431649, 0, 0, NULL, 1400431649, 0, 0),
+(145, 0, 0, 0, 'user_status', 1, 0, 99, 1400431667, 0, 0, NULL, 1400431667, 0, 0),
+(147, 0, 0, 0, 'photo', 1, 0, 32, 1400431682, 0, 0, NULL, 1400431682, 0, 0),
+(158, 0, 0, 0, 'user_photo', 4, 0, 35, 1400604378, 0, 0, NULL, 1400604378, 0, 0),
+(159, 0, 0, 0, 'user_status', 1, 0, 109, 1400609318, 0, 0, NULL, 1400609318, 0, 0),
+(160, 0, 0, 0, 'user_status', 1, 0, 110, 1400609325, 0, 0, NULL, 1400609325, 0, 0),
+(161, 0, 0, 0, 'photo', 1, 0, 37, 1400609335, 0, 0, NULL, 1400609335, 0, 0),
+(162, 0, 0, 0, 'photo', 1, 0, 38, 1400609376, 0, 0, NULL, 1400609376, 0, 0),
+(163, 0, 0, 0, 'blog', 1, 0, 4, 1400942998, 0, 0, NULL, 1400942998, 0, 0),
+(164, 0, 0, 0, 'marketplace', 1, 0, 1, 1400943075, 0, 0, NULL, 1400943075, 0, 0),
+(165, 0, 0, 0, 'friend', 1, 7, 8, 1401112822, 0, 0, NULL, 1401112822, 0, 0),
+(166, 0, 0, 0, 'user_photo', 7, 0, 39, 1401112876, 0, 0, NULL, 1401112876, 0, 0),
+(167, 0, 0, 0, 'friend', 6, 7, 10, 1401113089, 0, 0, NULL, 1401113089, 0, 0),
+(168, 0, 0, 0, 'friend', 1, 6, 12, 1401113149, 0, 0, NULL, 1401113149, 0, 0),
+(169, 0, 0, 0, 'user_photo', 6, 0, 40, 1401113171, 0, 0, NULL, 1401113171, 0, 0),
+(170, 0, 0, 0, 'friend', 1, 8, 14, 1401113347, 0, 0, NULL, 1401113347, 0, 0),
+(172, 0, 0, 0, 'user_photo', 8, 0, 42, 1401113373, 0, 0, NULL, 1401113373, 0, 0),
+(173, 0, 0, 0, 'user_photo', 9, 0, 43, 1401113463, 0, 0, NULL, 1401113463, 0, 0),
+(174, 0, 0, 0, 'friend', 1, 9, 16, 1401113495, 0, 0, NULL, 1401113495, 0, 0),
+(175, 0, 0, 0, 'user_photo', 10, 0, 44, 1401113574, 0, 0, NULL, 1401113574, 0, 0),
+(177, 0, 0, 0, 'user_photo', 11, 0, 45, 1401113812, 0, 0, NULL, 1401113812, 0, 0),
+(178, 0, 0, 0, 'friend', 1, 11, 20, 1401113846, 0, 0, NULL, 1401113846, 0, 0),
+(179, 0, 0, 0, 'user_photo', 12, 0, 46, 1401113972, 0, 0, NULL, 1401113972, 0, 0),
+(180, 0, 0, 0, 'friend', 1, 12, 22, 1401114035, 0, 0, NULL, 1401114035, 0, 0),
+(181, 0, 0, 0, 'user_photo', 13, 0, 47, 1401114227, 0, 0, NULL, 1401114227, 0, 0),
+(182, 0, 0, 0, 'friend', 1, 13, 24, 1401114232, 0, 0, NULL, 1401114232, 0, 0),
+(183, 0, 0, 0, 'friend', 1, 14, 26, 1401114363, 0, 0, NULL, 1401114363, 0, 0),
+(184, 0, 0, 0, 'user_photo', 14, 0, 48, 1401114357, 0, 0, NULL, 1401114357, 0, 0),
+(185, 0, 0, 0, 'user_photo', 15, 0, 49, 1401114503, 0, 0, NULL, 1401114503, 0, 0),
+(186, 0, 0, 0, 'friend', 1, 15, 28, 1401114572, 0, 0, NULL, 1401114572, 0, 0),
+(187, 0, 0, 0, 'user_photo', 16, 0, 50, 1401114609, 0, 0, NULL, 1401114609, 0, 0),
+(188, 0, 0, 0, 'friend', 1, 16, 30, 1401114621, 0, 0, NULL, 1401114621, 0, 0),
+(189, 0, 0, 0, 'user_photo', 17, 0, 51, 1401114720, 0, 0, NULL, 1401114720, 0, 0),
+(190, 0, 0, 0, 'friend', 1, 17, 32, 1401114749, 0, 0, NULL, 1401114749, 0, 0),
+(191, 0, 0, 0, 'user_photo', 18, 0, 52, 1401114873, 0, 0, NULL, 1401114873, 0, 0),
+(192, 0, 0, 0, 'friend', 1, 18, 34, 1401114888, 0, 0, NULL, 1401114888, 0, 0),
+(193, 0, 0, 0, 'user_photo', 19, 0, 53, 1401115011, 0, 0, NULL, 1401115011, 0, 0),
+(194, 0, 0, 0, 'friend', 1, 19, 36, 1401115029, 0, 0, NULL, 1401115029, 0, 0),
+(195, 0, 0, 0, 'user_photo', 20, 0, 54, 1401115192, 0, 0, NULL, 1401115192, 0, 0),
+(196, 0, 0, 0, 'friend', 1, 20, 38, 1401115226, 0, 0, NULL, 1401115226, 0, 0),
+(197, 0, 0, 0, 'user_status', 20, 0, 111, 1401124042, 0, 0, NULL, 1401124042, 0, 0),
+(198, 0, 0, 0, 'photo', 20, 0, 55, 1401124050, 0, 0, NULL, 1401124050, 0, 0),
+(199, 0, 0, 0, 'user_status', 20, 0, 112, 1401124079, 0, 0, NULL, 1401124079, 0, 0),
+(200, 0, 0, 0, 'photo', 20, 0, 56, 1401124097, 0, 0, NULL, 1401124097, 0, 0),
+(201, 0, 0, 0, 'photo', 20, 0, 57, 1401124136, 0, 0, NULL, 1401124136, 0, 0),
+(202, 0, 0, 0, 'user_status', 6, 0, 113, 1401202705, 0, 0, NULL, 1401202705, 0, 0),
+(203, 0, 0, 0, 'user_status', 6, 0, 114, 1401202708, 0, 0, NULL, 1401202708, 0, 0),
+(204, 0, 0, 0, 'photo', 6, 0, 58, 1401202720, 0, 0, NULL, 1401202720, 0, 0),
+(205, 0, 0, 0, 'user_status', 6, 0, 115, 1401203021, 0, 0, NULL, 1401203021, 0, 0),
+(206, 0, 0, 0, 'user_status', 6, 0, 116, 1401203025, 0, 0, NULL, 1401203025, 0, 0),
+(207, 0, 0, 0, 'photo', 6, 0, 59, 1401203039, 0, 0, NULL, 1401203039, 0, 0),
+(208, 0, 0, 0, 'poll', 6, 0, 4, 1401203047, 0, 0, NULL, 1401203047, 0, 0),
+(209, 0, 0, 0, 'link', 6, 0, 2, 1401203084, 0, 0, NULL, 1401203084, 0, 0),
+(210, 0, 0, 0, 'user_status', 1, 0, 117, 1403374491, 0, 0, NULL, 1406130576, 0, 0),
+(211, 0, 1, 0, 'feed_comment', 1, 15, 1, 1405440845, 0, 0, NULL, 1405440845, 0, 0),
+(212, 0, 1, 0, 'feed_comment', 1, 4, 2, 1405440867, 0, 0, NULL, 1405440867, 0, 0),
+(213, 0, 1, 0, 'feed_comment', 1, 12, 3, 1405442915, 0, 0, NULL, 1405442915, 0, 0),
+(214, 0, 1, 0, 'feed_comment', 1, 17, 4, 1405443906, 0, 0, NULL, 1405443906, 0, 0),
+(215, 0, 1, 0, 'feed_comment', 1, 22, 5, 1405530015, 0, 0, NULL, 1405530015, 0, 0),
+(216, 0, 1, 0, 'feed_comment', 1, 4, 6, 1405863227, 0, 0, NULL, 1405863227, 0, 0),
+(217, 0, 1, 0, 'feed_comment', 1, 28, 7, 1406049006, 0, 0, NULL, 1406049006, 0, 0),
+(218, 0, 1, 0, 'feed_comment', 1, 28, 8, 1406049111, 0, 0, NULL, 1406049111, 0, 0),
+(219, 0, 1, 0, 'photo', 1, 0, 60, 1406390487, 0, 0, NULL, 1406390487, 0, 0),
+(220, 0, 1, 0, 'feed_comment', 1, 4, 9, 1406476286, 0, 0, NULL, 1406476286, 0, 0),
+(221, 0, 1, 0, 'photo', 1, 0, 61, 1406477432, 0, 0, NULL, 1406477432, 0, 0),
+(222, 0, 1, 0, 'feed_comment', 1, 4, 10, 1408213242, 0, 0, NULL, 1408213242, 0, 0),
+(223, 0, 1, 0, 'photo', 1, 0, 62, 1408213739, 0, 0, NULL, 1408213739, 0, 0),
+(225, 0, 1, 0, 'feed_comment', 1, 4, 11, 1408290644, 0, 0, NULL, 1408290644, 0, 0),
+(226, 0, 0, 0, 'feed_comment', 1, 4, 12, 1408291354, 1, 0, NULL, 1408291354, 0, 0),
+(227, 0, 1, 0, 'photo', 4, 0, 63, 1408291729, 0, 0, NULL, 1408291729, 0, 0),
+(229, 0, 1, 0, 'photo', 1, 0, 64, 1408291893, 0, 0, NULL, 1408291893, 0, 0),
+(230, 0, 1, 0, 'feed_comment', 1, 4, 13, 1408292849, 0, 0, NULL, 1408292849, 0, 0),
+(231, 0, 0, 0, 'feed_comment', 1, 4, 14, 1408558314, 1, 0, NULL, 1408558314, 0, 0),
+(232, 0, 0, 0, 'feed_comment', 1, 4, 15, 1408559130, 1, 0, NULL, 1408559130, 0, 0),
+(234, 0, 1, 0, 'feed_comment', 1, 4, 16, 1410106010, 0, 0, NULL, 1410106010, 0, 0),
+(235, 0, 1, 0, 'photo', 4, 0, 65, 1410276926, 0, 0, NULL, 1410277008, 0, 0),
+(236, 0, 0, 0, 'photo_comment', 4, 0, 53, 1410276936, 1, 0, NULL, 1410276936, 0, 0),
+(237, 0, 0, 0, 'photo_comment', 4, 0, 54, 1410277008, 1, 0, NULL, 1410277008, 0, 0),
+(238, 0, 1, 0, 'feed_comment', 1, 4, 17, 1410277515, 0, 0, NULL, 1410277515, 0, 0),
+(239, 0, 0, 0, 'friend', 4, 6, 50, 1410876264, 0, 0, NULL, 1410876264, 0, 0),
+(240, 0, 0, 0, 'friend', 4, 7, 52, 1410876265, 0, 0, NULL, 1410876265, 0, 0),
+(242, 0, 1, 0, 'feed_comment', 6, 4, 19, 1410876366, 0, 0, NULL, 1410876366, 0, 0),
+(243, 0, 1, 0, 'feed_comment', 6, 4, 20, 1410878004, 0, 0, NULL, 1410878004, 0, 0),
+(245, 0, 1, 0, 'photo', 6, 0, 66, 1410880971, 0, 0, NULL, 1410880984, 0, 0),
+(246, 0, 0, 0, 'photo_comment', 6, 0, 95, 1410880984, 1, 0, NULL, 1410880984, 0, 0),
+(249, 0, 1, 0, 'user_status', 6, 0, 126, 1410883181, 0, 0, NULL, 1410883309, 0, 0),
+(250, 0, 1, 0, 'feed_comment', 6, 4, 21, 1410883368, 0, 0, NULL, 1410883368, 0, 0),
+(251, 0, 1, 0, 'user_status', 6, 0, 127, 1410963533, 0, 0, NULL, 1410963544, 0, 0),
+(252, 0, 1, 0, 'user_status', 1, 0, 128, 1412004224, 0, 0, NULL, 1412004224, 0, 0),
+(253, 0, 1, 0, 'photo', 1, 0, 67, 1412004234, 0, 0, NULL, 1413213505, 0, 0),
+(254, 0, 1, 0, 'feed_comment', 1, 4, 22, 1413013056, 0, 0, NULL, 1413013056, 0, 0),
+(255, 0, 0, 0, 'pages_comment', 30, 0, 10, 1413133199, 0, 0, NULL, 1413133199, 0, 0),
+(256, 0, 1, 0, 'feed_comment', 1, 4, 23, 1413211670, 0, 0, NULL, 1413211670, 0, 0),
+(257, 0, 0, 0, 'photo_comment', 4, 0, 111, 1413212077, 1, 0, NULL, 1413212077, 0, 0),
+(258, 0, 0, 0, 'photo_comment', 4, 0, 112, 1413212247, 1, 0, NULL, 1413212247, 0, 0),
+(259, 0, 1, 0, 'feed_comment', 6, 4, 24, 1413212288, 0, 0, NULL, 1413212288, 0, 0),
+(260, 0, 0, 0, 'photo_comment', 4, 0, 113, 1413213377, 1, 0, NULL, 1413213377, 0, 0),
+(261, 0, 0, 0, 'photo_comment', 1, 0, 114, 1413213505, 1, 0, NULL, 1413213505, 0, 0),
+(262, 0, 1, 0, 'photo', 4, 0, 69, 1413213654, 0, 0, NULL, 1413214958, 0, 0),
+(263, 0, 0, 0, 'photo_comment', 4, 0, 115, 1413213666, 1, 0, NULL, 1413213666, 0, 0),
+(264, 0, 0, 0, 'photo_comment', 6, 0, 116, 1413214783, 1, 0, NULL, 1413214783, 0, 0),
+(265, 0, 0, 0, 'photo_comment', 6, 0, 117, 1413214792, 1, 0, NULL, 1413214792, 0, 0),
+(266, 0, 0, 0, 'photo_comment', 1, 0, 118, 1413214958, 1, 0, NULL, 1413214958, 0, 0),
+(267, 0, 1, 0, 'feed_comment', 1, 6, 25, 1413215108, 0, 0, NULL, 1413215108, 0, 0),
+(268, 0, 1, 0, 'user_status', 1, 0, 129, 1413468599, 0, 0, NULL, 1413468599, 0, 0),
+(269, 0, 1, 0, 'user_status', 1, 0, 130, 1413468606, 0, 0, NULL, 1414230017, 0, 0),
+(270, 0, 1, 0, 'user_status', 4, 0, 132, 1414229640, 0, 0, NULL, 1414230008, 0, 0),
+(271, 0, 1, 0, 'feed_comment', 1, 4, 26, 1414290650, 0, 0, NULL, 1414290650, 0, 0),
+(272, 0, 1, 0, 'feed_comment', 6, 4, 27, 1414291099, 0, 0, NULL, 1414291099, 0, 0),
+(273, 0, 1, 0, 'feed_comment', 6, 4, 28, 1414291167, 0, 0, NULL, 1414291167, 0, 0),
+(274, 0, 1, 0, 'feed_comment', 6, 4, 29, 1414291292, 0, 0, NULL, 1414291292, 0, 0),
+(275, 0, 1, 0, 'feed_comment', 6, 4, 30, 1414291263, 0, 0, NULL, 1414291263, 0, 0),
+(276, 0, 1, 0, 'feed_comment', 6, 1, 31, 1414419218, 0, 0, NULL, 1414419218, 0, 0),
+(277, 0, 1, 0, 'feed_comment', 6, 1, 32, 1414425919, 0, 0, NULL, 1414425919, 0, 0),
+(278, 0, 0, 0, 'custom', 1, 0, 1, 1414508603, 0, 0, NULL, 1414508603, 0, 0),
+(279, 0, 0, 0, 'custom_relation', 1, 0, 1, 1414508603, 0, 0, NULL, 1414508603, 0, 0),
+(280, 0, 1, 0, 'photo', 1, 0, 70, 1414509351, 0, 0, NULL, 1414509762, 0, 0),
+(281, 0, 0, 0, 'photo_comment', 1, 0, 119, 1414509651, 1, 0, NULL, 1414509651, 0, 0),
+(282, 0, 0, 0, 'photo_comment', 1, 0, 120, 1414509696, 1, 0, NULL, 1414509696, 0, 0),
+(283, 0, 0, 0, 'photo_comment', 1, 0, 121, 1414509762, 1, 0, NULL, 1414509762, 0, 0),
+(285, 0, 1, 0, 'photo', 1, 0, 71, 1414683575, 0, 0, NULL, 1414683575, 1, 0),
+(289, 0, 1, 0, 'feed_comment', 4, 1, 36, 1414688737, 0, 0, NULL, 1414688737, 1, 0),
+(290, 0, 1, 0, 'photo', 4, 0, 72, 1414847137, 0, 0, NULL, 1414847171, 0, 0),
+(291, 0, 0, 0, 'photo_comment', 4, 0, 122, 1414847154, 1, 0, NULL, 1414847154, 0, 0),
+(292, 0, 0, 0, 'photo_comment', 4, 0, 123, 1414847158, 1, 0, NULL, 1414847158, 0, 0),
+(293, 0, 0, 0, 'photo_comment', 4, 0, 124, 1414847162, 1, 0, NULL, 1414847162, 0, 0),
+(294, 0, 0, 0, 'photo_comment', 4, 0, 125, 1414847165, 1, 0, NULL, 1414847165, 0, 0),
+(295, 0, 0, 0, 'photo_comment', 4, 0, 126, 1414847168, 1, 0, NULL, 1414847168, 0, 0),
+(296, 0, 0, 0, 'photo_comment', 4, 0, 127, 1414847171, 1, 0, NULL, 1414847171, 0, 0),
+(297, 0, 1, 0, 'user_status', 4, 0, 134, 1414847939, 0, 0, NULL, 1414847961, 0, 0),
+(298, 0, 1, 0, 'user_status', 1, 0, 135, 1414943214, 0, 0, NULL, 1414943214, 0, 1415548014),
+(299, 0, 1, 0, 'photo', 1, 0, 73, 1414943250, 0, 0, NULL, 1414943250, 0, 1415548050),
+(300, 0, 1, 0, 'feed_comment', 1, 4, 37, 1414943270, 0, 0, NULL, 1414943270, 0, 0),
+(301, 0, 1, 0, 'feed_comment', 1, 4, 38, 1414943531, 0, 0, NULL, 1414943531, 0, 1415548331),
+(302, 0, 1, 0, 'user_status', 1, 0, 136, 1415030166, 0, 0, NULL, 1415030166, 0, 1415634966),
+(303, 0, 1, 0, 'user_status', 1, 0, 137, 1415030180, 0, 0, NULL, 1415030180, 0, 1415634980),
+(304, 0, 1, 0, 'user_status', 1, 0, 138, 1415030185, 0, 0, NULL, 1415030185, 0, 1415634985),
+(305, 0, 1, 0, 'user_status', 1, 0, 139, 1415030206, 0, 0, NULL, 1415030206, 0, 1415635006),
+(306, 0, 1, 0, 'user_status', 1, 0, 140, 1415030249, 0, 0, NULL, 1415030249, 0, 1415635049),
+(307, 0, 1, 0, 'user_status', 1, 0, 141, 1415030711, 0, 0, NULL, 1415030711, 0, 0),
+(308, 0, 1, 0, 'user_status', 1, 0, 142, 1415031268, 0, 0, NULL, 1415031268, 0, 0),
+(309, 0, 1, 0, 'user_status', 1, 0, 143, 1415031337, 0, 0, NULL, 1415031337, 0, 0),
+(310, 0, 1, 0, 'user_status', 1, 0, 144, 1415031519, 0, 0, NULL, 1415031519, 0, 0),
+(311, 0, 1, 0, 'user_status', 1, 0, 145, 1415031545, 0, 0, NULL, 1415031545, 0, 0),
+(312, 0, 1, 0, 'user_status', 1, 0, 146, 1415036538, 0, 0, NULL, 1415036538, 0, 1415037438),
+(313, 0, 1, 0, 'user_status', 1, 0, 147, 1415036554, 0, 0, NULL, 1415036554, 0, 1415038354),
+(314, 0, 1, 0, 'user_status', 1, 0, 148, 1415036566, 0, 0, NULL, 1415036566, 0, 1415038366),
+(315, 0, 1, 0, 'user_status', 1, 0, 149, 1415036577, 0, 0, NULL, 1415036577, 0, 1415641377),
+(316, 0, 1, 0, 'photo', 1, 0, 74, 1415036596, 0, 0, NULL, 1415036596, 0, 0),
+(317, 0, 1, 0, 'photo', 1, 0, 75, 1415036625, 0, 0, NULL, 1415036625, 0, 0),
+(318, 0, 1, 0, 'photo', 1, 0, 76, 1415036679, 0, 0, NULL, 1415036679, 0, 0),
+(319, 0, 1, 0, 'user_status', 1, 0, 150, 1415036688, 0, 0, NULL, 1415036688, 0, 1415038488),
+(320, 0, 1, 0, 'photo', 1, 0, 77, 1415036723, 0, 0, NULL, 1415036723, 0, 0),
+(321, 0, 1, 0, 'photo', 1, 0, 78, 1415036751, 0, 0, NULL, 1415036751, 0, 0),
+(322, 0, 1, 0, 'user_status', 1, 0, 151, 1415036763, 0, 0, NULL, 1415036763, 0, 0),
+(323, 0, 1, 0, 'user_status', 1, 0, 152, 1415036769, 0, 0, NULL, 1415036769, 0, 0),
+(324, 0, 1, 0, 'photo', 1, 0, 79, 1415036780, 0, 0, NULL, 1415036780, 0, 0),
+(325, 0, 1, 0, 'user_status', 1, 0, 153, 1415036790, 0, 0, NULL, 1415036790, 0, 1415037690),
+(326, 0, 1, 0, 'photo', 1, 0, 80, 1415036822, 0, 0, NULL, 1415036822, 0, 0),
+(327, 0, 1, 0, 'photo', 1, 0, 81, 1415036910, 0, 0, NULL, 1415036910, 0, 0),
+(328, 0, 1, 0, 'photo', 1, 0, 82, 1415036941, 0, 0, NULL, 1415036941, 0, 0),
+(329, 0, 1, 0, 'photo', 1, 0, 83, 1415036974, 0, 0, NULL, 1415036974, 0, 0),
+(330, 0, 1, 0, 'photo', 1, 0, 84, 1415037010, 0, 0, NULL, 1415037010, 0, 0),
+(331, 0, 1, 0, 'user_status', 1, 0, 154, 1415037048, 0, 0, NULL, 1415037048, 0, 0),
+(332, 0, 1, 0, 'user_status', 1, 0, 155, 1415037053, 0, 0, NULL, 1415037053, 0, 1415038853),
+(333, 0, 1, 0, 'photo', 1, 0, 85, 1415037062, 0, 0, NULL, 1415037062, 0, 0),
+(334, 0, 1, 0, 'photo', 1, 0, 86, 1415037171, 0, 0, NULL, 1415037171, 0, 0),
+(335, 0, 1, 0, 'photo', 1, 0, 87, 1415038255, 0, 0, NULL, 1415038255, 0, 0),
+(336, 0, 1, 0, 'photo', 1, 0, 88, 1415038563, 0, 0, NULL, 1415038563, 0, 0),
+(337, 0, 1, 0, 'photo', 1, 0, 89, 1415038740, 0, 0, NULL, 1415038740, 0, 0),
+(338, 0, 1, 0, 'user_status', 1, 0, 156, 1415038751, 0, 0, NULL, 1415038751, 0, 1415040551),
+(339, 0, 1, 0, 'photo', 1, 0, 90, 1415038978, 0, 0, NULL, 1415038978, 0, 0),
+(340, 0, 1, 0, 'photo', 1, 0, 91, 1415039075, 0, 0, NULL, 1415039075, 0, 1415040875),
+(341, 0, 1, 0, 'photo', 1, 0, 92, 1415039090, 0, 0, NULL, 1415039090, 0, 1415125490),
+(342, 0, 1, 0, 'photo', 1, 0, 93, 1415115731, 0, 0, NULL, 1415115731, 0, 1415117531),
+(343, 0, 1, 0, 'user_status', 1, 0, 157, 1415115744, 0, 0, NULL, 1415115744, 0, 1415720544),
+(344, 0, 1, 0, 'user_status', 1, 0, 158, 1415115752, 0, 0, NULL, 1415115752, 0, 1415202152),
+(345, 0, 1, 0, 'user_status', 1, 0, 159, 1415115858, 0, 0, NULL, 1415115858, 0, 1419003858),
+(346, 0, 1, 0, 'feed_comment', 1, 4, 39, 1415116454, 0, 0, NULL, 1415116454, 0, 1415118254),
+(347, 0, 1, 0, 'feed_comment', 1, 15, 40, 1415116474, 0, 0, NULL, 1415116474, 0, 1415120074),
+(348, 0, 1, 0, 'photo', 1, 0, 94, 1415117768, 0, 0, NULL, 1415117768, 0, 1415118668),
+(349, 0, 1, 0, 'photo', 1, 0, 95, 1415118695, 0, 0, NULL, 1415118695, 0, 1415119595),
+(350, 0, 1, 0, 'photo', 1, 0, 96, 1418551052, 0, 0, NULL, 1418551052, 0, 1422439052),
+(351, 0, 1, 0, 'feed_comment', 1, 6, 41, 1418912562, 0, 0, NULL, 1418912562, 0, 0),
+(352, 0, 1, 0, 'feed_comment', 1, 6, 42, 1418912861, 0, 0, NULL, 1418912861, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3424,7 +3757,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_feed_comment` (
   PRIMARY KEY (`feed_comment_id`),
   KEY `user_id` (`user_id`),
   KEY `parent_user_id` (`parent_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `phpfox_feed_comment`
@@ -3451,7 +3784,24 @@ INSERT INTO `phpfox_feed_comment` (`feed_comment_id`, `user_id`, `parent_user_id
 (19, 6, 4, 0, 0, 'Hau post to Nguyen Loc test 2', 1410876366, 21, 0, 0),
 (20, 6, 4, 0, 0, 'Hau post to Nguyen Loc test 3', 1410878004, 6, 0, 0),
 (21, 6, 4, 0, 0, 'aaaaaaaaaaaaaaaa', 1410883368, 3, 0, 0),
-(22, 1, 4, 0, 0, 'hello. I''m here', 1413013056, 0, 0, 0);
+(22, 1, 4, 0, 0, 'hello. I''m here', 1413013056, 0, 0, 0),
+(23, 1, 4, 0, 0, 'test nao, cung nhau test nao', 1413211670, 0, 0, 0),
+(24, 6, 4, 0, 0, 'dung co lam anh buc nhe Hau -> Loc', 1413212288, 0, 0, 0),
+(25, 1, 6, 0, 0, 'phuc to hau chan vai', 1413215108, 0, 0, 0),
+(26, 1, 4, 0, 0, 'dsfas dfdas fasdfda fdsaf dsf dsfds fasfd', 1414290650, 0, 0, 0),
+(27, 6, 4, 0, 0, 'sf dsfdsf dsfds fdsf dsf f', 1414291099, 0, 0, 0),
+(28, 6, 4, 0, 0, 'ds fdas fdsf dasfdas fdsfsfds fds f', 1414291167, 0, 0, 0),
+(29, 6, 4, 0, 0, 'test test', 1414291292, 0, 0, 0),
+(30, 6, 4, 0, 0, 'klds ds fkldsklfds fdsf dsfds fds fdsf dsf', 1414291263, 0, 0, 0),
+(31, 6, 1, 0, 0, 'chan qua di', 1414419218, 0, 0, 0),
+(32, 6, 1, 0, 0, 'test test test test', 1414425919, 0, 0, 0),
+(36, 4, 1, 0, 0, 'd sfasd fds fds fds', 1414688737, 0, 0, 0),
+(37, 1, 4, 0, 0, 'test stest', 1414943270, 0, 0, 0),
+(38, 1, 4, 0, 0, 'test tes asfds fsd f', 1414943531, 0, 0, 0),
+(39, 1, 4, 0, 0, 'af sf dsfdsf sdfs df', 1415116454, 0, 0, 0),
+(40, 1, 15, 0, 0, 's dsfdsfdsf sdf', 1415116474, 0, 0, 0),
+(41, 1, 6, 0, 0, 'dsfssdafsdfasdfsdaf ds', 1418912562, 0, 0, 0),
+(42, 1, 6, 0, 0, 'test 1', 1418912861, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3758,7 +4108,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_friend` (
   KEY `friend_user_id` (`friend_user_id`),
   KEY `is_page` (`is_page`,`user_id`),
   KEY `is_page_2` (`is_page`,`user_id`,`friend_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `phpfox_friend`
@@ -3811,14 +4161,16 @@ INSERT INTO `phpfox_friend` (`friend_id`, `is_page`, `list_id`, `user_id`, `frie
 (46, 0, 0, 1, 26, 0, 0, 1406045805),
 (47, 0, 0, 27, 1, 0, 0, 1406046154),
 (48, 0, 0, 1, 27, 0, 0, 1406046154),
-(49, 0, 0, 4, 6, 0, 0, 1410876264),
-(50, 0, 0, 6, 4, 0, 0, 1410876264),
 (51, 0, 0, 4, 7, 0, 0, 1410876265),
 (52, 0, 0, 7, 4, 0, 0, 1410876265),
 (53, 1, 0, 1, 29, 0, 0, 1412865033),
 (54, 1, 0, 29, 1, 0, 0, 1412865033),
 (55, 1, 0, 1, 30, 0, 0, 1413133163),
-(56, 1, 0, 30, 1, 0, 0, 1413133163);
+(56, 1, 0, 30, 1, 0, 0, 1413133163),
+(57, 1, 0, 1, 31, 0, 0, 1415713930),
+(58, 1, 0, 31, 1, 0, 0, 1415713930),
+(59, 1, 0, 1, 32, 0, 0, 1415713968),
+(60, 1, 0, 32, 1, 0, 0, 1415713968);
 
 -- --------------------------------------------------------
 
@@ -4116,14 +4468,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_invite` (
   PRIMARY KEY (`invite_id`),
   KEY `email` (`email`),
   KEY `user_id` (`user_id`,`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `phpfox_invite`
 --
 
 INSERT INTO `phpfox_invite` (`invite_id`, `user_id`, `email`, `time_stamp`, `is_used`) VALUES
-(1, 1, 'test@z.com', 1406043817, 0);
+(1, 1, 'test@z.com', 1406043817, 0),
+(2, 1, 'hau@gmail.com', 1413215046, 0),
+(3, 1, 'hau@gmail.com', 1418912411, 0),
+(4, 1, 'hau@gmail.com', 1418912501, 0);
 
 -- --------------------------------------------------------
 
@@ -4191,7 +4546,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_language_phrase` (
   KEY `language_id` (`language_id`),
   KEY `module_id` (`module_id`,`var_name`),
   KEY `setting_list` (`language_id`,`var_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8684 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8729 ;
 
 --
 -- Dumping data for table `phpfox_language_phrase`
@@ -12732,7 +13087,53 @@ INSERT INTO `phpfox_language_phrase` (`phrase_id`, `language_id`, `module_id`, `
 (8680, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'this_user_is_not_avaiable_this_time', 'This user is not avaiable this time.', 'This user is not avaiable this time.', 1413077214),
 (8681, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'block_this_user_successful', 'Block this user successful.', 'Block this user successful.', 1413077280),
 (8682, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'bloc_user_success', '<div class="block_message" style="background-color:#ddd;border:1px solid #ccc;color:#333;padding:10px;">Block user successful.  You will not receive further anonymous messages by him / her. <a onclick="$.ajaxCall(&#039;customprofiles.unlockUser&#039;,&#039;user_id={user_id}&anonymous_id={anonymous_id}&#039;);return false;" href="">Click to undo.</a></div>', '<div style="background-color:#ddd;border:1px solid #ccc;color:#333;padding:10px;">Block user successful.  You will not receive further anonymous messages by him/her. <a onclick="$.ajaxCall(&#039;customprofiles.unlockUser&#039;,&#039;user_id={user_id}&#039;);return false;" href="">Click to undo.</a></div>', 1413128714),
-(8683, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'you_have_already_blocked_this_user', 'You have already blocked this user.', 'You have already blocked this user.', 1413136605);
+(8683, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'you_have_already_blocked_this_user', 'You have already blocked this user.', 'You have already blocked this user.', 1413136605),
+(8684, 'en', 'anonymousdone', 'anonymousdone', '3.7.7', 'module_anonymousdone', 'Anonymous post done moludle', 'Anonymous post done moludle', 1405861904),
+(8685, 'en', 'anonymousdone', 'anonymousdone', '3.7.7', 'anonymous_posts_done', 'Anonymous Posts Done', 'Anonymous Posts Done', 1405862303),
+(8686, 'en', 'anonymousreceived', 'anonymousreceived', '3.7.7', 'module_anonymousreceived', 'Anonymous received moudule', 'Anonymous received moudule', 1405855962),
+(8687, 'en', 'anonymousreceived', 'anonymousreceived', '3.7.7', 'anonymous_posts_received', 'Anonymous Post Received', 'Anonymous Post Received', 1405856867),
+(8688, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'if_you_click_this_link_you_will_not_receive_further_anonymous_messages_by_this_wayter', 'If you click this link you will not receive further anonymous messages by this wayter.', 'If you click this link you will not receive further anonymous messages by this wayter.', 1414291521),
+(8689, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'block_this_user', 'block this user', 'block this user', 1414291552),
+(8690, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'report_and_block_this_wayter', 'Report and block this wayter', 'Report and block this wayter', 1414419780),
+(8691, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'if_you_block_this_wayter_you_will_not_receive_further_anonymous_messages_by_him_her_and_this_report', 'If you block this wayter you will not receive further anonymous messages by him/her and this report will be sent to the Wayta staff for additional verifications. Wayta staff will maintain the block for this wayter or will remove the block if based on a not valid reason. This procedure is irreversible, just for this reason use it carefully. After having blocked this wayter you can also delete the anonymous post if necessary.', 'If you block this wayter you will not receive further anonymous messages by him/her and this report will be sent to the Wayta staff for additional verifications. Wayta staff will maintain the block for this wayter or will remove the block if based on a not valid reason. This procedure is irreversible, just for this reason use it carefully. After having blocked this wayter you can also delete the anonymous post if necessary.', 1414419907),
+(8692, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'block_this_wayter', 'Block this wayter', 'Block this wayter', 1414420052),
+(8693, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'has_blocked_you', '{full_name} has blocked you. You cannot send further anonymous messages to this wayter.', '{full_name} has blocked you.', 1414424162),
+(8694, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'message_has_blocked_you', '<span class="drop_data_user">{full_name}</span> has blocked you. You cannot send further anonymous messages to this wayter.', '<span class="drop_data_user">{full_name}</span> has blocked you.', 1414427080),
+(8695, 'en', 'report', 'phpfox', '3.7.5', 'admin_menu_archive_reports', 'Archive Reports', 'Archive Reports', 1414428735),
+(8696, 'en', 'core', 'phpfox', '3.7.5', 'module_report', 'Reports', 'Reports', 1414428735),
+(8697, 'en', 'report', 'phpfox', '3.7.5', 'admin_menu_add_email_template', 'Add Email Template', 'Add Email Template', 1414594683);
+INSERT INTO `phpfox_language_phrase` (`phrase_id`, `language_id`, `module_id`, `product_id`, `version_id`, `var_name`, `text`, `text_default`, `added`) VALUES
+(8698, 'en', 'report', 'phpfox', '3.7.5', 'admin_menu_manage_emails_template', 'Manage Emails Template', 'Manage Emails Template', 1414594683),
+(8699, 'en', 'core', 'phpfox', '3.7.5', 'module_report', 'Reports', 'Reports', 1414594683),
+(8700, 'en', 'customprofiles', 'customprofiles', '3.7.5', 'setting_expire_post_time', '<title>Expire Post Time (Day)</title><info>Expire Post Time</info>', '<title>Expire Post Time (Day)</title><info>Expire Post Time</info>', 1414941596),
+(8701, 'en', 'waytime', 'waytime', '3.7.5', 'module_waytime', 'waytime', 'waytime', 1418399383),
+(8702, 'en', 'waytime', 'waytime', '3.7.5', 'admin_menu_add_question', 'Add New Question', 'Add Question', 1418527270),
+(8703, 'en', 'waytime', 'waytime', '3.7.5', 'admin_menu_manage_questions', 'Manage Questions', 'Manage Questions', 1418527270),
+(8704, 'en', 'waytime', 'waytime', '3.7.5', 'manage_questions', 'Manage Questions', 'Manage Questions', 1418527896),
+(8705, 'en', 'waytime', 'waytime', '3.7.5', 'manage_answers', 'Manage Answers', 'Manage Answers', 1418527930),
+(8706, 'en', 'waytime', 'waytime', '3.7.5', 'questions', 'Questions', 'Questions', 1418528111),
+(8707, 'en', 'waytime', 'waytime', '3.7.5', 'manage_answers_total', 'Manage Answers({total})', 'Manage Answers({total})', 1418537614),
+(8708, 'en', 'waytime', 'waytime', '3.7.5', 'delete_question_successfully', 'Delete question successfully.', 'Delete question successfully.', 1418540568),
+(8709, 'en', 'waytime', 'waytime', '3.7.5', 'delete_answer_successfully', 'Delete answer successfully.', 'Delete answer successfully.', 1418540592),
+(8710, 'en', 'waytime', 'waytime', '3.7.5', 'edit_question', 'Edit Question', 'Edit Question', 1418540619),
+(8711, 'en', 'waytime', 'waytime', '3.7.5', 'add_new_question', 'Add New Question', 'Add New Question', 1418540633),
+(8712, 'en', 'waytime', 'waytime', '3.7.5', 'question', 'Question', 'Question', 1418540648),
+(8713, 'en', 'waytime', 'waytime', '3.7.5', 'edit_answer', 'Edit Answer', 'Edit Answer', 1418540665),
+(8714, 'en', 'waytime', 'waytime', '3.7.5', 'add_new_answer', 'Add New Answer', 'Add New Answer', 1418540680),
+(8715, 'en', 'waytime', 'waytime', '3.7.5', 'answer', 'Answer', 'Answer', 1418540695),
+(8716, 'en', 'waytime', 'waytime', '3.7.5', 'are_you_sure', 'Are you sure?', 'Are you sure?', 1418540794),
+(8717, 'en', 'waytime', 'waytime', '3.7.5', 'update_answer_successfully', 'Update answer successfully.', 'Update answer successfully.', 1418540854),
+(8718, 'en', 'waytime', 'waytime', '3.7.5', 'add_answer_successfully', 'Add answer successfully.', 'Add answer successfully.', 1418540871),
+(8719, 'en', 'waytime', 'waytime', '3.7.5', 'question_not_found', 'Question not found.', 'Question not found.', 1418540893),
+(8720, 'en', 'waytime', 'waytime', '3.7.5', 'w_time_capsule', 'W-TIME CAPSULE', 'W-TIME CAPSULE', 1418540917),
+(8721, 'en', 'waytime', 'waytime', '3.7.5', 'add_new_answer_for_question_2', 'Add new answer for question #{id}.', 'Add new answer for question #{id}.', 1418541266),
+(8722, 'en', 'waytime', 'waytime', '3.7.5', 'manage_answers_for_question_id', 'Manage answers for question #{id}', 'Manage answers for question #{id}', 1418541375),
+(8723, 'en', 'waytime', 'waytime', '3.7.5', 'what_is_the_w_time_capsule', 'What is the W-Time Capsule?', 'What is the W-Time Capsule?', 1418575489),
+(8724, 'en', 'waytime', 'waytime', '3.7.5', 'all_we_want_to_write_here', 'All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here.', 'All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here.', 1418575516),
+(8725, 'en', 'waytime', 'waytime', '3.7.5', 'close_remember', 'CLOSE & REMEMBER', 'CLOSE & REMEMBER', 1418575534),
+(8726, 'en', 'waytime', 'waytime', '3.7.5', 'start', 'START', 'START', 1418575549),
+(8727, 'en', 'waytime', 'waytime', '3.7.5', 'character', 'Character', 'Character', 1418575627),
+(8728, 'en', 'waytime', 'waytime', '3.7.5', 'you_note_here_not_mandatory', 'You note here...\r\n(Not mandatory)', 'You note here...\r\n(Not mandatory)', 1418576016);
 
 -- --------------------------------------------------------
 
@@ -12768,7 +13169,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_like` (
   KEY `type_id_2` (`type_id`,`item_id`,`user_id`),
   KEY `type_id_3` (`type_id`,`user_id`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `phpfox_like`
@@ -12791,7 +13192,9 @@ INSERT INTO `phpfox_like` (`like_id`, `type_id`, `item_id`, `user_id`, `time_sta
 (24, 'photo', 64, 1, 1408546051),
 (25, 'pages', 3, 1, 1412865033),
 (26, 'pages', 4, 1, 1413133163),
-(27, 'feed_mini', 110, 4, 1413134821);
+(27, 'feed_mini', 110, 4, 1413134821),
+(28, 'pages', 5, 1, 1415713930),
+(29, 'pages', 6, 1, 1415713968);
 
 -- --------------------------------------------------------
 
@@ -12857,6 +13260,8 @@ INSERT INTO `phpfox_like_cache` (`type_id`, `item_id`, `user_id`) VALUES
 ('pages', 2, 1),
 ('pages', 3, 1),
 ('pages', 4, 1),
+('pages', 5, 1),
+('pages', 6, 1),
 ('photo', 64, 1),
 ('photo', 64, 1),
 ('photo', 64, 1),
@@ -12950,8 +13355,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_log_session` (
 --
 
 INSERT INTO `phpfox_log_session` (`session_hash`, `id_hash`, `captcha_hash`, `user_id`, `last_activity`, `location`, `is_forum`, `forum_id`, `im_status`, `im_hide`, `ip_address`, `user_agent`) VALUES
-('cf3fde5e0d03256adcbc0ab060b68b75', 'f6a8c7fcc89e051483c2c0201d0b4230', NULL, 1, 1413137504, '', 0, 0, 0, 0, '::1', 'Firefox 32.0'),
-('8ebf9de297bed166b1c22c9c247869d4', 'f6a8c7fcc89e051483c2c0201d0b4230', NULL, 4, 1413137502, '', 0, 0, 0, 0, '::1', 'Firefox 32.0');
+('0343590ea40cbc9c35ac42a049e850ef', '107442c95cd57b824d3d59c6349e49d2', NULL, 1, 1418914134, '', 0, 0, 0, 0, '::1', 'Firefox 34.0'),
+('d24290a086b6d16fbb53c77b4716f40a', '3a5401da0766e3845a7ca6479eb5e982', NULL, 6, 1418914124, '', 0, 0, 0, 0, '::1', 'Chrome 39.0.2171.');
 
 -- --------------------------------------------------------
 
@@ -12968,7 +13373,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_log_staff` (
   `time_stamp` int(10) unsigned NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=126 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=172 ;
 
 --
 -- Dumping data for table `phpfox_log_staff`
@@ -13099,7 +13504,53 @@ INSERT INTO `phpfox_log_staff` (`log_id`, `user_id`, `type_id`, `call_name`, `ex
 (122, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:35:"this_user_is_not_avaiable_this_time";}', 1413077214, '::1'),
 (123, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:26:"block_this_user_successful";}', 1413077280, '::1'),
 (124, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:17:"bloc_user_success";}', 1413128714, '::1'),
-(125, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:34:"you_have_already_blocked_this_user";}', 1413136605, '::1');
+(125, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:34:"you_have_already_blocked_this_user";}', 1413136605, '::1'),
+(126, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:85:"if_you_click_this_link_you_will_not_receive_further_anonymous_messages_by_this_wayter";}', 1414291521, '::1'),
+(127, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:15:"block_this_user";}', 1414291552, '::1'),
+(128, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:28:"report_and_block_this_wayter";}', 1414419780, '::1'),
+(129, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:99:"if_you_block_this_wayter_you_will_not_receive_further_anonymous_messages_by_him_her_and_this_report";}', 1414419907, '::1'),
+(130, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:17:"block_this_wayter";}', 1414420052, '::1'),
+(131, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:15:"has_blocked_you";}', 1414424162, '::1'),
+(132, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:23:"message_has_blocked_you";}', 1414427080, '::1'),
+(133, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:26:"admin_menu_archive_reports";}', 1414428735, '::1'),
+(134, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:13:"module_report";}', 1414428735, '::1'),
+(135, 1, 3, 'module', 'a:1:{s:9:"module_id";s:6:"report";}', 1414428735, '::1'),
+(136, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:29:"admin_menu_add_email_template";}', 1414594683, '::1'),
+(137, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:33:"admin_menu_manage_emails_template";}', 1414594683, '::1'),
+(138, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:13:"module_report";}', 1414594683, '::1'),
+(139, 1, 3, 'module', 'a:1:{s:9:"module_id";s:6:"report";}', 1414594683, '::1'),
+(140, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:24:"setting_expire_post_time";}', 1414941596, '::1'),
+(141, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"module_waytime";}', 1418399383, '::1'),
+(142, 1, 2, 'module', 'a:1:{s:4:"name";s:7:"waytime";}', 1418399383, '::1'),
+(143, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:23:"admin_menu_add_question";}', 1418527270, '::1'),
+(144, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:27:"admin_menu_manage_questions";}', 1418527270, '::1'),
+(145, 1, 3, 'module', 'a:1:{s:9:"module_id";s:7:"waytime";}', 1418527270, '::1'),
+(146, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:16:"manage_questions";}', 1418527896, '::1'),
+(147, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"manage_answers";}', 1418527930, '::1'),
+(148, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:9:"questions";}', 1418528111, '::1'),
+(149, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:20:"manage_answers_total";}', 1418537614, '::1'),
+(150, 1, 3, 'module', 'a:1:{s:9:"module_id";s:7:"waytime";}', 1418539378, '::1'),
+(151, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:28:"delete_question_successfully";}', 1418540568, '::1'),
+(152, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:26:"delete_answer_successfully";}', 1418540592, '::1'),
+(153, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:13:"edit_question";}', 1418540619, '::1'),
+(154, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:16:"add_new_question";}', 1418540633, '::1'),
+(155, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:8:"question";}', 1418540648, '::1'),
+(156, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:11:"edit_answer";}', 1418540665, '::1'),
+(157, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"add_new_answer";}', 1418540680, '::1'),
+(158, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:6:"answer";}', 1418540695, '::1'),
+(159, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:12:"are_you_sure";}', 1418540794, '::1'),
+(160, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:26:"update_answer_successfully";}', 1418540854, '::1'),
+(161, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:23:"add_answer_successfully";}', 1418540871, '::1'),
+(162, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:18:"question_not_found";}', 1418540893, '::1'),
+(163, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"w_time_capsule";}', 1418540917, '::1'),
+(164, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:29:"add_new_answer_for_question_2";}', 1418541266, '::1'),
+(165, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:30:"manage_answers_for_question_id";}', 1418541375, '::1'),
+(166, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:26:"what_is_the_w_time_capsule";}', 1418575489, '::1'),
+(167, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:25:"all_we_want_to_write_here";}', 1418575516, '::1'),
+(168, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:14:"close_remember";}', 1418575534, '::1'),
+(169, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:5:"start";}', 1418575549, '::1'),
+(170, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:9:"character";}', 1418575627, '::1'),
+(171, 1, 2, 'phrase', 'a:1:{s:6:"phrase";s:27:"you_note_here_not_mandatory";}', 1418576016, '::1');
 
 -- --------------------------------------------------------
 
@@ -13144,7 +13595,17 @@ CREATE TABLE IF NOT EXISTS `phpfox_mail` (
   KEY `viewer_user_id` (`viewer_user_id`,`viewer_folder_id`,`viewer_type_id`),
   KEY `owner_user_id_2` (`owner_user_id`,`viewer_user_id`),
   KEY `mail_id` (`mail_id`,`owner_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `phpfox_mail`
+--
+
+INSERT INTO `phpfox_mail` (`mail_id`, `parent_id`, `mass_id`, `subject`, `preview`, `owner_user_id`, `owner_folder_id`, `owner_type_id`, `viewer_user_id`, `viewer_folder_id`, `viewer_type_id`, `viewer_is_new`, `time_stamp`, `time_updated`, `total_attachment`) VALUES
+(1, 0, 0, NULL, 'fake account lie', 1, 0, 1, 6, 0, 1, 1, 1414596493, 1414596493, 0),
+(2, 0, 0, NULL, 'fake account lie', 1, 0, 1, 1, 0, 1, 0, 1414596529, 1414596529, 0),
+(3, 0, 0, NULL, 'fake account lie', 1, 0, 1, 4, 0, 1, 0, 1414596538, 1414596538, 0),
+(4, 0, 0, NULL, 'fake account lie', 1, 0, 1, 1, 0, 1, 0, 1414596884, 1414596884, 0);
 
 -- --------------------------------------------------------
 
@@ -13187,6 +13648,16 @@ CREATE TABLE IF NOT EXISTS `phpfox_mail_text` (
   `text_parsed` mediumtext,
   KEY `mail_id` (`mail_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `phpfox_mail_text`
+--
+
+INSERT INTO `phpfox_mail_text` (`mail_id`, `text`, `text_parsed`) VALUES
+(1, 'fake account lie', 'fake account lie'),
+(2, 'fake account lie', 'fake account lie'),
+(3, 'fake account lie', 'fake account lie'),
+(4, 'fake account lie', 'fake account lie');
 
 -- --------------------------------------------------------
 
@@ -13640,21 +14111,24 @@ INSERT INTO `phpfox_module` (`module_id`, `product_id`, `is_core`, `is_active`, 
 ('privacy', 'phpfox', 0, 1, 0, '', 'module_privacy'),
 ('quiz', 'phpfox', 0, 0, 0, '', 'module_quiz'),
 ('rate', 'phpfox', 0, 0, 0, '', 'module_rate'),
-('report', 'phpfox', 0, 1, 1, 'a:3:{s:30:"report.admin_menu_view_reports";a:1:{s:3:"url";a:1:{i:0;s:6:"report";}}s:30:"report.admin_menu_add_category";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:3:"add";}}s:35:"report.admin_menu_manage_categories";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:8:"category";}}}', 'module_report'),
+('report', 'phpfox', 0, 1, 1, 'a:6:{s:30:"report.admin_menu_view_reports";a:1:{s:3:"url";a:1:{i:0;s:6:"report";}}s:30:"report.admin_menu_add_category";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:3:"add";}}s:35:"report.admin_menu_manage_categories";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:8:"category";}}s:33:"report.admin_menu_archive_reports";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:7:"archive";}}s:36:"report.admin_menu_add_email_template";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:8:"addemail";}}s:40:"report.admin_menu_manage_emails_template";a:1:{s:3:"url";a:2:{i:0;s:6:"report";i:1;s:5:"email";}}}', 'module_report'),
 ('request', 'phpfox', 0, 1, 0, '', 'module_request'),
 ('rss', 'phpfox', 0, 1, 1, 'a:4:{s:27:"rss.admin_menu_manage_feeds";a:1:{s:3:"url";a:1:{i:0;s:3:"rss";}}s:27:"rss.admin_menu_add_new_feed";a:1:{s:3:"url";a:2:{i:0;s:3:"rss";i:1;s:3:"add";}}s:28:"rss.admin_menu_manage_groups";a:1:{s:3:"url";a:2:{i:0;s:3:"rss";i:1;s:5:"group";}}s:28:"rss.admin_menu_add_new_group";a:1:{s:3:"url";a:3:{i:0;s:3:"rss";i:1;s:5:"group";i:2;s:3:"add";}}}', 'module_rss'),
 ('search', 'phpfox', 0, 1, 0, '', 'module_search'),
 ('share', 'phpfox', 0, 1, 1, 'a:2:{s:36:"share.admin_menu_manage_social_sites";a:1:{s:3:"url";a:1:{i:0;s:5:"share";}}s:32:"share.admin_menu_add_social_site";a:1:{s:3:"url";a:2:{i:0;s:5:"share";i:1;s:3:"add";}}}', 'module_share'),
 ('shoutbox', 'phpfox', 0, 0, 0, '', 'module_shoutbox'),
 ('subscribe', 'phpfox', 0, 1, 1, 'a:4:{s:36:"subscribe.admin_menu_manage_packages";a:1:{s:3:"url";a:1:{i:0;s:9:"subscribe";}}s:40:"subscribe.admin_menu_create_new_packages";a:1:{s:3:"url";a:2:{i:0;s:9:"subscribe";i:1;s:3:"add";}}s:36:"subscribe.admin_menu_purchase_orders";a:1:{s:3:"url";a:2:{i:0;s:9:"subscribe";i:1;s:4:"list";}}s:31:"subscribe.admin_menu_comparison";a:1:{s:3:"url";a:2:{i:0;s:9:"subscribe";i:1;s:7:"compare";}}}', 'module_subscribe'),
-('tag', 'phpfox', 0, 0, 0, '', 'module_tag'),
+('tag', 'phpfox', 0, 1, 0, '', 'module_tag'),
 ('tinymce', 'phpfox', 0, 1, 0, '', 'module_tinymce'),
 ('track', 'phpfox', 0, 1, 0, '', ''),
 ('video', 'phpfox', 0, 0, 1, 'a:2:{s:29:"video.admin_menu_add_category";a:1:{s:3:"url";a:2:{i:0;s:5:"video";i:1;s:3:"add";}}s:34:"video.admin_menu_manage_categories";a:1:{s:3:"url";a:1:{i:0;s:5:"video";}}}', 'module_video'),
 ('privatepost', 'privatepost', 0, 1, 0, '', 'module_privatepost'),
 ('friendfeed', 'friendfeed', 0, 1, 0, '', 'module_friendfeed'),
 ('sitetour', 'sitetour', 0, 1, 1, 'a:1:{s:35:"sitetour.admin_menu_manage_sitetour";a:1:{s:3:"url";a:1:{i:0;s:8:"sitetour";}}}', 'module_sitetour'),
-('customprofiles', 'customprofiles', 0, 1, 0, '', 'module_customprofiles');
+('customprofiles', 'customprofiles', 0, 1, 0, '', 'module_customprofiles'),
+('anonymousdone', 'anonymousdone', 0, 1, 0, '', 'module_anonymousdone'),
+('anonymousreceived', 'anonymousreceived', 0, 1, 0, '', 'module_anonymousreceived'),
+('waytime', 'waytime', 0, 1, 1, 'a:2:{s:31:"waytime.admin_menu_add_question";a:1:{s:3:"url";a:2:{i:0;s:7:"waytime";i:1;s:3:"add";}}s:35:"waytime.admin_menu_manage_questions";a:1:{s:3:"url";a:1:{i:0;s:7:"waytime";}}}', 'module_waytime');
 
 -- --------------------------------------------------------
 
@@ -13963,7 +14437,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_notification` (
   KEY `owner_user_id` (`owner_user_id`),
   KEY `user_id_2` (`user_id`,`is_seen`),
   KEY `type_id` (`type_id`,`item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=130 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=182 ;
 
 --
 -- Dumping data for table `phpfox_notification`
@@ -14048,16 +14522,16 @@ INSERT INTO `phpfox_notification` (`notification_id`, `type_id`, `item_id`, `use
 (76, 'feed_comment_like', 10, 1, 4, 1, 1408290536),
 (77, 'customprofiles_invitefirendsforfriend', 11, 4, 1, 1, 1408290644),
 (78, 'customprofiles_commentshowname', 11, 1, 4, 1, 1408290701),
-(80, 'customprofiles_invitefirendsforfriend', 13, 4, 1, 0, 1408292849),
-(81, 'feed_comment_profile', 14, 4, 1, 0, 1408558314),
-(82, 'feed_comment_profile', 15, 4, 1, 0, 1408559130),
+(80, 'customprofiles_invitefirendsforfriend', 13, 4, 1, 1, 1408292849),
+(81, 'feed_comment_profile', 14, 4, 1, 1, 1408558314),
+(82, 'feed_comment_profile', 15, 4, 1, 1, 1408559130),
 (83, 'customprofiles_invitefirendsforfriend', 16, 4, 1, 1, 1410106010),
 (84, 'customprofiles_invitefirendsforfriend', 17, 4, 1, 1, 1410277515),
 (85, 'customprofiles_commentshowname', 17, 1, 4, 1, 1410876136),
 (86, 'customprofiles_commentshowname', 17, 1, 4, 1, 1410876145),
 (87, 'customprofiles_commentshowname', 17, 1, 4, 1, 1410876148),
-(88, 'friend_accepted', 4, 6, 4, 0, 1410876264),
-(89, 'friend_accepted', 4, 7, 4, 0, 1410876265),
+(88, 'friend_accepted', 4, 6, 4, 1, 1410876264),
+(89, 'friend_accepted', 4, 7, 4, 1, 1410876265),
 (90, 'customprofiles_invitefirendsforfriend', 18, 4, 6, 1, 1410876303),
 (91, 'customprofiles_invitefirendsforfriend', 19, 4, 6, 1, 1410876366),
 (92, 'customprofiles_commentshowname', 19, 6, 4, 1, 1410876441),
@@ -14089,15 +14563,64 @@ INSERT INTO `phpfox_notification` (`notification_id`, `type_id`, `item_id`, `use
 (118, 'customprofiles_commentshowname', 20, 6, 4, 1, 1410880750),
 (119, 'comment_user_status', 123, 4, 6, 1, 1410881887),
 (120, 'comment_user_status', 123, 6, 4, 1, 1410882412),
-(121, 'comment_user_status', 124, 6, 4, 0, 1410882449),
-(122, 'comment_user_status', 125, 6, 4, 0, 1410883021),
-(123, 'comment_user_status', 126, 6, 4, 0, 1410883224),
-(124, 'comment_user_status', 126, 6, 4, 0, 1410883300),
-(125, 'comment_user_status', 126, 6, 4, 0, 1410883304),
-(126, 'comment_user_status', 126, 6, 4, 0, 1410883309),
+(121, 'comment_user_status', 124, 6, 4, 1, 1410882449),
+(122, 'comment_user_status', 125, 6, 4, 1, 1410883021),
+(123, 'comment_user_status', 126, 6, 4, 1, 1410883224),
+(124, 'comment_user_status', 126, 6, 4, 1, 1410883300),
+(125, 'comment_user_status', 126, 6, 4, 1, 1410883304),
+(126, 'comment_user_status', 126, 6, 4, 1, 1410883309),
 (127, 'customprofiles_invitefirendsforfriend', 21, 4, 6, 1, 1410883368),
 (128, 'customprofiles_invitefirendsforfriend', 22, 4, 1, 1, 1413013056),
-(129, 'feed_mini_like', 110, 6, 4, 0, 1413134821);
+(129, 'feed_mini_like', 110, 6, 4, 1, 1413134821),
+(130, 'customprofiles_invitefirendsforfriend', 23, 4, 1, 1, 1413211670),
+(131, 'comment_photo', 67, 1, 4, 1, 1413212077),
+(132, 'comment_photo', 67, 1, 4, 1, 1413212247),
+(133, 'customprofiles_invitefirendsforfriend', 24, 4, 6, 1, 1413212288),
+(134, 'comment_photo', 67, 1, 4, 1, 1413213377),
+(135, 'comment_photo', 67, 4, 1, 1, 1413213505),
+(136, 'comment_photo', 69, 4, 6, 1, 1413214783),
+(137, 'comment_photo', 69, 4, 6, 1, 1413214792),
+(138, 'comment_photo', 69, 4, 1, 1, 1413214958),
+(139, 'comment_photo', 69, 6, 1, 1, 1413214958),
+(140, 'customprofiles_anonymousconfirm', 2, 6, 1, 1, 1413215108),
+(141, 'customprofiles_invitefirendsforfriend', 25, 6, 1, 1, 1413215108),
+(142, 'customprofiles_replyinvite', 2, 1, 6, 1, 1413215264),
+(143, 'customprofiles_expireinvite', 6, 1, 1, 1, 1413215046),
+(144, 'comment_user_status', 132, 4, 6, 1, 1414230008),
+(145, 'comment_user_status', 130, 1, 6, 1, 1414230017),
+(146, 'customprofiles_invitefirendsforfriend', 26, 4, 1, 1, 1414290650),
+(147, 'customprofiles_invitefirendsforfriend', 27, 4, 6, 1, 1414291099),
+(148, 'customprofiles_anonymousconfirm', 3, 4, 6, 1, 1414291167),
+(149, 'customprofiles_invitefirendsforfriend', 28, 4, 6, 1, 1414291167),
+(150, 'customprofiles_replyinvite', 3, 6, 4, 1, 1414291210),
+(151, 'customprofiles_anonymousconfirm', 4, 4, 6, 1, 1414291263),
+(152, 'customprofiles_anonymousconfirm', 5, 4, 6, 1, 1414291292),
+(153, 'customprofiles_invitefirendsforfriend', 29, 4, 6, 1, 1414291292),
+(154, 'customprofiles_replyinvite', 5, 6, 4, 1, 1414291299),
+(155, 'customprofiles_invitefirendsforfriend', 30, 4, 6, 1, 1414291263),
+(156, 'customprofiles_replyinvite', 4, 6, 4, 1, 1414291302),
+(157, 'customprofiles_anonymousconfirm', 6, 1, 6, 1, 1414419218),
+(158, 'customprofiles_invitefirendsforfriend', 31, 1, 6, 1, 1414419218),
+(159, 'customprofiles_replyinvite', 6, 6, 1, 1, 1414419256),
+(160, 'customprofiles_anonymousconfirm', 7, 1, 6, 1, 1414425919),
+(163, 'customprofiles_invitefirendsforfriend', 32, 1, 6, 1, 1414425919),
+(164, 'customprofiles_replyinvite', 7, 6, 1, 1, 1414427156),
+(165, 'customprofiles_anonymousconfirm', 8, 1, 6, 1, 1414514991),
+(166, 'customprofiles_invitefirendsforfriend', 33, 1, 6, 1, 1414514991),
+(167, 'customprofiles_replyinvite', 8, 6, 1, 1, 1414515028),
+(169, 'customprofiles_invitefirendsforfriend', 34, 1, 4, 1, 1414684570),
+(170, 'customprofiles_invitefirendsforfriend', 35, 1, 4, 1, 1414688150),
+(171, 'customprofiles_invitefirendsforfriend', 36, 1, 4, 1, 1414688737),
+(172, 'customprofiles_invitefirendsforfriend', 37, 4, 1, 0, 1414943270),
+(173, 'customprofiles_invitefirendsforfriend', 38, 4, 1, 0, 1414943531),
+(174, 'customprofiles_invitefirendsforfriend', 39, 4, 1, 0, 1415116454),
+(175, 'customprofiles_invitefirendsforfriend', 40, 15, 1, 0, 1415116474),
+(176, 'customprofiles_anonymousconfirm', 10, 6, 1, 1, 1418912562),
+(177, 'customprofiles_invitefirendsforfriend', 41, 6, 1, 1, 1418912562),
+(178, 'customprofiles_replyinvite', 10, 1, 6, 1, 1418912592),
+(179, 'customprofiles_anonymousconfirm', 11, 6, 1, 1, 1418912861),
+(180, 'customprofiles_invitefirendsforfriend', 42, 6, 1, 1, 1418912861),
+(181, 'customprofiles_replyinvite', 11, 1, 6, 1, 1418912867);
 
 -- --------------------------------------------------------
 
@@ -14180,7 +14703,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages` (
   KEY `view_id` (`view_id`,`title`,`privacy`),
   KEY `page_id` (`page_id`,`view_id`),
   KEY `latitude` (`location_latitude`,`location_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `phpfox_pages`
@@ -14190,7 +14713,9 @@ INSERT INTO `phpfox_pages` (`page_id`, `app_id`, `view_id`, `type_id`, `category
 (1, 0, 0, 2, 30, 1, 'Coopmark', 0, '', 1399078868, '2014/05/85d1aca41f827d63e23a821a2237d230%s.jpg', 0, 1, 0, 7, 0, 0, 4, '0', NULL, NULL, NULL, 0),
 (2, 0, 0, 5, 115, 1, 'test 111', 0, NULL, 1399641652, NULL, 0, 1, 0, 2, 0, 0, 7, '-164', NULL, NULL, NULL, 0),
 (3, 0, 0, 1, 3, 1, 'aaaaaaa', 0, '', 1412865033, '2014/10/c62fd20399818db5b7460f7d16d40064%s.jpg', 0, 1, 0, 0, 1, 0, NULL, NULL, NULL, NULL, NULL, 0),
-(4, 0, 0, 2, 31, 1, 'jhjnmnmnmn', 0, NULL, 1413133163, NULL, 0, 1, 0, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, 0);
+(4, 0, 0, 2, 31, 1, 'jhjnmnmnmn', 0, NULL, 1413133163, NULL, 0, 1, 0, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, 0),
+(5, 0, 0, 1, 4, 1, 'test', 0, NULL, 1415713930, NULL, 0, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0),
+(6, 0, 0, 1, 5, 1, 'test test', 0, NULL, 1415713968, NULL, 0, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -14448,6 +14973,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_feed` (
   `parent_feed_id` int(10) unsigned NOT NULL DEFAULT '0',
   `parent_module_id` varchar(75) DEFAULT NULL,
   `time_update` int(10) unsigned NOT NULL DEFAULT '0',
+  `expire_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`feed_id`),
   KEY `parent_user_id` (`parent_user_id`),
   KEY `time_update` (`time_update`)
@@ -14457,19 +14983,19 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_feed` (
 -- Dumping data for table `phpfox_pages_feed`
 --
 
-INSERT INTO `phpfox_pages_feed` (`feed_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `parent_feed_id`, `parent_module_id`, `time_update`) VALUES
-(1, 0, 0, 'pages_comment', 2, 1, 1, 1399124049, 0, NULL, 1399124049),
-(2, 0, 0, 'pages_comment', 2, 1, 2, 1399124054, 0, NULL, 1399124054),
-(3, 0, 0, 'pages_comment', 2, 1, 3, 1399124058, 0, NULL, 1399124058),
-(4, 0, 0, 'pages_comment', 2, 1, 4, 1399124060, 0, NULL, 1399124060),
-(5, 0, 0, 'pages_comment', 2, 1, 5, 1399124064, 0, NULL, 1399124064),
-(6, 0, 0, 'pages_comment', 2, 1, 6, 1399124068, 0, NULL, 1399124068),
-(7, 0, 0, 'pages_comment', 2, 1, 7, 1399124074, 0, NULL, 1399124074),
-(8, 0, 0, 'photo', 2, 1, 5, 1399124088, 0, NULL, 1399124088),
-(9, 0, 0, 'photo', 2, 1, 6, 1399124103, 0, NULL, 1399124103),
-(10, 0, 0, 'pages_comment', 3, 2, 8, 1400430926, 0, NULL, 1400430926),
-(11, 0, 0, 'pages_comment', 3, 2, 9, 1400430929, 0, NULL, 1400430929),
-(12, 0, 0, 'pages_comment', 30, 4, 10, 1413133199, 0, NULL, 1413133199);
+INSERT INTO `phpfox_pages_feed` (`feed_id`, `privacy`, `privacy_comment`, `type_id`, `user_id`, `parent_user_id`, `item_id`, `time_stamp`, `parent_feed_id`, `parent_module_id`, `time_update`, `expire_time`) VALUES
+(1, 0, 0, 'pages_comment', 2, 1, 1, 1399124049, 0, NULL, 1399124049, 0),
+(2, 0, 0, 'pages_comment', 2, 1, 2, 1399124054, 0, NULL, 1399124054, 0),
+(3, 0, 0, 'pages_comment', 2, 1, 3, 1399124058, 0, NULL, 1399124058, 0),
+(4, 0, 0, 'pages_comment', 2, 1, 4, 1399124060, 0, NULL, 1399124060, 0),
+(5, 0, 0, 'pages_comment', 2, 1, 5, 1399124064, 0, NULL, 1399124064, 0),
+(6, 0, 0, 'pages_comment', 2, 1, 6, 1399124068, 0, NULL, 1399124068, 0),
+(7, 0, 0, 'pages_comment', 2, 1, 7, 1399124074, 0, NULL, 1399124074, 0),
+(8, 0, 0, 'photo', 2, 1, 5, 1399124088, 0, NULL, 1399124088, 0),
+(9, 0, 0, 'photo', 2, 1, 6, 1399124103, 0, NULL, 1399124103, 0),
+(10, 0, 0, 'pages_comment', 3, 2, 8, 1400430926, 0, NULL, 1400430926, 0),
+(11, 0, 0, 'pages_comment', 3, 2, 9, 1400430929, 0, NULL, 1400430929, 0),
+(12, 0, 0, 'pages_comment', 30, 4, 10, 1413133199, 0, NULL, 1413133199, 0);
 
 -- --------------------------------------------------------
 
@@ -14656,7 +15182,9 @@ INSERT INTO `phpfox_pages_text` (`page_id`, `text`, `text_parsed`) VALUES
 (1, '', ''),
 (2, NULL, NULL),
 (3, '', ''),
-(4, NULL, NULL);
+(4, NULL, NULL),
+(5, NULL, NULL),
+(6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -14679,7 +15207,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_pages_type` (
 --
 
 INSERT INTO `phpfox_pages_type` (`type_id`, `is_active`, `name`, `time_stamp`, `ordering`) VALUES
-(1, 1, 'Entertainment', 1398864730, 2),
+(1, 1, 'Entertainment', 1398864730, 1),
 (2, 1, 'Brand or Product', 1398864730, 2),
 (3, 1, 'Group or Community', 1398864730, 3),
 (4, 1, 'Local Business or Place', 1398864730, 4),
@@ -14851,7 +15379,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo` (
   KEY `view_id_5` (`view_id`,`module_id`,`group_id`,`privacy`),
   KEY `is_profile_photo` (`is_profile_photo`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=97 ;
 
 --
 -- Dumping data for table `phpfox_photo`
@@ -14924,8 +15452,36 @@ INSERT INTO `phpfox_photo` (`photo_id`, `album_id`, `view_id`, `module_id`, `gro
 (64, 0, 0, NULL, 0, 1, 1, 0, '10003528_728794793817654_958477124_n', 1, 0, '2014/08/33329fb6631bdf6972cf455c3d9014fb%s.jpg', 0, 0, 0, 1, 1408291892, 0, 0, 0, '0.00', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0),
 (65, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 4, 0, '2014/09/fe4e0c1bbf7470f3fbc6989bd325633d%s.jpg', 0, 0, 0, 1, 1410276924, 0, 1, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (66, 0, 0, NULL, 0, 1, 1, 0, '389537-fruit', 6, 0, '2014/09/91ded899d0f8686abe64fe3475da2e9b%s.jpg', 0, 0, 0, 1, 1410880969, 0, 1, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(67, 0, 0, NULL, 0, 1, 1, 0, '558590_374326932638915_25187938_n', 1, 0, '2014/09/69370a1a0c932389cfe5b850666601d8%s.jpg', 0, 0, 0, 1, 1412004233, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(68, 19, 0, NULL, 0, 0, 0, 0, 'October 9, 2014', 29, 0, 'a3f390d88e4c41f2747bfa2f1b5f87db%s.jpg', 0, 0, 0, 0, 1412865051, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 1, 0, 0, 0, 1);
+(67, 0, 0, NULL, 0, 1, 1, 0, '558590_374326932638915_25187938_n', 1, 0, '2014/09/69370a1a0c932389cfe5b850666601d8%s.jpg', 0, 0, 0, 1, 1412004233, 0, 4, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(68, 19, 0, NULL, 0, 0, 0, 0, 'October 9, 2014', 29, 0, 'a3f390d88e4c41f2747bfa2f1b5f87db%s.jpg', 0, 0, 0, 0, 1412865051, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 1, 0, 0, 0, 1),
+(69, 0, 0, NULL, 0, 1, 1, 0, '5', 4, 0, '2014/10/925710bb7b63df5918a673d47ced9408%s.jpg', 0, 0, 0, 1, 1413213653, 0, 4, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(70, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 1, 0, '2014/10/99d64ca9563bbdaaa190f6880fb6ce2b%s.jpg', 0, 0, 0, 1, 1414509349, 0, 3, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(71, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 1, 0, '2014/10/ad0977fc25f8061b0abaa221338e4902%s.jpg', 0, 0, 0, 1, 1414683574, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(72, 0, 0, NULL, 0, 1, 1, 0, '10392292_327947997374345_148705549167163460_n', 4, 0, '2014/11/08793b4e3d3e9982bef6e8e837acc4b7%s.jpg', 0, 0, 0, 1, 1414847135, 1, 6, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(73, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 1, 0, '2014/11/6f62ff2e4a4b38a037223cf855dbd40b%s.jpg', 0, 0, 0, 1, 1414943249, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(74, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 1, 0, '2014/11/32bc327d0380473dff08af98c745ac24%s.jpg', 0, 0, 0, 1, 1415036594, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(75, 0, 0, NULL, 0, 1, 1, 0, '994488_327950894040722_7324736614316259527_n', 1, 0, '2014/11/56c18bca4f7179245a96f1829d5a0359%s.jpg', 0, 0, 0, 1, 1415036624, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(76, 0, 0, NULL, 0, 1, 1, 0, '10378208_327950657374079_3435245345457804408_n', 1, 0, '2014/11/1f58f1bfa46a61d84fd8fa509cbdd9eb%s.jpg', 0, 0, 0, 1, 1415036678, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(77, 0, 0, NULL, 0, 1, 1, 0, '936082_327946174041194_958511806678935579_n', 1, 0, '2014/11/50b1a14dfa80b71fd82ed12ab0595596%s.jpg', 0, 0, 0, 1, 1415036722, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(78, 0, 0, NULL, 0, 1, 1, 0, '10440740_310533069115838_7997411613078660195_n', 1, 0, '2014/11/db6702b136e3d860e2cd3ec3eae4325e%s.jpg', 0, 0, 0, 1, 1415036750, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(79, 0, 0, NULL, 0, 1, 1, 0, '1544388_327950760707402_7205245652102040173_n', 1, 0, '2014/11/c4096579d410933569696ae751fcdf1c%s.jpg', 0, 0, 0, 1, 1415036780, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(80, 0, 0, NULL, 0, 1, 1, 0, '10440740_310533069115838_7997411613078660195_n', 1, 0, '2014/11/c17844458f58cc1460b74994f2491ff0%s.jpg', 0, 0, 0, 1, 1415036821, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(81, 0, 0, NULL, 0, 1, 1, 0, '1544388_327950760707402_7205245652102040173_n', 1, 0, '2014/11/62a8f6e5ab47996dd9ba32e2bc4c9713%s.jpg', 0, 0, 0, 1, 1415036909, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(82, 0, 0, NULL, 0, 1, 1, 0, '1972456_327942904041521_8152639848839787631_n', 1, 0, '2014/11/30b049aab6c1cfbab20bb69a68803618%s.jpg', 0, 0, 0, 1, 1415036940, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(83, 0, 0, NULL, 0, 1, 1, 0, '1453285_327946384041173_9045847562768454156_n', 1, 0, '2014/11/e353c4788b70028bfff1e7cd58d5a63e%s.jpg', 0, 0, 0, 1, 1415036973, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(84, 0, 0, NULL, 0, 1, 1, 0, '10440740_310533069115838_7997411613078660195_n', 1, 0, '2014/11/6083cfe9a10ce2153da90a7f87fdfd0f%s.jpg', 0, 0, 0, 1, 1415037009, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(85, 0, 0, NULL, 0, 1, 1, 0, '994488_327950894040722_7324736614316259527_n', 1, 0, '2014/11/66589f835037deabd36a7a338e40e1a9%s.jpg', 0, 0, 0, 1, 1415037061, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(86, 0, 0, NULL, 0, 1, 1, 0, '10568962_318621771640301_3418268447159585482_n', 1, 0, '2014/11/82b19f53ebccafa2c9935e14b266f66d%s.jpg', 0, 0, 0, 1, 1415037170, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(87, 0, 0, NULL, 0, 1, 1, 0, '10347488_322757034560108_4704225026399805435_n', 1, 0, '2014/11/824a1d45718aba70a99ea19bc5e25077%s.jpg', 0, 0, 0, 1, 1415038255, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(88, 0, 0, NULL, 0, 1, 1, 0, '936082_327946174041194_958511806678935579_n', 1, 0, '2014/11/8eff69304f45976491e88e56c3c890a2%s.jpg', 0, 0, 0, 1, 1415038562, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(89, 0, 0, NULL, 0, 1, 1, 0, '994488_327950894040722_7324736614316259527_n', 1, 0, '2014/11/91535da29173c14a5d16cc2ecf157818%s.jpg', 0, 0, 0, 1, 1415038739, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(90, 0, 0, NULL, 0, 1, 1, 0, '1544388_327950760707402_7205245652102040173_n', 1, 0, '2014/11/296585d5b596f11a98649dea648b611a%s.jpg', 0, 0, 0, 1, 1415038976, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(91, 0, 0, NULL, 0, 1, 1, 0, '1544388_327950760707402_7205245652102040173_n', 1, 0, '2014/11/6182357a03d69843c4f0eaa380e49ead%s.jpg', 0, 0, 0, 1, 1415039074, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(92, 0, 0, NULL, 0, 1, 1, 0, '936068_310534509115694_8826220273428924933_n', 1, 0, '2014/11/9383e4ca1eb9ba39b672d8eed74d03ea%s.jpg', 0, 0, 0, 1, 1415039089, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(93, 0, 0, NULL, 0, 1, 1, 0, '994488_327950894040722_7324736614316259527_n', 1, 0, '2014/11/51d1c44ce88173d1450d6e1624dfcbc1%s.jpg', 0, 0, 0, 1, 1415115730, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(94, 0, 0, NULL, 0, 1, 1, 0, '1453285_327946384041173_9045847562768454156_n', 1, 0, '2014/11/97ca85826e5cc3da7cca97e86d9cf557%s.jpg', 0, 0, 0, 1, 1415117767, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(95, 0, 0, NULL, 0, 1, 1, 0, '994488_327950894040722_7324736614316259527_n', 1, 0, '2014/11/85b8edfdfd40ab26396c681605a46e7f%s.jpg', 0, 0, 0, 1, 1415118694, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(96, 0, 0, NULL, 0, 1, 1, 0, '1350144', 1, 0, '2014/12/3b48577ae4408b2baaef7e112cc79709%s.jpg', 0, 0, 0, 1, 1418551051, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -15104,6 +15660,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo_category_data` (
 CREATE TABLE IF NOT EXISTS `phpfox_photo_feed` (
   `feed_id` int(10) unsigned NOT NULL,
   `photo_id` int(10) unsigned NOT NULL,
+  `expire_time` int(10) NOT NULL DEFAULT '0',
   KEY `feed_id` (`feed_id`),
   KEY `photo_id` (`photo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -15198,7 +15755,35 @@ INSERT INTO `phpfox_photo_info` (`photo_id`, `file_name`, `file_size`, `mime_typ
 (65, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 's dfds fdsf', 960, 640),
 (66, '389537-fruit.jpg', 42529, 'image/jpeg', 'jpg', 'gv h', 650, 366),
 (67, '558590_374326932638915_25187938_n.jpg', 233941, 'image/jpeg', 'jpg', 'f hdfgdfg dfsg dfgdf gdfg', 960, 720),
-(68, '29.jpg', 233941, 'image/jpeg', 'jpg', NULL, 960, 720);
+(68, '29.jpg', 233941, 'image/jpeg', 'jpg', NULL, 960, 720),
+(69, '5.jpg', 502070, 'image/jpeg', 'jpg', 'loc post hinh', 1170, 780),
+(70, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 'ds fds fsf', 960, 640),
+(71, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 'test delete', 960, 640),
+(72, '10392292_327947997374345_148705549167163460_n.jpg', 62128, 'image/jpeg', 'jpg', 'test delete comment', 960, 639),
+(73, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 'hj kh kjh k hkj kjkj k jkjk', 960, 640),
+(74, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 'dung lam anh cau', 960, 640),
+(75, '994488_327950894040722_7324736614316259527_n.jpg', 54299, 'image/jpeg', 'jpg', 'dg fdgdfgdfgdg fg fdgf d gfdg', 960, 639),
+(76, '10378208_327950657374079_3435245345457804408_n.jpg', 43558, 'image/jpeg', 'jpg', 'f hfg hgfh gfhgf hgf hgf', 960, 639),
+(77, '936082_327946174041194_958511806678935579_n.jpg', 39733, 'image/jpeg', 'jpg', 'sdfdsfdfdf fds fddf dsfd', 960, 639),
+(78, '10440740_310533069115838_7997411613078660195_n.jpg', 70335, 'image/jpeg', 'jpg', 'khh  kh khk h', 960, 640),
+(79, '1544388_327950760707402_7205245652102040173_n.jpg', 47818, 'image/jpeg', 'jpg', 'h  hhjhj', 640, 960),
+(80, '10440740_310533069115838_7997411613078660195_n.jpg', 70335, 'image/jpeg', 'jpg', 'nmnmnm nm', 960, 640),
+(81, '1544388_327950760707402_7205245652102040173_n.jpg', 47818, 'image/jpeg', 'jpg', 'dsfdsfdsfdsfdsf dsfdsf', 640, 960),
+(82, '1972456_327942904041521_8152639848839787631_n.jpg', 67569, 'image/jpeg', 'jpg', 'aaaaaaaaaaaaaa', 960, 639),
+(83, '1453285_327946384041173_9045847562768454156_n.jpg', 46871, 'image/jpeg', 'jpg', 's fdsaf dsfdsf dsf', 960, 639),
+(84, '10440740_310533069115838_7997411613078660195_n.jpg', 70335, 'image/jpeg', 'jpg', 'd d gd', 960, 640),
+(85, '994488_327950894040722_7324736614316259527_n.jpg', 54299, 'image/jpeg', 'jpg', 'dfsgdf gdf g', 960, 639),
+(86, '10568962_318621771640301_3418268447159585482_n.jpg', 43000, 'image/jpeg', 'jpg', 'f gdf g', 960, 480),
+(87, '10347488_322757034560108_4704225026399805435_n.jpg', 72471, 'image/jpeg', 'jpg', 'f fsf gdfg dfgdfgdfg dfg', 960, 640),
+(88, '936082_327946174041194_958511806678935579_n.jpg', 39733, 'image/jpeg', 'jpg', 'sf sf dfs fsdfsdf fh dh', 960, 639),
+(89, '994488_327950894040722_7324736614316259527_n.jpg', 54299, 'image/jpeg', 'jpg', 'gfgdfg fg', 960, 639),
+(90, '1544388_327950760707402_7205245652102040173_n.jpg', 47818, 'image/jpeg', 'jpg', 'sd fds fdsfdf gfdgdf ffdssd fdfdsdsf', 640, 960),
+(91, '1544388_327950760707402_7205245652102040173_n.jpg', 47818, 'image/jpeg', 'jpg', 'dsf gdsfdsf', 640, 960),
+(92, '936068_310534509115694_8826220273428924933_n.jpg', 76213, 'image/jpeg', 'jpg', 'dfgdf gdf gfg', 960, 640),
+(93, '994488_327950894040722_7324736614316259527_n.jpg', 54299, 'image/jpeg', 'jpg', 'f fg df gdfg dfg', 960, 639),
+(94, '1453285_327946384041173_9045847562768454156_n.jpg', 46871, 'image/jpeg', 'jpg', 'dsf dsf dsfds', 960, 639),
+(95, '994488_327950894040722_7324736614316259527_n.jpg', 54299, 'image/jpeg', 'jpg', ',mn,n,', 960, 639),
+(96, '1350144.jpg', 54451, 'image/jpeg', 'jpg', '1212', 640, 419);
 
 -- --------------------------------------------------------
 
@@ -15258,7 +15843,8 @@ CREATE TABLE IF NOT EXISTS `phpfox_photo_track` (
 --
 
 INSERT INTO `phpfox_photo_track` (`item_id`, `user_id`, `time_stamp`) VALUES
-(6, 1, 1399124132);
+(6, 1, 1399124132),
+(72, 1, 1414847894);
 
 -- --------------------------------------------------------
 
@@ -17520,7 +18106,8 @@ INSERT INTO `phpfox_private_feed` (`feed_id`, `app_id`, `privacy`, `privacy_comm
 (156, 0, 0, 0, 'user_status', 4, 0, 107, 1400604327, 0, 0, NULL, 1400604327),
 (157, 0, 0, 0, 'user_status', 4, 0, 108, 1400604344, 0, 0, NULL, 1400604344),
 (211, 0, 0, 0, 'user_status', 1, 0, 118, 1403374512, 0, 0, NULL, 1403374512),
-(212, 0, 0, 0, 'user_status', 1, 0, 119, 1403374527, 0, 0, NULL, 1403374527);
+(212, 0, 0, 0, 'user_status', 1, 0, 119, 1403374527, 0, 0, NULL, 1403374527),
+(270, 0, 1, 0, 'user_status', 1, 0, 131, 1413468614, 0, 0, NULL, 1413468614);
 
 -- --------------------------------------------------------
 
@@ -17550,13 +18137,16 @@ CREATE TABLE IF NOT EXISTS `phpfox_product` (
 --
 
 INSERT INTO `phpfox_product` (`product_id`, `is_core`, `title`, `description`, `version`, `latest_version`, `last_check`, `is_active`, `url`, `url_version_check`) VALUES
-('phpfox', 0, 'Core', '', '', NULL, 1413006855, 1, '', ''),
-('phpfox_installer', 0, 'Core Installer', '', '1', NULL, 1413076767, 1, '', ''),
-('flowplayer', 0, 'Flowplayer', 'Video Player for the Web', '3.1', NULL, 1413006703, 1, NULL, NULL),
-('privatepost', 0, 'Private Post', 'Make a post as private', '3.0.6', NULL, 1413014583, 0, NULL, NULL),
-('friendfeed', 0, 'Friend  Feed', 'Friend  Feed', '3.4', NULL, 1412004151, 1, NULL, NULL),
-('sitetour', 0, 'sitetour', 'sitetour', '3.0.4', NULL, 1413014221, 0, NULL, NULL),
-('customprofiles', 0, 'Custom Profiles', 'Custom Profiles', '2.8.1', NULL, 1413006726, 1, NULL, NULL);
+('phpfox', 0, 'Core', '', '', NULL, 1414689035, 1, '', ''),
+('phpfox_installer', 0, 'Core Installer', '', '1', NULL, 1418399318, 1, '', ''),
+('flowplayer', 0, 'Flowplayer', 'Video Player for the Web', '3.1', NULL, 1413473793, 1, NULL, NULL),
+('privatepost', 0, 'Private Post', 'Make a post as private', '3.0.8', NULL, 1414943567, 1, NULL, NULL),
+('friendfeed', 0, 'Friend  Feed', 'Friend  Feed', '3.4', NULL, 1413473768, 1, NULL, NULL),
+('sitetour', 0, 'sitetour', 'sitetour', '3.0.4', NULL, 1414943548, 0, NULL, NULL),
+('customprofiles', 0, 'Custom Profiles', 'Custom Profiles', '2.9.1', NULL, 1414688988, 1, NULL, NULL),
+('anonymousdone', 0, 'Anonymous Done', 'Anonymous post done', '1.0', NULL, 1413468396, 1, NULL, NULL),
+('anonymousreceived', 0, 'Anonymous Received', 'Anonymous Received', '1.0', NULL, 1413468435, 1, NULL, NULL),
+('waytime', 0, 'WayTime', 'WayTime', '1.0', NULL, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -17589,7 +18179,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_product_install` (
   `uninstall_code` mediumtext,
   PRIMARY KEY (`install_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `phpfox_product_install`
@@ -17599,8 +18189,10 @@ INSERT INTO `phpfox_product_install` (`install_id`, `product_id`, `version`, `in
 (2, 'privatepost', '3.0.0', '$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''private_feed'')."` (\r\n  `feed_id` int(10) NOT NULL,\r\n  `app_id` int(10) unsigned NOT NULL DEFAULT ''0'',\r\n  `privacy` tinyint(1) NOT NULL DEFAULT ''0'',\r\n  `privacy_comment` tinyint(1) NOT NULL DEFAULT ''0'',\r\n  `type_id` varchar(75) NOT NULL,\r\n  `user_id` int(10) unsigned NOT NULL,\r\n  `parent_user_id` int(10) unsigned NOT NULL DEFAULT ''0'',\r\n  `item_id` int(10) unsigned NOT NULL,\r\n  `time_stamp` int(10) unsigned NOT NULL,\r\n  `feed_reference` int(10) NOT NULL DEFAULT ''0'',\r\n  `parent_feed_id` int(10) unsigned NOT NULL DEFAULT ''0'',\r\n  `parent_module_id` varchar(75) DEFAULT NULL,\r\n  `time_update` int(10) unsigned NOT NULL DEFAULT ''0'',\r\n  PRIMARY KEY (`feed_id`),\r\n  KEY `privacy_2` (`privacy`,`time_stamp`,`feed_reference`),\r\n  KEY `privacy_3` (`privacy`,`user_id`,`feed_reference`),\r\n  KEY `privacy_4` (`privacy`,`parent_user_id`,`feed_reference`),\r\n  KEY `type_id` (`type_id`,`item_id`,`feed_reference`),\r\n  KEY `privacy` (`privacy`,`user_id`,`time_stamp`,`feed_reference`),\r\n  KEY `time_stamp` (`time_stamp`,`feed_reference`),\r\n  KEY `time_update` (`time_update`),\r\n  KEY `privacy_5` (`privacy`,`parent_user_id`),\r\n  KEY `user_id` (`user_id`,`feed_reference`,`time_stamp`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");', NULL),
 (3, 'sitetour', '1.1', '$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''sitetour'')."` (\r\n  `sitetour_id` int(10) NOT NULL AUTO_INCREMENT,\r\n  `user_group_id` int(10) NOT NULL DEFAULT ''0'',\r\n  `title` varchar(200) NOT NULL,\r\n  `url` varchar(500) NOT NULL,\r\n  `is_autorun` tinyint(1) NOT NULL DEFAULT ''0'',\r\n  `is_active` tinyint(1) NOT NULL DEFAULT ''1'',\r\n  `time_stamp` int(10) NOT NULL,\r\n  PRIMARY KEY (`sitetour_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''sitetour_step'')."` (\r\n  `step_id` int(10) NOT NULL AUTO_INCREMENT,\r\n  `sitetour_id` int(10) NOT NULL,\r\n  `title` varchar(100) NOT NULL,\r\n  `element` varchar(300) NOT NULL,\r\n  `content` varchar(500) NOT NULL,\r\n  `placement` varchar(50) DEFAULT ''auto'',\r\n  `animation` varchar(10) DEFAULT ''true'',\r\n  `duration` varchar(10) NOT NULL DEFAULT ''3000'',\r\n  `is_active` tinyint(1) NOT NULL DEFAULT ''1'',\r\n  `time_stamp` int(10) NOT NULL,\r\n  `ordering` int(10) DEFAULT ''0'',\r\n  PRIMARY KEY (`step_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''sitetour_user_block'')."` (\r\n  `user_id` int(10) NOT NULL,\r\n  `sitetour_id` int(10) NOT NULL,\r\n  `time_stamp` int(10) NOT NULL,\r\n  PRIMARY KEY (`user_id`,`sitetour_id`)\r\n) ENGINE=InnoDB DEFAULT CHARSET=latin1;");', NULL),
 (5, 'customprofiles', '1.0', '$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_anonymous_feed'')."` (\r\n `anonymous_id` int(10) NOT NULL AUTO_INCREMENT,\r\n `feed_id` int(10) NOT NULL,\r\n `user_id` int(10) NOT NULL,\r\n `receive_user_id` int(10) NOT NULL,\r\n `is_active` tinyint(1) NOT NULL DEFAULT ''1'',\r\n `message` mediumtext NOT NULL,\r\n `is_confirm` tinyint(4) NOT NULL,\r\n PRIMARY KEY (`anonymous_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_guest_anonymous_feed'')."` (\r\n `feed_id` int(10) NOT NULL AUTO_INCREMENT,\r\n `sender_user_id` int(10) NOT NULL,\r\n `email` varchar(200) NOT NULL,\r\n `object` mediumtext NOT NULL,\r\n `time_stamp` int(10) NOT NULL,\r\n PRIMARY KEY (`feed_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_invite'')."` (\r\n `invite_id` int(10) NOT NULL AUTO_INCREMENT,\r\n `user_id` int(10) NOT NULL,\r\n `email` varchar(500) NOT NULL,\r\n `full_name` varchar(200) NOT NULL DEFAULT '''',\r\n `feed_id` int(10) NOT NULL DEFAULT ''0'',\r\n `message` mediumtext NOT NULL,\r\n `is_expire` tinyint(1) NOT NULL DEFAULT ''0'',\r\n `time_stamp` int(10) NOT NULL,\r\n PRIMARY KEY (`invite_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_invite_anonymous_message'')."` (\r\n `invite_id` int(10) NOT NULL AUTO_INCREMENT,\r\n `user_id` int(10) NOT NULL,\r\n `invite_user_id` int(10) NOT NULL,\r\n `feed_id` int(10) NOT NULL,\r\n `message` mediumtext NOT NULL,\r\n `status` tinyint(1) NOT NULL DEFAULT ''0'',\r\n `time_stamp` int(10) NOT NULL,\r\n PRIMARY KEY (`invite_id`)\r\n) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_schedule_feed'')."` (\r\n `feed_id` int(10) NOT NULL AUTO_INCREMENT,\r\n `user_id` int(10) NOT NULL,\r\n `receive_user_id` int(10) NOT NULL DEFAULT ''0'',\r\n `email` varchar(200) DEFAULT NULL,\r\n `object` mediumtext NOT NULL,\r\n `status` tinyint(2) NOT NULL DEFAULT ''0'',\r\n `time_stamp` int(10) NOT NULL,\r\n PRIMARY KEY (`feed_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");\r\n\r\n$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_show_name'')."` (\r\n `notification_id` int(10) NOT NULL,\r\n `full_name` varchar(100) NOT NULL,\r\n `message` varchar(500) NOT NULL DEFAULT '''',\r\n `is_show` tinyint(1) NOT NULL DEFAULT ''0'',\r\n PRIMARY KEY (`notification_id`)\r\n) ENGINE=InnoDB DEFAULT CHARSET=latin1;");', NULL),
-(6, 'customprofiles', '3.0', '$this->database()->query("ALTER TABLE `phpfox_custom_profiles_anonymous_feed` ADD `privacy` TINYINT( 1 ) NOT NULL DEFAULT ''0'';");', NULL),
-(7, 'customprofiles', '3.01', '$this->database->query("CREATE TABLE IF NOT EXISTS `phpfox_custom_profiles_block` (\r\n  `block_id` int(10) NOT NULL AUTO_INCREMENT,\r\n  `user_id` int(10) NOT NULL,\r\n  `block_user_id` int(10) NOT NULL,\r\n  `time_stamp` int(10) NOT NULL,\r\n  PRIMARY KEY (`block_id`)\r\n) ENGINE=InnoDB AUTO_INCREMENT=1 ;");', NULL);
+(6, 'customprofiles', '2.8.2', '$this->database()->query("ALTER TABLE `".Phpfox::getT(''custom_profiles_anonymous_feed'')."` ADD `privacy` TINYINT( 1 ) NOT NULL DEFAULT ''0'';");', NULL),
+(7, 'customprofiles', '2.8.3', '$this->database->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_block'')."` (\r\n  `block_id` int(10) NOT NULL AUTO_INCREMENT,\r\n  `user_id` int(10) NOT NULL,\r\n  `block_user_id` int(10) NOT NULL,\r\n  `time_stamp` int(10) NOT NULL,\r\n  PRIMARY KEY (`block_id`)\r\n) ENGINE=InnoDB AUTO_INCREMENT=1 ;");', NULL),
+(8, 'customprofiles', '2.8.4', '$this->database()->query("ALTER TABLE `".Phpfox::getT(''custom_profiles_anonymous_feed'')."` ADD `is_block` TINYINT( 1 ) NOT NULL DEFAULT ''0'';");', NULL),
+(9, 'customprofiles', '2.8.5', '$this->database()->query("CREATE TABLE IF NOT EXISTS `".Phpfox::getT(''custom_profiles_block'')."` (\r\n  `block_id` int(10) NOT NULL AUTO_INCREMENT,\r\n  `user_id` int(10) NOT NULL,\r\n  `block_user_id` int(10) NOT NULL,\r\n  `time_stamp` int(10) NOT NULL,\r\n  PRIMARY KEY (`block_id`)\r\n) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");', NULL);
 
 -- --------------------------------------------------------
 
@@ -17701,15 +18293,14 @@ CREATE TABLE IF NOT EXISTS `phpfox_report` (
   `message` varchar(255) NOT NULL,
   PRIMARY KEY (`report_id`),
   KEY `module_id` (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `phpfox_report`
 --
 
 INSERT INTO `phpfox_report` (`report_id`, `module_id`, `product_id`, `message`) VALUES
-(1, 'core', 'phpfox', 'Test'),
-(2, 'core', 'phpfox', 'test4');
+(1, 'core', 'phpfox', 'Test');
 
 -- --------------------------------------------------------
 
@@ -17725,11 +18316,57 @@ CREATE TABLE IF NOT EXISTS `phpfox_report_data` (
   `added` int(10) unsigned NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   `feedback` mediumtext,
+  `is_archive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`data_id`),
   KEY `report_id` (`report_id`,`item_id`,`user_id`),
   KEY `item_id` (`item_id`,`user_id`),
   KEY `report_id_2` (`report_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Dumping data for table `phpfox_report_data`
+--
+
+INSERT INTO `phpfox_report_data` (`data_id`, `report_id`, `item_id`, `user_id`, `added`, `ip_address`, `feedback`, `is_archive`) VALUES
+(1, 1, 'feed_comment_25', 1, 1413390603, '::1', 'dsfds fdsf sdf', 0),
+(2, 1, 'feed_comment_24', 1, 1413390668, '::1', 'f gdf gdf gdf', 0),
+(3, 1, 'user_status_130', 1, 1413817938, '::1', 'normatl', 0),
+(8, 2, 'feed_comment_31', 1, 1414426521, '::1', 'd fgdfg dfgdfgdf g', 0),
+(9, 1, 'feed_comment_29', 4, 1414427142, '::1', 'test test', 0),
+(10, 1, 'feed_comment_32', 1, 1414427188, '::1', 'df gdf gdfg df gfdg', 1),
+(12, 1, 'comment_119', 1, 1414509659, '::1', 'rt gdf gsdg dfgdfg', 1),
+(13, 2, 'comment_121', 1, 1414509796, '::1', 'hhhhh  h', 0),
+(14, 1, 'feed_comment_33', 1, 1414515050, '::1', 'admin block hau tran ve toi ngu', 0),
+(15, 1, 'feed_comment_28', 1, 1414675799, '::1', 's cfsgf dsg dfg', 0),
+(16, 1, 'photo_71', 1, 1414683589, '::1', 'chan qua', 0),
+(17, 1, 'user_status_133', 1, 1414684314, '::1', 'aaaaaaaaaaaa', 0),
+(18, 1, 'feed_comment_34', 1, 1414684602, '::1', 'eeeeeeeeeee', 0),
+(19, 1, 'feed_comment_35', 1, 1414688198, '::1', '35 dsf dsfds fs', 0),
+(20, 1, 'feed_comment_36', 1, 1414688766, '::1', 'rrrrrrrrrrrr', 0),
+(21, 1, 'comment_122', 4, 1414847207, '::1', 'test test', 0),
+(22, 1, 'comment_132', 1, 1414850075, '::1', 'chan qua', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phpfox_report_template`
+--
+
+CREATE TABLE IF NOT EXISTS `phpfox_report_template` (
+  `template_id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL,
+  `body` mediumtext NOT NULL,
+  `time_stamp` int(10) NOT NULL,
+  PRIMARY KEY (`template_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `phpfox_report_template`
+--
+
+INSERT INTO `phpfox_report_template` (`template_id`, `title`, `body`, `time_stamp`) VALUES
+(7, 'Sexual', 'video, image sex', 1414595463),
+(8, 'Fake account', 'fake account lie', 1414595480);
 
 -- --------------------------------------------------------
 
@@ -17941,7 +18578,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_setting` (
   KEY `module_id` (`module_id`,`is_hidden`),
   KEY `product_id` (`product_id`,`is_hidden`),
   KEY `is_hidden` (`is_hidden`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=574 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=575 ;
 
 --
 -- Dumping data for table `phpfox_setting`
@@ -18510,7 +19147,8 @@ INSERT INTO `phpfox_setting` (`setting_id`, `group_id`, `module_id`, `product_id
 (568, NULL, 'sitetour', 'sitetour', 0, '3.7.5', 'string', 'add_new_tour_block_position', 'setting_add_new_tour_block_position', '{"top":15,"left":1281}', '{"top":431,"left":1244}', 1),
 (569, NULL, 'sitetour', 'sitetour', 0, '3.7.5', 'string', 'play_tour_button_play_position', 'setting_play_tour_button_play_position', '{"top":14,"left":45}', '{"top":14,"left":45}', 1),
 (572, NULL, 'customprofiles', 'customprofiles', 0, '3.7.7', 'integer', 'max_time_schedule', 'setting_max_time_schedule', '30', '30', 1),
-(573, NULL, 'customprofiles', 'customprofiles', 0, '3.7.7', 'string', 'limit_time_for_invite_user_by_anonymous_module', 'setting_limit_time_for_invite_user_by_anonymous_module', '3', '3', 1);
+(573, NULL, 'customprofiles', 'customprofiles', 0, '3.7.7', 'string', 'limit_time_for_invite_user_by_anonymous_module', 'setting_limit_time_for_invite_user_by_anonymous_module', '3', '3', 1),
+(574, NULL, 'customprofiles', 'customprofiles', 0, '3.7.5', 'integer', 'expire_post_time', 'setting_expire_post_time', '45', '7', 1);
 
 -- --------------------------------------------------------
 
@@ -19095,19 +19733,19 @@ CREATE TABLE IF NOT EXISTS `phpfox_user` (
   KEY `status_id_2` (`status_id`,`view_id`,`full_name`),
   KEY `page_id` (`profile_page_id`),
   KEY `user_id` (`user_id`,`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `phpfox_user`
 --
 
 INSERT INTO `phpfox_user` (`user_id`, `profile_page_id`, `server_id`, `user_group_id`, `status_id`, `view_id`, `user_name`, `full_name`, `password`, `password_salt`, `email`, `gender`, `birthday`, `birthday_search`, `country_iso`, `language_id`, `style_id`, `time_zone`, `dst_check`, `joined`, `last_login`, `last_activity`, `user_image`, `hide_tip`, `status`, `footer_bar`, `invite_user_id`, `im_beep`, `im_hide`, `is_invisible`, `total_spam`, `last_ip_address`, `feed_sort`) VALUES
-(1, 0, 0, 1, 0, 0, 'admin', 'phuclb', '8ef4f8b62068cf14c5811b93621ffea2', '#VQ', 'admin@localhost.com', 1, '01021901', -2177366400, 'VN', NULL, 0, NULL, 0, 1398864835, 1413137186, 1413137565, '2014/04/2035d1013708c4f98f1fc2d9f2c7648d%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
+(1, 0, 0, 1, 0, 0, 'admin', 'phuclb', '8ef4f8b62068cf14c5811b93621ffea2', '#VQ', 'admin@localhost.com', 1, '02072037', -2177366400, 'VN', '', 0, NULL, 0, 1398864835, 1418913411, 1418914134, '2014/04/2035d1013708c4f98f1fc2d9f2c7648d%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (2, 1, 0, 2, 0, 7, NULL, 'Coopmark', '8bbe85890e7a619d51274744030c9ae3', 'C=E', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1399078868, 0, 1399124103, '2%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (3, 2, 0, 2, 0, 7, NULL, 'test 111', '31773f4fb37ba123f940f5c4442450bf', 'OHB', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1399641652, 0, 1400430929, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
-(4, 0, 0, 2, 0, 0, 'profile-4', 'nguyenloc', 'a0203cb955f7759c7f3693237052c9f1', '3-T', 'nguyenloc@gmail.com', 1, '01011997', 852076800, '', '', 0, '', 0, 1399651391, 1413137445, 1413137572, '2014/05/6dc3f1b55122894177fcc25252401ca1%s.jpg', 0, '', 0, 0, 0, 0, 0, 0, '::1', 0),
+(4, 0, 0, 2, 0, 0, 'profile-4', 'nguyenloc', 'a0203cb955f7759c7f3693237052c9f1', '3-T', 'nguyenloc@gmail.com', 1, '01011997', 852076800, '', '', 0, '', 0, 1399651391, 1414849841, 1414850204, '2014/05/6dc3f1b55122894177fcc25252401ca1%s.jpg', 0, '', 0, 0, 0, 0, 0, 0, '::1', 0),
 (5, 0, 0, 2, 0, 0, 'profile-5', 'hautran', 'a4cf1714e7e134e714ec1f58cde4a6a2', '6K,', 'hautran@z.com', 2, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1400604713, 1400610520, 1400611121, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
-(6, 0, 0, 2, 0, 0, 'profile-6', 'hautran', '49cc63b540f1f5c5aa43e550bcbed532', '62=', 'hautran@gmail.com', 1, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1400694778, 1413051011, 1413051259, '2014/05/566dee34a772dc4b2fe552d5d1ae0e15%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
+(6, 0, 0, 4, 0, 0, 'profile-6', 'hautran', '49cc63b540f1f5c5aa43e550bcbed532', '62=', 'hautran@gmail.com', 1, '01011997', 852076800, '', '', 0, '', 0, 1400694778, 1418913984, 1418914124, '2014/05/566dee34a772dc4b2fe552d5d1ae0e15%s.jpg', 0, '', 0, 0, 0, 0, 0, 0, '::1', 0),
 (7, 0, 0, 2, 0, 0, 'profile-7', 'loc', '6d549a81c45088f619a3c359c1e63762', 'A#''', 'loc@gmail.com', 1, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1400869622, 1406043966, 1406044619, '2014/05/2c890ef3c4b259b48aa7a41f7df3b228%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (8, 0, 0, 2, 0, 0, 'profile-8', 'loi', 'a77ae52815302b7e76943382392c6849', '5K>', 'ducloi@gmail.com', 2, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1401113281, 1401113281, 1401113423, '2014/05/0ba87603acf62e016706b723bc626fdf%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (9, 0, 0, 2, 0, 0, 'profile-9', 'van khai', '82aa11a11f5062210d28097ecf3bf0ed', 'O"/', 'khai@gmail.com', 1, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1401113440, 1401113440, 1401113505, '2014/05/800839818aba6fe2d2b2af3244602b02%s.png', 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
@@ -19126,12 +19764,13 @@ INSERT INTO `phpfox_user` (`user_id`, `profile_page_id`, `server_id`, `user_grou
 (22, 0, 0, 2, 0, 0, 'profile-22', 'aaaaaaaa', '59cbc8d589c5b57a481b4f9696c40ec8', '1<K', 'aaaaaaaa@gmail.com', 1, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1405530015, 1405533840, 1405533878, NULL, 0, NULL, 0, 1, 0, 0, 0, 0, '::1', 0),
 (23, 0, 0, 2, 0, 0, 'profile-23', 'abc', '72f2ae8cd8509c7cb4b543f467416ea5', 'O:/', 'abc@z.com', 1, '01011996', 820454400, NULL, NULL, 0, NULL, 0, 1405696423, 1405696424, 1405697277, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (24, 0, 0, 2, 0, 0, 'profile-24', 'abc efg', '759fe2d3de9d0085b4dc62c48d2ac8fe', '8(+', 'abc@test.com', 1, '01011996', 820454400, NULL, NULL, 0, NULL, 0, 1406045278, 1406045280, 1406045312, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
-(25, 0, 0, 2, 0, 0, 'profile-25', 'chan', '6b9d7056576313df869b052381beb77f', '@;/', 'abc1@test.com', 1, '01021997', 852163200, NULL, NULL, 0, NULL, 0, 1406045435, 1406045436, 1406045456, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (26, 0, 0, 2, 0, 0, 'profile-26', 'adff', '58adf9a7d84eba85e6efc712b47f27bd', '="*', 'test1@z.com', 1, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1406045805, 1406045807, 1406046063, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (27, 0, 0, 2, 0, 0, 'profile-27', 'test2', 'd7be9e2b419435aa3840970e67c39dee', 'OCF', 'test2@z.com', 2, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1406046154, 1406046155, 1406046185, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (28, 0, 0, 2, 0, 0, 'profile-28', 'test4', 'c6aac7c7841bbb1ec14157961acb091a', 'Z1R', 'test4@gmail.com', 2, '01011997', 852076800, NULL, NULL, 0, NULL, 0, 1406049006, 1406049935, 1406050056, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
 (29, 3, 0, 2, 0, 7, NULL, 'aaaaaaa', '980f5b1be594078babd88428e37075bf', 'L;[', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1412865033, 0, 0, '29%s.jpg', 0, NULL, 0, 0, 0, 0, 0, 0, NULL, 0),
-(30, 4, 0, 2, 0, 7, NULL, 'jhjnmnmnmn', '3333ee4bc62c620cab37567d41ecfc12', 'L*S', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1413133163, 0, 1413133199, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0);
+(30, 4, 0, 2, 0, 7, NULL, 'jhjnmnmnmn', '3333ee4bc62c620cab37567d41ecfc12', 'L*S', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1413133163, 0, 1413133199, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, '::1', 0),
+(31, 5, 0, 2, 0, 7, NULL, 'test', '570ca2d6dc7978cfe0390d11ac5a42b9', '$[4', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1415713930, 0, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, NULL, 0),
+(32, 6, 0, 2, 0, 7, NULL, 'test test', '9fbfa70f045dd34d8480bac6fa30f340', '.3=', NULL, 0, NULL, 0, NULL, NULL, 0, NULL, 0, 1415713968, 0, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -19166,12 +19805,12 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_activity` (
 --
 
 INSERT INTO `phpfox_user_activity` (`user_id`, `activity_blog`, `activity_attachment`, `activity_comment`, `activity_photo`, `activity_bulletin`, `activity_poll`, `activity_invite`, `activity_forum`, `activity_video`, `activity_total`, `activity_points`, `activity_quiz`, `activity_music_song`, `activity_marketplace`, `activity_event`, `activity_pages`, `activity_points_gifted`) VALUES
-(1, 4, 0, 34, 1, 0, 3, 2, 0, 0, 92, 104, 0, 6, 1, 0, 4, 0),
+(1, 4, 0, 39, 1, 0, 3, 2, 0, 0, 125, 137, 0, 6, 1, 0, 6, 0),
 (2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0),
 (3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 0, 0, 52, 1, 0, 0, 0, 0, 0, 56, 56, 0, 0, 0, 0, 0, 0),
+(4, 0, 0, 64, 1, 0, 0, 0, 0, 0, 70, 70, 0, 0, 0, 0, 0, 0),
 (5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 0, 0, 13, 1, 0, 1, 0, 0, 0, 18, 18, 0, 0, 0, 0, 0, 0),
+(6, 0, 0, 15, 1, 0, 1, 0, 0, 0, 20, 20, 0, 0, 0, 0, 0, 0),
 (7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
 (8, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0),
 (9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
@@ -19190,12 +19829,13 @@ INSERT INTO `phpfox_user_activity` (`user_id`, `activity_blog`, `activity_attach
 (22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
 (23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (29, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
-(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -19260,12 +19900,13 @@ INSERT INTO `phpfox_user_count` (`user_id`, `mail_new`, `comment_pending`, `frie
 (22, 0, 0, 0, 0, 0, 0),
 (23, 0, 0, 0, 0, 0, 0),
 (24, 0, 0, 0, 0, 0, 0),
-(25, 0, 0, 0, 0, 0, 0),
 (26, 0, 0, 0, 0, 0, 0),
 (27, 0, 0, 0, 0, 0, 0),
 (28, 0, 0, 0, 0, 0, 0),
 (29, 0, 0, 0, 0, 0, 0),
-(30, 0, 0, 0, 0, 0, 0);
+(30, 0, 0, 0, 0, 0, 0),
+(31, 0, 0, 0, 0, 0, 0),
+(32, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -19321,7 +19962,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_custom` (
 --
 
 INSERT INTO `phpfox_user_custom` (`user_id`, `cf_about_me`, `cf_who_i_d_like_to_meet`, `cf_interests`, `cf_music`, `cf_movies`, `cf_smoker`, `cf_drinker`, `cf_record_label_name`, `cf_record_label_type`, `cf_relationship_status`, `cf_which_best_describes`) VALUES
-(4, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -19377,7 +20020,9 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_custom_value` (
 --
 
 INSERT INTO `phpfox_user_custom_value` (`user_id`, `cf_about_me`, `cf_who_i_d_like_to_meet`, `cf_interests`, `cf_music`, `cf_movies`, `cf_smoker`, `cf_drinker`, `cf_record_label_name`, `cf_record_label_type`, `cf_relationship_status`, `cf_which_best_describes`) VALUES
-(4, '', '', '', '', '', 0, 0, NULL, NULL, NULL, NULL);
+(1, '', '', '', '', '', 0, 0, NULL, NULL, NULL, NULL),
+(4, '', '', '', '', '', 0, 0, NULL, NULL, NULL, NULL),
+(6, '', '', '', '', '', 0, 0, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -19468,6 +20113,13 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_featured` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `phpfox_user_featured`
+--
+
+INSERT INTO `phpfox_user_featured` (`user_id`, `ordering`) VALUES
+(23, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -19520,19 +20172,19 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_field` (
   `location_latlng` varchar(100) DEFAULT NULL,
   UNIQUE KEY `user_id` (`user_id`),
   KEY `designer_style_id` (`designer_style_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `phpfox_user_field`
 --
 
 INSERT INTO `phpfox_user_field` (`user_id`, `first_name`, `last_name`, `signature`, `signature_clean`, `designer_style_id`, `total_comment`, `total_view`, `total_friend`, `total_post`, `total_profile_song`, `total_score`, `total_rating`, `total_user_change`, `total_full_name_change`, `country_child_id`, `city_location`, `postal_code`, `subscribe_id`, `dob_setting`, `birthday_range`, `rss_count`, `css_hash`, `newsletter_state`, `in_admincp`, `default_currency`, `total_blog`, `total_video`, `total_poll`, `total_quiz`, `total_event`, `total_song`, `total_listing`, `total_photo`, `total_pages`, `brute_force_locked_at`, `relation_data_id`, `relation_with`, `cover_photo`, `cover_photo_top`, `use_timeline`, `landing_page`, `location_latlng`) VALUES
-(1, NULL, NULL, NULL, NULL, 0, 0, 16, 20, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 1413136606, NULL, 4, 0, 3, 0, 0, 6, 1, 1, 4, NULL, 0, 0, 1, NULL, 0, NULL, NULL),
+(1, NULL, NULL, NULL, NULL, 0, 0, 16, 20, 0, 0, '0.00', 0, 0, 0, 0, 'Ho Chi Minh', NULL, 0, 0, '0102', 0, NULL, 0, 1418835647, NULL, 4, 0, 3, 0, 0, 6, 1, 1, 6, NULL, 1, 0, 1, NULL, 0, NULL, NULL),
 (2, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (3, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(4, NULL, NULL, '', NULL, 0, 0, 1, 3, 0, 0, '0.00', 0, 0, 0, 0, '', '', 0, 0, '0101', 0, NULL, 0, 1399989881, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 36, '-87', 0, NULL, NULL),
+(4, NULL, NULL, '', NULL, 0, 0, 1, 2, 0, 0, '0.00', 0, 0, 0, 0, '', '', 0, 0, '0101', 0, NULL, 0, 1399989881, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 36, '-87', 0, NULL, NULL),
 (5, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(6, NULL, NULL, NULL, NULL, 0, 0, 0, 2, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 1, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
+(6, NULL, NULL, '', NULL, 0, 0, 1, 1, 0, 0, '0.00', 0, 0, 0, 0, '', '', 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 1, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (7, NULL, NULL, NULL, NULL, 0, 0, 1, 3, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (8, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 2, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (9, NULL, NULL, NULL, NULL, 0, 0, 1, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
@@ -19548,15 +20200,16 @@ INSERT INTO `phpfox_user_field` (`user_id`, `first_name`, `last_name`, `signatur
 (19, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (20, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (21, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(22, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
+(22, NULL, NULL, NULL, NULL, 0, 0, 1, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (23, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (24, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(25, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0102', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (26, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (27, NULL, NULL, NULL, NULL, 0, 0, 0, 1, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(28, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
+(28, NULL, NULL, NULL, NULL, 0, 0, 1, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, '0101', 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
 (29, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 1, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
-(30, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL);
+(30, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
+(31, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL),
+(32, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, NULL, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -20493,7 +21146,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_ip` (
   KEY `ip_address` (`ip_address`),
   KEY `user_id_2` (`user_id`,`ip_address`),
   KEY `user_id_3` (`user_id`,`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1108 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1505 ;
 
 --
 -- Dumping data for table `phpfox_user_ip`
@@ -21606,7 +22259,405 @@ INSERT INTO `phpfox_user_ip` (`ip_log`, `user_id`, `type_id`, `ip_address`, `tim
 (1104, 4, 'session_login', '::1', 1413136427),
 (1105, 1, 'session_login', '::1', 1413137186),
 (1106, 4, 'session_login', '::1', 1413137376),
-(1107, 4, 'session_login', '::1', 1413137445);
+(1107, 4, 'session_login', '::1', 1413137445),
+(1108, 1, 'session_login', '::1', 1413210448),
+(1109, 6, 'session_login', '::1', 1413210461),
+(1110, 4, 'session_login', '::1', 1413210465),
+(1111, 1, 'session_login', '::1', 1413211449),
+(1112, 6, 'session_login', '::1', 1413211462),
+(1113, 4, 'session_login', '::1', 1413211487),
+(1114, 6, 'session_login', '::1', 1413212377),
+(1115, 1, 'session_login', '::1', 1413212384),
+(1116, 4, 'session_login', '::1', 1413212396),
+(1117, 6, 'session_login', '::1', 1413213340),
+(1118, 4, 'session_login', '::1', 1413213368),
+(1119, 1, 'session_login', '::1', 1413213379),
+(1120, 4, 'session_login', '::1', 1413214281),
+(1121, 6, 'session_login', '::1', 1413214304),
+(1122, 1, 'session_login', '::1', 1413214372),
+(1123, 4, 'session_login', '::1', 1413215196),
+(1124, 6, 'session_login', '::1', 1413215206),
+(1125, 1, 'session_login', '::1', 1413215306),
+(1126, 6, 'session_login', '::1', 1413216133),
+(1127, 4, 'session_login', '::1', 1413216163),
+(1128, 1, 'session_login', '::1', 1413216349),
+(1129, 6, 'session_login', '::1', 1413217097),
+(1130, 1, 'session_login', '::1', 1413296696),
+(1131, 1, 'session_login', '::1', 1413297686),
+(1132, 1, 'session_login', '::1', 1413298649),
+(1133, 4, 'session_login', '::1', 1413299114),
+(1134, 1, 'session_login', '::1', 1413299612),
+(1135, 4, 'session_login', '::1', 1413300102),
+(1136, 1, 'session_login', '::1', 1413300576),
+(1137, 4, 'session_login', '::1', 1413301072),
+(1138, 1, 'session_login', '::1', 1413301541),
+(1139, 4, 'session_login', '::1', 1413302064),
+(1140, 1, 'session_login', '::1', 1413302444),
+(1141, 4, 'session_login', '::1', 1413303032),
+(1142, 1, 'session_login', '::1', 1413303396),
+(1143, 4, 'session_login', '::1', 1413304021),
+(1144, 1, 'session_login', '::1', 1413304361),
+(1145, 4, 'session_login', '::1', 1413304990),
+(1146, 1, 'session_login', '::1', 1413305310),
+(1147, 4, 'session_login', '::1', 1413305958),
+(1148, 1, 'session_login', '::1', 1413306302),
+(1149, 4, 'session_login', '::1', 1413306926);
+INSERT INTO `phpfox_user_ip` (`ip_log`, `user_id`, `type_id`, `ip_address`, `time_stamp`) VALUES
+(1150, 1, 'session_login', '::1', 1413307239),
+(1151, 4, 'session_login', '::1', 1413307894),
+(1152, 1, 'session_login', '::1', 1413308197),
+(1153, 4, 'session_login', '::1', 1413308898),
+(1154, 1, 'session_login', '::1', 1413309105),
+(1155, 0, 'logout', '::1', 1413388163),
+(1156, 1, 'login', '::1', 1413388201),
+(1157, 1, 'session_login', '::1', 1413388201),
+(1158, 1, 'session_login', '::1', 1413389185),
+(1159, 1, 'session_login', '::1', 1413390148),
+(1160, 1, 'session_login', '::1', 1413391152),
+(1161, 1, 'session_login', '::1', 1413392073),
+(1162, 1, 'session_login', '::1', 1413393070),
+(1163, 1, 'session_login', '::1', 1413393090),
+(1164, 1, 'session_login', '::1', 1413393997),
+(1165, 1, 'login', '::1', 1413468224),
+(1166, 1, 'session_login', '::1', 1413468229),
+(1167, 1, 'session_login', '::1', 1413469215),
+(1168, 1, 'session_login', '::1', 1413470132),
+(1169, 1, 'session_login', '::1', 1413471097),
+(1170, 1, 'session_login', '::1', 1413472004),
+(1171, 0, 'logout', '::1', 1413472677),
+(1172, 0, 'logout', '::1', 1413472679),
+(1173, 4, 'login', '::1', 1413472707),
+(1174, 4, 'session_login', '::1', 1413472707),
+(1175, 1, 'session_login', '::1', 1413472906),
+(1176, 1, 'session_login', '::1', 1413472909),
+(1177, 4, 'session_login', '::1', 1413473648),
+(1178, 1, 'session_login', '::1', 1413473829),
+(1179, 4, 'session_login', '::1', 1413474616),
+(1180, 1, 'session_login', '::1', 1413474748),
+(1181, 4, 'session_login', '::1', 1413475584),
+(1182, 1, 'session_login', '::1', 1413476222),
+(1183, 1, 'session_login', '::1', 1413477225),
+(1184, 1, 'session_login', '::1', 1413478548),
+(1185, 1, 'login', '::1', 1413731086),
+(1186, 1, 'session_login', '::1', 1413731090),
+(1187, 1, 'session_login', '::1', 1413732554),
+(1188, 1, 'session_login', '::1', 1413733536),
+(1189, 1, 'session_login', '::1', 1413734503),
+(1190, 1, 'session_login', '::1', 1413735468),
+(1191, 1, 'session_login', '::1', 1413736432),
+(1192, 1, 'session_login', '::1', 1413737397),
+(1193, 1, 'session_login', '::1', 1413738361),
+(1194, 1, 'session_login', '::1', 1413739326),
+(1195, 1, 'session_login', '::1', 1413740290),
+(1196, 1, 'session_login', '::1', 1413817595),
+(1197, 1, 'session_login', '::1', 1413818591),
+(1198, 1, 'session_login', '::1', 1413819556),
+(1199, 1, 'session_login', '::1', 1413820520),
+(1200, 1, 'session_login', '::1', 1413821484),
+(1201, 1, 'session_login', '::1', 1413822448),
+(1202, 1, 'session_login', '::1', 1413823413),
+(1203, 1, 'session_login', '::1', 1413824378),
+(1204, 1, 'session_login', '::1', 1413901128),
+(1205, 1, 'session_login', '::1', 1413902157),
+(1206, 1, 'session_login', '::1', 1413903125),
+(1207, 1, 'session_login', '::1', 1413904100),
+(1208, 1, 'session_login', '::1', 1413905067),
+(1209, 1, 'session_login', '::1', 1413906034),
+(1210, 1, 'session_login', '::1', 1413907008),
+(1211, 1, 'session_login', '::1', 1413907974),
+(1212, 1, 'session_login', '::1', 1413908937),
+(1213, 1, 'session_login', '::1', 1413909910),
+(1214, 1, 'session_login', '::1', 1413910887),
+(1215, 1, 'session_login', '::1', 1413911868),
+(1216, 1, 'session_login', '::1', 1413912843),
+(1217, 1, 'login', '::1', 1414228375),
+(1218, 1, 'session_login', '::1', 1414228376),
+(1219, 1, 'session_login', '::1', 1414229369),
+(1220, 4, 'login', '::1', 1414229594),
+(1221, 4, 'session_login', '::1', 1414229595),
+(1222, 0, 'logout', '::1', 1414229659),
+(1223, 0, 'login_failed', '::1', 1414229668),
+(1224, 0, 'login_failed', '::1', 1414229692),
+(1225, 6, 'login', '::1', 1414229777),
+(1226, 6, 'session_login', '::1', 1414229778),
+(1227, 6, 'session_login', '::1', 1414229787),
+(1228, 1, 'session_login', '::1', 1414230300),
+(1229, 4, 'session_login', '::1', 1414230592),
+(1230, 6, 'session_login', '::1', 1414230800),
+(1231, 1, 'session_login', '::1', 1414231264),
+(1232, 4, 'session_login', '::1', 1414231556),
+(1233, 6, 'session_login', '::1', 1414231764),
+(1234, 1, 'session_login', '::1', 1414232227),
+(1235, 4, 'session_login', '::1', 1414232520),
+(1236, 6, 'session_login', '::1', 1414232728),
+(1237, 1, 'session_login', '::1', 1414233192),
+(1238, 4, 'session_login', '::1', 1414233484),
+(1239, 6, 'session_login', '::1', 1414233696),
+(1240, 1, 'session_login', '::1', 1414234162),
+(1241, 4, 'session_login', '::1', 1414234455),
+(1242, 6, 'session_login', '::1', 1414234667),
+(1243, 1, 'session_login', '::1', 1414235129),
+(1244, 4, 'session_login', '::1', 1414235428),
+(1245, 6, 'session_login', '::1', 1414235635),
+(1246, 1, 'session_login', '::1', 1414236094),
+(1247, 4, 'session_login', '::1', 1414236396),
+(1248, 6, 'session_login', '::1', 1414236603),
+(1249, 1, 'session_login', '::1', 1414237058),
+(1250, 4, 'session_login', '::1', 1414237364),
+(1251, 6, 'session_login', '::1', 1414237571),
+(1252, 1, 'session_login', '::1', 1414238022),
+(1253, 4, 'session_login', '::1', 1414238332),
+(1254, 6, 'session_login', '::1', 1414238539),
+(1255, 1, 'session_login', '::1', 1414238985),
+(1256, 4, 'session_login', '::1', 1414239300),
+(1257, 6, 'session_login', '::1', 1414239507),
+(1258, 1, 'session_login', '::1', 1414239949),
+(1259, 4, 'session_login', '::1', 1414240268),
+(1260, 6, 'session_login', '::1', 1414240477),
+(1261, 1, 'session_login', '::1', 1414240913),
+(1262, 4, 'session_login', '::1', 1414241236),
+(1263, 6, 'session_login', '::1', 1414241445),
+(1264, 1, 'session_login', '::1', 1414241877),
+(1265, 4, 'session_login', '::1', 1414242204),
+(1266, 6, 'session_login', '::1', 1414242413),
+(1267, 1, 'session_login', '::1', 1414242841),
+(1268, 4, 'session_login', '::1', 1414243173),
+(1269, 6, 'session_login', '::1', 1414243382),
+(1270, 1, 'session_login', '::1', 1414243807),
+(1271, 4, 'session_login', '::1', 1414244144),
+(1272, 6, 'session_login', '::1', 1414244355),
+(1273, 1, 'session_login', '::1', 1414244772),
+(1274, 1, 'session_login', '::1', 1414290290),
+(1275, 4, 'session_login', '::1', 1414290299),
+(1276, 4, 'session_login', '::1', 1414290664),
+(1277, 6, 'login', '::1', 1414291058),
+(1278, 6, 'session_login', '::1', 1414291059),
+(1279, 1, 'session_login', '::1', 1414291293),
+(1280, 4, 'session_login', '::1', 1414291575),
+(1281, 6, 'session_login', '::1', 1414292052),
+(1282, 1, 'session_login', '::1', 1414292257),
+(1283, 4, 'session_login', '::1', 1414292507),
+(1284, 6, 'session_login', '::1', 1414293020),
+(1285, 1, 'session_login', '::1', 1414293220),
+(1286, 4, 'session_login', '::1', 1414293416),
+(1287, 1, 'session_login', '::1', 1414417484),
+(1288, 4, 'session_login', '::1', 1414417493),
+(1289, 1, 'session_login', '::1', 1414418550),
+(1290, 4, 'session_login', '::1', 1414418553),
+(1291, 6, 'session_login', '::1', 1414419000),
+(1292, 1, 'session_login', '::1', 1414419493),
+(1293, 4, 'session_login', '::1', 1414419521),
+(1294, 6, 'session_login', '::1', 1414419979),
+(1295, 1, 'session_login', '::1', 1414420429),
+(1296, 4, 'session_login', '::1', 1414420490),
+(1297, 6, 'session_login', '::1', 1414420943),
+(1298, 1, 'session_login', '::1', 1414421449),
+(1299, 4, 'session_login', '::1', 1414421458),
+(1300, 6, 'session_login', '::1', 1414421909),
+(1301, 1, 'session_login', '::1', 1414422363),
+(1302, 4, 'session_login', '::1', 1414422429),
+(1303, 6, 'session_login', '::1', 1414422875),
+(1304, 1, 'session_login', '::1', 1414423327),
+(1305, 4, 'session_login', '::1', 1414423394),
+(1306, 6, 'session_login', '::1', 1414423838),
+(1307, 1, 'session_login', '::1', 1414424291),
+(1308, 4, 'session_login', '::1', 1414424394),
+(1309, 6, 'session_login', '::1', 1414424779),
+(1310, 1, 'session_login', '::1', 1414425279),
+(1311, 4, 'session_login', '::1', 1414425362),
+(1312, 6, 'session_login', '::1', 1414425766),
+(1313, 1, 'session_login', '::1', 1414426184),
+(1314, 4, 'session_login', '::1', 1414426330),
+(1315, 6, 'session_login', '::1', 1414426730),
+(1316, 1, 'session_login', '::1', 1414427148),
+(1317, 4, 'session_login', '::1', 1414427297),
+(1318, 6, 'session_login', '::1', 1414427694),
+(1319, 1, 'session_login', '::1', 1414428112),
+(1320, 4, 'session_login', '::1', 1414428261),
+(1321, 6, 'session_login', '::1', 1414428657),
+(1322, 1, 'session_login', '::1', 1414429042),
+(1323, 4, 'session_login', '::1', 1414429227),
+(1324, 6, 'session_login', '::1', 1414429621),
+(1325, 1, 'session_login', '::1', 1414430039),
+(1326, 4, 'session_login', '::1', 1414430190),
+(1327, 6, 'session_login', '::1', 1414430585),
+(1328, 1, 'session_login', '::1', 1414430976),
+(1329, 4, 'session_login', '::1', 1414431153),
+(1330, 1, 'session_login', '::1', 1414506640),
+(1331, 1, 'session_login', '::1', 1414507570),
+(1332, 1, 'session_login', '::1', 1414508481),
+(1333, 1, 'update_account', '::1', 1414508603),
+(1334, 1, 'session_login', '::1', 1414509446),
+(1335, 1, 'session_login', '::1', 1414510413),
+(1336, 1, 'session_login', '::1', 1414512009),
+(1337, 1, 'session_login', '::1', 1414513382),
+(1338, 1, 'session_login', '::1', 1414514549),
+(1339, 6, 'session_login', '::1', 1414514672),
+(1340, 6, 'session_login', '::1', 1414514673),
+(1341, 1, 'session_login', '::1', 1414515496),
+(1342, 6, 'session_login', '::1', 1414515651),
+(1343, 1, 'session_login', '::1', 1414516459),
+(1344, 6, 'session_login', '::1', 1414516614),
+(1345, 1, 'session_login', '::1', 1414517423),
+(1346, 6, 'session_login', '::1', 1414517578),
+(1347, 1, 'session_login', '::1', 1414518375),
+(1348, 1, 'session_login', '::1', 1414593096),
+(1349, 1, 'session_login', '::1', 1414594352),
+(1350, 1, 'session_login', '::1', 1414594638),
+(1351, 1, 'session_login', '::1', 1414595724),
+(1352, 4, 'session_login', '::1', 1414596554),
+(1353, 1, 'session_login', '::1', 1414596686),
+(1354, 4, 'session_login', '::1', 1414597554),
+(1355, 1, 'session_login', '::1', 1414675437),
+(1356, 1, 'session_login', '::1', 1414676423),
+(1357, 1, 'session_login', '::1', 1414677388),
+(1358, 1, 'session_login', '::1', 1414678352),
+(1359, 1, 'session_login', '::1', 1414679369),
+(1360, 1, 'session_login', '::1', 1414680336),
+(1361, 1, 'session_login', '::1', 1414681301),
+(1362, 1, 'session_login', '::1', 1414682316),
+(1363, 1, 'session_login', '::1', 1414683280),
+(1364, 1, 'session_login', '::1', 1414684196),
+(1365, 4, 'session_login', '::1', 1414684544),
+(1366, 1, 'session_login', '::1', 1414685135),
+(1367, 4, 'session_login', '::1', 1414685515),
+(1368, 1, 'session_login', '::1', 1414686048),
+(1369, 4, 'session_login', '::1', 1414686493),
+(1370, 1, 'session_login', '::1', 1414686961),
+(1371, 4, 'session_login', '::1', 1414687477),
+(1372, 1, 'session_login', '::1', 1414687870),
+(1373, 4, 'session_login', '::1', 1414688444),
+(1374, 1, 'session_login', '::1', 1414688771),
+(1375, 1, 'session_login', '::1', 1414769605),
+(1376, 1, 'session_login', '::1', 1414842318),
+(1377, 0, 'logout', '::1', 1414842578),
+(1378, 1, 'session_login', '::1', 1414843313),
+(1379, 4, 'login', '::1', 1414844163),
+(1380, 4, 'session_login', '::1', 1414844164),
+(1381, 1, 'session_login', '::1', 1414844279),
+(1382, 4, 'session_login', '::1', 1414845155),
+(1383, 1, 'session_login', '::1', 1414845247),
+(1384, 4, 'session_login', '::1', 1414846123),
+(1385, 1, 'session_login', '::1', 1414846211),
+(1386, 4, 'session_login', '::1', 1414847094),
+(1387, 1, 'session_login', '::1', 1414847176),
+(1388, 4, 'session_login', '::1', 1414847996),
+(1389, 1, 'session_login', '::1', 1414848144),
+(1390, 4, 'session_login', '::1', 1414848935),
+(1391, 1, 'session_login', '::1', 1414849061),
+(1392, 4, 'session_login', '::1', 1414849841),
+(1393, 1, 'session_login', '::1', 1414850041),
+(1394, 1, 'session_login', '::1', 1414940964),
+(1395, 1, 'session_login', '::1', 1414941978),
+(1396, 1, 'session_login', '::1', 1414942883),
+(1397, 1, 'session_login', '::1', 1414945691),
+(1398, 1, 'login', '::1', 1415025471),
+(1399, 1, 'session_login', '::1', 1415025472),
+(1400, 1, 'session_login', '::1', 1415026454),
+(1401, 1, 'session_login', '::1', 1415027374),
+(1402, 1, 'session_login', '::1', 1415028372),
+(1403, 1, 'session_login', '::1', 1415029380),
+(1404, 1, 'session_login', '::1', 1415030358),
+(1405, 1, 'session_login', '::1', 1415031268),
+(1406, 1, 'session_login', '::1', 1415032290),
+(1407, 1, 'session_login', '::1', 1415033258),
+(1408, 1, 'session_login', '::1', 1415036216),
+(1409, 1, 'session_login', '::1', 1415037140),
+(1410, 1, 'session_login', '::1', 1415038127),
+(1411, 1, 'session_login', '::1', 1415039074),
+(1412, 1, 'session_login', '::1', 1415113217),
+(1413, 1, 'session_login', '::1', 1415114214),
+(1414, 1, 'session_login', '::1', 1415115179),
+(1415, 1, 'session_login', '::1', 1415116154),
+(1416, 1, 'session_login', '::1', 1415117135),
+(1417, 1, 'session_login', '::1', 1415118164),
+(1418, 1, 'session_login', '::1', 1415119134),
+(1419, 1, 'session_login', '::1', 1415713449),
+(1420, 1, 'session_login', '::1', 1416584490),
+(1421, 1, 'session_login', '::1', 1416585489),
+(1422, 1, 'session_login', '::1', 1416929079),
+(1423, 1, 'login', '::1', 1418396965),
+(1424, 1, 'session_login', '::1', 1418396966),
+(1425, 1, 'session_login', '::1', 1418399218),
+(1426, 1, 'session_login', '::1', 1418400214),
+(1427, 1, 'session_login', '::1', 1418401184),
+(1428, 1, 'session_login', '::1', 1418402205),
+(1429, 1, 'session_login', '::1', 1418403171),
+(1430, 1, 'session_login', '::1', 1418484150),
+(1431, 1, 'session_login', '::1', 1418485145),
+(1432, 1, 'session_login', '::1', 1418486110),
+(1433, 1, 'session_login', '::1', 1418487069),
+(1434, 1, 'session_login', '::1', 1418488033),
+(1435, 1, 'session_login', '::1', 1418489000),
+(1436, 1, 'session_login', '::1', 1418490001),
+(1437, 1, 'session_login', '::1', 1418490922),
+(1438, 1, 'session_login', '::1', 1418521449),
+(1439, 1, 'session_login', '::1', 1418522459),
+(1440, 1, 'session_login', '::1', 1418523423),
+(1441, 1, 'session_login', '::1', 1418524387),
+(1442, 1, 'session_login', '::1', 1418525351),
+(1443, 1, 'session_login', '::1', 1418526320),
+(1444, 1, 'session_login', '::1', 1418527270),
+(1445, 1, 'session_login', '::1', 1418528249),
+(1446, 1, 'session_login', '::1', 1418529213),
+(1447, 1, 'session_login', '::1', 1418530178),
+(1448, 1, 'session_login', '::1', 1418531152),
+(1449, 1, 'session_login', '::1', 1418532143),
+(1450, 1, 'session_login', '::1', 1418533133),
+(1451, 1, 'session_login', '::1', 1418534122),
+(1452, 1, 'session_login', '::1', 1418535037),
+(1453, 1, 'session_login', '::1', 1418535946),
+(1454, 1, 'session_login', '::1', 1418536853),
+(1455, 1, 'session_login', '::1', 1418537759),
+(1456, 1, 'session_login', '::1', 1418538704),
+(1457, 1, 'session_login', '::1', 1418539630),
+(1458, 1, 'session_login', '::1', 1418540530),
+(1459, 1, 'session_login', '::1', 1418549656),
+(1460, 1, 'session_login', '::1', 1418550614),
+(1461, 1, 'session_login', '::1', 1418551568),
+(1462, 1, 'session_login', '::1', 1418552478),
+(1463, 1, 'session_login', '::1', 1418553394),
+(1464, 1, 'session_login', '::1', 1418554311),
+(1465, 1, 'session_login', '::1', 1418555281),
+(1466, 1, 'session_login', '::1', 1418556192),
+(1467, 1, 'session_login', '::1', 1418557101),
+(1468, 1, 'session_login', '::1', 1418558003),
+(1469, 1, 'session_login', '::1', 1418558913),
+(1470, 1, 'session_login', '::1', 1418559817),
+(1471, 1, 'session_login', '::1', 1418560729),
+(1472, 1, 'session_login', '::1', 1418561632),
+(1473, 1, 'session_login', '::1', 1418562544),
+(1474, 1, 'session_login', '::1', 1418572393),
+(1475, 1, 'session_login', '::1', 1418573316),
+(1476, 1, 'session_login', '::1', 1418574252),
+(1477, 1, 'session_login', '::1', 1418575213),
+(1478, 1, 'session_login', '::1', 1418576139),
+(1479, 1, 'session_login', '::1', 1418653055),
+(1480, 1, 'session_login', '::1', 1418653989),
+(1481, 1, 'session_login', '::1', 1418654977),
+(1482, 1, 'session_login', '::1', 1418655897),
+(1483, 1, 'session_login', '::1', 1418656808),
+(1484, 1, 'session_login', '::1', 1418657826),
+(1485, 1, 'session_login', '::1', 1418658840),
+(1486, 1, 'session_login', '::1', 1418659809),
+(1487, 1, 'session_login', '::1', 1418660781),
+(1488, 1, 'session_login', '::1', 1418661684),
+(1489, 1, 'session_login', '::1', 1418662586),
+(1490, 1, 'session_login', '::1', 1418663514),
+(1491, 1, 'session_login', '::1', 1418664478),
+(1492, 1, 'session_login', '::1', 1418665474),
+(1493, 1, 'session_login', '::1', 1418666426),
+(1494, 1, 'session_login', '::1', 1418745001),
+(1495, 1, 'session_login', '::1', 1418835231),
+(1496, 1, 'session_login', '::1', 1418836228),
+(1497, 1, 'session_login', '::1', 1418911554),
+(1498, 0, 'logout', '::1', 1418911632),
+(1499, 6, 'login', '::1', 1418912030),
+(1500, 6, 'session_login', '::1', 1418912031),
+(1501, 1, 'session_login', '::1', 1418912501),
+(1502, 6, 'session_login', '::1', 1418912989),
+(1503, 1, 'session_login', '::1', 1418913411),
+(1504, 6, 'session_login', '::1', 1418913984);
 
 -- --------------------------------------------------------
 
@@ -21653,7 +22704,19 @@ INSERT INTO `phpfox_user_privacy` (`user_id`, `user_privacy`, `user_value`) VALU
 (4, 'rate.can_rate', 2),
 (4, 'rss.display_on_profile', 2),
 (4, 'track.display_on_profile', 2),
-(4, 'user.can_i_be_tagged', 2);
+(4, 'user.can_i_be_tagged', 2),
+(6, 'feed.view_wall', 2),
+(6, 'feed.share_on_wall', 2),
+(6, 'friend.view_friend', 2),
+(6, 'mail.send_message', 2),
+(6, 'photo.display_on_profile', 2),
+(6, 'profile.view_profile', 2),
+(6, 'profile.basic_info', 2),
+(6, 'profile.profile_info', 2),
+(6, 'profile.view_location', 2),
+(6, 'rss.display_on_profile', 2),
+(6, 'track.display_on_profile', 2),
+(6, 'user.can_i_be_tagged', 2);
 
 -- --------------------------------------------------------
 
@@ -21743,10 +22806,10 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_space` (
 --
 
 INSERT INTO `phpfox_user_space` (`user_id`, `space_attachment`, `space_photo`, `space_poll`, `space_quiz`, `space_marketplace`, `space_event`, `space_group`, `space_music`, `space_music_image`, `space_video`, `space_pages`, `space_total`) VALUES
-(1, 0, 6727945, 0, 0, 283898, 0, 0, 28715790, 0, 0, 498906, 36226539),
+(1, 0, 10667407, 0, 0, 283898, 0, 0, 28715790, 0, 0, 498906, 40166001),
 (2, 0, 202963, 0, 0, 0, 0, 0, 0, 0, 0, 0, 202963),
 (3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 0, 418835, 0, 0, 0, 0, 0, 0, 0, 0, 0, 418835),
+(4, 0, 1165630, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1165630),
 (5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (6, 0, 960021, 0, 0, 0, 0, 0, 0, 0, 0, 0, 960021),
 (7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -21767,12 +22830,13 @@ INSERT INTO `phpfox_user_space` (`user_id`, `space_attachment`, `space_photo`, `
 (22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -21809,7 +22873,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_status` (
   `location_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`status_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=129 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=160 ;
 
 --
 -- Dumping data for table `phpfox_user_status`
@@ -21943,7 +23007,38 @@ INSERT INTO `phpfox_user_status` (`status_id`, `user_id`, `privacy`, `privacy_co
 (125, 6, 1, 0, 'fgdfgfg dfg dfg', 1410882997, 1, 0, NULL, NULL),
 (126, 6, 1, 0, 'ds fsd fdsf', 1410883181, 0, 0, NULL, NULL),
 (127, 6, 1, 0, 'rytmdy yhrtyurtytry', 1410963533, 2, 0, NULL, NULL),
-(128, 1, 1, 0, 'dung lam anh cau', 1412004224, 0, 0, NULL, NULL);
+(128, 1, 1, 0, 'dung lam anh cau', 1412004224, 0, 0, NULL, NULL),
+(129, 1, 1, 0, 'dfg df gdfg dfgfd g', 1413468599, 0, 0, NULL, NULL),
+(130, 1, 1, 0, 'dg df gfdg fdg fdg fdg', 1413468606, 0, 0, NULL, NULL),
+(131, 1, 1, 0, 'gdf gfdgdf gf gf gfg', 1413468614, 0, 0, NULL, NULL),
+(132, 4, 1, 0, 'xcv g f f ff', 1414229640, 0, 0, NULL, NULL),
+(133, 1, 1, 0, 'chan qua ldsflsdf', 1414684302, 0, 0, NULL, NULL),
+(134, 4, 1, 0, 'test delete hehe', 1414847939, 2, 0, NULL, NULL),
+(135, 1, 1, 0, 'sdfg dfsgdfsgsdf gfdsg dfg dfgdf gdf gdfg', 1414943214, 0, 0, NULL, NULL),
+(136, 1, 1, 0, 'ds fsd fds fdsf ds fdsfdsf dsf', 1415030166, 0, 0, NULL, NULL),
+(137, 1, 1, 0, 's dssdf sf sfdsfdsf dsf', 1415030180, 0, 0, NULL, NULL),
+(138, 1, 1, 0, 'What&#039;s on your mind?', 1415030185, 0, 0, NULL, NULL),
+(139, 1, 1, 0, 'dgdfg dfg df g', 1415030206, 0, 0, NULL, NULL),
+(140, 1, 1, 0, 'gdf gdfg dfg dfg dfg', 1415030249, 0, 0, NULL, NULL),
+(141, 1, 1, 0, 'as fasd fdas fas fsd fsd f', 1415030711, 0, 0, NULL, NULL),
+(142, 1, 1, 0, 'sfsdfas fdsf dsf sdf', 1415031268, 0, 0, NULL, NULL),
+(143, 1, 1, 0, 'sd  fdsfdsfdsf', 1415031337, 0, 0, NULL, NULL),
+(144, 1, 1, 0, 's fds fsd df', 1415031519, 0, 0, NULL, NULL),
+(145, 1, 1, 0, 's fs dfsfsfsd f', 1415031545, 0, 0, NULL, NULL),
+(146, 1, 1, 0, 'dang buc minh', 1415036538, 0, 0, NULL, NULL),
+(147, 1, 1, 0, 'dung lam anh cau', 1415036554, 0, 0, NULL, NULL),
+(148, 1, 1, 0, 'chan qua di', 1415036566, 0, 0, NULL, NULL),
+(149, 1, 1, 0, 'buc boi qua di', 1415036577, 0, 0, NULL, NULL),
+(150, 1, 1, 0, 'f gdfgdgdfg f', 1415036688, 0, 0, NULL, NULL),
+(151, 1, 1, 0, 'mljl', 1415036763, 0, 0, NULL, NULL),
+(152, 1, 1, 0, 'khkhkhk', 1415036769, 0, 0, NULL, NULL),
+(153, 1, 1, 0, 'nmnmnm', 1415036790, 0, 0, NULL, NULL),
+(154, 1, 1, 0, 'sfds fsdfs f', 1415037048, 0, 0, NULL, NULL),
+(155, 1, 1, 0, 'fsd fsfd', 1415037053, 0, 0, NULL, NULL),
+(156, 1, 1, 0, 'f fdgfgdf gf gfdgfg fgf gfdf gdf gdfg', 1415038751, 0, 0, NULL, NULL),
+(157, 1, 1, 0, 's ffdg dfgdfg dfg dfgfd gdfg', 1415115744, 0, 0, NULL, NULL),
+(158, 1, 1, 0, 'f gdf dgfg', 1415115752, 0, 0, NULL, NULL),
+(159, 1, 1, 0, 'chan vai', 1415115858, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -21964,7 +23059,7 @@ CREATE TABLE IF NOT EXISTS `phpfox_user_track` (
 
 INSERT INTO `phpfox_user_track` (`item_id`, `user_id`, `time_stamp`) VALUES
 (1, 4, 1400605433),
-(4, 1, 1408559139),
+(4, 1, 1414850091),
 (1, 5, 1400604746),
 (1, 6, 1413045934),
 (1, 8, 1401113307),
@@ -21986,7 +23081,10 @@ INSERT INTO `phpfox_user_track` (`item_id`, `user_id`, `time_stamp`) VALUES
 (18, 1, 1401378235),
 (12, 1, 1401460728),
 (11, 1, 1401460793),
-(10, 1, 1401616334);
+(10, 1, 1401616334),
+(28, 1, 1413305094),
+(6, 1, 1414687583),
+(22, 1, 1414597089);
 
 -- --------------------------------------------------------
 
@@ -22315,6 +23413,108 @@ CREATE TABLE IF NOT EXISTS `phpfox_vidly_url` (
   `upload_video_id` int(10) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `video_id` (`video_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phpfox_waytime_answer`
+--
+
+CREATE TABLE IF NOT EXISTS `phpfox_waytime_answer` (
+  `answer_id` int(10) NOT NULL AUTO_INCREMENT,
+  `question_id` int(10) NOT NULL,
+  `answer` mediumtext NOT NULL,
+  PRIMARY KEY (`answer_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `phpfox_waytime_answer`
+--
+
+INSERT INTO `phpfox_waytime_answer` (`answer_id`, `question_id`, `answer`) VALUES
+(3, 1, 'Answer 1.2'),
+(5, 1, 'Answer 1.1'),
+(6, 1, 'Answer 1.3'),
+(7, 1, 'Answer 1.4'),
+(8, 1, 'Answer 1.5'),
+(9, 2, 'Answer 2.1'),
+(10, 2, 'Answer 2.2'),
+(11, 2, 'Answer 2.3'),
+(12, 3, 'Answer 3.1'),
+(13, 3, 'Answer 3.2'),
+(14, 4, 'Answer 4.1'),
+(15, 4, 'Answer 4.2'),
+(16, 6, 'Answer 5.1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phpfox_waytime_profile`
+--
+
+CREATE TABLE IF NOT EXISTS `phpfox_waytime_profile` (
+  `profile_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `current` int(10) NOT NULL DEFAULT '0',
+  `is_complete` tinyint(1) NOT NULL DEFAULT '0',
+  `is_unlock` tinyint(1) NOT NULL DEFAULT '0',
+  `remind_time` int(10) NOT NULL,
+  PRIMARY KEY (`profile_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `phpfox_waytime_profile`
+--
+
+INSERT INTO `phpfox_waytime_profile` (`profile_id`, `user_id`, `current`, `is_complete`, `is_unlock`, `remind_time`) VALUES
+(2, 1, 1, 0, 0, 1418666060);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phpfox_waytime_profile_question`
+--
+
+CREATE TABLE IF NOT EXISTS `phpfox_waytime_profile_question` (
+  `profile_id` int(10) NOT NULL,
+  `question_id` int(10) NOT NULL,
+  `answer_id` int(10) NOT NULL,
+  `note` mediumtext NOT NULL,
+  `is_helpful` tinyint(1) NOT NULL DEFAULT '0',
+  `time_stamp` int(10) NOT NULL,
+  PRIMARY KEY (`profile_id`,`question_id`,`answer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `phpfox_waytime_profile_question`
+--
+
+INSERT INTO `phpfox_waytime_profile_question` (`profile_id`, `question_id`, `answer_id`, `note`, `is_helpful`, `time_stamp`) VALUES
+(2, 1, 6, '', 0, 1418666936);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phpfox_waytime_question`
+--
+
+CREATE TABLE IF NOT EXISTS `phpfox_waytime_question` (
+  `question_id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` mediumtext NOT NULL,
+  `ordering` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `phpfox_waytime_question`
+--
+
+INSERT INTO `phpfox_waytime_question` (`question_id`, `title`, `ordering`) VALUES
+(1, 'Question 1', 1),
+(2, 'Quesion 2', 2),
+(3, 'Question 3', 3),
+(4, 'question 4', 4),
+(6, 'Question 5', 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
