@@ -144,11 +144,23 @@
 
         public function getFeed($iFeedId , $sModule = null)
         {
-			$sTable = ($sModule ? Phpfox::getT($sModule.'_feed') : Phpfox::getT('feed'));
-            return $this->database()->select('*')
+            $sTable = Phpfox::getT('feed');
+            $aConds[] = 'feed_id='.(int)$iFeedId;
+            
+            if($sModule == 'pages' || $sModule == 'event')
+            {
+                $sTable = Phpfox::getT($sModule.'_feed');
+            }
+            else if(!empty($sModule))
+            {
+
+            }
+            
+            $aRow = $this->database()->select('*')
             ->from($sTable)
-            ->where('feed_id='.(int)$iFeedId)
+            ->where($aConds)
             ->execute('getRow');
+            return $aRow;
         }
 
         public function getFeedItem($iItemId, $sType)
