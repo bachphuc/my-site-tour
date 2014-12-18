@@ -153,7 +153,7 @@
                     }
                     else
                     {
-						$sType = (isset($aVals['type']) && ($aVals['type'] == 'event' || $aVals['type'] == 'pages') ? $aVals['type'] : null);
+						$sType = (isset($aVals['type']) && !empty($aVals['type']) ? $aVals['type'] : null);
                         $aTempFeed = Phpfox::getService('customprofiles')->getFeed($aVals['is_via_feed'] , $sType);
                         $aFeed['is_anonymous'] = false;
                         $aFeed['owner_user_id'] = $aTempFeed['user_id'];

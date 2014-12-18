@@ -29,9 +29,16 @@
                 $sConfirm = '<span id="confirm_notification_'.$aNotification['notification_id'].'">. Click to accept or refuse this post &nbsp; <input type="button" value="Accept" class="button" onclick="$(this).attr(\'disabled\',\'disabled\');$.ajaxCall(\'customprofiles.acceptAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"> <input type="button" value="Refuse" class="button" onclick="$.ajaxCall(\'customprofiles.refuseAnonymousPost\',\'notify_id='.$aNotification['notification_id'].'&feed_id='.$aNotification['item_id'].'\');return false;" style="margin-top:5px"></span>';
             }
 
-            $sHtml = 'A wayter posted about you'.$sConfirm.'</br> ';
+            $sHtml = '<span class="drop_data_user">A wayter</span> posted about you'.$sConfirm.'</br> ';
+            
+            $sUrl = '';
+            if($aNonymousFeed['new_feed_id'])
+            {
+                $sUrl = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name'), array('view' => 'anonyreceived', 'id' => $aNonymousFeed['new_feed_id']));
+            }
+            
             return array(
-                'link' => '',
+                'link' => $sUrl,
                 'message' => $sHtml,
                 'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog'),
                 'no_profile_image' => true
@@ -161,7 +168,7 @@
 
             return array(
                 'no_profile_image' => true,
-                'link' => Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'/comment-id_'.$aNotification['item_id']),  
+                'link' => Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name'), array('view' => 'anonyreceived', 'id' => $aNotification['item_id'])),  
                 'message' => Phpfox::getPhrase('customprofiles.a_site_member_has_posted_a_comment_about_you', array('sender'=>$receiver['full_name'], 'receiver'=>'you'))
             );        
         }
@@ -244,8 +251,9 @@
             {
                 $sMessage = Phpfox::getPhrase('customprofiles.reply_refuse_post',array('full_name' => $aVals['full_name'],'message' => $aVals['message']));
             }
+            $sUrl = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name'), array('view' => 'anonydone', 'id' => $aNonymousMessage['new_feed_id']));
             return array(
-                'link' => Phpfox::getLib('url')->makeUrl($aUser['user_name']),  
+                'link' => $sUrl,  
                 'message' => $sMessage,
                 'no_profile_image' => true
             ); 

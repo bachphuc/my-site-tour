@@ -744,7 +744,15 @@
                 if (Phpfox::isModule('notification'))
                 {
                     $type_id = 'customprofiles_invitefirendsforfriend';
-                    $this->addNotification($type_id, $iFeedComment, $aVals['friend_id'],$aVals['sender_user_id'],$aVals['time_stamp']);          
+                    $aNoti = $this->database()->select('*')
+                    ->from(Phpfox::getT('notification'))
+                    ->where("type_id = 'customprofiles_anonymousconfirm' AND item_id = ".$iScheduleFeedId." AND user_id = ".$aVals['friend_id'].' AND owner_user_id = '.$aVals['sender_user_id'])
+                    ->execute('getRow');
+                    
+                    if(!isset($aNoti['notification_id']))
+                    {
+                        $this->addNotification($type_id, $iFeedComment, $aVals['friend_id'],$aVals['sender_user_id'],$aVals['time_stamp']); 
+                    } 
                 }
 
                 if($bGift)
@@ -753,7 +761,7 @@
                 }
                 if($iFeedId)
                 {
-                    $this->database()->update(Phpfox::getT('custom_profiles_schedule_feed'),array('status' => 1),'feed_id='.(int)$iScheduleFeedId);
+                    $this->database()->update(Phpfox::getT('custom_profiles_schedule_feed'),array('status' => 1, 'new_feed_id' => $iFeedComment),'feed_id='.(int)$iScheduleFeedId);
                 }
                 return $iFeedId;
             }
