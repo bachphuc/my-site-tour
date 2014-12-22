@@ -30,7 +30,7 @@
                 $aVals = Phpfox::getLib('request')->get('val');
 
                 $sType = 'customprofiles_commentshowname';
-
+                $bInserted = false;
 				// Send notification for sender
 				if(Phpfox::getUserId() !=  $iOwnerUserId && ($iOwnerUserId == $aFeedComment['user_id'] || $iOwnerUserId == $aFeedComment['receive_user_id'] || (int)$aFeedComment['privacy'] == 1))
 				{
@@ -41,7 +41,7 @@
 						'owner_user_id' => ($iSenderUserId === null ? Phpfox::getUserId() : $iSenderUserId),
 						'time_stamp' => PHPFOX_TIME      
 					);    
-
+                    $bInserted = true;
 					$iNotificationId = $this->database()->insert($this->_sTable, $aInsert);  
 
 					$aInsertNotification = array(
@@ -56,7 +56,7 @@
 				// End send for sender
 				
 				// Send notificaton for receiver
-				if(Phpfox::getUserId() !=  $aFeedComment['receive_user_id'] && !defined('ADD_NOTIFICATION_SENDER'))
+				if(Phpfox::getUserId() !=  $aFeedComment['receive_user_id'] && !defined('ADD_NOTIFICATION_SENDER') && (!$bInserted || ($bInserted && $aFeedComment['receive_user_id'] != $iOwnerUserId)))
 				{
 					define('ADD_NOTIFICATION_SENDER', true);
 					$aInsert = array(
@@ -83,6 +83,7 @@
                 $bDoNotInsert = true;
             }
         }
+        define('PROCESS_ADD_COMMENT_ANONYMOUS_COMPLETE', true);
         // end phuclb@npfox.com
     }
 ?>
