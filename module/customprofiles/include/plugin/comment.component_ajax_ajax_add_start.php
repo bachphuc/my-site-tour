@@ -98,6 +98,21 @@
 
         if ($bPassCaptcha)
         {
+            $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($aVals['is_via_feed']);
+            if(isset($aNonymousFeed['anonymous_id']))
+            {
+                define('PROCESS_ADD_COMMENT_ON_ANONYMOUS_FEED', true);
+                $aFeed['is_anonymous'] = true;
+                $aFeed['parent_user_id'] = $aNonymousFeed['receive_user_id'];
+            }
+            else
+            {
+                $sType = (isset($aVals['type']) && !empty($aVals['type']) ? $aVals['type'] : null);
+                $aTempFeed = Phpfox::getService('customprofiles')->getFeed($aVals['is_via_feed'] , $sType);
+                $aFeed['is_anonymous'] = false;
+                $aFeed['owner_user_id'] = $aTempFeed['user_id'];
+            }
+
             if (($mId = Phpfox::getService('comment.process')->add($aVals)) === false)
             {                
                 $this->html('#js_comment_process', '');
@@ -127,7 +142,7 @@
                 $this->call('if (typeof(document.getElementById("js_no_comments")) != "undefined") { $("#js_no_comments").hide(); }');
 
                 $aRow = Phpfox::getService('comment')->getComment($mId);    
-                
+
                 $iNewTotalPoints = (int) Phpfox::getUserParam('comment.points_comment');
                 $this->call('if ($Core.exists(\'#js_global_total_activity_points\')){ var iTotalActivityPoints = parseInt($(\'#js_global_total_activity_points\').html().replace(\'(\', \'\').replace(\')\', \'\')); $(\'#js_global_total_activity_points\').html(iTotalActivityPoints + ' . $iNewTotalPoints . '); }');
 
@@ -141,24 +156,11 @@
                     $aRow['user_name'] = "";
                     $aRow['is_check'] = true;
                     // end hide user information
-                    $aNonymousFeed = Phpfox::getService('customprofiles')->getAnonymousFeed($aVals['is_via_feed']);
                     $aPassData = array(
                         'aComment' => $aRow, 
                         'bForceNoReply' => true
                     );
-                    if(isset($aNonymousFeed['anonymous_id']))
-                    {
-                        define('PROCESS_ADD_COMMENT_ON_ANONYMOUS_FEED', true);
-                        $aFeed['is_anonymous'] = true;
-                        $aFeed['parent_user_id'] = $aNonymousFeed['receive_user_id'];
-                    }
-                    else
-                    {
-						$sType = (isset($aVals['type']) && !empty($aVals['type']) ? $aVals['type'] : null);
-                        $aTempFeed = Phpfox::getService('customprofiles')->getFeed($aVals['is_via_feed'] , $sType);
-                        $aFeed['is_anonymous'] = false;
-                        $aFeed['owner_user_id'] = $aTempFeed['user_id'];
-                    }
+
                     $aPassData['aFeed'] = $aFeed;
                     Phpfox::getLib('parse.output')->setImageParser(array('width' => 200, 'height' => 200));
                     Phpfox::getLib('template')->assign($aPassData)->getTemplate('comment.block.mini');

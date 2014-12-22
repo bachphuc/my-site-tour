@@ -161,6 +161,7 @@
             ->where($aConds)
             ->execute('getRow');
             return $aRow;
+            
         }
 
         public function getFeedItem($iItemId, $sType)
