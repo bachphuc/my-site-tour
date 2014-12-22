@@ -148,6 +148,7 @@
                     );
                     if(isset($aNonymousFeed['anonymous_id']))
                     {
+                        define('PROCESS_ADD_COMMENT_ON_ANONYMOUS_FEED', true);
                         $aFeed['is_anonymous'] = true;
                         $aFeed['parent_user_id'] = $aNonymousFeed['receive_user_id'];
                     }
