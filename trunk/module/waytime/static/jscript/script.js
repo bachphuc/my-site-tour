@@ -54,6 +54,7 @@ $Core.waytime = {
         if($('.waytime_bg').length){
             $('.waytime_bg').fadeOut();
         }
+        $.ajaxCall('waytime.remember');
         return js_box_remove(ele);
     }
 }

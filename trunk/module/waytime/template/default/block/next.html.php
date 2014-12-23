@@ -13,7 +13,7 @@
     {if isset($aQuestion.answers) && count($aQuestion.answers)}
     {foreach from=$aQuestion.answers item=aAnswer}
     <div>
-        <input {if isset($aAns.answer_id) && $aAns.answer_id == $aAnswer.answer_id}cchecked="check"{/if} class="radio_answer" value="{$aAnswer.answer_id}" type="radio" name="answer" id="radio_{$aAnswer.answer_id}"> <label for="radio_{$aAnswer.answer_id}">{$aAnswer.answer}</label>
+        <input {if isset($aAns.answer_id) && $aAns.answer_id == $aAnswer.answer_id}checked="checked"{/if} class="radio_answer" value="{$aAnswer.answer_id}" type="radio" name="answer" id="radio_{$aAnswer.answer_id}"> <label for="radio_{$aAnswer.answer_id}">{$aAnswer.answer}</label>
     </div>
     {/foreach}
     {/if}
