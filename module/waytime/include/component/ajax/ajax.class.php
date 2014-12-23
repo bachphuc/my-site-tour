@@ -109,5 +109,10 @@
                 return;
             }
         }
+        
+        public function remember()
+        {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+        }
     }
 ?>
