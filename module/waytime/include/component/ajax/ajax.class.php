@@ -71,7 +71,8 @@
             else
             {
                 // Show current question
-                $this->set('index',$aProfile['current']);
+                $this->set('index',$aProfile['current'] + 1);
+                Phpfox::getLib('request')->set('index' , $aProfile['current'] +1);
                 $this->showNext();
             }
         }
