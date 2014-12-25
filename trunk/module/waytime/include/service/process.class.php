@@ -107,6 +107,10 @@
 
         public function processRun()
         {
+            Phpfox::getLib('template')->setHeader(array(
+                'script.js' => 'module_waytime',
+                'style.css' => 'module_waytime'
+            ));
             $aProfile = Phpfox::getService('waytime')->getProfile();
             if($aProfile['remind_time'] < PHPFOX_TIME)
             {
