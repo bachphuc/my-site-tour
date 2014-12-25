@@ -46,6 +46,7 @@
         
         public function start()
         {
+            Phpfox::isUser(true);
             $aProfile = Phpfox::getService('waytime')->getProfile();
             if(!isset($aProfile['profile_id']))
             {
@@ -79,6 +80,7 @@
         
         public function saveAnswer()
         {
+            Phpfox::isUser(true);
             $aProfile = Phpfox::getService('waytime')->getProfile();
             if(!isset($aProfile['profile_id']))
             {
@@ -111,8 +113,9 @@
         }
         
         public function remember()
-        {
-            $aProfile = Phpfox::getService('waytime')->getProfile();
+        {            
+            Phpfox::isUser(true);
+            Phpfox::getService('waytime.process')->remember();
         }
     }
 ?>
