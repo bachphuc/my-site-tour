@@ -2,6 +2,16 @@
     
 ?>
 
+<div>
+    <p class="summary_title">Summary</p>
+    <div>
+        {foreach from=$aSummarys item=aQuestion name=index key=key}
+        <div>
+            <p>{index}</p>
+        </div>
+        {/foreach}
+    </div>
+</div>
 
 <div class="js_box_close" style="display: block;">
     <span class="box_controll_left">
