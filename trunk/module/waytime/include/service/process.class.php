@@ -98,5 +98,22 @@
         {
             return $this->database()->update(Phpfox::getT('waytime_profile'), $aVals, 'profile_id = '.(int)$iId);
         }
+
+        public function remember()
+        {
+            $iNewTime = PHPFOX_TIME + (strtotime("+2 minutes") - time());
+            return $this->database()->update(Phpfox::getT('waytime_profile'), array('remind_time' => $iNewTime), 'user_id = '.Phpfox::getUserId());
+        }
+
+        public function processRun()
+        {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            if($aProfile['remind_time'] < PHPFOX_TIME)
+            {
+                Phpfox::getLib('template')->setHeader(array(
+                    'auto.js' => 'module_waytime'
+                ));
+            }
+        }
     }
 ?>

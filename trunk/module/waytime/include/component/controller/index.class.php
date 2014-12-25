@@ -20,9 +20,6 @@
         */
         public function process()
         {
-            echo PHPFOX_TIME.'<br>';
-            echo time().'<br>';
-            echo strtotime("+10 minutes").'<br>';
             $this->template()->setHeader(array(
                 'script.js' => 'module_waytime',
                 'style.css' => 'module_waytime'
