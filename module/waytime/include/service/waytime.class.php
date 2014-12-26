@@ -112,7 +112,7 @@
 
         public function getSummarys()
         {
-            $aRows = $this->database()->select('wq.*, wa.answer')
+            $aRows = $this->database()->select('wq.*, wa.answer, wpq.note')
             ->from(Phpfox::getT('waytime_question'),'wq')
             ->join(Phpfox::getT('waytime_profile_question'), 'wpq', 'wq.question_id = wpq.question_id')
             ->join(Phpfox::getT('waytime_answer'),'wa', 'wpq.answer_id = wa.answer_id')

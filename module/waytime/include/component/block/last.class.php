@@ -21,8 +21,10 @@
         public function process()
         {
             $aSummarys = Phpfox::getService('waytime')->getSummarys();
+            $iTotalQuestion = Phpfox::getService('waytime')->getTotalQuestion();
             $this->template()->assign(array(
-                'aSummarys' => $aSummarys
+                'aSummarys' => $aSummarys,
+                'iPre' => $iTotalQuestion
             ));
         }
     }

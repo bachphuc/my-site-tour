@@ -94,13 +94,22 @@
             }
         }
 
-        public function updateProfile($aVals, $iId)
+        public function updateProfile($iId)
         {
-            return $this->database()->update(Phpfox::getT('waytime_profile'), $aVals, 'profile_id = '.(int)$iId);
+            $iTotalQuestion = Phpfox::getService('waytime')->getTotalQuestion();
+            $iTotalAnswer = Phpfox::getService('waytime')->getTotalAnswer($iId);
+
+            $aUpdate = array(
+                'current' => $iTotalAnswer,
+                'is_complete' => ($iTotalAnswer < $iTotalQuestion ? 0 : 1)
+            );
+
+            return $this->database()->update(Phpfox::getT('waytime_profile'), $aUpdate, 'profile_id = '.(int)$iId);
         }
 
         public function remember()
         {
+            // Time remain can update in admincp
             $iNewTime = PHPFOX_TIME + (strtotime("+2 minutes") - time());
             return $this->database()->update(Phpfox::getT('waytime_profile'), array('remind_time' => $iNewTime), 'user_id = '.Phpfox::getUserId());
         }
@@ -118,6 +127,17 @@
                     'auto.js' => 'module_waytime'
                 ));
             }
+        }
+        
+        public function freeze()
+        {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            $iWaitTime = PHPFOX_TIME + (strtotime("+15 minutes") - time());
+            $aUpdate = array(
+                'is_waiting' => true,
+                'remind_time' => $iWaitTime
+            );
+            return $this->database()->update(Phpfox::getT('waytime_profile'), $aUpdate,'profile_id = '.(int)$aProfile['profile_id']);
         }
     }
 ?>
