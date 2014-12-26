@@ -47,6 +47,7 @@ $Core.waytime = {
         if(ele){
             js_box_remove(ele);
         }
+        $.ajaxCall('waytime.saveAnswer','question_id=' + $('#hd_question_id').val() + '&answer_id=' + $('.radio_answer:checked').val() + '&note=' + $('.waytime_note').val());
         $Core.box('waytime.showLast',500);
         $('.js_box').addClass('waytame_box').addClass('waytame_box_green');
     },
@@ -55,6 +56,13 @@ $Core.waytime = {
             $('.waytime_bg').fadeOut();
         }
         $.ajaxCall('waytime.remember');
+        return js_box_remove(ele);
+    },
+    freeze : function(ele){
+        if($('.waytime_bg').length){
+            $('.waytime_bg').fadeOut();
+        }
+        $.ajaxCall('waytime.freeze');
         return js_box_remove(ele);
     }
 }

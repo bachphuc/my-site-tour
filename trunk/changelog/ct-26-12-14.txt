@@ -1,0 +1,4 @@
+Add columns into waytime_profile
+- is_start
+- is_waiting
+- is_finish

@@ -43,7 +43,7 @@
                 )
             );    
         }
-        
+
         public function start()
         {
             Phpfox::isUser(true);
@@ -58,16 +58,16 @@
             }
             else if($aProfile['is_complete'])
             {
-                 // Show popup to unlock
-                 $this->showLast();
+                // Show popup to unlock
+                $this->showLast();
             }
             else if(!$aProfile['current'])
             {
-                 // Show first popup
-                 $this->showFirst();
-                 echo '<script type="text/javascript">';
-                 echo '$(".js_box").addClass("waytame_box_green");';
-                 echo '</script>';
+                // Show first popup
+                $this->showFirst();
+                echo '<script type="text/javascript">';
+                echo '$(".js_box").addClass("waytame_box_green");';
+                echo '</script>';
             }
             else
             {
@@ -77,7 +77,7 @@
                 $this->showNext();
             }
         }
-        
+
         public function saveAnswer()
         {
             Phpfox::isUser(true);
@@ -96,26 +96,25 @@
             {
                 return false;
             }
-            
+
             $sNote = $this->get('note');
             if(Phpfox::getService('waytime.process')->answerQuestion($aProfile['profile_id'], $iQuestionId, $iAnswerId, $sNote))
             {
-                $iTotalQuestion = Phpfox::getService('waytime')->getTotalQuestion();
-                $iTotalAnswer = Phpfox::getService('waytime')->getTotalAnswer($aProfile['profile_id']);
-                
-                $aUpdate = array(
-                    'current' => $iTotalAnswer,
-                    'is_complete' => ($iTotalAnswer < $iTotalQuestion ? 0 : 1)
-                );
-                Phpfox::getService('waytime.process')->updateProfile($aUpdate, $aProfile['profile_id']);
+                Phpfox::getService('waytime.process')->updateProfile($aProfile['profile_id']);
                 return;
             }
         }
-        
+
         public function remember()
         {            
             Phpfox::isUser(true);
             Phpfox::getService('waytime.process')->remember();
+        }
+
+        public function freeze()
+        {
+            Phpfox::isUser(true);
+            Phpfox::getService('waytime.process')->freeze();
         }
     }
 ?>
