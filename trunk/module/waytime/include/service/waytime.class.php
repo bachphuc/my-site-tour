@@ -32,7 +32,10 @@
                     'profile_id' => $iProfileId,
                     'user_id' => Phpfox::getUserId(),
                     'current' => 0,
+                    'is_start' => 0,
                     'is_complete' => 0,
+                    'is_waiting' => 0,
+                    'is_finish' => 0,
                     'is_unlock' => 0,
                     'remind_time' => PHPFOX_TIME
                 );
@@ -56,6 +59,20 @@
             return (int) $this->database()->select('count(*)')
             ->from(Phpfox::getT('waytime_question'), 'wq')
             ->execute('getSlaveField');
+        }
+        
+        public function getTotalAnswerQuestion()
+        {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            return (int) $this->database()->select('count(*)')
+            ->from(Phpfox::getT('waytime_profile_question'))
+            ->where('profile_id = '.(int)$aProfile['profile_id'])
+            ->execute('getSlaveField');
+        }
+        
+        public function getRemainQuestion()
+        {
+            return ($this->getTotalQuestion() - $this->getTotalAnswerQuestion());
         }
 
         public function getQuestion($iQuestionId)
@@ -112,7 +129,7 @@
 
         public function getSummarys()
         {
-            $aRows = $this->database()->select('wq.*, wa.answer, wpq.note')
+            $aRows = $this->database()->select('wq.*, wa.answer, wpq.note, is_helpful')
             ->from(Phpfox::getT('waytime_question'),'wq')
             ->join(Phpfox::getT('waytime_profile_question'), 'wpq', 'wq.question_id = wpq.question_id')
             ->join(Phpfox::getT('waytime_answer'),'wa', 'wpq.answer_id = wa.answer_id')

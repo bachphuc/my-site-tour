@@ -89,8 +89,24 @@ $Core.waytime = {
             return;
         }
         $Core.waytime.bInit = true;
-        if(!$('#waytime_watch').length){
-            $('#header_menu_holder>ul').append('<li id="waytime_watch"><a title="'+waytime_tooltip+'" onclick="$Core.waytime.begin();"></a></li>');
+        if(!$('.waytime_watch').length){
+            if(typeof(waytime_tooltip) === 'undefined'){
+                waytime_tooltip = '';
+            }
+            var sClass = '';
+            var sAction = '$Core.waytime.begin();return false;';
+            var sLink = '';
+            var sId = 'waytime_watch';
+            if(waytime_status == 9){
+                sAction = '';
+                sLink = waytime_url;
+            }
+            else if(waytime_status == 2){
+                sAction = 'return false;';
+                sClass = 'freeze_glass';
+                sId = 'waytime_watch_freeze'
+            }
+            $('#header_menu_holder>ul').append('<li class="waytime_watch '+sClass+'" id="'+sId+'"><a href="'+sLink+'" title="'+waytime_tooltip+'" onclick="'+sAction+'"></a></li>');
         }
         if($('.waytime_bg').length == 0){
             $('body').append('<div class="waytime_bg"></div>');

@@ -20,7 +20,10 @@
         */
         public function process()
         {
-            
+            $aSummarys = Phpfox::getService('waytime')->getSummarys();
+            $this->template()->assign(array(
+                'aSummarys' => $aSummarys,
+            ));
         }
     }
 ?>
