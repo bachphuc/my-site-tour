@@ -34,5 +34,23 @@
 
             return $aMenus;
         }
+        
+        public function getNotificationUnlockWaytime($iTem)
+        {
+            return array(
+            'link' => '',
+            'message' => Phpfox::getPhrase('waytime.notificaion_would_you_like_to_complete_your_unlocked_w_time_capsule'),
+            'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+        );    
+        }
+        
+        public function getNotificationCompleteWaytime($iTem)
+        {
+            return array(
+            'link' => '',
+            'message' => Phpfox::getPhrase('waytime.notificaion_would_you_like_to_complete_the_time_capsule_now'),
+            'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+        );    
+        }
     }
 ?>

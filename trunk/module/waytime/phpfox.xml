@@ -1,0 +1,61 @@
+<module>
+	<data>
+		<module_id>waytime</module_id>
+		<product_id>waytime</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>1</is_menu>
+		<menu><![CDATA[a:2:{s:31:"waytime.admin_menu_add_question";a:1:{s:3:"url";a:2:{i:0;s:7:"waytime";i:1;s:3:"add";}}s:35:"waytime.admin_menu_manage_questions";a:1:{s:3:"url";a:1:{i:0;s:7:"waytime";}}}]]></menu>
+		<phrase_var_name>module_waytime</phrase_var_name>
+	</data>
+	<settings>
+		<setting group="" module_id="waytime" is_hidden="0" type="string" var_name="time_remain_complete_waytime" phrase_var_name="setting_time_remain_complete_waytime" ordering="1" version_id="3.7.5">2 minutes</setting>
+		<setting group="" module_id="waytime" is_hidden="0" type="string" var_name="time_waiting_to_unlock_waytime" phrase_var_name="setting_time_waiting_to_unlock_waytime" ordering="1" version_id="3.7.5">3 minutes</setting>
+	</settings>
+	<components>
+		<component module_id="waytime" component="profile" m_connection="waytime.profile" module="waytime" is_controller="1" is_block="0" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="module_waytime" added="1418399383">waytime</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="admin_menu_add_question" added="1418527270">Add New Question</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="admin_menu_manage_questions" added="1418527270">Manage Questions</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="manage_questions" added="1418527896">Manage Questions</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="manage_answers" added="1418527930">Manage Answers</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="questions" added="1418528111">Questions</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="manage_answers_total" added="1418537614">Manage Answers({total})</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="delete_question_successfully" added="1418540568">Delete question successfully.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="delete_answer_successfully" added="1418540592">Delete answer successfully.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="edit_question" added="1418540619">Edit Question</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="add_new_question" added="1418540633">Add New Question</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="question" added="1418540648">Question</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="edit_answer" added="1418540665">Edit Answer</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="add_new_answer" added="1418540680">Add New Answer</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="answer" added="1418540695">Answer</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="are_you_sure" added="1418540794">Are you sure?</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="update_answer_successfully" added="1418540854">Update answer successfully.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="add_answer_successfully" added="1418540871">Add answer successfully.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="question_not_found" added="1418540893">Question not found.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="w_time_capsule" added="1418540917">W-TIME CAPSULE</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="add_new_answer_for_question_2" added="1418541266">Add new answer for question #{id}.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="manage_answers_for_question_id" added="1418541375">Manage answers for question #{id}</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="what_is_the_w_time_capsule" added="1418575489">What is the W-Time Capsule?</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="all_we_want_to_write_here" added="1418575516">All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here. All we want to write here.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="close_remember" added="1418575534"><![CDATA[CLOSE & REMEMBER]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="start" added="1418575549">START</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="character" added="1418575627">Character</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="you_note_here_not_mandatory" added="1418576016">You note here...
+(Not mandatory)</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="setting_time_remain_complete_waytime" added="1419736318"><![CDATA[<title>Time Remain Complete Waytime</title><info>Time remain complete waytime if user not complete waytime.</info>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="setting_time_waiting_to_unlock_waytime" added="1419736413"><![CDATA[<title>Time Waiting to Unlock Waytime</title><info>Time Waiting to Unlock Waytime</info>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="thank_you_for_having_spent_1_year_on_our_website_br_you_have_just_unlocked_the_w_time_capsule_now" added="1419737206"><![CDATA[Thank you for having spent 1 year on our website!<br><br>
+You have just unlocked the W-Time Capsule. Now you can answer the same question of the pass year and evaluate if website helped you to better yourself. Let us know what you think about...]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="please_fill_all_questions" added="1419742686">Please fill all questions.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="would_you_like_to_complete_the_total_remaining_questions" added="1419758432">Would you like to complete the {total} remaining questions?</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="would_you_like_to_freeze_w_time_capsule" added="1419758948">Would you like to freeze W-Time Capsule?</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="total_months_left_to_unfreeze_the_w_time_capsule" added="1419759807">{total} month{s} left to unfreeze the W-Time Capsule</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="would_you_like_to_complete_your_unlocked_w_time_capsule" added="1419778780">Would you like to complete your unlocked W-Time Capsule?</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="w_time" added="1419780907">W-Time Capsule</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_the_time_capsule_now" added="1419784285"><![CDATA[<span onclick="$Core.waytime.begin();return false;">Would you like to complete the Time Capsule now?</span>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_your_unlocked_w_time_capsule" added="1419784344"><![CDATA[<span onclick="$Core.waytime.begin();return false;">Would you like to complete your unlocked W-Time Capsule?</span>]]></phrase>
+	</phrases>
+</module>
