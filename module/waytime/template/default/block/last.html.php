@@ -9,7 +9,7 @@
         <div class="summary_item">
             <p>{$phpfox.iteration.index}. {$aQuestion.title}</p>
             <p>{$aQuestion.answer}</p>
-            <p>{$aQuestion.note}</p>
+            <p style="color:#444;">{$aQuestion.note}</p>
         </div>
         {/foreach}
     </div>

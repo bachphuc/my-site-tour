@@ -19,7 +19,7 @@
     {/if}
 </div>
 <div class="waytime_right">
-    <textarea class="waytime_note" placeholder="{phrase var='waytime.you_note_here_not_mandatory'}"></textarea>
+    <textarea class="waytime_note" placeholder="{phrase var='waytime.you_note_here_not_mandatory'}">{if isset($aAns.answer_id)}{$aAns.note}{/if}</textarea>
 </div>
 {/if}
 <div class="clear"></div>

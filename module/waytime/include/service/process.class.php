@@ -79,7 +79,7 @@
             $aRow = $this->getAnswerQuestion($iProfileId, $iQuestionId);
             if(isset($aRow['profile_id']))
             {
-                return $this->database()->update(Phpfox::getT('waytime_profile_question'), array('answer_id' => $iAnswerId), 'profile_id = '.(int)$iProfileId. ' AND question_id = '.(int)$iQuestionId);
+                return $this->database()->update(Phpfox::getT('waytime_profile_question'), array('answer_id' => $iAnswerId, 'note' => $sNote), 'profile_id = '.(int)$iProfileId. ' AND question_id = '.(int)$iQuestionId);
             }
             else
             {
@@ -141,32 +141,13 @@
                 'script.js' => 'module_waytime',
                 'style.css' => 'module_waytime'
             ));
-            
+
             $aProfile = Phpfox::getService('waytime')->getProfile();
-            if((int)$aProfile['is_unlock'] == 1)
-            {
-                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 9;waytime_tooltip = "";</script>');
-                return true;
-            }
-            
-            if(!$aProfile['is_complete'])
-            {
-                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 0;waytime_tooltip = "Would you like to complete the X remaining questions?";</script>');
-            }
-            else if((int)$aProfile['is_waiting'] == 1)
-            {
-                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 1;waytime_tooltip = ""N months left to unfreeze the W-Time Capsule";</script>');
-                
-            }
-            else if((int)$aProfile['is_waiting'] == 2 && !$aProfile['is_finish'])
-            {
-                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 2;waytime_tooltip = "Would you like to complete your unlocked W-Time Capsule?";</script>');
-            }
             
             // Check if first register show popup
             if(!$aProfile['is_start'])
             {
-                
+
                 $this->database()->update(Phpfox::getT('waytime_profile'), array('is_start' => 1), 'profile_id = '.(int)$aProfile['profile_id']);
 
                 Phpfox::getLib('template')->setHeader(array(
@@ -201,6 +182,36 @@
                         $this->remember();
                     }
                 }
+            }
+
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            if((int)$aProfile['is_unlock'] == 1)
+            {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 9;waytime_tooltip = "";waytime_url = "'.Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime').'";</script>');
+                return true;
+            }
+
+            if(!$aProfile['is_complete'])
+            {
+                $iTotal = Phpfox::getService('waytime')->getRemainQuestion();
+                $sTitle = ($iTotal ? Phpfox::getPhrase('waytime.would_you_like_to_complete_the_total_remaining_questions', array('total' => $iTotal)) : Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule'));
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 0;waytime_tooltip = "'.$sTitle.'";</script>');
+            }
+            else if($aProfile['is_complete'] && !$aProfile['is_waiting'])
+            {
+                $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule');
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 1;waytime_tooltip = "'.$sTitle.'";</script>');
+            }
+            else if((int)$aProfile['is_waiting'] == 1)
+            {
+                $iTotal = $aProfile['remind_time'] - PHPFOX_TIME;
+                $iTotal = (int)($iTotal / (30 * 24 * 60 *60));
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 2;waytime_tooltip = "'.Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : ''))).'";</script>');
+
+            }
+            else if((int)$aProfile['is_waiting'] == 2 && !$aProfile['is_finish'])
+            {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 3;waytime_tooltip = "'.Phpfox::getPhrase('waytime.would_you_like_to_complete_your_unlocked_w_time_capsule').'";</script>');
             }
         }
 

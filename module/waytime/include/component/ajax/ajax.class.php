@@ -19,6 +19,9 @@
         {
             $this->setTitle(Phpfox::getPhrase('waytime.w_time_capsule'));   
             Phpfox::getComponent('waytime.first',null,'block');
+            echo '<script type="text/javascript">';
+            echo '$(".js_box").addClass("waytame_box_green");';
+            echo '</script>';
         }
 
         public function showNext()
@@ -31,14 +34,20 @@
         {
             $this->setTitle(Phpfox::getPhrase('waytime.w_time_capsule'));   
             Phpfox::getComponent('waytime.last', null , 'block');
+            echo '<script type="text/javascript">';
+            echo '$(".js_box").addClass("waytame_box_green");';
+            echo '</script>';
         }
 
         public function showUnlock()
         {
             $this->setTitle(Phpfox::getPhrase('waytime.w_time_capsule'));   
             Phpfox::getComponent('waytime.unlock', null , 'block');
+            echo '<script type="text/javascript">';
+            echo '$(".js_box").addClass("waytame_box_green");';
+            echo '</script>';
         }
-        
+
         public function questionOrdering()
         {
             $aVals = $this->get('val');
@@ -58,11 +67,7 @@
             {
                 return $this->alert('Can not load your question.');
             }
-            if($aProfile['is_unlock'])
-            {
-                return $this->alert('You have unlock W-Time Capsule.');
-            }
-            else if($aProfile['is_complete'] && !$aProfile['is_waiting'])
+            if($aProfile['is_complete'] && !$aProfile['is_waiting'])
             {
                 // Show popup to freeze
                 $this->showLast();
@@ -71,17 +76,11 @@
             {
                 // Show popup to unlock
                 $this->showUnlock();
-                echo '<script type="text/javascript">';
-                echo '$(".js_box").addClass("waytame_box_green");';
-                echo '</script>';
             }
             else if(!$aProfile['current'])
             {
                 // Show first popup
                 $this->showFirst();
-                echo '<script type="text/javascript">';
-                echo '$(".js_box").addClass("waytame_box_green");';
-                echo '</script>';
             }
             else
             {
@@ -115,6 +114,11 @@
             if(Phpfox::getService('waytime.process')->answerQuestion($aProfile['profile_id'], $iQuestionId, $iAnswerId, $sNote))
             {
                 Phpfox::getService('waytime.process')->updateProfile($aProfile['profile_id']);
+
+                $iTotal = Phpfox::getService('waytime')->getRemainQuestion();
+                $sTitle = ($iTotal ? Phpfox::getPhrase('waytime.would_you_like_to_complete_the_total_remaining_questions', array('total' => $iTotal)) : Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule'));
+
+                $this->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
                 return;
             }
         }
@@ -129,13 +133,22 @@
         {
             Phpfox::isUser(true);
             Phpfox::getService('waytime.process')->freeze();
+
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            $iTotal = $aProfile['remind_time'] - PHPFOX_TIME;
+            $iTotal = (int)($iTotal / (30 * 24 * 60 *60));
+
+            $sTitle = Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : '')));
+            $this->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
         }
-        
+
         public function unlock()
         {
             Phpfox::isUser(true);
             $aVals = $this->get('question');
             Phpfox::getService('waytime.process')->unlock($aVals);
+            $this->call('$(".waytime_watch a").attr("title","");');
+            $this->call('$(".waytime_watch a").attr("href","'.Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime').'");');
         }
     }
 ?>
