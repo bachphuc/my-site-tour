@@ -33,6 +33,12 @@
             Phpfox::getComponent('waytime.last', null , 'block');
         }
 
+        public function showUnlock()
+        {
+            $this->setTitle(Phpfox::getPhrase('waytime.w_time_capsule'));   
+            Phpfox::getComponent('waytime.unlock', null , 'block');
+        }
+        
         public function questionOrdering()
         {
             $aVals = $this->get('val');
@@ -54,12 +60,20 @@
             }
             if($aProfile['is_unlock'])
             {
-                return $this->alert('You have completed all question.');
+                return $this->alert('You have unlock W-Time Capsule.');
             }
-            else if($aProfile['is_complete'])
+            else if($aProfile['is_complete'] && !$aProfile['is_waiting'])
+            {
+                // Show popup to freeze
+                $this->showLast();
+            }
+            else if($aProfile['is_waiting'])
             {
                 // Show popup to unlock
-                $this->showLast();
+                $this->showUnlock();
+                echo '<script type="text/javascript">';
+                echo '$(".js_box").addClass("waytame_box_green");';
+                echo '</script>';
             }
             else if(!$aProfile['current'])
             {
@@ -115,6 +129,13 @@
         {
             Phpfox::isUser(true);
             Phpfox::getService('waytime.process')->freeze();
+        }
+        
+        public function unlock()
+        {
+            Phpfox::isUser(true);
+            $aVals = $this->get('question');
+            Phpfox::getService('waytime.process')->unlock($aVals);
         }
     }
 ?>
