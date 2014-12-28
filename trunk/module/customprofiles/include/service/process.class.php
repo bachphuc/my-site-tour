@@ -219,7 +219,7 @@
                                     unset($aRows[$key]['more_feed_rows'][$mKey]);
                                     continue;
                                 }
-								if($mRow['parent_user_id'] == $aRow['parent_user']['parent_user_id'])
+								if(isset($aRow['parent_user']) && $mRow['parent_user_id'] == $aRow['parent_user']['parent_user_id'])
 								{
 									$aRows[$key]['more_feed_rows'][$mKey]['user_name'] = $aRow['parent_user']['parent_user_name'];
 									$aRows[$key]['more_feed_rows'][$mKey]['full_name'] =  '<span class="post_title">'.Phpfox::getPhrase('customprofiles.awayter_post_about').' </span>'.$aRow['parent_user']['parent_full_name'];

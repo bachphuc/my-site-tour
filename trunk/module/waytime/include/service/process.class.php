@@ -110,32 +110,121 @@
         public function remember()
         {
             // Time remain can update in admincp
-            $iNewTime = PHPFOX_TIME + (strtotime("+2 minutes") - time());
+            $iNewTime = PHPFOX_TIME + (strtotime("+" . Phpfox::getParam('waytime.time_remain_complete_waytime')) - time());
             return $this->database()->update(Phpfox::getT('waytime_profile'), array('remind_time' => $iNewTime), 'user_id = '.Phpfox::getUserId());
+        }
+
+        public function addNotification($sType, $iItemId, $iOwnerUserId, $iSenderUserId = null)
+        {
+            $aInsert = array(
+                'type_id' => $sType,
+                'item_id' => $iItemId,
+                'user_id' => $iOwnerUserId,    
+                'owner_user_id' => ($iSenderUserId === null ? Phpfox::getUserId() : $iSenderUserId),
+                'time_stamp' => PHPFOX_TIME        
+            );    
+
+            $this->database()->insert(Phpfox::getT('notification'), $aInsert);
         }
 
         public function processRun()
         {
+            if(!Phpfox::isUser())
+            {
+                return true;
+            }
+            if(Phpfox::isAdminPanel())
+            {
+                return true;
+            }
             Phpfox::getLib('template')->setHeader(array(
                 'script.js' => 'module_waytime',
                 'style.css' => 'module_waytime'
             ));
+            
             $aProfile = Phpfox::getService('waytime')->getProfile();
-            if($aProfile['remind_time'] < PHPFOX_TIME)
+            if((int)$aProfile['is_unlock'] == 1)
             {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 9;waytime_tooltip = "";</script>');
+                return true;
+            }
+            
+            if(!$aProfile['is_complete'])
+            {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 0;waytime_tooltip = "Would you like to complete the X remaining questions?";</script>');
+            }
+            else if((int)$aProfile['is_waiting'] == 1)
+            {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 1;waytime_tooltip = ""N months left to unfreeze the W-Time Capsule";</script>');
+                
+            }
+            else if((int)$aProfile['is_waiting'] == 2 && !$aProfile['is_finish'])
+            {
+                Phpfox::getLib('template')->setHeader('<script type="text/javascript">waytime_status = 2;waytime_tooltip = "Would you like to complete your unlocked W-Time Capsule?";</script>');
+            }
+            
+            // Check if first register show popup
+            if(!$aProfile['is_start'])
+            {
+                
+                $this->database()->update(Phpfox::getT('waytime_profile'), array('is_start' => 1), 'profile_id = '.(int)$aProfile['profile_id']);
+
                 Phpfox::getLib('template')->setHeader(array(
                     'auto.js' => 'module_waytime'
                 ));
             }
+            else
+            {
+                if($aProfile['remind_time'] < PHPFOX_TIME)
+                {
+                    // If is waiing show popup
+                    if((int)$aProfile['is_waiting'] == 1)
+                    {
+                        $this->database()->update(Phpfox::getT('waytime_profile'), array('is_waiting' => 2), 'profile_id = '.(int)$aProfile['profile_id']);
+                        Phpfox::getLib('template')->setHeader(array(
+                            'auto.js' => 'module_waytime'
+                        ));
+                    }
+                    else
+                    {
+                        if(Phpfox::isModule('notification'))
+                        {
+                            if(!$aProfile['is_complete'])
+                            {
+                                $this->addNotification('waytime_completeWaytime',$aProfile['profile_id'], Phpfox::getUserId());
+                            }
+                            else if(!$aProfile['is_finish'])
+                            {
+                                $this->addNotification('waytime_unlockWaytime',$aProfile['profile_id'], Phpfox::getUserId());
+                            }
+                        }
+                        $this->remember();
+                    }
+                }
+            }
         }
-        
+
         public function freeze()
         {
             $aProfile = Phpfox::getService('waytime')->getProfile();
-            $iWaitTime = PHPFOX_TIME + (strtotime("+15 minutes") - time());
+            $iWaitTime = PHPFOX_TIME + (strtotime("+".Phpfox::getParam('waytime.time_waiting_to_unlock_waytime')) - time());
             $aUpdate = array(
                 'is_waiting' => true,
                 'remind_time' => $iWaitTime
+            );
+            return $this->database()->update(Phpfox::getT('waytime_profile'), $aUpdate,'profile_id = '.(int)$aProfile['profile_id']);
+        }
+
+        public function unlock($aVals)
+        {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            foreach($aVals as $iId => $value)   
+            {
+                $this->database()->update(Phpfox::getT('waytime_profile_question'), array('is_helpful' => $value), 'profile_id = '.(int)$aProfile['profile_id']. ' AND question_id = '.(int)$iId);
+            }
+            $aUpdate = array(
+                'is_unlock' => 1,
+                'is_finish' => 1
             );
             return $this->database()->update(Phpfox::getT('waytime_profile'), $aUpdate,'profile_id = '.(int)$aProfile['profile_id']);
         }
