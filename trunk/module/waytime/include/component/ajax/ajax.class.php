@@ -153,5 +153,10 @@
             $this->call('$(".waytime_watch a").attr("href","'.Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime').'");');
             $this->call('$(".waytime_watch a").attr("onclick","");');
         }
+        
+        public function processRunAjax()
+        {
+            Phpfox::getService('waytime.process')->processRunAjax();
+        }
     }
 ?>

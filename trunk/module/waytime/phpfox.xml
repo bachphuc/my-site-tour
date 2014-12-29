@@ -55,7 +55,12 @@ You have just unlocked the W-Time Capsule. Now you can answer the same question 
 		<phrase module_id="waytime" version_id="3.7.5" var_name="total_months_left_to_unfreeze_the_w_time_capsule" added="1419759807">{total} month{s} left to unfreeze the W-Time Capsule</phrase>
 		<phrase module_id="waytime" version_id="3.7.5" var_name="would_you_like_to_complete_your_unlocked_w_time_capsule" added="1419778780">Would you like to complete your unlocked W-Time Capsule?</phrase>
 		<phrase module_id="waytime" version_id="3.7.5" var_name="w_time" added="1419780907">W-Time Capsule</phrase>
-		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_the_time_capsule_now" added="1419784285"><![CDATA[<span onclick="$Core.waytime.begin();return false;">Would you like to complete the Time Capsule now?</span>]]></phrase>
-		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_your_unlocked_w_time_capsule" added="1419784344"><![CDATA[<span onclick="$Core.waytime.begin();return false;">Would you like to complete your unlocked W-Time Capsule?</span>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_the_time_capsule_now" added="1419784285"><![CDATA[<span class="waytime_noti"  onclick="$Core.waytime.begin();return false;">Would you like to complete the Time Capsule now?</span>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="notificaion_would_you_like_to_complete_your_unlocked_w_time_capsule" added="1419784344"><![CDATA[<span class="waytime_noti" onclick="$Core.waytime.begin();return false;">Would you like to complete your unlocked W-Time Capsule?</span>]]></phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="thank_you_for_having_spent_on_our_website_you_have_just_unlocked_the_w_time_capsule_here_is_your" added="1419864120">Thank you for having spent on our website!
+
+You have just unlocked the W-Time Capsule. Here is your feedback about W-Time Capsule.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="you_have_not_completed_w_time_capsule_yet" added="1419864401">You have not completed W-Time Capsule, yet.</phrase>
+		<phrase module_id="waytime" version_id="3.7.5" var_name="would_you_like_to_complete_the_time_capsule_now" added="1419870592">Would you like to complete the Time Capsule now?</phrase>
 	</phrases>
 </module>

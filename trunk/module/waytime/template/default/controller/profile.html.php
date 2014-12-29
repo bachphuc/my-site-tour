@@ -1,35 +1,44 @@
 
 
-<p class="summary_title">{phrase var='waytime.thank_you_for_having_spent_1_year_on_our_website_br_you_have_just_unlocked_the_w_time_capsule_now'}</p>
+<p class="profile_summary_title">{phrase var='waytime.thank_you_for_having_spent_on_our_website_you_have_just_unlocked_the_w_time_capsule_here_is_your'}</p>
 
-<div id="waytime_error" style="display: none;" class="error_message">{phrase var='waytime.please_fill_all_questions'}</div>
 
-<form action="" method="POST" onsubmit="$(this).ajaxCall('waytime.unlock');return false;">
-    <div class="waytime_unlock">
+<div id="summary_table">
 
-        <table class="tb_unlock" style="width: 100%;">
-            <thead>
-                <tr style="text-align: center;">
-                    <td style="width: 40%;">1 year ago...</td>
-                    <td>Did the website help you to better yourself?</td>
-                </tr>
-            </thead>
-            <tbody>
-                {foreach from=$aSummarys item=aQuestion name=index key=key}
-                <tr>
-                    <td>
-                        <p>{$phpfox.iteration.index}. {$aQuestion.title}</p>
-                        <p>{$aQuestion.answer}</p>
-                        <p style="color: #444;">{$aQuestion.note}</p>
-                    </td>
-                    <td style="text-align: center;">
-                        <input {if $aQuestion.is_helpful == 1}checked="checked"{/if} name="question[{$aQuestion.question_id}]" type="radio" value="1" id="question_yes_{$aQuestion.question_id}"> <label for="question_yes_{$aQuestion.question_id}">YES</label>
-                        <input {if $aQuestion.is_helpful == 2}checked="checked"{/if} name="question[{$aQuestion.question_id}]" type="radio" value="2" id="question_no_{$aQuestion.question_id}"> <label for="question_no_{$aQuestion.question_id}" >NO</label>
-                    </td>
-                </tr>
-                {/foreach}
-            </tbody>
-        </table>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <td>Question</td>
+                <td>Answer</td>
+                <td>Note</td>
+                <td colspan="2" style="text-align: center;">Helpful for you</td>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach from=$aSummarys item=aQuestion name=index key=key}
+            <tr>
+                <td>
+                    <p>{$phpfox.iteration.index}. {$aQuestion.title}</p>
+                </td>
+                <td>
+                    <p>{$aQuestion.answer}</p>
+                </td>
+                <td>
+                    <p style="color: #444;">{$aQuestion.note}</p>
+                </td>
+                <td style="text-align: center;">
+                    {if $aQuestion.is_helpful == 1}
+                    <img src="{param var='core.path'}module/waytime/static/images/no.png">
+                    {/if}
+                </td>
+                <td>
+                    {if $aQuestion.is_helpful == 2}
+                    <img src="{param var='core.path'}module/waytime/static/images/ticked.png">
+                    {/if}
+                </td>
+            </tr>
+            {/foreach}
+        </tbody>
+    </table>
 
     </div>
-</form>
