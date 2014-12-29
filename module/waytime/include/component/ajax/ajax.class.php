@@ -140,6 +140,8 @@
 
             $sTitle = Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : '')));
             $this->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+            $this->call('$(".waytime_watch a").attr("onclick","return false;");');
+            $this->call('$(".waytime_watch").attr("id","waytime_watch_freeze");');
         }
 
         public function unlock()
@@ -149,6 +151,7 @@
             Phpfox::getService('waytime.process')->unlock($aVals);
             $this->call('$(".waytime_watch a").attr("title","");');
             $this->call('$(".waytime_watch a").attr("href","'.Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime').'");');
+            $this->call('$(".waytime_watch a").attr("onclick","");');
         }
     }
 ?>
