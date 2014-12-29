@@ -151,3 +151,28 @@
     padding-left: 0;
 }
 
+#summary_table td{
+    vertical-align: middle;  
+    padding-left: 10px;  
+    line-height: 48px;
+}
+
+#summary_table tbody tr:nth-child(2n +1){
+    background-color: #EFEFEF;
+}
+
+#summary_table thead td{
+    background-color:#DDD;
+    font-weight: bold;
+}
+
+#summary_table img {
+    vertical-align: middle;
+}
+
+.profile_summary_title{
+    color:#444;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

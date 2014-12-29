@@ -111,7 +111,8 @@ $Core.waytime = {
         if($('.waytime_bg').length == 0){
             $('body').append('<div class="waytime_bg"></div>');
         }
-    }
+    },
+    bStopCheck : false
 }
 $Behavior.initWayTime = function(){
     $Core.waytime.init();
@@ -124,4 +125,11 @@ $Behavior.initWayTime = function(){
             return false;
         }
     });
+    
+    check = setInterval(function(){
+        $.ajaxCall('waytime.processRunAjax');
+        if($Core.waytime.bStopCheck){
+            clearInterval(check);
+        }
+    }, 60000);
 }

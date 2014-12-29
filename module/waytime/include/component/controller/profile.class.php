@@ -20,6 +20,11 @@
         */
         public function process()
         {
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            if(!$aProfile['is_unlock'])
+            {
+                return $this->url()->send('',null, Phpfox::getPhrase('waytime.you_have_not_completed_w_time_capsule_yet'));
+            }
             $aSummarys = Phpfox::getService('waytime')->getSummarys();
             $this->template()->assign(array(
                 'aSummarys' => $aSummarys,

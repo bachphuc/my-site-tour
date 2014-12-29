@@ -143,7 +143,7 @@
             ));
 
             $aProfile = Phpfox::getService('waytime')->getProfile();
-            
+
             // Check if first register show popup
             if(!$aProfile['is_start'])
             {
@@ -170,7 +170,7 @@
                     {
                         if(Phpfox::isModule('notification'))
                         {
-                            if(!$aProfile['is_complete'])
+                            if(!$aProfile['is_complete'] || !$aProfile['is_waiting'])
                             {
                                 $this->addNotification('waytime_completeWaytime',$aProfile['profile_id'], Phpfox::getUserId());
                             }
@@ -238,6 +238,104 @@
                 'is_finish' => 1
             );
             return $this->database()->update(Phpfox::getT('waytime_profile'), $aUpdate,'profile_id = '.(int)$aProfile['profile_id']);
+        }
+
+        public function processRunAjax()
+        {
+            if(!Phpfox::isUser())
+            {
+                return true;
+            }
+            if(Phpfox::isAdminPanel())
+            {
+                return true;
+            }
+
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+
+            // Check if first register show popup
+            if(!$aProfile['is_start'])
+            {
+
+                $this->database()->update(Phpfox::getT('waytime_profile'), array('is_start' => 1), 'profile_id = '.(int)$aProfile['profile_id']);
+
+                Phpfox::getLib('ajax')->call('$Core.waytime.begin();');
+            }
+            else
+            {
+                if($aProfile['remind_time'] < PHPFOX_TIME)
+                {
+                    // If is waiing show popup
+                    if((int)$aProfile['is_waiting'] == 1)
+                    {
+                        $this->database()->update(Phpfox::getT('waytime_profile'), array('is_waiting' => 2), 'profile_id = '.(int)$aProfile['profile_id']);
+                        Phpfox::getLib('ajax')->call('$Core.waytime.begin();');
+                        $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_complete_your_unlocked_w_time_capsule');
+                        Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                        Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
+                        Phpfox::getLib('ajax')->call('$(".waytime_watch").attr("id","waytime_watch");');
+                    }
+                    else
+                    {
+                        if(Phpfox::isModule('notification'))
+                        {
+                            if(!$aProfile['is_complete'] || !$aProfile['is_waiting'])
+                            {
+                                $this->addNotification('waytime_completeWaytime',$aProfile['profile_id'], Phpfox::getUserId());
+                            }
+                            else if(!$aProfile['is_finish'])
+                            {
+                                $this->addNotification('waytime_unlockWaytime',$aProfile['profile_id'], Phpfox::getUserId());
+                            }
+                        }
+                        $this->remember();
+                    }
+                }
+            }
+
+            $aProfile = Phpfox::getService('waytime')->getProfile();
+            if((int)$aProfile['is_unlock'] == 1)
+            {
+                $sToolTip = '';
+                $url = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("href","'.$url.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sToolTip.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","");');
+                Phpfox::getLib('ajax')->call('$Core.waytime.bStopCheck = true;');
+                return true;
+            }
+
+            if(!$aProfile['is_complete'])
+            {
+                $iTotal = Phpfox::getService('waytime')->getRemainQuestion();
+                $sTitle = ($iTotal ? Phpfox::getPhrase('waytime.would_you_like_to_complete_the_total_remaining_questions', array('total' => $iTotal)) : Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule'));
+
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
+                return true;
+            }
+            else if($aProfile['is_complete'] && !$aProfile['is_waiting'])
+            {
+                $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule');
+
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
+            }
+            else if((int)$aProfile['is_waiting'] == 1)
+            {
+                $iTotal = $aProfile['remind_time'] - PHPFOX_TIME;
+                $iTotal = (int)($iTotal / (30 * 24 * 60 *60));
+
+                $sTitle = Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : '')));
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","return false;");');
+            }
+            else if((int)$aProfile['is_waiting'] == 2 && !$aProfile['is_finish'])
+            {
+                $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_complete_your_unlocked_w_time_capsule');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
+            }
         }
     }
 ?>
