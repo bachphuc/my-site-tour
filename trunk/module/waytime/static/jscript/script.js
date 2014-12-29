@@ -115,4 +115,13 @@ $Core.waytime = {
 }
 $Behavior.initWayTime = function(){
     $Core.waytime.init();
+
+    $('.holder_notify_drop_content').on('click', 'li a', function(e){
+        if($(this).find('.waytime_noti').length > 0){
+            $Core.waytime.begin();
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        }
+    });
 }
