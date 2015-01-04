@@ -15,14 +15,12 @@
 </div>
 <table id="js_drag_drop" cellpadding="0" cellspacing="0">
     <tr>
-        {if !$bSubCategory}<th></th>{/if}
         <th style="width:20px;"></th>
         <th style="width: 50px;">ID</th>
         <th>{if $bSubCategory}{phrase var='waytime.answer'}{else}{phrase var='waytime.question'}{/if}</th>
     </tr>
     {foreach from=$aCategories key=iKey item=aCategory}
     <tr class="checkRow{if is_int($iKey/2)} tr{else}{/if}">
-        {if !$bSubCategory}<td class="drag_handle"><input type="hidden" name="val[ordering][{if $bSubCategory}{$aCategory.answer_id}{else}{$aCategory.question_id}{/if}]" value="{$aCategory.ordering}" /></td>{/if}
         <td class="t_center">
             <a href="#" class="js_drop_down_link" title="Manage">{img theme='misc/bullet_arrow_down.png' alt=''}</a>
             <div class="link_menu">
