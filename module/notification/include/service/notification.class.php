@@ -209,7 +209,7 @@ class Notification_Service_Notification extends Phpfox_Service
 				$aNotifications[] = array_merge($aRow, (array) $aCallBack);	
 			}
 						
-			$this->database()->update($this->_sTable, array('is_seen' => '1'), 'type_id = \'' . $this->database()->escape($aRow['type_id']) . '\' AND item_id = ' . (int) $aRow['item_id']);
+			$this->database()->update($this->_sTable, array('is_seen' => '1'), 'type_id = \'' . $this->database()->escape($aRow['type_id']) . '\' AND item_id = ' . (int) $aRow['item_id'] . ' AND user_id = ' . Phpfox::getUserId());
 		}		
 		
 		return $aNotifications;
