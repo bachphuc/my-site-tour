@@ -337,7 +337,7 @@
                     $aFeed = $this->getActivityFeedComment($aRow);
                 elseif ($aRow['type_id'] == 'feed_egift')
                     $aFeed = $this->getActivityFeedEgift($aRow);
-
+                    
                 if ($aFeed === false)
                 {             
                     return false; 
@@ -397,7 +397,7 @@
                     }
                 }
                 $aFeed['total_comment'] = 0;    
-                //               
+                         
                 if ($bCacheFeed)
                 {
                     $this->cache()->save($sFeedCacheId, $aFeed);
@@ -490,7 +490,7 @@
                 $aFeed['feed_info'] = '';
             }
             $aOut = array_merge($aRow, $aFeed);
-
+            
             return $aOut;        
         }
 

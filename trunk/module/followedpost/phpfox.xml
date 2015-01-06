@@ -1,0 +1,48 @@
+<module>
+	<data>
+		<module_id>followedpost</module_id>
+		<product_id>followedpost</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu />
+		<phrase_var_name>module_followedpost</phrase_var_name>
+	</data>
+	<settings>
+		<setting group="" module_id="followedpost" is_hidden="0" type="string" var_name="text_to_display_link_followed" phrase_var_name="setting_text_to_display_link_followed" ordering="1" version_id="3.7.5">Anonymous message:</setting>
+	</settings>
+	<blocks>
+		<block type_id="0" m_connection="profile.index" module_id="followedpost" component="followedmenu" location="1" is_active="1" ordering="5" disallow_access="" can_move="0">
+			<title>Followed Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="strongbox.index" module_id="followedpost" component="followedmenu" location="1" is_active="1" ordering="7" disallow_access="" can_move="0">
+			<title></title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="followedpost.index" module_id="followedpost" component="followedmenu" location="1" is_active="1" ordering="3" disallow_access="" can_move="0">
+			<title>Menu Followed</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="followedpost" component="followedmenu" m_connection="" module="followedpost" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="followedpost" component="index" m_connection="followedpost.index" module="followedpost" is_controller="1" is_block="0" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="module_followedpost" added="1400298378">Make a post as followed</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="followed" added="1400339835">Follow</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="my_post" added="1400341699">My Posts</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="followed_post" added="1400341720">Followed Posts</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="public" added="1400349006">Unfollow</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="submit_feed_successfuly_in_followed_feed" added="1400427456">This item has successfully been submitted. It will be displayed in followed feed area.</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="submit_feed_successfuly_in_public_feed" added="1400430068">This item has successfully been submitted. It will be displayed in public feed area.</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="name_made_your_post_as_followed" added="1400691148">{name} made your post as followed</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="name_made_your_post_as_public" added="1400691287">{name} made your post as public</phrase>
+		<phrase module_id="followedpost" version_id="3.7.5" var_name="setting_text_to_display_link_followed" added="1400691701"><![CDATA[<title>Text in content to display link followed</title><info>Link followed (public) only display when in content of post have this value. 
+Ps: only support some default module of phpfox</info>]]></phrase>
+	</phrases>
+</module>

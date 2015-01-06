@@ -1,0 +1,18 @@
+<module>
+	<data>
+		<module_id>friend</module_id>
+		<product_id>phpfox</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu />
+		<phrase_var_name />
+	</data>
+	<blocks>
+		<block type_id="0" m_connection="followedpost.index" module_id="friend" component="profile.small" location="1" is_active="1" ordering="2" disallow_access="" can_move="0">
+			<title>Friend</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+</module>

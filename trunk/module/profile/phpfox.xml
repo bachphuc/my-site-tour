@@ -9,8 +9,8 @@
 		<phrase_var_name>module_profile</phrase_var_name>
 	</data>
 	<blocks>
-		<block type_id="0" m_connection="waytime.profile" module_id="profile" component="pic" location="1" is_active="1" ordering="1" disallow_access="" can_move="0">
-			<title><![CDATA[Profile Photo &amp; Menu]]></title>
+		<block type_id="0" m_connection="followedpost.index" module_id="profile" component="pic" location="1" is_active="1" ordering="1" disallow_access="" can_move="0">
+			<title>Pic</title>
 			<source_code />
 			<source_parsed />
 		</block>
