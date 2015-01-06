@@ -306,6 +306,20 @@ class Feed_Service_Callback extends Phpfox_Service
 			return Phpfox::getService('user.callback')->getActivityFeedStatus($aItem);
 		}	
 		*/
+        
+        // ANONYMOUS MODULE REPORT
+        if($aItem['user_id'] == Phpfox::getService('profile')->getProfileUserId())
+        {
+            $oRequest = Phpfox::getLib('request');
+            $bCheck = false;
+            if($oRequest->get('view') == 'followed'){
+                $bCheck = true;
+            }
+            if(!Phpfox::getLib('request')->get('feed') && !$bCheck)
+            {
+                return false;
+            }
+        }
 		
 		if(Phpfox::isModule('like'))
 		{
