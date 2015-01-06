@@ -213,10 +213,29 @@
             else
             {
                 $aFeed = Phpfox::callback($aRow['type_id'] . '.getActivityFeed', $aRow, (isset($this->_aCallback['module']) ? $this->_aCallback : null));
+                
 
                 if ($aFeed === false)
                 {
                     return false;
+                }
+                
+                // Prevent show feed mini
+                if(isset($aFeed['feed_mini']) && $aFeed['feed_mini'])
+                {
+                    unset($aFeed['feed_mini']);
+                    unset($aFeed['feed_mini_content']);
+                    if($aRow['type_id'] == 'photo')
+                    {
+                        $aFeed['feed_image'] = Phpfox::getLib('image.helper')->display(array(
+                            'path' => 'photo.url_photo',
+                            'suffix' => '_500',
+                            'file' => $aFeed['custom_data_cache']['destination'],
+                            'server_id' => $aFeed['custom_data_cache']['server_id'],
+                            )
+                        );
+                        $aFeed['feed_status'] = $aFeed['custom_data_cache']['description'];
+                    }
                 }
 
                 if (isset($this->_aViewMoreFeeds[$sKey]))
@@ -256,7 +275,7 @@
                 $numCoutComment = $aFeed['total_comment'];
                 if (isset($aFeed['comment_type_id']) && (int) $aFeed['total_comment'] > 0 && Phpfox::isModule('comment'))
                 {    
-                    $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], $numCoutComment);
+                    $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], Phpfox::getParam('comment.total_comments_in_activity_feed'));
                     if (Phpfox::getParam('feed.cache_each_feed_entry'))
                     {
                         foreach ($aFeed['comments'] as $iCommentRowCnt => $aCommentRow)
@@ -271,8 +290,7 @@
                             }    
                         }    
                     }
-                }
-                $aFeed['total_comment'] = 0;    
+                }  
             
                 if ($bCacheFeed)
                 {
