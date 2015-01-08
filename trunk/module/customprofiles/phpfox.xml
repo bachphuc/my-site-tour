@@ -11,7 +11,7 @@
 	<settings>
 		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="max_time_schedule" phrase_var_name="setting_max_time_schedule" ordering="1" version_id="3.7.7">30</setting>
 		<setting group="" module_id="customprofiles" is_hidden="0" type="string" var_name="limit_time_for_invite_user_by_anonymous_module" phrase_var_name="setting_limit_time_for_invite_user_by_anonymous_module" ordering="1" version_id="3.7.7">3</setting>
-		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="expire_post_time" phrase_var_name="setting_expire_post_time" ordering="1" version_id="3.7.5">7</setting>
+		<setting group="" module_id="customprofiles" is_hidden="0" type="integer" var_name="expire_post_time" phrase_var_name="setting_expire_post_time" ordering="1" version_id="3.7.5">45</setting>
 	</settings>
 	<blocks>
 		<block type_id="0" m_connection="core.index-member" module_id="customprofiles" component="sendbox" location="2" is_active="1" ordering="7" disallow_access="" can_move="0">
@@ -19,9 +19,15 @@
 			<source_code />
 			<source_parsed />
 		</block>
+		<block type_id="0" m_connection="profile.index" module_id="customprofiles" component="menu" location="1" is_active="1" ordering="2" disallow_access="a:2:{i:0;s:1:&quot;3&quot;;i:1;s:1:&quot;5&quot;;}" can_move="0">
+			<title>Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
 	</blocks>
 	<components>
 		<component module_id="customprofiles" component="sendbox" m_connection="" module="customprofiles" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="customprofiles" component="menu" m_connection="" module="customprofiles" is_controller="0" is_block="1" is_active="1" />
 	</components>
 	<phrases>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="show_your_name" added="1402597016">Show your name</phrase>
@@ -77,8 +83,8 @@
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="report_and_block_this_wayter" added="1414419780">Report and block this wayter</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="if_you_block_this_wayter_you_will_not_receive_further_anonymous_messages_by_him_her_and_this_report" added="1414419907">If you block this wayter you will not receive further anonymous messages by him/her and this report will be sent to the Wayta staff for additional verifications. Wayta staff will maintain the block for this wayter or will remove the block if based on a not valid reason. This procedure is irreversible, just for this reason use it carefully. After having blocked this wayter you can also delete the anonymous post if necessary.</phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="block_this_wayter" added="1414420052">Block this wayter</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="has_blocked_you" added="1414424162">{full_name} has blocked you.</phrase>
-		<phrase module_id="customprofiles" version_id="3.7.5" var_name="message_has_blocked_you" added="1414427080"><![CDATA[<span class="drop_data_user">{full_name}</span> has blocked you.]]></phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="has_blocked_you" added="1414424162">{full_name} has blocked you. You cannot send further anonymous messages to this wayter.</phrase>
+		<phrase module_id="customprofiles" version_id="3.7.5" var_name="message_has_blocked_you" added="1414427080"><![CDATA[<span class="drop_data_user">{full_name}</span> has blocked you. You cannot send further anonymous messages to this wayter.]]></phrase>
 		<phrase module_id="customprofiles" version_id="3.7.5" var_name="setting_expire_post_time" added="1414941596"><![CDATA[<title>Expire Post Time (Day)</title><info>Expire Post Time</info>]]></phrase>
 	</phrases>
 </module>
