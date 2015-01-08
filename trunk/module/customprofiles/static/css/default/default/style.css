@@ -41,11 +41,13 @@
     background: linear-gradient(to right, #E28A31 , #B8603B) !important; 
 }
 .img_button{
-    border: 1px solid #D7D7D7;
+    /* border: 1px solid #D7D7D7; */ 
     color: #333333;
     font-size: 13px;
     padding: 4px;
     cursor: pointer;
+    position: relative;
+    top: -7px;
 }
 
 /** Format search friend **/

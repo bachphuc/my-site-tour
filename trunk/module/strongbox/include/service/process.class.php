@@ -73,7 +73,7 @@
                     }
 
                     /* Lets figure out the phrases for like.display right here */
-                    //if (Phpfox::getParam('like.allow_dislike'))                
+                    // if (Phpfox::getParam('like.allow_dislike'))                
                     if(Phpfox::isModule('like'))
                     {
                         $this->getPhraseForLikes($aReturn);
@@ -218,12 +218,24 @@
                 {
                     return false;
                 }
-                /*
-                if (!empty($aRow['feed_reference']))
+
+                // Prevent show feed mini
+                if(isset($aFeed['feed_mini']) && $aFeed['feed_mini'])
                 {
-                $aRow['item_id'] = $aRow['feed_reference'];
+                    unset($aFeed['feed_mini']);
+                    unset($aFeed['feed_mini_content']);
+                    if($aRow['type_id'] == 'photo')
+                    {
+                        $aFeed['feed_image'] = Phpfox::getLib('image.helper')->display(array(
+                            'path' => 'photo.url_photo',
+                            'suffix' => '_500',
+                            'file' => $aFeed['custom_data_cache']['destination'],
+                            'server_id' => $aFeed['custom_data_cache']['server_id'],
+                            )
+                        );
+                        $aFeed['feed_status'] = $aFeed['custom_data_cache']['description'];
+                    }
                 }
-                */
 
                 if (isset($this->_aViewMoreFeeds[$sKey]))
                 {
