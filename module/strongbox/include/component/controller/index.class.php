@@ -14,7 +14,7 @@
         public function process()
         {
             $aStrongFeed = Phpfox::getService('strongbox.process')->getStrongFeed();
-            //            d($aStrongFeed[0]);die();
+
             for($i =0; $i <count($aStrongFeed);$i++)
             {
                 if(isset($aStrongFeed[$i]['comments']))
@@ -36,7 +36,7 @@
                     }
                 }
             }
-            //d($aStrongFeed);die();
+
             $bForceReloadOnPage = false;
             $iFeedPage = 0; 
             $sCustomViewType='';

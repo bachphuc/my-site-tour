@@ -1,12 +1,12 @@
 <?php
-   /* if(isset($this->_aVars['aFeed']['comments']))
+    /* if(isset($this->_aVars['aFeed']['comments']))
     {
-        d($this->_aVars['aFeed']['comments']);// die(); 
+    d($this->_aVars['aFeed']['comments']);// die(); 
     }*/
-    
+
     if(Phpfox::isModule('strongbox'))
     {
-        
+
         $type_id =0;
         if(isset($this->_aVars['aFeed']['type_id']))
         {
@@ -30,7 +30,7 @@
         var aIdComent =[];
         if(sListComentId !="")
         {
-            var aIdComent = sListComentId.split("_");
+        var aIdComent = sListComentId.split("_");
         }
         for (i = 0; i < lenght; i++) { 
         var parentUL = parent.find(".comment_mini_action").eq(i).find("ul");
