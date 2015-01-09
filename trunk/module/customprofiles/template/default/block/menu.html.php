@@ -27,11 +27,17 @@
 {/literal}
 
 <ul class="desoft_menu">
-    <li><a title="My Post"><img src="{param var='core.path'}module/customprofiles/static/image/icons/mypost.png"></a></li>
-    <li><a title="Follow Post"><img src="{param var='core.path'}module/customprofiles/static/image/icons/followpost.png"></a></li>
-    <li><a title="Private Post"><img src="{param var='core.path'}module/customprofiles/static/image/icons/privatepost.png"></a></li>
-    <li><a title="My Strong Box"><img src="{param var='core.path'}module/customprofiles/static/image/icons/strongbox_yellow.png"></a></li>
-    <li><a title="Anonymous Post Done"><img src="{param var='core.path'}module/customprofiles/static/image/icons/anonymousdone.png"></a></li>
-    <li><a title="Anonymous Post Receive"><img src="{param var='core.path'}module/customprofiles/static/image/icons/anonymousreceive.png"></a></li>
+    <li><a href="{url link=$aUser.user_name}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/mypost.png"><span class="js_hover_info">My Post</span></a></li>
+    
+    <li><a href="{url link=$aUser.user_name view='followed'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/followpost.png"><span class="js_hover_info">Follow Post</span></a></li>
+    
+    <li><a href="{url link=$aUser.user_name view='private'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/privatepost.png"><span class="js_hover_info">Private Post</span></a></li>
+    
+    <li><a href="{url link=$aUser.user_name view='strongbox'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/strongbox_yellow.png"><span class="js_hover_info">My Strong Box</span></a></li>
+    
+    <li><a href="{url link=$aUser.user_name view='anonydone'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/anonymousdone.png"><span class="js_hover_info">Anonymous Post Done</span></a></li>
+    
+    <li><a href="{url link=$aUser.user_name view='anonyreceived'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/anonymousreceive.png"><span class="js_hover_info">Anonymous Post Receive</span></a></li>
+    
     <li class="clear"></li>
 </ul>
