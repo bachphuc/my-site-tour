@@ -19,7 +19,6 @@
         */
         public function process()
         { 
-            
             $aUser = $this->getParam('aUser');
             if(Phpfox::getUserId() != $aUser['user_id'])
             {
