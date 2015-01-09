@@ -19,6 +19,7 @@
         */
         public function process()
         {    
+            return false;
             $aUser = $this->getParam('aUser');
             $user_id = $aUser['user_id'];
             if($user_id == 0)

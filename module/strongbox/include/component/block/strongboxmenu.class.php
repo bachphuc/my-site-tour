@@ -19,22 +19,13 @@
         */
         public function process()
         { 
-            
+            return false;  
             $aUser = $this->getParam('aUser');
             if(Phpfox::getUserId() != $aUser['user_id'])
             {
-                //return false;
+                return false;
             }
             $sView = $this->request()->get('view');
-           /* if($sView && $sView == 'followed')
-            {
-                echo '<script type="text/javascript">$Core.bFollowedFeed = true;</script>';
-            }
-            $bMyPost = false;
-            if(!$sView && !$this->request()->get('req2'))
-            {
-                $bMyPost = true;
-            }*/
             
             $this->template()->assign(array(
                 'aUser' => $aUser,

@@ -22,6 +22,10 @@
 
         public function getProfileMenu($aUser)
         {
+            if(Phpfox::isModule('customprofiles'))
+            {
+                return false;
+            }
             $aProfile = Phpfox::getService('waytime')->getProfile();
             if(!$aProfile['is_unlock'])
             {

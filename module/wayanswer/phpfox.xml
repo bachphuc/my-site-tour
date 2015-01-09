@@ -1,0 +1,14 @@
+<module>
+	<data>
+		<module_id>wayanswer</module_id>
+		<product_id>waytame</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu />
+		<phrase_var_name>module_wayanswer</phrase_var_name>
+	</data>
+	<phrases>
+		<phrase module_id="wayanswer" version_id="3.7.7" var_name="module_wayanswer" added="1407174923">Waytame answer</phrase>
+	</phrases>
+</module>

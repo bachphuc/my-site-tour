@@ -30,7 +30,8 @@
             $this->template()->assign(array(
                 'aUser' => $aUser,
                 'sView' => $sView,
-                'iUserId' =>Phpfox::getUserId()
+                'iUserId' =>Phpfox::getUserId(),
+                'sController' => Phpfox::getLib('module')->getFullControllerName(),
             ));
         }
     }
