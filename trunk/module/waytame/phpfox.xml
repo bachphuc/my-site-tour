@@ -1,0 +1,92 @@
+<module>
+	<data>
+		<module_id>waytame</module_id>
+		<product_id>waytame</product_id>
+		<is_core>0</is_core>
+		<is_active>1</is_active>
+		<is_menu>0</is_menu>
+		<menu />
+		<phrase_var_name>module_waytame</phrase_var_name>
+	</data>
+	<settings>
+		<setting group="" module_id="waytame" is_hidden="0" type="integer" var_name="limit_time_question_expire" phrase_var_name="setting_limit_time_question_expire" ordering="1" version_id="3.7.7">90</setting>
+		<setting group="" module_id="waytame" is_hidden="0" type="string" var_name="format_expire_time" phrase_var_name="setting_format_expire_time" ordering="1" version_id="3.7.7">F j, Y @g:ia</setting>
+	</settings>
+	<blocks>
+		<block type_id="0" m_connection="core.index-member" module_id="waytame" component="friendbar" location="1" is_active="1" ordering="6" disallow_access="" can_move="0">
+			<title>Waytame Bar</title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="profile.index" module_id="waytame" component="profilemenu" location="1" is_active="1" ordering="7" disallow_access="" can_move="0">
+			<title>Waytame Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
+		<block type_id="0" m_connection="waytame.profile" module_id="waytame" component="profilemenu" location="1" is_active="1" ordering="2" disallow_access="" can_move="0">
+			<title>Profile Menu</title>
+			<source_code />
+			<source_parsed />
+		</block>
+	</blocks>
+	<components>
+		<component module_id="waytame" component="friendbar" m_connection="" module="waytame" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="waytame" component="profilemenu" m_connection="" module="waytame" is_controller="0" is_block="1" is_active="1" />
+		<component module_id="waytame" component="profile" m_connection="waytame.profile" module="waytame" is_controller="1" is_block="0" is_active="1" />
+		<component module_id="waytame" component="index" m_connection="waytame.index" module="waytame" is_controller="1" is_block="0" is_active="1" />
+		<component module_id="waytame" component="view" m_connection="waytame.view" module="waytame" is_controller="1" is_block="0" is_active="1" />
+	</components>
+	<phrases>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="module_waytame" added="1405955470">Waytame module</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="waytame" added="1405956408">Waytame</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="setting_limit_time_question_expire" added="1406738340"><![CDATA[<title>Limit Time Question Expire (day)</title><info>Limit Time Question Expire (day)</info>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="setting_format_expire_time" added="1406740652"><![CDATA[<title>Format Expire Time Display</title><info>Format Expire Time Display</info>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="ask_a_question" added="1407036796"><![CDATA[&#32;has created a new Waytame question.]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="comment_your_question" added="1407048844"><![CDATA[{full_name} commented on your question "{title}".]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_comment_your_question" added="1407048899"><![CDATA[{full_name} commented on your question "<a href="{link}">{title}</a>".
+To see the comment thread, follow the link below:
+<a href="{link}">{link}</a>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="gender_comment_on_your_question" added="1407048962">{full_name} commented on {gender} question.</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_comment_your_question_title" added="1407049053"><![CDATA[{full_name} commented on {blog_full_name}&#039;s question.]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_comment_your_question_comment" added="1407049108"><![CDATA[{full_name} commented on {gender} question "<a href="{link}">{title}</a>".
+To see the comment thread, follow the link below:
+<a href="{link}">{link}</a>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="full_user_comment_your_question" added="1407049158"><![CDATA[{full_name} commented on {blog_full_name}&#039;s question "<a href="{link}">{title}</a>".
+To see the comment thread, follow the link below:
+<a href="{link}">{link}</a>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="item_phrase" added="1407075393">question</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="delete_this_question" added="1407333542">Delete this question</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="delete" added="1407333562">Delete</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="report" added="1407333576">Report</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="report_this_question" added="1407333591">Report this question</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_like_your_question" added="1407337339"><![CDATA[{full_name} liked your question "{title}"]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="full_user_like_question" added="1407337383"><![CDATA[{full_name} liked your question "<a href="{link}">{title}</a>"
+To view this question follow the link below:
+<a href="{link}">{link}</a>]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_gender_like_own_question" added="1407342745"><![CDATA[{users} liked {gender} own question "{title}"]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="user_like_your_questions" added="1407342804"><![CDATA[<span class="drop_data_user">{users}</span> liked your question "{title}"]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="liked_your_question_data" added="1407342875"><![CDATA[{users} liked <span class="drop_data_user">{row_full_name}&#039;s</span> question "{title}"]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="by_user" added="1407343860">by {full_name}</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="you_ve_actually_answered_this_question" added="1407565767"><![CDATA[You&#039;ve actually answered this question.]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="waytame_title" added="1407565810">WAYTAME</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="some_field_is_empty_please_fill_in_form" added="1407565850">Some field is empty! Please fill in form!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="please_fill_in_form" added="1407565876">Please fill in form!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="add_question_successful" added="1407565903">Add question successful!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="something_was_wrong" added="1407565922">Something was wrong!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="some_fields_are_missed" added="1407565948">Some fields are missed!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="answer_must_be_not_empty" added="1407565967">Answer must be not empty!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="answer_successful" added="1407566001">Answer successful!</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="you_are_the_owner_of_this_question_so_that_you_do_not_answer_it" added="1407566663">You are the owner of this question, so that you do not answer it.</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="our_description_here" added="1407574680">Our description here</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="answer" added="1407689560">ANSWER</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="give_your_anonymous_answer" added="1407689585">Give your anonymous answer</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="expires_on" added="1407689616">Expires on</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="unlike" added="1407689718">Unlike</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="create" added="1407689751">CREATE</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="close" added="1407689767">Close</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="your_answer" added="1407689822">Give your answer (no user will read it)</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="make_your_question" added="1407689840">Make your question</phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="has_created_a_new_waytame_question" added="1407689891"><![CDATA[&#32;has created a new Waytame question.]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.7" var_name="waytame_dislike_notification" added="1410287054"><![CDATA[<span class="drop_data_user">{users}</span> disliked your question "{title}"]]></phrase>
+	</phrases>
+</module>

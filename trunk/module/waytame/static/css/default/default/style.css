@@ -1,0 +1,192 @@
+#friend_bar_wapper{
+    margin-bottom: 10px;
+    width: 300px;
+    margin:0 auto;
+
+    /*    background: -webkit-linear-gradient(left, #E28A31 , #B8603B); 
+    background: -o-linear-gradient(right, #E28A31, #B8603B); 
+    background: -moz-linear-gradient(right, #E28A31, #B8603B); 
+    background: linear-gradient(to right, #E28A31 , #B8603B); */
+}
+#friend_bar_wapper .title-underline{
+    height: 25px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #c85727;
+    border-bottom: 3px #f78d1e solid;
+}
+#friend_list{
+    height: 49px;
+}
+#friend_list ul{
+    list-style-type: none;
+    margin-top: 2px;
+}
+#friend_list ul li{
+    display: inline-block;
+    float: left;
+    margin-right: 2px;
+    width:40px;
+    height:40px;
+    position:relative;
+}
+#friend_list ul li:hover .waytame_question_tooltip{
+    display: block;
+}
+
+.outer_tootip{
+    position:relative;
+}
+.outer_tootip .waytame_question_tooltip{
+    width: 120px !important;
+    margin-left: -60px !important;;
+    left: -24px !important;
+    top:46px !important;
+}
+.outer_tootip .waytame_question_tooltip::after{
+    left:55px !important;;
+}
+.outer_tootip:hover .waytame_question_tooltip{
+    display: block;
+}
+.waytame_question_tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    color: #fff;
+    display: none;
+    left: 50%;
+    line-height: 24px;
+    margin-left: -45px;
+    padding-right: 10px;
+    position: absolute;
+    text-align: center;
+    top: 40px;
+    width: 90px;
+    z-index: 999;
+}
+.waytame_question_tooltip::after{
+    border-bottom: 8px solid rgba(0, 0, 0, 0.8);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    height: 0;
+    left: 38px;
+    position: absolute;
+    top: -8px;
+    width: 0;
+}
+
+#friend_list ul li img{
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.waytame_box{
+    background-color: #E8B400;
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+    padding: 5px;
+    background-image: none;
+}
+
+.waytame_box .js_box_title {
+    background-color: #E8B400;
+    color: #333;
+}
+
+.waytame_box .js_box_close {
+    border-top: 5px solid #E8B400;
+    margin-bottom: -15px;
+    margin-left: -15px;
+    margin-right: -15px;
+    text-align: right;
+    margin-top:20px;
+}
+
+.waytame_box .js_box_close > a {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+    display: inline-block !important;
+    position: static !important;
+    cursor: pointer;
+}
+.waytame_link{
+    float: right;
+}
+.waytame_link a{
+    cursor: pointer;
+}
+
+.waytame_show_less_question, .waytame_show_less_answer{
+    background-image:url(../../../image/less.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 32px;
+    margin-left: 10px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.waytame_show_more_question, .waytame_show_more_answer{
+    background-image: url("../../../image/more.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 32px;
+    margin-left: 10px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.waytame_hide{
+    display: none;
+}
+
+.waytame_description{
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom:1px solid #CCC;
+    margin-bottom: 10px;
+}
+.waytame_box input[type='text']{
+    width:90%;
+}
+.waytame_row{
+    padding-top:10px;
+}
+
+.waytame_question_item{
+    border-bottom:1px solid #CCC;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.waytame_answer_item{
+    border-bottom:1px solid #CCC;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-left:20px;
+}
+
+.waytame_box_green{
+    background-color: #abd817 !important;
+}
+
+.waytame_box_green .js_box_title {
+    background-color: #abd817 !important;
+}
+
+.waytame_box_green .js_box_close {
+    border-top: 5px solid #abd817 !important;
+}
+
+#left{
+    overflow:initial !important;
+}
