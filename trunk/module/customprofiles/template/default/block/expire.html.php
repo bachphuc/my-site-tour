@@ -87,6 +87,8 @@
             $(this).closest('.expire_time_menu').find('.expire_time').val($(this).attr('rel'));
             $(this).closest('.expire_time_holder').toggle();
             $('.expire_time_menu>a').removeClass('expire_active');
+            
+            $('.expire_time_menu .js_hover_info').text($(this).text());
             e.stopPropagation();
             e.preventDefault();
             return false;
@@ -116,7 +118,7 @@
 <div class="expire_time_menu">
     <div><input type="hidden" value="{$iTotalSecond}" name="val[expire_time]" class="expire_time"></div>
     <div><input type="hidden" value="1" name="val[feed_expire_time]"></div>
-    <a class="js_hover_title" href=""><span>1 Week</span><span class="js_hover_info">1 Week</span></a>
+    <a class="js_hover_title" href=""><span>{$sTime}</span><span class="js_hover_info">{$sTime}</span></a>
     <div class="expire_time_holder" style="display: none;">
         <ul>
             <li><a class="active_expire" rel="{$iTotalSecond}" href="">{$sTime}</a></li>
