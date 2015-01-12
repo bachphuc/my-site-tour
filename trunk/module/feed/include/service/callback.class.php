@@ -312,7 +312,7 @@ class Feed_Service_Callback extends Phpfox_Service
         {
             $oRequest = Phpfox::getLib('request');
             $bCheck = false;
-            if($oRequest->get('view') == 'followed'){
+            if($oRequest->get('view') == 'followed' || $oRequest->get('view') == 'expire'){
                 $bCheck = true;
             }
             if(!Phpfox::getLib('request')->get('feed') && !$bCheck)
