@@ -13,7 +13,8 @@
         cursor: pointer;
         width:32px;
         height: 32px;
-        margin-right: 9px;
+        margin-right: 4px;
+        margin-top:10px;
     }
     .desoft_menu li a{
         display: block;
@@ -48,6 +49,10 @@
     
     {if Phpfox::isModule('strongbox')}
     <li {if $sView=='strongbox'}class="active"{/if}><a href="{url link=$aUser.user_name view='strongbox'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/strongbox.png"><span class="js_hover_info">My Strong Box</span></a></li>
+    {/if}
+    
+    {if Phpfox::isModule('customprofiles')}
+    <li {if $sView=='expire'}class="active"{/if}><a href="{url link=$aUser.user_name view='expire'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/expire.png"><span class="js_hover_info">Expiring posts</span></a></li>
     {/if}
     
     {if Phpfox::isModule('anonymousdone')}

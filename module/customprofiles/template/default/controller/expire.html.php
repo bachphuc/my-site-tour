@@ -37,7 +37,7 @@ defined('PHPFOX') or exit('NO DICE!');
         }
 
         {else}
-            {if !Phpfox::getService('profile')->timeline()}
+            {if !Phpfox::getService('profile')->timeline() && false}
                 <div id="js_main_feed_holder">
                     {template file='feed.block.form'}
                 </div>
@@ -195,7 +195,7 @@ defined('PHPFOX') or exit('NO DICE!');
                     {module name='user.birth'}
                 {else}
                     <br />
-                    <div class="message js_no_feed_to_show">{phrase var='feed.there_are_no_new_feeds_to_view_at_this_time'}</div>
+                    <div class="message js_no_feed_to_show">{phrase var='customprofiles.there_are_no_feeds_to_view_at_this_time'}</div>
                 {/if}
             {/if}
         {/if}

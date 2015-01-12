@@ -37,7 +37,7 @@ defined('PHPFOX') or exit('NO DICE!');
         }
 
         {else}
-            {if !Phpfox::getService('profile')->timeline()}
+            {if !Phpfox::getService('profile')->timeline() && false}
                 <div id="js_main_feed_holder">
                     {template file='feed.block.form'}
                 </div>
@@ -187,7 +187,7 @@ defined('PHPFOX') or exit('NO DICE!');
                     {else}
                     <div id="js_feed_pass_info" style="display:none;">page={$iFeedNextPage}{if defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id)}&profile_user_id={$aUser.user_id}{/if}{if isset($aFeedCallback.module)}&callback_module_id={$aFeedCallback.module}&callback_item_id={$aFeedCallback.item_id}{/if}&year={$sTimelineYear}&month={$sTimelineMonth}{if !empty($sIsHashTagSearch)}&hashtagsearch={$sIsHashTagSearch}{/if}</div>
                     <div id="feed_view_more_loader">{img theme='ajax/add.gif'}</div>
-                    <a {if !PHPFOX_IS_AJAX && isset($bForceReloadOnPage) && $bForceReloadOnPage} style="text-indent:-1000px; overflow:hidden; background:transparent; border:0px;"{/if} href="{if Phpfox::getLib('module')->getFullControllerName() == 'core.index-visitor'}{url link='core.index-visitor' page=$iFeedNextPage}{else}{url link='current' page=$iFeedNextPage}{/if}" onclick="$(this).hide(); $('#feed_view_more_loader').show(); $.ajaxCall('feed.viewMore', 'page={$iFeedNextPage}{if defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id)}&profile_user_id={$aUser.user_id}{/if}{if isset($aFeedCallback.module)}&callback_module_id={$aFeedCallback.module}&callback_item_id={$aFeedCallback.item_id}{/if}&year={$sTimelineYear}&month={$sTimelineMonth}', 'GET'); return false;" class="global_view_more no_ajax_link">{phrase var='feed.view_more'}</a>
+                    <a {if !PHPFOX_IS_AJAX && isset($bForceReloadOnPage) && $bForceReloadOnPage} style="text-indent:-1000px; overflow:hidden; background:transparent; border:0px;"{/if} href="{if Phpfox::getLib('module')->getFullControllerName() == 'core.index-visitor'}{url link='core.index-visitor' page=$iFeedNextPage}{else}{url link='current' page=$iFeedNextPage}{/if}" onclick="$(this).hide(); $('#feed_view_more_loader').show(); $.ajaxCall('followedpost.viewMore', 'page={$iFeedNextPage}{if defined('PHPFOX_IS_USER_PROFILE') && isset($aUser.user_id)}&profile_user_id={$aUser.user_id}{/if}{if isset($aFeedCallback.module)}&callback_module_id={$aFeedCallback.module}&callback_item_id={$aFeedCallback.item_id}{/if}&year={$sTimelineYear}&month={$sTimelineMonth}', 'GET'); return false;" class="global_view_more no_ajax_link">{phrase var='feed.view_more'}</a>
                     {/if}
                 </div>                
             {else}
@@ -195,7 +195,7 @@ defined('PHPFOX') or exit('NO DICE!');
                     {module name='user.birth'}
                 {else}
                     <br />
-                    <div class="message js_no_feed_to_show">{phrase var='feed.there_are_no_new_feeds_to_view_at_this_time'}</div>
+                    <div class="message js_no_feed_to_show">{phrase var='customprofiles.there_are_no_feeds_to_view_at_this_time'}</div>
                 {/if}
             {/if}
         {/if}
@@ -221,3 +221,25 @@ defined('PHPFOX') or exit('NO DICE!');
         {/if}
     {/if}
 {/if}
+
+{literal}
+<script type="text/javascript">
+$Behavior.initLoadFollowPost = function(){
+    $Core.forceLoadOnFeed = function(){
+        if ($iReloadIteration >= 2){
+            return;
+        }
+
+        if (!$Core.exists('#js_feed_pass_info')){
+            return;
+        }
+        
+        $iReloadIteration++;
+        $('#feed_view_more_loader').show();
+        $('.global_view_more').hide();
+
+        setTimeout("$.ajaxCall('followedpost.viewMore', $('#js_feed_pass_info').html().replace(/&amp;/g, '&') + '&iteration=" + $iReloadIteration + "', 'GET');", 1000);
+    }
+}
+</script>
+{/literal}
