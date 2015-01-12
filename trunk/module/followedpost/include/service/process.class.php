@@ -23,6 +23,10 @@
 
         public function getFollowFeed()
         {
+            $iTotalFeeds = 10;
+            $iPage = Phpfox::getLib('request')->get('page', 0);
+            $iOffset = ($iPage * $iTotalFeeds);
+            
             $sSelect = 'feed.*,ff.user_followed,' . Phpfox::getUserField();
             $sOrder = 'feed.time_update DESC';
             $aRows = $this->database()->select($sSelect)
@@ -31,7 +35,8 @@
             ->join(Phpfox::getT('followed_feed'), 'ff', 'ff.feed_id = feed.feed_id')
             ->where('ff.user_id='.Phpfox::getUserId())
             ->order($sOrder)
-            ->group('feed.feed_id')         
+            ->group('feed.feed_id')
+            ->limit($iOffset, $iTotalFeeds)         
             ->execute('getSlaveRows');
 
             $bFirstCheckOnComments = false;
@@ -272,7 +277,7 @@
                     }                  
                 }
                 
-                $numCoutComment = $aFeed['total_comment'];
+                $numCoutComment = (isset($aFeed['total_comment']) ? $aFeed['total_comment'] : 0);
                 if (isset($aFeed['comment_type_id']) && (int) $aFeed['total_comment'] > 0 && Phpfox::isModule('comment'))
                 {    
                     $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], Phpfox::getParam('comment.total_comments_in_activity_feed'));

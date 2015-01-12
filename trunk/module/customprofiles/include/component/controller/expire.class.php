@@ -27,7 +27,7 @@
 
             $bForceReloadOnPage = false;
             $iFeedPage = 0; 
-            $sCustomViewType='';
+            $sCustomViewType = null;
             $aFeedCallback = array();
             $bIsCustomFeedView = false;
             $bLoadCheckIn = false;

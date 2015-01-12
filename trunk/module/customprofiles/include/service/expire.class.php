@@ -23,13 +23,48 @@
 
         public function getExpirePosts()
         {
-            $sSelect = 'feed.*,ff.user_followed,' . Phpfox::getUserField();
+            $sSelect = 'feed.*';
             $sOrder = 'feed.time_update DESC';
-            $aRows = $this->database()->select($sSelect)
+            $iLastTime = PHPFOX_TIME - 60 * 60;
+            $sTimeCondition = $iLastTime.' < feed.expire_time AND feed.expire_time < '.PHPFOX_TIME;
+            
+            // Get My feed has expired in last hour
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->where($sTimeCondition.' AND feed.user_id = '.(int)Phpfox::getUserId().' AND feed.parent_user_id = 0')
+            ->union();
+            
+            // Get anonymous receive expired in last hour
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'anonymous', 'anonymous.feed_id = feed.feed_id')
+            ->where($sTimeCondition.' AND feed.parent_user_id = '.(int)Phpfox::getUserId())
+            ->union();
+            
+            // Get Feed I like
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->join(Phpfox::getT('like'),'l', 'l.type_id = feed.type_id AND l.item_id = feed.item_id AND l.user_id = '.Phpfox::getUserId())
+            ->where($sTimeCondition)
+            ->union();
+            
+            // Get Feed I dislike
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->join(Phpfox::getT('action'),'l', "REPLACE(l.item_type_id,'-','_') = feed.type_id AND l.item_id = feed.item_id AND l.user_id = ".Phpfox::getUserId())
+            ->where($sTimeCondition)
+            ->union();
+            
+            $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
-            ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
             ->join(Phpfox::getT('followed_feed'), 'ff', 'ff.feed_id = feed.feed_id')
-            ->where('ff.user_id='.Phpfox::getUserId())
+            ->where($sTimeCondition.' AND ff.user_id='.Phpfox::getUserId())
+            ->union();
+            
+            $aRows = $this->database()->select($sSelect.','.Phpfox::getUserField())
+            ->unionFrom('feed')        
+            ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
+            ->where('feed.feed_reference = 0')
             ->order($sOrder)
             ->group('feed.feed_id')         
             ->execute('getSlaveRows');
@@ -205,7 +240,7 @@
                 {
                     $aFeed = Phpfox::callback($aRow['type_id'] . '.getActivityFeedCustomChecks', $aFeed, $aRow);
                     if ($aFeed === false)
-                    {die('208');
+                    {
                         return false;
                     }
                 }
@@ -216,7 +251,7 @@
                 
 
                 if ($aFeed === false)
-                {die('219');
+                {
                     return false;
                 }
                 
@@ -272,7 +307,7 @@
                     }                  
                 }
                 
-                $numCoutComment = $aFeed['total_comment'];
+                $numCoutComment = (isset($aFeed['total_comment']) ? $aFeed['total_comment'] : 0);
                 if (isset($aFeed['comment_type_id']) && (int) $aFeed['total_comment'] > 0 && Phpfox::isModule('comment'))
                 {    
                     $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], Phpfox::getParam('comment.total_comments_in_activity_feed'));
