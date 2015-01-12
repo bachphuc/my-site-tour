@@ -8,7 +8,8 @@
             'anonymousdone.index',
             'anonymousreceived.index',
             'waytime.profile',
-            'waytame.profile'
+            'waytame.profile',
+            'customprofiles.expire'
         );
         $sFullController = Phpfox::getLib('module')->getFullControllerName();
         if(in_array($sFullController, $aControllers))
