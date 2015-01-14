@@ -23,7 +23,7 @@
 
         public function getFollowFeed()
         {
-            $iTotalFeeds = 10;
+            $iTotalFeeds = 8;
             $iPage = Phpfox::getLib('request')->get('page', 0);
             $iOffset = ($iPage * $iTotalFeeds);
             

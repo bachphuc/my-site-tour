@@ -23,6 +23,12 @@ $Behavior.addTagLink = function(){
             var text = $(this).find(".post_title").text();
             $(this).find(".post_title").remove();
             $(this).prepend(text);
+            if($(this).find(".user_profile_link_span").length > 0){
+                var fullname = $(this).find(".user_profile_link_span").text();
+                var par = $(this).closest('.row_feed_loop');
+                par.find('.activity_feed_image a').attr('title', fullname);
+                par.find('img').attr('alt', fullname);
+            }
         }
     });
     
