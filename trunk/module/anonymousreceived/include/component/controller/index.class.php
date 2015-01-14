@@ -23,9 +23,9 @@
                 return $this->url()->send('error.404');
             }
             $bForceReloadOnPage = false;
-            $iFeedPage = 0; 
+            $iFeedPage = $this->request()->get('page', 0);
             
-            $sCustomViewType = ($iId ? 'Wall Feed: #'.$iId : '');
+            $sCustomViewType = ($iId ? 'Wall Feed: #'.$iId : null);
             
             $aFeedCallback = array();
             $bIsCustomFeedView = false;

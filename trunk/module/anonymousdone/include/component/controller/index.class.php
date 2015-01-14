@@ -25,8 +25,8 @@
             Phpfox::getService('customprofiles.process')->processFeed($aReceivedFeed);
             
             $bForceReloadOnPage = false;
-            $iFeedPage = 0; 
-            $sCustomViewType = ($iId ? 'Wall Feed: #'.$iId : '');
+            $iFeedPage = $this->request()->get('page', 0);
+            $sCustomViewType = ($iId ? 'Wall Feed: #'.$iId : null);
             $aFeedCallback = array();
             $bIsCustomFeedView = false;
             $bLoadCheckIn = false;

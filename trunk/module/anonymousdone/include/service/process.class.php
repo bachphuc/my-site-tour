@@ -23,6 +23,10 @@
 
         public function getDoneFeed($iId = null)
         {            
+            $iTotalFeeds = 8;
+            $iPage = Phpfox::getLib('request')->get('page', 0);
+            $iOffset = ($iPage * $iTotalFeeds);
+            
             $sSelect = 'feed.*,' . Phpfox::getUserField();
             $iUserid = Phpfox::getUserId();
             $sOrder = 'feed.time_update DESC';
@@ -40,7 +44,8 @@
             ->join(Phpfox::getT('custom_profiles_anonymous_feed'), 'sb', 'sb.feed_id = feed.feed_id')
             ->where($aConds)
             ->order($sOrder)
-            ->group('feed.feed_id')         
+            ->group('feed.feed_id')     
+            ->limit($iOffset, $iTotalFeeds) 
             ->execute('getSlaveRows');   
 
 
@@ -376,11 +381,11 @@
                         }
                     }                  
                 }
-
-                $numCoutComment = $aFeed['total_comment'];
+                $bDetailFeed = (Phpfox::getLib('request')->getInt('id') ? true : false);
+                $numCoutComment = (isset($aFeed['total_comment']) ? $aFeed['total_comment'] : 0);
                 if (isset($aFeed['comment_type_id']) && (int) $aFeed['total_comment'] > 0 && Phpfox::isModule('comment'))
                 {    
-                    $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], $numCoutComment);
+                    $aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aRow['item_id'], ($bDetailFeed ? $numCoutComment : Phpfox::getParam('comment.total_comments_in_activity_feed')) );
                     if (Phpfox::getParam('feed.cache_each_feed_entry'))
                     {
                         foreach ($aFeed['comments'] as $iCommentRowCnt => $aCommentRow)
@@ -396,8 +401,10 @@
                         }    
                     }
                 }
-                $aFeed['total_comment'] = 0;    
-                         
+                if($bDetailFeed)
+                {
+                    $aFeed['total_comment'] = 0;
+                }
                 if ($bCacheFeed)
                 {
                     $this->cache()->save($sFeedCacheId, $aFeed);
