@@ -226,6 +226,7 @@ defined('PHPFOX') or exit('NO DICE!');
 </script>
 {/literal}
 
+{if !PHPFOX_IS_AJAX}
 {literal}
 <script type="text/javascript">
 $Behavior.initLoadFollowPost = function(){
@@ -272,3 +273,4 @@ function resetLink(){
 }
 </script>
 {/literal}
+{/if}
