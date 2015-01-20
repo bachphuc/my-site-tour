@@ -9,7 +9,7 @@
 		<phrase_var_name>module_strongbox</phrase_var_name>
 	</data>
 	<blocks>
-		<block type_id="0" m_connection="profile.index" module_id="strongbox" component="strongboxmenu" location="1" is_active="1" ordering="6" disallow_access="" can_move="0">
+		<block type_id="0" m_connection="profile.index" module_id="strongbox" component="strongboxmenu" location="1" is_active="1" ordering="7" disallow_access="" can_move="0">
 			<title>Strong Box Menu</title>
 			<source_code />
 			<source_parsed />
@@ -29,5 +29,7 @@
 		<phrase module_id="strongbox" version_id="3.7.5" var_name="strongbox" added="1403631971">Strongbox</phrase>
 		<phrase module_id="strongbox" version_id="3.7.5" var_name="remove_strongbox" added="1403632190">Remove from strongbox</phrase>
 		<phrase module_id="strongbox" version_id="3.7.5" var_name="my_strongbox" added="1404837970">My Strongbox</phrase>
+		<phrase module_id="strongbox" version_id="3.7.5" var_name="strong_box" added="1421771689">Strong Box</phrase>
+		<phrase module_id="strongbox" version_id="3.7.5" var_name="remove_strong_box" added="1421771824">Remove Strong Box</phrase>
 	</phrases>
 </module>
