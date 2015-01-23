@@ -1,0 +1,18 @@
+1. Install ruby
+-> install ruby and DevKit following link: https://forwardhq.com/support/installing-ruby-windows
+** Make sure sass version < 3.4.5
+If higher, reinstall sass
+- gem uninstall sass
+- gem install sass -v 3.4.5
+
+2. Install build module 
+Install node_modules by: npm install
+Install sass and angular gettext
+- npm install grunt-contrib-sass
+- npm install grunt-angular-gettext
+
+3. 
+Link/copy node_modules that created above to dev folder  
+Open dev folder and run proper release file
+ex: - window: run file release.iphone.bat for iphone and etc...
+    - Mac/Linux: run file release.iphone.sh for iphone and etc...
