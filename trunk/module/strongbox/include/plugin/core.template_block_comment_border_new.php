@@ -12,7 +12,9 @@
 
     ?>
     <script type="text/javascript">
-        $Behavior.addBox_<?php echo $feed_id; ?> = function(){
+        <?php if(!PHPFOX_IS_AJAX) : ?>
+            $Behavior.addBox_<?php echo $feed_id; ?> = function(){
+                <?php endif; ?>
             var isBox = $(".make_strongbox_<?php echo $feed_id; ?>").length;
             if(isBox > 0){
                 var lenght = $(".make_strongbox_<?php echo $feed_id; ?>").closest(".js_feed_comment_border").find(".comment_mini_action").not('.check_strong_box').length;
@@ -48,6 +50,6 @@
                     });
                 }
             }
-        }
-    </script>;
+        <?php if(!PHPFOX_IS_AJAX) : ?>}<?php endif; ?>
+    </script>
     <?php endif; ?>

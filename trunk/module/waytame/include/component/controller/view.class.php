@@ -31,7 +31,7 @@
             }
             if(!Phpfox::getService('friend')->isFriend(Phpfox::getUserId(),$aQuestion['user_id']) && !Phpfox::isAdmin() && $aQuestion['user_id'] != Phpfox::getUserId())
             {
-                return $this->url()->send('404',array(),'Page not found!');
+                return $this->url()->send('404');
             }
             if($iAnswerId = $this->request()->get('answer'))
             {
