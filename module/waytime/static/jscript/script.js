@@ -1,6 +1,9 @@
 
 $Core.waytime = {
     begin : function(ele){
+        if($('#waytime_watch_freeze').hasClass('freeze_glass')){
+            return;
+        }
         if($('.waytime_bg').length == 0){
             $('body').append('<div class="waytime_bg"></div>');
         }

@@ -168,7 +168,7 @@ class Feed_Service_Feed extends Phpfox_Service
 		$oUrl = Phpfox::getLib('url');
 		$oReq = Phpfox::getLib('request');
 		$oParseOutput = Phpfox::getLib('parse.output');
-		$sFeedAvailable = 'is_delete = 0 AND (expire_time > '.PHPFOX_TIME.' OR expire_time = 0) AND ';
+		$sFeedAvailable = 'is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) AND ';
 		if ($oReq->get('get-new'))
 		{
 			// $bForceReturn = true;
@@ -397,6 +397,11 @@ class Feed_Service_Feed extends Phpfox_Service
                 $this->database()->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id');
                 $sNewCondition = ' AND (anonymous_id IS NULL OR (anonymous_id IS NOT NULL AND af.privacy = 1 AND af.receive_user_id = '.$iUserid.'))';
             }
+            if(Phpfox::isModule('waytame'))
+            {
+                $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+            }
 			$aRows = $this->database()->select('feed.*, apps.app_title,  ' . Phpfox::getUserField())
 				->unionFrom('feed')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
@@ -421,7 +426,11 @@ class Feed_Service_Feed extends Phpfox_Service
 					$sSelect .= ', f.friend_id AS is_friend';
 					$this->database()->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId());
 				}
-
+                if(Phpfox::isModule('waytame'))
+                {
+                    $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                    $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+                }
 				$aRows = $this->database()->select($sSelect)
 						->from(Phpfox::getT('feed'), 'feed')			
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
@@ -524,7 +533,11 @@ class Feed_Service_Feed extends Phpfox_Service
 					$sSelect .= ', f.friend_id AS is_friend';
 					$this->database()->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId());
 				}
-					
+				if(Phpfox::isModule('waytame'))
+                {
+                    $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                    $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+                }
 				$aRows = $this->database()->select($sSelect)
 						->unionFrom('feed')			
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')

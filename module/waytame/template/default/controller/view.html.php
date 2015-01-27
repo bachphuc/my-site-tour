@@ -165,6 +165,8 @@
                         {/if}
                         
                     </div>
+                    {if $aQuestion.expire_time > PHPFOX_TIME}
+                    <!---- Form answer waytime question ---->
                     <div class="comment_mini_content_holder">    
                         <div class="comment_mini_content_border">
                             <div class="js_feed_comment_form">
@@ -188,6 +190,8 @@
                             </div>
                         </div>
                     </div>
+                    <!--- End form answer waytime question ---->
+                    {/if}
                 </div>
             </div>
         </div>
