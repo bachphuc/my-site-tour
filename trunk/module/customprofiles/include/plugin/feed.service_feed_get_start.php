@@ -4,7 +4,7 @@
         // Get anonymous feeds
         if(Phpfox::isModule('customprofiles'))
         {
-            if($iFeedId == null && !(Phpfox::isModule('privacy') && Phpfox::getUserParam('privacy.can_view_all_items')))
+            if($iFeedId == null && !(Phpfox::isModule('privacy') && Phpfox::getUserParam('privacy.can_view_all_items')) && !isset($this->_aCallback['module']))
             {
                 $this->database()->select('feed.*')
                 ->from($this->_sTable, 'feed')
