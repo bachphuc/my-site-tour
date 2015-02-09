@@ -53,6 +53,11 @@
 
         public function getQuestions($iUserId, $iPage = 0, $iLimit = 4,$bCheck = false)
         {
+            $oRequest = Phpfox::getLib('request');
+            if($oRequest->get('view') == 'expire')
+            {
+                return $this->getQuestionsExpireToday($iUserId, $iPage, $iLimit, $bCheck);
+            }
             $sSelect = '';
             if($bCheck)
             {
@@ -65,6 +70,37 @@
                 $this->database()->leftJoin(Phpfox::getT('waytame_answer'),'wa','wa.question_id=wq.question_id AND wa.user_id='.(int)Phpfox::getUserId());
             }
             $aRows = $this->database()->where('wq.user_id='.(int)$iUserId.' AND is_expire = 0 AND wq.expire_time > '.PHPFOX_TIME)
+            ->join(Phpfox::getT('feed'),'f',"f.item_id=wq.question_id AND f.type_id='waytame'")
+            ->limit($iPage * $iLimit,$iLimit)
+            ->order('wq.time_stamp DESC')
+            ->execute('getRows');
+
+            foreach($aRows as $key => $aRow)
+            {
+                $aRows[$key]['feed_link'] = Phpfox::getLib('url')->permalink('waytame',$aRow['question_id'],$aRow['question']);
+                $aRows[$key]['like_type_id'] = 'waytame';
+                $aRows[$key]['feed_is_liked'] = Phpfox::getService('like')->didILike($aRow['type_id'], $aRow['item_id']);
+                $aRows[$key]['feed_is_disliked'] = Phpfox::getService('like')->hasBeenMarked(2,$aRow['type_id'], $aRow['item_id']);
+            }
+            return $aRows;
+        }
+        
+        public function getQuestionsExpireToday($iUserId, $iPage = 0, $iLimit = 4,$bCheck = false)
+        {
+            $iBeginTime = PHPFOX_TIME;
+            $iEndTime = Phpfox::getLib('date')->mktime(23,59,59,date('m',PHPFOX_TIME),date('j',PHPFOX_TIME),date('Y',PHPFOX_TIME));
+            $sSelect = '';
+            if($bCheck)
+            {
+                $sSelect = ',wa.answer_id';
+            }
+            $this->database()->select('f.feed_id, f.type_id, wq.question AS feed_title, f.item_id, wq.*'.$sSelect)
+            ->from(Phpfox::getT('waytame_question'),'wq');
+            if($bCheck)
+            {
+                $this->database()->leftJoin(Phpfox::getT('waytame_answer'),'wa','wa.question_id=wq.question_id AND wa.user_id='.(int)Phpfox::getUserId());
+            }
+            $aRows = $this->database()->where('wq.user_id='.(int)$iUserId." AND (wq.expire_time >= $iBeginTime AND wq.expire_time < $iEndTime)")
             ->join(Phpfox::getT('feed'),'f',"f.item_id=wq.question_id AND f.type_id='waytame'")
             ->limit($iPage * $iLimit,$iLimit)
             ->order('wq.time_stamp DESC')
@@ -212,21 +248,43 @@
 
         public function getTotalQuestion($iUserId)
         {
+            $oRequest = Phpfox::getLib('request');
+            if($oRequest->get('view') == 'expire')
+            {
+                return $this->getTotalQuestionExpireToday($iUserId);
+            }
             $iTotal = (int)$this->database()->select('count(*)')
             ->from(Phpfox::getT('waytame_question'))
             ->where('user_id='.(int)$iUserId.' AND is_expire = 0 AND expire_time > '.PHPFOX_TIME)
             ->execute('getSlaveField');
             return $iTotal;
         }
+        
+        public function getTotalQuestionExpireToday($iUserId)
+        {
+            $iBeginTime = PHPFOX_TIME;
+            $iEndTime = Phpfox::getLib('date')->mktime(23,59,59,date('m',PHPFOX_TIME),date('j',PHPFOX_TIME),date('Y',PHPFOX_TIME));
+            
+            $iTotal = (int)$this->database()->select('count(*)')
+            ->from(Phpfox::getT('waytame_question'),'wq')
+            ->where('user_id='.(int)$iUserId." AND (wq.expire_time >= $iBeginTime AND wq.expire_time < $iEndTime)")
+            ->execute('getSlaveField');
+            return $iTotal;
+        }
 
         public function processFriends(&$aFriends)
         {
+            $oRequest = Phpfox::getLib('request');
             foreach($aFriends as $key => $aFriend)
             {
-                $aQuestions = $this->getQuestions($aFriend['user_id']);
-                if($aQuestions && count($aQuestions))
+                if($oRequest->get('view') == 'expire')
                 {
-                    $aFriends[$key]['aQuestions'] = $aQuestions;
+                    $aFriends[$key]['aQuestions'] = $this->getQuestionsExpireToday($aFriend['user_id']);
+                    $aFriends[$key]['count_question'] = $this->getTotalQuestionExpireToday($aFriend['user_id']);
+                }
+                else
+                {
+                    $aFriends[$key]['aQuestions'] = $this->getQuestions($aFriend['user_id']);
                     $aFriends[$key]['count_question'] = $this->getTotalQuestion($aFriend['user_id']);
                 }
             }
@@ -235,12 +293,13 @@
         public function getExpireFriendQuestionToday()
         {
             $iBeginTime = Phpfox::getLib('date')->mktime(0,0,1,date('m',PHPFOX_TIME),date('j',PHPFOX_TIME),date('Y',PHPFOX_TIME));
+            $iBeginTime = PHPFOX_TIME;
             $iEndTime = Phpfox::getLib('date')->mktime(23,59,59,date('m',PHPFOX_TIME),date('j',PHPFOX_TIME),date('Y',PHPFOX_TIME));
             $aQuestions = $this->database()->select('u.*,f.user_id AS friend_id,f.friend_user_id')
             ->from(Phpfox::getT('waytame_question'),'wq')
             ->join(Phpfox::getT('friend'),'f','f.friend_user_id=wq.user_id AND f.user_id='.Phpfox::getUserId())
             ->join(Phpfox::getT('user'),'u','u.user_id=f.friend_user_id')
-            ->where("is_expire = 1 OR (wq.expire_time > $iBeginTime AND wq.expire_time < $iEndTime)")
+            ->where("is_expire = 1 OR (wq.expire_time >= $iBeginTime AND wq.expire_time < $iEndTime)")
             ->group('u.user_id')
             ->order('wq.time_stamp DESC')
             ->execute('getRows');

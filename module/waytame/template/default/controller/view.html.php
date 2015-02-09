@@ -18,7 +18,7 @@
     <div  class="row_feed_loop js_parent_feed_entry row2 row_first js_user_feed">
         <div class="item_info">
             {phrase var='waytame.by_user' full_name=$aQuestion|user:'':'':50:'':'author'}
-            <p style="color: #666;margin-top:10px;">{if $aQuestion.expire_time > PHPFOX_TIME}Expire on {$aQuestion.expire_time|convert_time:'waytame.format_expire_time'|trim:'ago'}{else}Question expired {*$aQuestion.expire_time|convert_time:'waytame.format_expire_time'*}{/if}</p>
+            <p style="color: #666;margin-top:10px;">{if $aQuestion.expire_time > PHPFOX_TIME}      {if $aQuestion.expire_time|convert_time:'waytame.format_expire_time'|strpos:'@' !== false} {phrase var='waytame.expires_on'} {else} {phrase var='waytame.expires_within'} {/if} {$aQuestion.expire_time|convert_time:'waytame.format_expire_time'|trim:'ago'}{else}Question expired {/if}</p>
             <a style="cursor: pointer;display: inline-block;margin-top:8px;" class="activity_feed_content_link_title" href="{$aQuestion.question_link}">{$aQuestion.answers|count} {if count($aQuestion.answers) > 1}answers{else}answer{/if}</a>
         </div>
 

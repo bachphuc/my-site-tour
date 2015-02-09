@@ -76,7 +76,7 @@
                     </div>
                     <a href="#" class="friend_action_delete js_hover_title" rel="{$aFriend.friend_id}"><span class="js_hover_info">{phrase var='friend.remove_this_friend'}</span></a>
                     {if isset($aFriend.aQuestions) && count($aFriend.aQuestions)}
-                    <a onclick="$Core.box('waytame.showQuestion',500,'user_id={$aFriend.friend_user_id}');$('.js_box').addClass('waytame_box');return false;" style="position:absolute;top:25px;right:30px;" href="#" class="js_hover_title"><span class="js_hover_info">{$aFriend.count_question} questions</span>Waytame</a>
+                    <a onclick="$Core.box('waytame.showQuestion',500,'user_id={$aFriend.friend_user_id}{if Phpfox::getLib('request')->get('view') == 'expire'}&view=expire{/if}');$('.js_box').addClass('waytame_box');return false;" style="position:absolute;top:25px;right:30px;" href="#" class="js_hover_title"><span class="js_hover_info">{$aFriend.count_question} questions</span>Waytame</a>
                     {/if}
                 </div>                
             </div>            
@@ -96,7 +96,7 @@
     </div>    
 </form>
 {/if}
-{pager}
+
 {else}
 
 <div class="extra_info">
