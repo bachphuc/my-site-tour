@@ -96,9 +96,9 @@
                     }
                 }
                 $sMessage = trim($sMessage,", ");
-                if(count($aUserHasExpireQuestions) > 4)
+                if(count($aUserHasExpireQuestions) > 3)
                 {
-                    $sMessage.=" and other ".(count($aUserHasExpireQuestions) - 4)." friends.";
+                    $sMessage.=" and other ".(count($aUserHasExpireQuestions) - 3)." friend".(count($aUserHasExpireQuestions) - 3 > 1 ? 's': '').".";
                 }
                 $iNotificationId = $this->database()->insert(Phpfox::getT('waytame_notification'),array(
                     'user_id' => Phpfox::getUserId(),

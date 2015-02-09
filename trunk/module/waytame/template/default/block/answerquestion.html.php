@@ -10,7 +10,7 @@
     </div>
     <div class="waytame_row">
         <p><span>{$iNumberQuestion}.</span> {$aQuestion.question}</p>
-        <p>{phrase var='waytame.expires_on'}{$aQuestion.expire_time|convert_time:'waytame.format_expire_time'}</p>
+        <p style="color: #666;margin-top:10px;">{if $aQuestion.expire_time > PHPFOX_TIME}      {if $aQuestion.expire_time|convert_time:'waytame.format_expire_time'|strpos:'@' !== false} {phrase var='waytame.expires_on'} {else} {phrase var='waytame.expires_within'} {/if} {$aQuestion.expire_time|convert_time:'waytame.format_expire_time'|trim:'ago'}{else}Question expired {/if}</p>
     </div>
     <div class="waytame_row"><p>{phrase var='waytame.give_your_anonymous_answer'}</p></div>
     <div class="waytame_row">
