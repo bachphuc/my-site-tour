@@ -26,7 +26,7 @@
             }
 
             $bForceReloadOnPage = false;
-            $iFeedPage = 0; 
+            $iFeedPage = $this->request()->get('page', 0);
             $sCustomViewType = null;
             $aFeedCallback = array();
             $bIsCustomFeedView = false;

@@ -19,7 +19,7 @@
 ?>
 <?php if(isset($this->_aVars['aFeed']['expire_time']) && $this->_aVars['aFeed']['expire_time']) : ?>
     <li><span>&middot;</span></li>
-    <li><a>Self-destruction in <?php echo $sExpireTime;?></a></li>
+    <li><a><?php echo ($iTotalSeconds <= 0 ? '' : 'Self-destruction in '.$sExpireTime);?></a></li>
     <?php endif;?>
 <?php if(isset($aNonymousFeed['anonymous_id']) && $aNonymousFeed['receive_user_id'] == Phpfox::getUserId()): ?> 
     <li><span>&middot;</span></li>
