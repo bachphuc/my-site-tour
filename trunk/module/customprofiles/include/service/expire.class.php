@@ -29,8 +29,8 @@
             
             $sSelect = 'feed.*';
             $sOrder = 'feed.time_update DESC';
-            $iLastTime = PHPFOX_TIME - 60 * 60;
-            $sTimeCondition = $iLastTime.' < feed.expire_time AND feed.expire_time < '.PHPFOX_TIME;
+            $iLastTime = PHPFOX_TIME + 60 * 60;
+            $sTimeCondition = 'feed.expire_time < '.$iLastTime;
             
             // Get My feed has expired in last hour
             $this->database()->select($sSelect)
