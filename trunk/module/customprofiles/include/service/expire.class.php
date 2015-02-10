@@ -23,6 +23,10 @@
 
         public function getExpirePosts()
         {
+            $iTotalFeeds = 8;
+            $iPage = Phpfox::getLib('request')->get('page', 0);
+            $iOffset = ($iPage * $iTotalFeeds);
+            
             $sSelect = 'feed.*';
             $sOrder = 'feed.time_update DESC';
             $iLastTime = PHPFOX_TIME - 60 * 60;
@@ -66,7 +70,8 @@
             ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
             ->where('feed.feed_reference = 0')
             ->order($sOrder)
-            ->group('feed.feed_id')         
+            ->group('feed.feed_id')        
+            ->limit($iOffset, $iTotalFeeds)  
             ->execute('getSlaveRows');
             
             $bFirstCheckOnComments = false;
