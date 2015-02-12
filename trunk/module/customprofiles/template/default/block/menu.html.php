@@ -67,7 +67,7 @@
     <li {if $sController == 'waytime.profile'}class="active"{/if}><a href="{url link=$aUser.user_name.'.waytime'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/waytime.png"><span class="js_hover_info">W-Time Capsule</span></a></li>
     {/if}
     
-    {if Phpfox::isModule('waytame')}
+    {if Phpfox::isModule('waytame') && false}
     <li {if $sController=='waytame.profile'}class="active"{/if}><a href="{url link=$aUser.user_name.'.waytame'}" class="js_hover_title"><img src="{param var='core.path'}module/customprofiles/static/image/icons/waytame.png"><span class="js_hover_info">Waytame</span></a></li>
     {/if}
     <li class="clear"></li>
