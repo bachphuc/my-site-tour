@@ -29,13 +29,20 @@
             
             $sSelect = 'feed.*';
             $sOrder = 'feed.time_update DESC';
-            $iLastTime = PHPFOX_TIME + 60 * 60;
-            $sTimeCondition = 'feed.expire_time < '.$iLastTime;
+            $iLastTime = PHPFOX_TIME + 60 * 60 * 24;
+            $sTimeCondition = 'feed.expire_time < '.$iLastTime.' AND feed.expire_time > '.PHPFOX_TIME;
             
             // Get My feed has expired in last hour
             $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')
             ->where($sTimeCondition.' AND feed.user_id = '.(int)Phpfox::getUserId().' AND feed.parent_user_id = 0')
+            ->union();
+            
+            // Get anonymous done expired in last hour
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'anonymous', 'anonymous.feed_id = feed.feed_id')
+            ->where($sTimeCondition.' AND feed.user_id = '.(int)Phpfox::getUserId())
             ->union();
             
             // Get anonymous receive expired in last hour
