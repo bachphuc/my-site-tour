@@ -20,6 +20,7 @@
         */
         public function process()
         {
+            return $this->url()->send('error.404');
             $aProfile = Phpfox::getService('waytime')->getProfile();
             if(!$aProfile['is_unlock'])
             {
