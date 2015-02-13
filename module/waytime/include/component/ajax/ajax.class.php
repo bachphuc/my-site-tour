@@ -67,7 +67,11 @@
             {
                 return $this->alert('Can not load your question.');
             }
-            if($aProfile['is_complete'] && !$aProfile['is_waiting'])
+            if($aProfile['is_unlock'])
+            {
+                $this->showReview();
+            }
+            else if($aProfile['is_complete'] && !$aProfile['is_waiting'])
             {
                 // Show popup to freeze
                 $this->showLast();
@@ -150,13 +154,18 @@
             $aVals = $this->get('question');
             Phpfox::getService('waytime.process')->unlock($aVals);
             $this->call('$(".waytime_watch a").attr("title","");');
-            $this->call('$(".waytime_watch a").attr("href","'.Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime').'");');
-            $this->call('$(".waytime_watch a").attr("onclick","");');
+            $this->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
         }
         
         public function processRunAjax()
         {
             Phpfox::getService('waytime.process')->processRunAjax();
+        }
+        
+        public function showReview()
+        {
+            $this->setTitle(Phpfox::getPhrase('waytime.w_time_capsule'));   
+            Phpfox::getComponent('waytime.review', null , 'block');
         }
     }
 ?>

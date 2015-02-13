@@ -101,8 +101,7 @@ $Core.waytime = {
             var sLink = '';
             var sId = 'waytime_watch';
             if(waytime_status == 9){
-                sAction = '';
-                sLink = waytime_url;
+                
             }
             else if(waytime_status == 2){
                 sAction = 'return false;';
