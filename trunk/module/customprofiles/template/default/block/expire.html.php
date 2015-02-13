@@ -88,7 +88,7 @@
             $(this).closest('.expire_time_holder').toggle();
             $('.expire_time_menu>a').removeClass('expire_active');
             
-            $('.expire_time_menu .js_hover_info').text($(this).text());
+            $(this).closest('.expire_time_menu').find('.js_hover_info').text($(this).text());
             e.stopPropagation();
             e.preventDefault();
             return false;
