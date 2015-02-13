@@ -297,10 +297,8 @@
             if((int)$aProfile['is_unlock'] == 1)
             {
                 $sToolTip = '';
-                $url = Phpfox::getLib('url')->makeUrl(Phpfox::getUserBy('user_name').'.waytime');
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("href","'.$url.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sToolTip.'");');
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
                 Phpfox::getLib('ajax')->call('$Core.waytime.bStopCheck = true;');
                 return true;
             }
