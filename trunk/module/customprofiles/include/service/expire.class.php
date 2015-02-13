@@ -66,10 +66,18 @@
             ->where($sTimeCondition)
             ->union();
             
+            // Get Feed I follow
             $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
             ->join(Phpfox::getT('followed_feed'), 'ff', 'ff.feed_id = feed.feed_id')
             ->where($sTimeCondition.' AND ff.user_id='.Phpfox::getUserId())
+            ->union();
+            
+            // Get Feed I comment
+            $this->database()->select($sSelect)
+            ->from(Phpfox::getT('feed'), 'feed')
+            ->join(Phpfox::getT('comment'),'c', "feed.type_id = c.type_id AND feed.item_id = c.item_id AND c.user_id = ".Phpfox::getUserId())
+            ->where($sTimeCondition)
             ->union();
             
             $aRows = $this->database()->select($sSelect.','.Phpfox::getUserField())
