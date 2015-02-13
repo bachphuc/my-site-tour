@@ -199,7 +199,6 @@ $Behavior.sendBox = function(){
         }
     });
 
-    // ducloi.bm@gmail.com
     $(".sendbox").on('click','.remove_button',function() {
         $('#egift_id').val('');
         $(this).closest('.gift_item').remove();
@@ -223,6 +222,14 @@ $Core.resetAnonymousPost = function(){
     $('#egift_id').val('');
     $('.invalid_email').fadeOut();
     $('.controll_panel').fadeOut();
+    
+    var defaultValue = $('.sendbox .expire_time_menu .expire_time_holder ul li:nth-child(1) a').attr('rel');
+    $('.sendbox .expire_time_menu .expire_time').val(defaultValue);
+    $('.sendbox .expire_time_menu .expire_time_holder ul a').removeClass('active_expire');
+    $('.sendbox .expire_time_menu .expire_time_holder ul li:nth-child(1) a').addClass('active_expire');
+    
+    var defaultText = $('.sendbox .expire_time_menu .expire_time_holder ul li:nth-child(1) a').text();
+    $('.sendbox .expire_time_menu .js_hover_title .js_hover_info').text(defaultText);
 }
 
 $Core.checkEmailValid = function(email){
@@ -237,7 +244,6 @@ function showGiftsByCategory(){
     $('#egift_item_cat_'+$sName).show();
 }
 
-// ducloi.bm@gmail.com
 function setEgift(eGiftId, element)
 { 
     $('.egift_item').each(function(){

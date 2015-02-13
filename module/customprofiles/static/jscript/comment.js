@@ -35,3 +35,13 @@ $Behavior.addTagLink = function(){
     $(".js_feed_add_comment_button .show_name").remove();
     $(".js_feed_add_comment_button").prepend('<div class="show_name" style="position: absolute;"><input style="position:relative;top:3px;" type="checkbox" name="val[show_your_name]" value="1"/> <label> Show your name.</label></div>');
 }
+
+$Behavior.resetTime = function(){
+    var defaultValue = $('.activity_feed_form_button_position .expire_time_menu .expire_time_holder ul li:nth-child(1) a').attr('rel');
+    $('.activity_feed_form_button_position .expire_time_menu .expire_time').val(defaultValue);
+    $('.activity_feed_form_button_position .expire_time_menu .expire_time_holder ul a').removeClass('active_expire');
+    $('.activity_feed_form_button_position .expire_time_menu .expire_time_holder ul li:nth-child(1) a').addClass('active_expire');
+    
+    var defaultText = $('.activity_feed_form_button_position .expire_time_menu .expire_time_holder ul li:nth-child(1) a').text();
+    $('.activity_feed_form_button_position .expire_time_menu .js_hover_title .js_hover_info').text(defaultText);
+}
