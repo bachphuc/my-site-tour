@@ -44,14 +44,42 @@ $Behavior.loadFriendFeed = function(){
         $(this).addClass('active_alpha'); 
     });
     
+	$('.mtextarea').keydown(function(){
+		if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
+	});
+	
+	$('.activity_feed_form textarea').keydown(function(){
+		if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
+	});
+	
     $('.activity_feed_form textarea').unbind('click').bind('click',function(){
         if($('#toggle').prop('checked')){
             $('#toggle').attr('checked',false);
             $('#toggle').change();
         } 
     });
-    
+	
     $('.mtextarea').unbind('click').bind('click',function(){
+        if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
+    });
+	
+	$('#btnSend.mbutton').unbind('click').bind('click',function(){
+        if($('#toggle').prop('checked')){
+            $('#toggle').attr('checked',false);
+            $('#toggle').change();
+        } 
+    });
+	
+	$('#activity_feed_submit').unbind('click').bind('click',function(){
         if($('#toggle').prop('checked')){
             $('#toggle').attr('checked',false);
             $('#toggle').change();
