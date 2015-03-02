@@ -148,6 +148,11 @@ class Like_Service_Process extends Phpfox_Service
 
 		if ($sItemTypeId == 'feed_mini')
 		{
+            // Phuc:ADD
+            if (Phpfox::getService('like')->didILike($sItemTypeId, $iItemId))
+            {
+                $this->delete($sItemTypeId, $iItemId, Phpfox::getUserId());
+            }
 			$sItemTypeId = 'comment';
 		}
 

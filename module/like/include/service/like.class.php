@@ -186,7 +186,11 @@ class Like_Service_Like extends Phpfox_Service
 		{
 			$iUserId = Phpfox::getUserId();
 		}
-		
+        // Phuc:ADD
+		if($sTypeId == 'feed_mini' || $sTypeId == 'feed-mini')
+        {
+            $sTypeId = 'comment';
+        }
 		$oParse = Phpfox::getLib('parse.input');
 		
 		$sTypeId = $oParse->clean(str_replace('_', '-', $sTypeId));		
