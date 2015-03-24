@@ -28,6 +28,11 @@
                     return Phpfox::getLib('module')->getComponent('waytame.view',array('aQuestion' => $aQuestion, 'bNoTemplate' => true),'controller',false);
                 }
             }
+            $aUser = $this->getParam('aUser', false);
+            if(!$aUser || $aUser['user_id'] != Phpfox::getUserId())
+            {
+                return $this->url()->send('error.404');
+            }
             $aQuestions = Phpfox::getService('waytame')->getAll();
             $this->template()->assign(array(
                 'aQuestions' => $aQuestions

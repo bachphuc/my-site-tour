@@ -22,7 +22,8 @@
                 <p style="color: #666;">{if $aQuestion.expire_time > PHPFOX_TIME}      {if $aQuestion.expire_time|convert_time:'waytame.format_expire_time'|strpos:'@' !== false} {phrase var='waytame.expires_on'} {else} {phrase var='waytame.expires_within'} {/if} {$aQuestion.expire_time|convert_time:'waytame.format_expire_time'|trim:'ago'}{else}Question expired {/if}</p>
                 <div class="activity_feed_content_link">                
                     <div class="">
-                        <a style="cursor: default;text-decoration: none !important;" class="activity_feed_content_link_title">{$aQuestion.question}</a><br>
+                        <a style="cursor: default;text-decoration: none !important;" class="activity_feed_content_link_title">{$aQuestion.question}</a>
+                        <p style="margin-top:10px;">{$aQuestion.owner_answer}</p>
                         {if count($aQuestion.answers) > 0}<a style="cursor: pointer;display: inline-block;margin-top:8px;" class="activity_feed_content_link_title" href="{$aQuestion.question_link}">{$aQuestion.answers|count} {if count($aQuestion.answers) > 1}answers{else}answer{/if}</a>{/if}
                     </div>    
                 </div>
