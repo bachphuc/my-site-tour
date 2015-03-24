@@ -17,7 +17,7 @@
 
 <div class="js_box_close" style="display: block;">
     <span class="box_controll_left">
-        <a type="button" class="button" onclick="$Core.waytime.goPre({$iPre},this);return false;">PRE</a>
+        <a type="button" class="button no-icon" onclick="$Core.waytime.goPre({$iPre},this);return false;">PRE</a>
     </span>
     <span class="box_controll_right">
         <a type="button" class="button" onclick="return $Core.waytime.freeze(this);">FREEZE</a>

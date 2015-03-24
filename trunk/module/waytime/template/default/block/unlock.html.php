@@ -35,7 +35,7 @@
     <div class="clear"></div>
     <div class="js_box_close" style="display: block;">
         <span class="box_controll_left">
-            <a type="button" class="button" onclick="$Core.waytime.exit(this);return false;">CLOSE</a>
+            <a type="button" class="button no-icon" onclick="$Core.waytime.exit(this);return false;">CLOSE</a>
         </span>
         <span class="box_controll_right">
             <a type="button" class="button" onclick="$Core.waytime.unlock(this);return false;">SAVE</a>
