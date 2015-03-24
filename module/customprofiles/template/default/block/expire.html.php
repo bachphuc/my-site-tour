@@ -114,6 +114,7 @@
     $iTotalSecond = $iExpireTime * 24 * 60 *60;
     $this->_aVars['iTotalSecond'] = $iTotalSecond;
     $this->_aVars['sTime'] = $sTime;
+    $this->_aVars['iExpireTime'] = $iExpireTime;
 {/php}
 <div class="expire_time_menu">
     <div><input type="hidden" value="{$iTotalSecond}" name="val[expire_time]" class="expire_time"></div>
@@ -121,11 +122,11 @@
     <a class="js_hover_title" href=""><span>{$sTime}</span><span class="js_hover_info">{$sTime}</span></a>
     <div class="expire_time_holder" style="display: none;">
         <ul>
-            <li><a class="active_expire" rel="{$iTotalSecond}" href="">{$sTime}</a></li>
-            <li><a rel="900" href="">15 Minutes</a></li>
-            <li><a rel="1800" href="">30 Minutes</a></li>
-            <li><a rel="3600" href="">1 Hour</a></li>
-            <li><a rel="86400" href="">1 Day</a></li>
+            <li><a class="active_expire" rel="{$iTotalSecond}" href="">{$iExpireTime} day{if $iExpireTime > 1}s{/if}</a></li>
+            <li><a rel="86400" href="">1 day</a></li>
+            <li><a rel="3600" href="">1 hour</a></li>
+            <li><a rel="1800" href="">30 minutes</a></li>
+            <li><a rel="900" href="">15 minutes</a></li>
         </ul>
     </div>
 </div>
