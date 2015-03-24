@@ -122,7 +122,7 @@
                 $iTotal = Phpfox::getService('waytime')->getRemainQuestion();
                 $sTitle = ($iTotal ? Phpfox::getPhrase('waytime.would_you_like_to_complete_the_total_remaining_questions', array('total' => $iTotal)) : Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule'));
 
-                $this->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                $this->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                 return;
             }
         }
@@ -143,7 +143,7 @@
             $iTotal = (int)($iTotal / (30 * 24 * 60 *60));
 
             $sTitle = Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : '')));
-            $this->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+            $this->call('$(".waytime_watch a span").html("'.$sTitle.'");');
             $this->call('$(".waytime_watch a").attr("onclick","return false;");');
             $this->call('$(".waytime_watch").attr("id","waytime_watch_freeze");');
         }
@@ -153,7 +153,7 @@
             Phpfox::isUser(true);
             $aVals = $this->get('question');
             Phpfox::getService('waytime.process')->unlock($aVals);
-            $this->call('$(".waytime_watch a").attr("title","");');
+            $this->call('$(".waytime_watch a span").html("");');
             $this->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
         }
         

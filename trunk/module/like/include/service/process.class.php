@@ -146,7 +146,7 @@ class Like_Service_Process extends Phpfox_Service
 
 		$oParse = Phpfox::getLib('parse.input');
 
-		if ($sItemTypeId == 'feed_mini')
+		/*if ($sItemTypeId == 'feed_mini')
 		{
             // Phuc:ADD
             if (Phpfox::getService('like')->didILike($sItemTypeId, $iItemId))
@@ -154,7 +154,7 @@ class Like_Service_Process extends Phpfox_Service
                 $this->delete($sItemTypeId, $iItemId, Phpfox::getUserId());
             }
 			$sItemTypeId = 'comment';
-		}
+		}*/
 
 		if (Phpfox::getService('like')->didILike($sItemTypeId, $iItemId))
 		{
@@ -259,7 +259,7 @@ class Like_Service_Process extends Phpfox_Service
 		{
 			$sItemTypeId = 'comment';
 		}
-
+        
 		if (empty($sModuleId))
 		{
 			$sModuleId = $sActionTypeId;
@@ -269,7 +269,7 @@ class Like_Service_Process extends Phpfox_Service
 		$sWhere = 'action_type_id = ' . (int)$sActionTypeId . ' AND item_type_id = "' . $oParse->clean(str_replace('_', '-', $sItemTypeId)) . '" AND item_id = ' . ((int)$iItemId) . ' AND user_id = ' . Phpfox::getUserId();
 		$this->database()->delete(Phpfox::getT('action'),
 			$sWhere);
-
+            
 		// Update the total_<action> column
 		$aCallbacks = Phpfox::callback($sModuleId . '.getActions');
         

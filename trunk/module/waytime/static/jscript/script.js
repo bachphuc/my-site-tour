@@ -108,7 +108,8 @@ $Core.waytime = {
                 sClass = 'freeze_glass';
                 sId = 'waytime_watch_freeze'
             }
-            $('#header_menu_holder>ul').append('<li class="waytime_watch '+sClass+'" id="'+sId+'"><a href="'+sLink+'" title="'+waytime_tooltip+'" onclick="'+sAction+'"></a></li>');
+            var sToolTip = (waytime_tooltip.length > 0 ? '<span>' + waytime_tooltip + '</span>' : '');
+            $('#header_menu_holder>ul').append('<li class="waytime_watch '+sClass+'" id="'+sId+'"><a href="'+sLink+'" onclick="'+sAction+'">' + sToolTip + '</a></li>');
         }
         if($('.waytime_bg').length == 0){
             $('body').append('<div class="waytime_bg"></div>');
