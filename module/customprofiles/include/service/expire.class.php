@@ -28,7 +28,7 @@
             $iOffset = ($iPage * $iTotalFeeds);
             
             $sSelect = 'feed.*';
-            $sOrder = 'feed.time_update DESC';
+            $sOrder = 'feed.expire_time ASC';
             $iLastTime = PHPFOX_TIME + 60 * 60 * 24;
             $sTimeCondition = 'feed.expire_time < '.$iLastTime.' AND feed.expire_time > '.PHPFOX_TIME;
             
