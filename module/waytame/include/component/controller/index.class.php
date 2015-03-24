@@ -28,6 +28,7 @@
                     return Phpfox::getLib('module')->getComponent('waytame.view',array('aQuestion' => $aQuestion, 'bNoTemplate' => true),'controller',false);
                 }
             }
+            return $this->url()->send('error.404');
             $aQuestions = Phpfox::getService('waytame')->get();
             $this->template()->assign(array(
                 'aQuestions' => $aQuestions

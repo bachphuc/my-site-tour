@@ -176,3 +176,60 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.waytame_box .js_box_close .box_controll_left a:last-child {
+    background-image: url("../../../images/more.png") !important;
+    border: medium none;
+    height: 32px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: 999px;
+    width: 32px;
+}
+
+.waytame_box .js_box_close .box_controll_left a:first-child {
+    background-image: url("../../../images/less.png") !important;
+    border: medium none;
+    height: 32px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: 999px;
+    width: 32px;
+}
+
+#waytime_watch span, #waytime_watch_freeze span {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    display: block;
+    font-weight: normal;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: -15px;
+    top: 44px;
+    white-space: nowrap;
+    display: none;
+}
+
+#waytime_watch span::after, #waytime_watch_freeze span:::after {
+    border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 30px;
+    top: -10px;
+    width: 0;
+}
+
+#waytime_watch:hover span, #waytime_watch_freeze:hover span{
+    display: block;
+}
+
+#waytime_watch span:empty , #waytime_watch_freeze span:empty{
+    display: none !important;
+}

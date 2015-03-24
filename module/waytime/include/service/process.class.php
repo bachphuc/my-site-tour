@@ -271,7 +271,7 @@
                         $this->database()->update(Phpfox::getT('waytime_profile'), array('is_waiting' => 2), 'profile_id = '.(int)$aProfile['profile_id']);
                         Phpfox::getLib('ajax')->call('$Core.waytime.begin();');
                         $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_complete_your_unlocked_w_time_capsule');
-                        Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                        Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                         Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
                         Phpfox::getLib('ajax')->call('$(".waytime_watch").attr("id","waytime_watch");');
                     }
@@ -297,7 +297,7 @@
             if((int)$aProfile['is_unlock'] == 1)
             {
                 $sToolTip = '';
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sToolTip.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sToolTip.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
                 Phpfox::getLib('ajax')->call('$Core.waytime.bStopCheck = true;');
                 return true;
@@ -308,7 +308,7 @@
                 $iTotal = Phpfox::getService('waytime')->getRemainQuestion();
                 $sTitle = ($iTotal ? Phpfox::getPhrase('waytime.would_you_like_to_complete_the_total_remaining_questions', array('total' => $iTotal)) : Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule'));
 
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
                 return true;
             }
@@ -316,7 +316,7 @@
             {
                 $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_freeze_w_time_capsule');
 
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
             }
             else if((int)$aProfile['is_waiting'] == 1)
@@ -325,13 +325,13 @@
                 $iTotal = (int)($iTotal / (30 * 24 * 60 *60));
 
                 $sTitle = Phpfox::getPhrase('waytime.total_months_left_to_unfreeze_the_w_time_capsule', array('total' => $iTotal, 's' => ($iTotal > 1 ? 's' : '')));
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","return false;");');
             }
             else if((int)$aProfile['is_waiting'] == 2 && !$aProfile['is_finish'])
             {
                 $sTitle = Phpfox::getPhrase('waytime.would_you_like_to_complete_your_unlocked_w_time_capsule');
-                Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("title","'.$sTitle.'");');
+                Phpfox::getLib('ajax')->call('$(".waytime_watch a span").html("'.$sTitle.'");');
                 Phpfox::getLib('ajax')->call('$(".waytime_watch a").attr("onclick","$Core.waytime.begin();return false;");');
             }
         }
