@@ -26,6 +26,7 @@ class Strongbox_Component_Ajax_Ajax extends Phpfox_Ajax{
         {
             $this->call("$('#strongbox_makePublic_$iFeedId').css(\"display\", \"none\");");
             $this->call("$('#strongbox_makeFollowed_$iFeedId').css(\"display\", \"block\");");
+            $this->call('if(oParams.sController == "strongbox.index"){$("#strongbox_makePublic_'. $iFeedId .'").closest(".js_feed_view_more_entry_holder").hide();}');
         }
     }
     

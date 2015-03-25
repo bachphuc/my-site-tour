@@ -24,6 +24,7 @@
             if (Phpfox::getService('followedpost')->makePublic($iFeedId)){
                 $this->call("$('#followedpost_makePublic_$iFeedId').css(\"display\", \"none\");");
                 $this->call("$('#followedpost_makeFollowed_$iFeedId').css(\"display\", \"block\");");
+                $this->call('if(oParams.sController == "followedpost.index"){$("#followedpost_makeFollowed_'. $iFeedId .'").closest(".js_feed_view_more_entry_holder").hide();}');
             }
         }
 

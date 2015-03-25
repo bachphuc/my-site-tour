@@ -23,7 +23,7 @@
 ?>
 <?php if ($iFollow > 0) {?>
 <li>
-        <p style="color: #63799F">Followed by <label><?php echo $iFollow;?></label> wayters</p>
+        <p style="color: #63799F">Followed by <label><?php echo $iFollow;?></label> wayter<?php if($iFollow > 1) { echo 's'; } ?></p>
 </li>
 <li><span>|</span></li>
 <?php }else{ ?>
