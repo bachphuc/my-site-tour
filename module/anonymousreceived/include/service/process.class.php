@@ -30,7 +30,10 @@
             $sSelect = 'feed.*,' . Phpfox::getUserField();
             $sOrder = 'feed.time_update DESC';
             
-            $aConds = array('AND sb.receive_user_id='.Phpfox::getService('profile')->getProfileUserId());
+            $aConds = array('AND sb.receive_user_id='.Phpfox::getService('profile')->getProfileUserId());           
+            $sFeedAvailable = 'AND is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) ';
+            $aConds[] = $sFeedAvailable;
+            
             if($iId)
             {
                 $aConds[] = "AND feed.type_id IN ('feed_comment','feed_egift')";

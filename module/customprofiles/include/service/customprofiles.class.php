@@ -138,7 +138,8 @@
         public function setHeaders()
         {
             Phpfox::getLib('template')->setHeader(array(
-                'comment.js' => 'module_customprofiles'
+                'comment.js' => 'module_customprofiles',
+                'chanvai.css' => 'module_customprofiles'
             ));
         }
 

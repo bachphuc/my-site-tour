@@ -198,6 +198,7 @@
             if(Phpfox::getService('customprofiles.process')->showAnonymousFeedToFriend($iAnonymousId))
             {
                 $this->call('$("#anonymos_fee_'.$iAnonymousId.'").html(\'<a href="" onclick="$.ajaxCall(\\\'customprofiles.hideAnonymousFeed\\\',\\\'anonymous_id='.$iAnonymousId.'\\\');return false;">private</a>\');');
+                $this->call('$("#anonymos_fee_'.$iAnonymousId.'").closest("ul").removeClass("cus_private_feed_icon");');
                 $this->alert(Phpfox::getPhrase('customprofiles.make_this_post_public_with_friend_successful'));
             }
             else
@@ -221,6 +222,7 @@
             if(Phpfox::getService('customprofiles.process')->hideAnonymousFeedToFriend($iAnonymousId))
             {
                 $this->call('$("#anonymos_fee_'.$iAnonymousId.'").html(\'<a href="" onclick="$.ajaxCall(\\\'customprofiles.showAnonymousFeed\\\',\\\'anonymous_id='.$iAnonymousId.'\\\');return false;">public</a>\');');
+                $this->call('$("#anonymos_fee_'.$iAnonymousId.'").closest("ul").addClass("cus_private_feed_icon");');
                 $this->alert(Phpfox::getPhrase('customprofiles.make_this_post_hide_with_friend_successful'));
             }
             else

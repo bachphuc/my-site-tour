@@ -28,12 +28,15 @@
             $iOffset = ($iPage * $iTotalFeeds);
             
             $sSelect = 'feed.*,ff.user_followed,' . Phpfox::getUserField();
+            
+            $sFeedAvailable = 'is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) AND ';
+            
             $sOrder = 'feed.time_update DESC';
             $aRows = $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
             ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
             ->join(Phpfox::getT('followed_feed'), 'ff', 'ff.feed_id = feed.feed_id')
-            ->where('ff.user_id='.Phpfox::getUserId())
+            ->where($sFeedAvailable.' ff.user_id='.Phpfox::getUserId())
             ->order($sOrder)
             ->group('feed.feed_id')
             ->limit($iOffset, $iTotalFeeds)         

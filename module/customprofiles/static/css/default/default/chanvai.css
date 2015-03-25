@@ -1,0 +1,17 @@
+.cus_private_feed_icon{
+    position:relative;
+    padding-left:28px !important;
+}
+.private_feed_icon{
+    display: none;
+}
+.cus_private_feed_icon .private_feed_icon{
+    display: block !important;
+    width: 24px;
+    height: 24px;
+    left: 0px;
+    top: -5px;
+    overflow: hidden;
+    background-image: url('../../../image/private-feed.png');
+    position: absolute;
+}
