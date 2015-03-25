@@ -32,6 +32,13 @@
             $sFeedAvailable = 'is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) AND ';
             
             $sOrder = 'feed.time_update DESC';
+            
+            if(Phpfox::isModule('waytame'))
+            {
+                $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+            }
+            
             $aRows = $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
             ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
