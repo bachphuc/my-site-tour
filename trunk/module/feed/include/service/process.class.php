@@ -170,6 +170,10 @@ class Feed_Service_Process extends Phpfox_Service
             $iExpireTime = $iNewTimeStamp + $_SESSION['expire_time'];
             unset($_SESSION['expire_time']);
         }
+        else
+        {
+            $iExpireTime = $iNewTimeStamp + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60;
+        }
 		
 		$aInsert = array(
 			'privacy' => (int) $iPrivacy,

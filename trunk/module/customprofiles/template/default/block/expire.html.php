@@ -119,7 +119,7 @@
 <div class="expire_time_menu">
     <div><input type="hidden" value="{$iTotalSecond}" name="val[expire_time]" class="expire_time"></div>
     <div><input type="hidden" value="1" name="val[feed_expire_time]"></div>
-    <a class="js_hover_title" href=""><span>{$sTime}</span><span class="js_hover_info">{$sTime}</span></a>
+    <a class="js_hover_title" href=""><span>{$iExpireTime} day{if $iExpireTime > 1}s{/if}</span><span class="js_hover_info">{$iExpireTime} day{if $iExpireTime > 1}s{/if}</span></a>
     <div class="expire_time_holder" style="display: none;">
         <ul>
             <li><a class="active_expire" rel="{$iTotalSecond}" href="">{$iExpireTime} day{if $iExpireTime > 1}s{/if}</a></li>

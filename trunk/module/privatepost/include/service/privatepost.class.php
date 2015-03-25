@@ -18,11 +18,14 @@
             $sSelect = 'feed.*,' . Phpfox::getUserField();
             $iUserid = Phpfox::getUserId();
             $sOrder = 'feed.time_update DESC';
+            
+            $sFeedAvailable = 'is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) AND ';
+            
             $aRows = $this->database()->select($sSelect)
             ->from(Phpfox::getT('feed'), 'feed')            
             ->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
             ->join(Phpfox::getT('custom_profiles_anonymous_feed'), 'sb', 'sb.feed_id = feed.feed_id')
-            ->where('sb.privacy = 0 AND sb.receive_user_id='.Phpfox::getUserId())
+            ->where($sFeedAvailable.' sb.privacy = 0 AND sb.receive_user_id='.Phpfox::getUserId())
             ->order($sOrder)
             ->group('feed.feed_id')         
             ->execute('getSlaveRows');   
