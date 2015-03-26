@@ -28,6 +28,9 @@ class Like_Component_Ajax_Ajax extends Phpfox_Ajax
 			if ($this->get('type_id') == 'feed_mini' && $this->get('custom_inline'))
 			{
 				$this->_loadCommentLikes();
+				// Phuc:ADD
+                $this->call("\$('#js_comment_".$this->get('item_id')."').find('.like_action_marked').show();");
+                $this->call("\$('#js_comment_".$this->get('item_id')."').find('.like_action_unmarked').hide();");
 			}
 			else
 			{
@@ -213,6 +216,10 @@ class Like_Component_Ajax_Ajax extends Phpfox_Ajax
 			if ($this->get('type_id') == 'feed_mini')// && $this->get('custom_inline'))
 			{
 				$this->_loadCommentLikes(true);
+				// Phuc:Add
+                $this->_loadCommentLikes();
+                $this->call("\$('#js_comment_".$this->get('item_id')."').find('.js_like_link_like').show();");
+                $this->call("\$('#js_comment_".$this->get('item_id')."').find('.js_like_link_unlike').hide();");
 			}
 			else
 			{

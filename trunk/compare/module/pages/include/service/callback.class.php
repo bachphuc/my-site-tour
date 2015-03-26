@@ -1470,6 +1470,25 @@ class Pages_Service_Callback extends Phpfox_Service
 		
 		return $iPerms;
 	}
+	
+	// Phuc:ADD
+    public function getActionsComment()
+    {
+        return array(
+        'dislike' => array(
+            'enabled' => true,
+            'action_type_id' => 2, // 2 = dislike
+            'phrase' => Phpfox::getPhrase('like.dislike'),
+            'phrase_in_past_tense' => 'disliked',
+            'item_phrase' => 'comment',
+            'item_type_id' => 'pages_comment', // used to differentiate between photo albums and photos for example.
+            'table' => 'pages_feed_comment',
+            'column_update' => 'total_dislike',
+            'column_find' => 'feed_comment_id',
+            'where_to_show' => array('')            
+            )
+        );
+    }
 }
 
 ?>

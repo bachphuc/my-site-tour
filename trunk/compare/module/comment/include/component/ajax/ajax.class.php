@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: ajax.class.php 7271 2014-04-14 18:46:05Z Fern $
+ * @version 		$Id: ajax.class.php 7096 2014-02-06 17:32:04Z Fern $
  */
 class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 {
@@ -268,18 +268,14 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 		// http://www.phpfox.com/tracker/view/15074/
 		// get the onclick atrribute
 		$sCall = "sOnClick = $('#js_feed_comment_view_more_link_" . $aVals['is_via_feed'] . " .comment_mini_link .no_ajax_link').attr('onclick');";
-		// if there is "view all comments" link
-		$sCall .= "if (typeof sOnClick != 'undefined') {";
 		// regex to get the params for the ajax call in this onlclick
-		$sCall .= "sPattern = new RegExp('(comment_)?type_id=([a-z]+_?[a-z]*)&(amp;)?item_id=[0-9]+&(amp;)?feed_id=[0-9]+', 'i');";
+		$sCall .= "sPattern = new RegExp('(comment_)?type_id=[a-z]+&(amp;)?item_id=[0-9]+&(amp;)?feed_id=[0-9]+', 'i');";
 		// save the current ajax params
 		$sCall .= "sOnClickParam = sPattern.exec(sOnClick);";
 		// replace the params, adding the new "added" variable
 		$sCall .= "sNewOnClick = sOnClick.replace(sOnClickParam[0], sOnClickParam[0]+'&added=1');";
 		// replace the onclick attribute
 		$sCall .= "$('#js_feed_comment_view_more_link_" . $aVals['is_via_feed'] . " .comment_mini_link .no_ajax_link').attr('onclick', sNewOnClick);";
-		// if there is "view all comments" link
-		$sCall .= "}";
 		// call this JS code
 		$this->call($sCall);
 		
@@ -342,9 +338,6 @@ class Comment_Component_Ajax_Ajax extends Phpfox_Ajax
 				$sTxt = Phpfox::getLib('parse.output')->parse($sTxt);
 			}
 			Phpfox::getLib('parse.output')->setImageParser(array('clear' => true));
-
-			// http://www.phpfox.com/tracker/view/15398/
-			$sTxt = Phpfox::getLib('parse.output')->replaceUserTag($sTxt);
 
 			$this->html('#' . $this->get('id'), $sTxt, '.highlightFade()');
 			

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Comment
- * @version 		$Id: process.class.php 7165 2014-03-03 15:23:19Z Fern $
+ * @version 		$Id: process.class.php 6890 2013-11-14 16:18:37Z Miguel_Espinoza $
  */
 class Comment_Service_Process extends Phpfox_Service
 {
@@ -27,61 +27,6 @@ class Comment_Service_Process extends Phpfox_Service
 	{
 		$iUserId = ($iUserId === null ? Phpfox::getUserId() : (int) $iUserId);
 		$sUserName = ($sUserName === null ? Phpfox::getUserBy('full_name') : $sUserName);
-
-		// http://www.phpfox.com/tracker/view/15205/
-		// check if user can comment on this item
-		if(Phpfox::isModule('feed') && isset($aVals['is_via_feed']) && !empty($aVals['is_via_feed']))
-		{
-			$aFeed = $this->database()->select('privacy, privacy_comment, user_id')
-				->from(Phpfox::getT('feed'))
-				->where('item_id = ' . (int)$aVals['item_id'] . ' AND type_id = "' . Phpfox::getLib('parse.input')->clean($aVals['type']) . '"')
-				->execute('getSlaveRow');
-						
-			if (!empty($aFeed))
-			{
-				if(isset($aFeed['privacy_comment']) && !empty($aFeed['privacy']) && !empty($aFeed['user_id']) && $aFeed['user_id'] != $iUserId)
-				{
-					if ($aFeed['privacy_comment'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy_comment'] == 2 && Phpfox::getService('friend')->isFriendOfFriend($iUserId) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy_comment'] == 3 && ($aFeed['user_id'] != Phpfox::getUserId()))
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy_comment'] == 4 && ( $bCheck = Phpfox::getService('privacy')->check($aVals['type'], $aVals['item_id'], $aFeed['user_id'], $aFeed['privacy_comment'], null, true)) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-				}
-				
-				// Fallback: if the item is private and it cannot be accessed by the one trying to comment, then, the user should not be able to.
-				if(isset($aFeed['privacy']) && !empty($aFeed['privacy']) && !empty($aFeed['user_id']) && $aFeed['user_id'] != $iUserId)
-				{
-					if ($aFeed['privacy'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy'] == 2 && Phpfox::getService('friend')->isFriendOfFriend($iUserId) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy'] == 3 && ($aFeed['user_id'] != Phpfox::getUserId()))
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-					else if ($aFeed['privacy'] == 4 && ( $bCheck = Phpfox::getService('privacy')->check($aVals['type'], $aVals['item_id'], $aFeed['user_id'], $aFeed['privacy'], null, true)) != true)
-					{
-						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
-					}
-				}
-			}
-		}
-		// END
 
 		if (isset($aVals['parent_group_id']) && isset($aVals['group_view_id']) && $aVals['group_view_id'] > 0)
 		{
@@ -373,7 +318,7 @@ class Comment_Service_Process extends Phpfox_Service
 
 			// Update user activity
 			Phpfox::getService('user.activity')->update($iUserId, 'comment', '-');
-
+            
 			(($sPlugin = Phpfox_Plugin::get('comment.service_process_deleteinline')) ? eval($sPlugin) : false);
 
 			if (Phpfox::getParam('feed.cache_each_feed_entry'))
@@ -383,7 +328,7 @@ class Comment_Service_Process extends Phpfox_Service
 			
 			return true;
 		}
-
+    
 		return false;
 	}
 
@@ -402,9 +347,7 @@ class Comment_Service_Process extends Phpfox_Service
 		
 		(Phpfox::isModule('feed') ? Phpfox::getService('feed.process')->delete($sType, (int) $iId) : null);
 		
-		$this->database()->delete(Phpfox::getT('comment'), "comment_id = " . (int) $iId);
-		$this->database()->delete(Phpfox::getT('comment_text'), "comment_id = " . (int) $iId);
-		$this->database()->delete(Phpfox::getT('comment_rating'), 'comment_id = ' . (int) $iId);
+		$this->database()->update(Phpfox::getT('comment') , array('is_delete' => 1), "comment_id = " . (int) $iId); 
 		(($sPlugin = Phpfox_Plugin::get('comment.service_process_delete')) ? eval($sPlugin) : false);
 	}
 
@@ -420,7 +363,7 @@ class Comment_Service_Process extends Phpfox_Service
 			return false;
 		}		
 		
-		$this->database()->delete($this->_sTable, "item_id = " . (int) $iItemId . " AND type_id = '" . $this->database()->escape($sCategory) . "'");
+		$this->database()->update($this->_sTable , array('is_delete' => 1), "item_id = " . (int) $iItemId . " AND type_id = '" . $this->database()->escape($sCategory) . "'");
 
 		foreach ($aRows as $aRow)
 		{
