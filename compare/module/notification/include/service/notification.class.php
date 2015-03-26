@@ -209,9 +209,15 @@ class Notification_Service_Notification extends Phpfox_Service
 				$aNotifications[] = array_merge($aRow, (array) $aCallBack);	
 			}
 						
-			$this->database()->update($this->_sTable, array('is_seen' => '1'), 'type_id = \'' . $this->database()->escape($aRow['type_id']) . '\' AND item_id = ' . (int) $aRow['item_id']);
-		}		
-		
+			$this->database()->update($this->_sTable, array('is_seen' => '1'), 'type_id = \'' . $this->database()->escape($aRow['type_id']) . '\' AND item_id = ' . (int) $aRow['item_id'] . ' AND user_id = ' . Phpfox::getUserId());
+		}
+        /*ttngon begin*/
+        foreach ($aNotifications as $iKey => $aNotification){
+            if (Phpfox::isModule('fix') && Phpfox::getService('fix')->isHideName($aNotification['type_id'])){
+                $aNotifications[$iKey]['no_profile_image'] = true;
+            }
+        }
+        /*ttngon end*/
 		return $aNotifications;
 	}	
 	
@@ -310,8 +316,11 @@ class Notification_Service_Notification extends Phpfox_Service
 			return $sStr;
 		}
 		
-		$sStr = '<span class="drop_data_user">' . ((isset($aNotification['user_id']) && $aNotification['user_id'] == Phpfox::getUserId()) ? Phpfox::getPhrase('notification.you') : Phpfox::getLib('parse.output')->shorten($aNotification['full_name'], Phpfox::getParam('user.maximum_length_for_full_name'))) . '</span>';
-		
+//		$sStr = '<span class="drop_data_user">' . ((isset($aNotification['user_id']) && $aNotification['user_id'] == Phpfox::getUserId()) ? Phpfox::getPhrase('notification.you') : Phpfox::getLib('parse.output')->shorten($aNotification['full_name'], Phpfox::getParam('user.maximum_length_for_full_name'))) . '</span>';
+        //ttngon
+        if (Phpfox::isModule('fix') && Phpfox::getService('fix')->isHideName($aNotification['type_id'])){
+            $sStr = '';
+        }
 		return $sStr;
 	}
 	

@@ -168,7 +168,7 @@ class Feed_Service_Feed extends Phpfox_Service
 		$oUrl = Phpfox::getLib('url');
 		$oReq = Phpfox::getLib('request');
 		$oParseOutput = Phpfox::getLib('parse.output');
-		
+		$sFeedAvailable = 'is_delete = 0 AND (feed.expire_time > '.PHPFOX_TIME.' OR feed.expire_time = 0) AND ';
 		if ($oReq->get('get-new'))
 		{
 			// $bForceReturn = true;
@@ -279,7 +279,7 @@ class Feed_Service_Feed extends Phpfox_Service
             $aRows = $this->database()->select('feed.*, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')	
-                ->where('feed.feed_id IN(' . $sNewIds . ')')            
+                ->where($sFeedAvailable.'feed.feed_id IN(' . $sNewIds . ')')            
 				->order('feed.time_stamp DESC')
 				->execute('getSlaveRows');	            
         }
@@ -288,17 +288,35 @@ class Feed_Service_Feed extends Phpfox_Service
             $aRows = $this->database()->select('feed.*, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')	
-                ->where('feed.feed_id = ' . (int) $iFeedId)            
+                ->where($sFeedAvailable.'feed.feed_id = ' . (int) $iFeedId)            
 				->order('feed.time_stamp DESC')
 				->execute('getSlaveRows');	            
         }		
 		elseif ($iUserid !== null && $iFeedId !== null)
 		{            			
+            if(Phpfox::isAdmin())
+            {
+                $sFeedAvailable = '';
+            }
+			else
+			{
+				if(isset($aCustomCondition))
+				{
+					$aCustomCondition[] = ' AND (af.anonymous_id IS NULL OR (af.anonymous_id IS NOT NULL AND (af.privacy = 1 OR af.user_id = '.Phpfox::getUserId().' OR af.receive_user_id = '.Phpfox::getUserId().'))) ';
+				}
+				else
+				{
+					$sFeedAvailable.= ' (af.anonymous_id IS NULL OR (af.anonymous_id IS NOT NULL AND (af.privacy = 1 OR af.user_id = '.Phpfox::getUserId().' OR af.receive_user_id = '.Phpfox::getUserId().'))) AND ';
+				}
+			}
+			
             $aRows = $this->database()->select('feed.*, apps.app_title, ' . Phpfox::getUserField().', u.view_id')
 				->from($this->_sTable, 'feed')			
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
-				->where((isset($aCustomCondition) ? $aCustomCondition : 'feed.feed_id = ' . (int) $iFeedId . ' AND feed.user_id = ' . (int) $iUserid . ''))
+				// ANONYMOUS MODULE
+                ->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
+				->where((isset($aCustomCondition) ? $aCustomCondition : $sFeedAvailable.'feed.feed_id = ' . (int) $iFeedId . ' AND feed.user_id = ' . (int) $iUserid . ''))
 				->order('feed.time_stamp DESC')
 				->limit(1)			
 				->execute('getSlaveRows');			
@@ -373,11 +391,22 @@ class Feed_Service_Feed extends Phpfox_Service
 				->from($this->_sTable, 'feed')
 				->where(array_merge($aCond, array('AND feed.parent_user_id = ' . (int) $iUserid)))
 				->union();
-			
+            $sNewCondition = '';
+			if(Phpfox::getUserId() != $iUserid)
+            {
+                $this->database()->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id');
+                $sNewCondition = ' AND (anonymous_id IS NULL OR (anonymous_id IS NOT NULL AND af.privacy = 1 AND af.receive_user_id = '.$iUserid.'))';
+            }
+			if(Phpfox::isModule('waytame'))
+			{
+				$this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+				$sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+			}
 			$aRows = $this->database()->select('feed.*, apps.app_title,  ' . Phpfox::getUserField())
 				->unionFrom('feed')
 				->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 				->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
+                ->where($sFeedAvailable.' 1'.$sNewCondition)
 				->order('feed.time_stamp DESC')
 				->group('feed.feed_id')
 				->limit($iOffset, $iTotalFeeds)			
@@ -397,7 +426,11 @@ class Feed_Service_Feed extends Phpfox_Service
 					$sSelect .= ', f.friend_id AS is_friend';
 					$this->database()->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId());
 				}
-
+				if(Phpfox::isModule('waytame'))
+                {
+                    $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                    $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+                }
 				$aRows = $this->database()->select($sSelect)
 						->from(Phpfox::getT('feed'), 'feed')			
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
@@ -405,7 +438,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			
-						->where('feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
+						->where($sFeedAvailable.'feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
 						->execute('getSlaveRows');
 			}
 			else
@@ -414,13 +447,25 @@ class Feed_Service_Feed extends Phpfox_Service
 				{					
 					if (Phpfox::isModule('friend'))
 					{
-						// Get my friends feeds
-						$this->database()->select('feed.*')
-							->from($this->_sTable, 'feed')
-							->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-							->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
-							// ->limit($iTotalFeeds)
-							->union();
+						// Get anonymous friends feeds
+                        $this->database()->select('feed.*')
+                            ->from($this->_sTable, 'feed')
+                            ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.parent_user_id AND f.friend_user_id = ' . Phpfox::getUserId())
+                            // ANONYMOUS MODULE
+                            ->join(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
+                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND af.privacy = 1 AND af.is_block = 0' ) 
+                            // ->limit($iTotalFeeds)
+                            ->union();
+                            
+                        // Get my friends feeds
+                        $this->database()->select('feed.*')
+                            ->from($this->_sTable, 'feed')
+                            ->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
+                            // ANONYMOUS MODULE
+                            ->leftJoin(Phpfox::getT('custom_profiles_anonymous_feed'),'af','feed.feed_id=af.feed_id')
+                            ->where('feed.privacy IN(0,1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0 AND anonymous_id IS NULL') 
+                            // ->limit($iTotalFeeds)
+                            ->union();
 
 						// Get my feeds
 						$this->database()->select('feed.*')
@@ -441,7 +486,7 @@ class Feed_Service_Feed extends Phpfox_Service
 						$this->database()->select('feed.*')
 							->from($this->_sTable, 'feed')
 							->join(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId())
-							->where('feed.privacy IN(1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0')
+							->where('feed.privacy IN(1,2) AND feed.time_stamp > \'' . $iLastActiveTimeStamp . '\' AND feed.feed_reference = 0 ')
 							->limit($iTotalFeeds)
 							->union();		
 
@@ -488,11 +533,16 @@ class Feed_Service_Feed extends Phpfox_Service
 					$sSelect .= ', f.friend_id AS is_friend';
 					$this->database()->leftJoin(Phpfox::getT('friend'), 'f', 'f.user_id = feed.user_id AND f.friend_user_id = ' . Phpfox::getUserId());
 				}
-					
+				if(Phpfox::isModule('waytame'))
+                {
+                    $this->database()->leftJoin(Phpfox::getT('waytame_question'), 'w', "feed.type_id = 'waytame' AND feed.item_id = w.question_id");
+                    $sFeedAvailable.= ' (w.question_id IS NULL OR (w.question_id IS NOT NULL AND w.expire_time > '.PHPFOX_TIME.')) AND ';
+                }
 				$aRows = $this->database()->select($sSelect)
 						->unionFrom('feed')			
 						->join(Phpfox::getT('user'), 'u', 'u.user_id = feed.user_id')
 						->leftJoin(Phpfox::getT('app'), 'apps', 'apps.app_id = feed.app_id')
+                        ->where($sFeedAvailable.' 1')
 						->order($sOrder)
 						->group('feed.feed_id')
 						->limit($iOffset, $iTotalFeeds)			

@@ -11,7 +11,7 @@ defined('PHPFOX') or exit('NO DICE!');
  * @copyright		[PHPFOX_COPYRIGHT]
  * @author  		Raymond Benc
  * @package  		Module_Feed
- * @version 		$Id: process.class.php 7199 2014-03-17 19:37:13Z Fern $
+ * @version 		$Id: process.class.php 6452 2013-08-12 14:27:50Z Raymond_Benc $
  */
 class Feed_Service_Process extends Phpfox_Service 
 {	
@@ -164,7 +164,16 @@ class Feed_Service_Process extends Phpfox_Service
 		}		
 		
 		$aParentModuleName = explode('_', $sParentModuleName);
-		
+        $iExpireTime = 0;
+        if(isset($_SESSION['expire_time']) && $_SESSION['expire_time'])
+        {
+            $iExpireTime = $iNewTimeStamp + $_SESSION['expire_time'];
+            unset($_SESSION['expire_time']);
+        }
+		else
+        {
+            $iExpireTime = $iNewTimeStamp + Phpfox::getParam('customprofiles.expire_post_time') * 24 * 60 * 60;
+        }
 		$aInsert = array(
 			'privacy' => (int) $iPrivacy,
 			'privacy_comment' => (int) $iPrivacyComment,
@@ -176,6 +185,7 @@ class Feed_Service_Process extends Phpfox_Service
 			'parent_feed_id' => (int) $iParentFeedId,
 			'parent_module_id' => (Phpfox::isModule($aParentModuleName[0]) ? $this->database()->escape($sParentModuleName) : null),
 			'time_update' => $iNewTimeStamp,
+            'expire_time' => $iExpireTime
 		);
 		
 		if (!$this->_bIsCallback && !Phpfox::getParam('feed.add_feed_for_comments') && preg_match('/^(.*)_comment$/i', $sType))
@@ -288,7 +298,8 @@ class Feed_Service_Process extends Phpfox_Service
 	
 	public function deleteChild($sType, $iId)
 	{		
-		$this->database()->delete(Phpfox::getT('feed'), 'type_id = \'' . $sType . '\' AND child_item_id = ' . (int) $iId);
+        // $this->database()->delete(Phpfox::getT('feed'), 'type_id = \'' . $sType . '\' AND child_item_id = ' . (int) $iId);
+		$this->database()->update(Phpfox::getT('feed') ,array('is_delete' => 1), 'type_id = \'' . $sType . '\' AND child_item_id = ' . (int) $iId);
 	}
 	
 	public function deleteFeed($iId, $sModule = null, $iItem = 0)
@@ -306,12 +317,6 @@ class Feed_Service_Process extends Phpfox_Service
 		if (!isset($aFeed['feed_id']))
 		{			
 			return false;
-		}
-		
-		// http://www.phpfox.com/tracker/view/15253/
-		if($aFeed['type_id'] == 'photo')
-		{
-			Phpfox::callback($aFeed['type_id'] . '.deleteFeedItem', $aFeed['item_id']);
 		}
 		
 		if ($sPlugin = Phpfox_Plugin::get('feed.service_process_deletefeed'))
@@ -340,7 +345,8 @@ class Feed_Service_Process extends Phpfox_Service
 			
 			if (isset($aCallback['table_prefix']))
 			{
-				$this->database()->delete(Phpfox::getT($aCallback['table_prefix']  . 'feed'), 'feed_id = ' . (int) $iId);				
+                // ANONYMOUS MODULE
+				// $this->database()->delete(Phpfox::getT($aCallback['table_prefix']  . 'feed'), 'feed_id = ' . (int) $iId);				
 			}
 
 			//$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . $aFeed['feed_id'] . ' AND user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
@@ -349,30 +355,35 @@ class Feed_Service_Process extends Phpfox_Service
 				$aCore = Phpfox::getLib('request')->getArray('core');
 				if (isset($aCore['is_user_profile']) && $aCore['profile_user_id'] != Phpfox::getUserId())
 				{
-
-					$this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . $aCore['profile_user_id']);
+                    // ANONYMOUS MODULE
+                    // $this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . $aCore['profile_user_id']);
+					$this->database()->update(Phpfox::getT('feed'), array('is_delete' => 1) , 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . $aCore['profile_user_id']);
 				}
 				elseif (isset($aCore['is_user_profile']) && $aCore['profile_user_id'] == Phpfox::getUserId())
 				{
-					$this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . (int) $aFeed['feed_id']);
+                    // ANONYMOUS MODUle
+                    // $this->database()->delete(Phpfox::getT('feed'), 'feed_id = ' . (int) $aFeed['feed_id']);
+					$this->database()->update(Phpfox::getT('feed') , array('is_delete' => 1), 'feed_id = ' . (int) $aFeed['feed_id']);
 				}
-				$this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . Phpfox::getUserId());
+                // $this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . Phpfox::getUserId());
+				$this->database()->update(Phpfox::getT('feed') ,array('is_delete' => 1), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp'] . ' AND parent_user_id = ' . Phpfox::getUserId());
 			}
 			else
 			{
-				$this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
+                // $this->database()->delete(Phpfox::getT('feed'), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
+				$this->database()->update(Phpfox::getT('feed') , array('is_delete' => 1), 'user_id = ' . $aFeed['user_id'] .' AND time_stamp = ' . $aFeed['time_stamp']);
 			}
 			
 			// Delete likes that belonged to this feed
-			$this->database()->delete(Phpfox::getT('like'), 'type_id = "'. $aFeed['type_id'] .'" AND item_id = ' . $aFeed['item_id']);
+			// $this->database()->delete(Phpfox::getT('like'), 'type_id = "'. $aFeed['type_id'] .'" AND item_id = ' . $aFeed['item_id']);
 				
 			if (!empty($sModule))
 			{
 				if (Phpfox::hasCallback($sModule, 'deleteFeedItem'))
 				{
-					Phpfox::callback($sModule . '.deleteFeedItem', $iItem);
+					// Phpfox::callback($sModule . '.deleteFeedItem', $iItem);
 				}
-			}
+			}			
 			
 			// $this->cache()->remove('feed_' . $aFeed['user_id'], 'substr');			
 			

@@ -309,9 +309,18 @@ class Feed_Service_Callback extends Phpfox_Service
 		*/
 		
 		// http://www.phpfox.com/tracker/view/15336/
+		// ANONYMOUA MODULE REPORT
 		if($aItem['user_id'] == Phpfox::getService('profile')->getProfileUserId())
 		{
-			return false;
+			$oRequest = Phpfox::getLib('request');
+			$bCheck = false;
+			if($oRequest->get('view') == 'followed' || $oRequest->get('view') == 'expire'){
+				$bCheck = true;
+			}
+			if(!Phpfox::getLib('request')->get('feed') && !$bCheck)
+			{
+				return false;
+			}
 		}
 		
 		if(Phpfox::isModule('like'))
@@ -1014,6 +1023,44 @@ class Feed_Service_Callback extends Phpfox_Service
 		
 		return false;
 	}
+	
+	// ADD:PHUC Callback action dislike for anonymous feed
+    public function getActionsComment()
+    {
+        return array(
+        'dislike' => array(
+            'enabled' => true,
+            'action_type_id' => 2, // 2 = dislike
+            'phrase' => Phpfox::getPhrase('like.dislike'),
+            'phrase_in_past_tense' => 'disliked',
+            'item_phrase' => 'comment',
+            'item_type_id' => 'feed_comment', // used to differentiate between photo albums and photos for example.
+            'table' => 'feed_comment',
+            'column_update' => 'total_dislike',
+            'column_find' => 'feed_comment_id',
+            'where_to_show' => array('')            
+            )
+        );
+    }
+	
+	// Phuc:ADD
+	public function getActionsMini()
+    {
+        return array(
+        'dislike' => array(
+            'enabled' => true,
+            'action_type_id' => 2, // 2 = dislike
+            'phrase' => Phpfox::getPhrase('like.dislike'),
+            'phrase_in_past_tense' => 'disliked',
+            'item_phrase' => 'comment',
+            'item_type_id' => 'comment', // used to differentiate between photo albums and photos for example.
+            'table' => 'comment',
+            'column_update' => 'total_dislike',
+            'column_find' => 'comment_id',
+            'where_to_show' => array('')            
+            )
+        );
+    }
 }
 
 ?>

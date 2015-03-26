@@ -123,7 +123,7 @@ class Feed_Component_Block_Comment extends Phpfox_Component
 					$iCommentId = $this->request()->getInt('comment');
 					$bIsViewingComments = true;
 				}
-							
+			
 				$aFeed['comments'] = Phpfox::getService('comment')->getCommentsForFeed($aFeed['comment_type_id'], $aFeed['item_id'], $iPageLimit, $mPager, $iCommentId);
 			}
 		}
