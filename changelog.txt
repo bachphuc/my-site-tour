@@ -31,3 +31,4 @@
 - Modify file comment/template/default/block/mini.html.php	
 	+ Remove line 14, 15 old file 
 	+ Add new line form line 14 to line 17 new file.
+	+ Add new line 110, 111
