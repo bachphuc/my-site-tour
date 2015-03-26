@@ -1,0 +1,33 @@
+- CHANGELOG CORE FILE (NOTE: NEW FILE (code in changelog) WITH ORIGINAL FILE)
+
+***** MODULE REPORT
+- Modify File report/template/default/block/browse.html.php
+	+ Add new line 22 and line 29
+- Add new file report/template/default/controller/admincp/archive.html.php
+- Add new file report/template/default/controller/admincp/addemail.html.php
+- Add new file report/include/service/email.class.php	Added (content only)
+- Add new file report/include/component/controller/admincp/email.class.php
+- Add new file report/include/component/controller/admincp/addemail.class.php
+- Add new file report/include/component/controller/admincp/archive.class.php
+- Add new file report/template/default/controller/admincp/email.html.php
+- Modify file report/include/service/data/process.class.php
+	+ Modify code in line 28
+	+ Add new code from line 57 to 59
+- Modify file report/include/component/controller/admincp/index.class.php	
+	+ Add new line 100, 101
+	+ Modify code in line 102
+	+ Add new code from line 105 to 108
+- Modify file report/template/default/controller/admincp/index.html.php	
+	+ Modify code line 27, 47
+	+ Add new line 28, 29, 38, 40, 41, 48
+	
+***** MODULE COMMENT
+- Modify file comment/include/service/process.class.php	
+	+ Remove line from 350 to line 352 in orginal file and new line 350 in new file.
+	+ Modify code in line 366
+- Modify file comment/include/service/comment.class.php	
+	+ Remove line 261 old file and Add new line 250
+	+ Remove line 265 old file and add new line 2266, 267, 276, 281
+- Modify file comment/template/default/block/mini.html.php	
+	+ Remove line 14, 15 old file 
+	+ Add new line form line 14 to line 17 new file.
