@@ -32,3 +32,24 @@
 	+ Remove line 14, 15 old file 
 	+ Add new line form line 14 to line 17 new file.
 	+ Add new line 110, 111
+	
+***** MODULE NOTIFICATION
+- Modify file notification/include/service/notification.class.php	
+	+ Modify ode in line 212
+
+***** MODULE PAGES
+- Modify file pages/include/service/callback.class.php	
+	+ Add new code from line 1473 to line 1490
+
+***** MODULE LIKE
+- Modify file like/include/service/process.class.php	
+	+ Remove line 40 old file and add new code line 40, 41 in new file
+	+ Remove line 52 old file and add new code line 53,54,55 in new file
+	+ Add new code from line 151 to line 155
+- Modify file like/include/service/like.class.php	
+	+ Add new code from line 189 to line 193
+- Modify file like/include/component/ajax/ajax.class.php	
+	+ Add new code from line 31 to line 33
+	+ Add new code from line 219 to line 222
+- Modify file like/include/component/block/link.class.php	
+	+ Add new line 25

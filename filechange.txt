@@ -1,0 +1,34 @@
+
+notification/include/service/notification.class.php	
+
+feed/include/service/callback.class.php	
+feed/include/service/process.class.php	
+feed/include/service/feed.class.php	
+feed/include/component/block/display.class.php	
+feed/template/default/block/link.html.php	
+feed/template/default/block/entry.html.php	
+feed/template/default/block/form.html.php	
+feed/template/default/block/display.html.php	
+
+	like/include/service/process.class.php	
+	like/include/service/like.class.php	
+	like/include/component/ajax/ajax.class.php	
+	like/include/component/block/link.class.php	
+
+	pages/include/service/callback.class.php	
+
+report/include/service/email.class.php	Added (content only)
+report/include/service/data/process.class.php	
+report/include/component/controller/admincp/index.class.php	
+report/include/component/controller/admincp/email.class.php	Added (content only)
+report/include/component/controller/admincp/addemail.class.php	Added (content only)
+report/include/component/controller/admincp/archive.class.php	Added (content only)
+report/template/default/controller/admincp/email.html.php	Added (content only)
+report/template/default/controller/admincp/index.html.php	
+report/template/default/controller/admincp/addemail.html.php	Added (content only)
+report/template/default/controller/admincp/archive.html.php	Added (content only)
+report/template/default/block/browse.html.php	
+
+comment/include/service/process.class.php	
+comment/include/service/comment.class.php	
+comment/template/default/block/mini.html.php	
