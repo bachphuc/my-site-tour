@@ -31,7 +31,7 @@
             $bForceFormOnly = false;
             $bIsHashTagPop = false;
             $this->template()->assign(array(
-                'sFeedType' => 'mini',
+                // 'sFeedType' => 'mini',
                 'bForceReloadOnPage' => $bForceReloadOnPage,                
                 'bHideEnterComment' => true,
                 'aFeeds' => $aFollowed,
