@@ -22,6 +22,8 @@ class Like_Component_Block_Link extends Phpfox_Component
 	{
 		$sModule = $sItemTypeId = Phpfox::getLib('module')->getModuleName();
 		
+        (($sPlugin = Phpfox_Plugin::get('like.component_block_link_begin')) ? eval($sPlugin) : false);
+        
 		if ($sModule == 'apps' && Phpfox::isModule('pages'))
 		{
 			$sModule = 'pages';
