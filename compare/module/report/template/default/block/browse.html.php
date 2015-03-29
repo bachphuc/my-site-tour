@@ -18,13 +18,15 @@ defined('PHPFOX') or exit('NO DICE!');
 	<tr>
 		<th>{phrase var='report.user'}</th>
 		<th>{phrase var='report.category'}</th>
-		<th>{phrase var='report.date'}</th>
+        <th>{phrase var='report.date'}</th>
+		<th>Feedback</th>
 	</tr>
 {foreach from=$aReports item=aReport}
 	<tr>
 		<td>{$aReport|user}</td>
 		<td>{$aReport.message|clean}</td>
-		<td>{$aReport.added|date:'core.global_update_time'}</td>
+        <td>{$aReport.added|date:'core.global_update_time'}</td>
+		<td>{$aReport.feedback|clean}</td>
 	</tr>
 {/foreach}
 </table>

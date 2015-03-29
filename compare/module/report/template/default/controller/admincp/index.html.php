@@ -24,7 +24,9 @@ defined('PHPFOX') or exit('NO DICE!');
 		<th>{phrase var='report.total'}</th>
 		<th>{phrase var='report.date'}</th>
 		<th>{phrase var='report.last_report'}</th>
-		<th>{phrase var='report.feedback'}</th>
+        <th>{phrase var='report.feedback'}</th>
+        <th>Author Item</th>
+		<th>Unlock Author Item</th>
 	</tr>	
 	{foreach from=$aReports key=iKey item=aReport}
 	<tr id="js_row{$aReport.data_id}" class="checkRow{if is_int($iKey/2)} tr{else}{/if}">
@@ -33,14 +35,17 @@ defined('PHPFOX') or exit('NO DICE!');
 		<td>{$aReport.message|convert|clean}</td>
 		<td class="t_center"><a href="#" onclick="tb_show('Browse Reports', $.ajaxBox('report.browse', 'height=400&amp;width=600&amp;data_id={$aReport.data_id}')); return false;">{$aReport.total_report}</a></td>
 		<td>{$aReport.added|date:'core.global_update_time'}</td>
-		<td>{$aReport|user}</td>
-		<td>{$aReport.feedback}</td>
+		<td>{*$aReport|user*}<span id="js_user_name_link_{$aReport.user_name}" class="user_profile_link_span"><a onclick="$Core.box('customprofiles.getUserData',500,'user_id={$aReport.user_id}');return false;" href="{url link=$aReport.user_name}">{$aReport.full_name}</a></span></td>
+        <td>{$aReport.feedback}</td>
+		<td>{if isset($aReport.author_user)}<span id="js_user_name_link_{$aReport.author_user.user_name}" class="user_profile_link_span"><a onclick="$Core.box('customprofiles.getUserData',500,'user_id={$aReport.author_user.user_id}');return false;" href="{url link=$aReport.author_user.user_name}">{$aReport.author_user.full_name}</a></span>{/if}</td>
+        <td>{if isset($aReport.block_user)}<a id="block_user_{$aReport.block_user.block_id}" class="user_profile_link_span" href="" onclick="$.ajaxCall('customprofiles.unlockUser','user_id={$aReport.block_user.user_id}&block_user_id={$aReport.block_user.block_user_id}&block_id={$aReport.block_user.block_id}');return false;">Unlock</a>{/if}</td>
 	</tr>
 	{/foreach}
 	</table>
 	<div class="table_bottom">
 	{* <input type="submit" name="delete" value="{phrase var='report.delete_selected'}" class="sJsConfirm delete button sJsCheckBoxButton disabled" disabled="true" /> *}
-		<input type="submit" name="ignore" value="{phrase var='report.ignore_selected'}" class="sJsConfirm delete button sJsCheckBoxButton disabled" disabled="true" />
+        {*<input type="submit" name="ignore" value="{phrase var='report.ignore_selected'}" class="sJsConfirm delete button sJsCheckBoxButton disabled" disabled="true" />*}
+		<input type="submit" name="ignore" value="Archive Selected" class="sJsConfirm delete button sJsCheckBoxButton disabled" disabled="true" />
 	</div>
 	{else}
 	<div class="extra_info">
