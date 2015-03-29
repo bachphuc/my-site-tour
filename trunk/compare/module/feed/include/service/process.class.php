@@ -319,6 +319,12 @@ class Feed_Service_Process extends Phpfox_Service
 			return false;
 		}
 		
+		// http://www.phpfox.com/tracker/view/15253/
+		if($aFeed['type_id'] == 'photo')
+		{
+			Phpfox::callback($aFeed['type_id'] . '.deleteFeedItem', $aFeed['item_id']);
+		}
+		
 		if ($sPlugin = Phpfox_Plugin::get('feed.service_process_deletefeed'))
 		{
 			eval($sPlugin);
