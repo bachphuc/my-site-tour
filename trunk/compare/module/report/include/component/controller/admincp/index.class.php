@@ -97,11 +97,15 @@ class Report_Component_Controller_Admincp_Index extends Phpfox_Component
 		);
 		
 		$iLimit = $oSearch->getDisplay();
-		
-		list($iCnt, $aReports) = Phpfox::getService('report')->get($oSearch->getConditions(), $oSearch->getSort(), $oSearch->getPage(), $iLimit);
+		$aConition = $oSearch->getConditions();
+        $aConition[] = 'AND is_archive = 0 ';
+		list($iCnt, $aReports) = Phpfox::getService('report')->get($aConition, $oSearch->getSort(), $oSearch->getPage(), $iLimit);
 		
 		Phpfox::getLib('pager')->set(array('page' => $iPage, 'size' => $iLimit, 'count' => $oSearch->getSearchTotal($iCnt)));		
-		
+		if(Phpfox::isModule('customprofiles'))
+        {
+            Phpfox::getService('customprofiles')->processReport($aReports);
+        }
 		$this->template()->setTitle(Phpfox::getPhrase('report.reports'))
 			->setBreadcrumb(Phpfox::getPhrase('report.reports'), $this->url()->makeUrl('admincp.report'))
 			->assign(array(
