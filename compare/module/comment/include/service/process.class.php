@@ -28,6 +28,61 @@ class Comment_Service_Process extends Phpfox_Service
 		$iUserId = ($iUserId === null ? Phpfox::getUserId() : (int) $iUserId);
 		$sUserName = ($sUserName === null ? Phpfox::getUserBy('full_name') : $sUserName);
 
+		// http://www.phpfox.com/tracker/view/15205/
+		// check if user can comment on this item
+		if(Phpfox::isModule('feed') && isset($aVals['is_via_feed']) && !empty($aVals['is_via_feed']))
+		{
+			$aFeed = $this->database()->select('privacy, privacy_comment, user_id')
+				->from(Phpfox::getT('feed'))
+				->where('item_id = ' . (int)$aVals['item_id'] . ' AND type_id = "' . Phpfox::getLib('parse.input')->clean($aVals['type']) . '"')
+				->execute('getSlaveRow');
+						
+			if (!empty($aFeed))
+			{
+				if(isset($aFeed['privacy_comment']) && !empty($aFeed['privacy']) && !empty($aFeed['user_id']) && $aFeed['user_id'] != $iUserId)
+				{
+					if ($aFeed['privacy_comment'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy_comment'] == 2 && Phpfox::getService('friend')->isFriendOfFriend($iUserId) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy_comment'] == 3 && ($aFeed['user_id'] != Phpfox::getUserId()))
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy_comment'] == 4 && ( $bCheck = Phpfox::getService('privacy')->check($aVals['type'], $aVals['item_id'], $aFeed['user_id'], $aFeed['privacy_comment'], null, true)) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+				}
+				
+				// Fallback: if the item is private and it cannot be accessed by the one trying to comment, then, the user should not be able to.
+				if(isset($aFeed['privacy']) && !empty($aFeed['privacy']) && !empty($aFeed['user_id']) && $aFeed['user_id'] != $iUserId)
+				{
+					if ($aFeed['privacy'] == 1 && Phpfox::getService('friend')->isFriend($iUserId, $aFeed['user_id']) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy'] == 2 && Phpfox::getService('friend')->isFriendOfFriend($iUserId) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy'] == 3 && ($aFeed['user_id'] != Phpfox::getUserId()))
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+					else if ($aFeed['privacy'] == 4 && ( $bCheck = Phpfox::getService('privacy')->check($aVals['type'], $aVals['item_id'], $aFeed['user_id'], $aFeed['privacy'], null, true)) != true)
+					{
+						return Phpfox_Error::display(Phpfox::getPhrase('feed.unable_to_post_a_comment_on_this_item_due_to_privacy_settings'));
+					}
+				}
+			}
+		}
+		// END
+
 		if (isset($aVals['parent_group_id']) && isset($aVals['group_view_id']) && $aVals['group_view_id'] > 0)
 		{
 			define('PHPFOX_SKIP_FEED', true);
