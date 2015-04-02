@@ -11,15 +11,22 @@
     if(isset($this->_aVars['aFeed']['expire_time'])) :
         $iExpireTime = $this->_aVars['aFeed']['expire_time'];
         $iTotalSeconds = $iExpireTime - PHPFOX_TIME;
-        $iHour = (int)($iTotalSeconds / 3600);
-        $iMinute = (int)(($iTotalSeconds - $iHour * 3600) / 60);
-        $iSecond = $iTotalSeconds - $iHour * 3600 - $iMinute * 60;
-        $sExpireTime = $iHour.':'.$iMinute.':'.$iSecond;
+        if($iTotalSeconds > 24 * 60* 60) :
+            $iDate = (int) ($iTotalSeconds / (24 * 60 *60));
+            $iHour = (int)(($iTotalSeconds - $iDate * 24 * 60*60) / (60 * 60) );
+            $iMinute = (int)(($iTotalSeconds - $iDate * 24 * 60*60 - $iHour * 60 * 60) / 60);
+            $sExpireTime = ($iDate ? $iDate.'d ' : 0).($iHour ? $iHour.'h ' : ''). ($iMinute ? $iMinute.'m': '');
+            else :
+            $iHour = (int)($iTotalSeconds / 3600);
+            $iMinute = (int)(($iTotalSeconds - $iHour * 3600) / 60);
+            $iSecond = $iTotalSeconds - $iHour * 3600 - $iMinute * 60;
+            $sExpireTime = ($iHour ? $iHour.'h ' : '').($iMinute ? $iMinute.'m ' : '').($iSecond? $iSecond.'s' : '');
+            endif;
         endif;
 ?>
 <?php if(isset($this->_aVars['aFeed']['expire_time']) && $this->_aVars['aFeed']['expire_time']) : ?>
     <li><span>&middot;</span></li>
-    <li><a><?php echo ($iTotalSeconds <= 0 ? '' : 'Self-destruction in '.$sExpireTime);?></a></li>
+    <li><?php echo ($iTotalSeconds <= 0 ? '' : 'Expires within '.$sExpireTime);?></li>
     <?php endif;?>
 
 <?php if(isset($aNonymousFeed['anonymous_id']) && $aNonymousFeed['receive_user_id'] == Phpfox::getUserId()): ?> 
@@ -31,10 +38,10 @@
     </li>
 
     <?php if((int)$aNonymousFeed['privacy'] != 1): ?>
-    <li class="private_feed_icon" id="moc-<?php echo $this->_aVars['aFeed']['feed_id']; ?>"></li>
-    <script type="text/javascript">
-        document.getElementById('moc-<?php echo $this->_aVars['aFeed']['feed_id']; ?>').parentElement.className = 'cus_private_feed_icon';
-    </script>
+        <li class="private_feed_icon" id="moc-<?php echo $this->_aVars['aFeed']['feed_id']; ?>"></li>
+        <script type="text/javascript">
+            document.getElementById('moc-<?php echo $this->_aVars['aFeed']['feed_id']; ?>').parentElement.className = 'cus_private_feed_icon';
+        </script>
         <?php endif; ?>
     <!-- End Private Module --->
 
