@@ -310,6 +310,43 @@
 
             return $aRow;
         }
+
+        public function getCommentNotification($aNotification)
+        {
+            $aRow = $this->database()->select('w.question_id, w.question AS title, w.user_id, u.gender, u.full_name')    
+            ->from(Phpfox::getT('waytame_question'), 'w')
+            ->join(Phpfox::getT('user'), 'u', 'u.user_id = w.user_id')
+            ->where('w.question_id = ' . (int) $aNotification['item_id'])
+            ->execute('getSlaveRow');
+
+            if (!isset($aRow['question_id']))
+            {
+                return false;
+            }
+
+            $sUsers = Phpfox::getService('notification')->getUsers($aNotification);
+            $sTitle = Phpfox::getLib('parse.output')->shorten($aRow['title'], Phpfox::getParam('notification.total_notification_title_length'), '...');
+
+            $sPhrase = '';
+            if ($aNotification['user_id'] == $aRow['user_id'] && !isset($aNotification['extra_users']))
+            {
+                $sPhrase = Phpfox::getPhrase('waytame.users_commented_on_gender_question_title', array('users' => $sUsers, 'gender' => Phpfox::getService('user')->gender($aRow['gender'], 1), 'title' => $sTitle));
+            }
+            elseif ($aRow['user_id'] == Phpfox::getUserId())        
+            {
+                $sPhrase = Phpfox::getPhrase('waytame.users_commented_on_your_question_title', array('users' => $sUsers, 'title' => $sTitle));
+            }
+            else 
+            {
+                $sPhrase = Phpfox::getPhrase('waytame.users_commented_on_span_class_drop_data_user_row_full_name', array('users' => $sUsers, 'row_full_name' => $aRow['full_name'], 'title' => $sTitle));
+            }
+
+            return array(
+                'link' => Phpfox::getLib('url')->permalink('waytame', $aRow['question_id'], $aRow['title']),
+                'message' => $sPhrase,
+                'icon' => Phpfox::getLib('template')->getStyle('image', 'activity.png', 'blog')
+            );
+        }
     }
 
 ?>
