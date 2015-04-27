@@ -13,7 +13,7 @@
 		<setting group="" module_id="waytame" is_hidden="0" type="string" var_name="format_expire_time" phrase_var_name="setting_format_expire_time" ordering="1" version_id="3.7.7">F j, Y @g:ia</setting>
 	</settings>
 	<blocks>
-		<block type_id="0" m_connection="core.index-member" module_id="waytame" component="friendbar" location="1" is_active="1" ordering="6" disallow_access="" can_move="0">
+		<block type_id="0" m_connection="core.index-member" module_id="waytame" component="friendbar" location="2" is_active="1" ordering="6" disallow_access="" can_move="0">
 			<title>Waytame Bar</title>
 			<source_code />
 			<source_parsed />
@@ -88,5 +88,9 @@ To view this question follow the link below:
 		<phrase module_id="waytame" version_id="3.7.7" var_name="make_your_question" added="1407689840">Make your question</phrase>
 		<phrase module_id="waytame" version_id="3.7.7" var_name="has_created_a_new_waytame_question" added="1407689891"><![CDATA[&#32;has created a new Waytame question.]]></phrase>
 		<phrase module_id="waytame" version_id="3.7.7" var_name="waytame_dislike_notification" added="1410287054"><![CDATA[<span class="drop_data_user">{users}</span> disliked your question "{title}"]]></phrase>
+		<phrase module_id="waytame" version_id="3.7.5" var_name="user_setting_can_post_comment_on_waytame" added="1430119985">Can post comment on waytame</phrase>
 	</phrases>
+	<user_group_settings>
+		<setting is_admin_setting="0" module_id="waytame" type="boolean" admin="1" user="1" guest="0" staff="1" module="waytame" ordering="0">can_post_comment_on_waytame</setting>
+	</user_group_settings>
 </module>
