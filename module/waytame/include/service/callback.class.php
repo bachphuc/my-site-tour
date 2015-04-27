@@ -298,6 +298,18 @@
         {
             return 'waytame.can_post_comment_on_waytame';
         }
+
+        public function getCommentItem($iId)
+        {
+            $aRow = $this->database()->select('question_id AS comment_item_id, privacy_comment, user_id AS comment_user_id')
+            ->from($this->_sTable)
+            ->where('question_id = ' . (int) $iId)
+            ->execute('getSlaveRow');        
+
+            $aRow['comment_view_id'] = '0';
+
+            return $aRow;
+        }
     }
 
 ?>
