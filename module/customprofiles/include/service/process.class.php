@@ -722,6 +722,10 @@
                     $iExpireTime = $aVals['time_stamp'] + $_SESSION['expire_time'];
                     unset($_SESSION['expire_time']);
                 }
+                else if(isset($aVals['expire_time']))
+                {
+                    $iExpireTime = $aVals['time_stamp'] + $aVals['expire_time'];
+                }
                 $iFeedId = $this->database()->insert(Phpfox::getT('feed'),array(
                     'type_id' => $aVals['feed_type'],
                     'user_id' => $aVals['sender_user_id'],
@@ -804,6 +808,7 @@
             foreach($aScheduleFeeds as $key => $aFeed)
             {
                 $aVals = unserialize($aFeed['object']);
+                $aVals['is_friend'] = Phpfox::getService('friend')->isFriend($aVals['friend_id'], $aVals['sender_user_id']);
                 $this->createScheduleFeed($aFeed['feed_id'],$aVals);
             }
         }
