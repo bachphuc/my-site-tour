@@ -26,7 +26,7 @@
 ?>
 <?php if(isset($this->_aVars['aFeed']['expire_time']) && $this->_aVars['aFeed']['expire_time']) : ?>
     <li><span>&middot;</span></li>
-    <li><?php echo ($iTotalSeconds <= 0 ? '' : 'Expires within '.$sExpireTime);?></li>
+    <li><?php echo ($iTotalSeconds <= 0 ? 'Expired' : 'Expires within '.$sExpireTime);?></li>
     <?php endif;?>
 
 <?php if(isset($aNonymousFeed['anonymous_id']) && $aNonymousFeed['receive_user_id'] == Phpfox::getUserId()): ?> 
